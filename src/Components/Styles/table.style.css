@@ -1,32 +1,41 @@
+ /* body {  */
+    /* height: 100vh;
+    width: 100vw;
+}  */
+
+/* .table--container { */
+    /* height: 80vh; */
+    /* width: auto; */
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* position: relative; */
+
+    /* border-bottom: 26px solid #431a01; */
+    /* border-bottom: 26px solid transparent; */
+    /* border-image: url("../../Images/wood-pattern.png") 40 40 stretch; */
+    /* border-image-slice: 20 20 20 20 fill; */
+    /* border-radius: 0 0 75% 75%; */
+    /* box-shadow: 0px 20px 15px rgb(22, 8, 1); bottom shadow */
+    
+    
+    /* margin-bottom: 20px; */
+/* } */
+
+/* .table-texture { */
+    /* background-color: rgb(6, 45, 6); */
+    /* background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0.1)), linear-gradient(-45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0.1)); */
+    /* background-size: cover;  */
+    /* background-color: #045351; */
+    /* background-image: url("../../Images/table.jpg"); */
+ /* } */
+
 .table--container {
     height: 100vh;
     width: 100vw;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-
-    border-bottom: 26px solid #772d00;
-    border-radius: 0 0 50% 50%;
-    box-shadow: 0px 20px 10px rgba(22, 8, 1, 0.847); /* bottom shadow */
-    
-    margin-bottom: 20px;
-}
-
-.table-texture {
-    background-color: rgb(6, 45, 6);
-    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0.1)), linear-gradient(-45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0.1));
-    background-size: 5px 5px; 
-    background-color: #045351;
-    background-image: url("../../Images/table.png");
- }
-
-/* .table--container {
-    height: 100vh;
-    width: 100vw;
     background-image: url("../../Images/table.jpg");
-    background-size: 100% 100%;
+    background-size: cover;
 
     position: relative;
     display: flex;
-} */
+}
 

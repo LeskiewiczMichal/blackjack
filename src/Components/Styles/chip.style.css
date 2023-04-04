@@ -27,26 +27,26 @@
 
 .chip-twenty-five {
     background-image: url("../../Images/25_chip.png");
-    left: 1%;
-    top: 26%;
+    left: 6.5%;
+    top: 52%;
 }
 
 .chip-fifty {
     background-image: url("../../Images/50_chip.png");
-    left: 1%;
-    top: 38%;
+    left: 11.5%;
+    top: 62%;
 }
 
 .chip-hundred {
     background-image: url("../../Images/100_chip.png");
-    left: 1%;
-    top: 50%;
+    left: 17%;
+    top: 69%;
 }
 
 .chip-five-hundred {
     background-image: url("../../Images/500_chip.png");
-    left: 1%;
-    top: 62%;
+    left: 23%;
+    top: 74%;
 }
 
 /* <div> Icons made by <a href="https://www.flaticon.com/authors/smashingstocks" title="smashingstocks"> smashingstocks </a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com'</a></div> */

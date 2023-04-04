@@ -13,7 +13,7 @@ export default function Table() {
                 <Chip value="fifty"/>
                 <Chip value="hundred"/>
                 <Chip value="five-hundred"/>
-                <UI />
+                {/* <UI /> */}
 
             </main>  
     )
