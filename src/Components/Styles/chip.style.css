@@ -2,37 +2,51 @@
     background-size: 100% 100%;
     /* position: relative; */ 
     /* display: block; */
-    width: 75px;
-    height: 75px;
+    width: 85px;
+    height: 85px;
     border-radius: 100%;
     border: none;
     cursor: pointer;
     background-color: #db0c0c;
-    /* box-shadow: 0px 0px 7px #ffffffad; */
+    position: absolute;
+    box-shadow: 3px 5px 6px #000000;
 }
+
 
 .chip-one {
     background-image: url("../../Images/1_chip.png");
+    left: 1%;
+    top: 2%;
 }
 
 .chip-ten {
     background-image: url("../../Images/10_chip.png");
+    left: 1%;
+    top: 14%;
 }
 
 .chip-twenty-five {
     background-image: url("../../Images/25_chip.png");
+    left: 1%;
+    top: 26%;
 }
 
 .chip-fifty {
     background-image: url("../../Images/50_chip.png");
+    left: 1%;
+    top: 38%;
 }
 
 .chip-hundred {
     background-image: url("../../Images/100_chip.png");
+    left: 1%;
+    top: 50%;
 }
 
 .chip-five-hundred {
     background-image: url("../../Images/500_chip.png");
+    left: 1%;
+    top: 62%;
 }
 
 /* <div> Icons made by <a href="https://www.flaticon.com/authors/smashingstocks" title="smashingstocks"> smashingstocks </a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com'</a></div> */

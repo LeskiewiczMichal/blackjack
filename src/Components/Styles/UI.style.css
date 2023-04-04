@@ -1,9 +1,9 @@
 .interface {
-    background-color: #000000b9;
+    background-color: #000000cf;
     width: 100vw;
-    height: 25%;
+    height: 15%;
     margin-top: auto;
-
+    
     display: flex;
     /* align-items: center; */
     justify-content: center;

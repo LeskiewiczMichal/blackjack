@@ -1,5 +1,5 @@
 .table--container {
-    height: 80vh;
+    height: 100vh;
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -13,10 +13,20 @@
 }
 
 .table-texture {
-    /* background-color: rgb(6, 45, 6);
+    background-color: rgb(6, 45, 6);
     background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0.1)), linear-gradient(-45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0.1));
-    background-size: 5px 5px; */
+    background-size: 5px 5px; 
     background-color: #045351;
     background-image: url("../../Images/table.png");
-    
-}
+ }
+
+/* .table--container {
+    height: 100vh;
+    width: 100vw;
+    background-image: url("../../Images/table.jpg");
+    background-size: 100% 100%;
+
+    position: relative;
+    display: flex;
+} */
+
