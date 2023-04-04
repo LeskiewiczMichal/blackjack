@@ -1,0 +1,39 @@
+.chip {
+    background-size: 100% 100%;
+    /* position: relative; */ 
+    /* display: block; */
+    width: 75px;
+    height: 75px;
+    border-radius: 100%;
+    border: none;
+    cursor: pointer;
+    background-color: #db0c0c;
+    /* box-shadow: 0px 0px 7px #ffffffad; */
+}
+
+.chip-one {
+    background-image: url("../../Images/1_chip.png");
+}
+
+.chip-ten {
+    background-image: url("../../Images/10_chip.png");
+}
+
+.chip-twenty-five {
+    background-image: url("../../Images/25_chip.png");
+}
+
+.chip-fifty {
+    background-image: url("../../Images/50_chip.png");
+}
+
+.chip-hundred {
+    background-image: url("../../Images/100_chip.png");
+}
+
+.chip-five-hundred {
+    background-image: url("../../Images/500_chip.png");
+}
+
+/* <div> Icons made by <a href="https://www.flaticon.com/authors/smashingstocks" title="smashingstocks"> smashingstocks </a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com'</a></div> */
+/* <a href="https://www.flaticon.com/free-icons/poker-chip" title="poker chip icons">Poker chip icons created by smashingstocks - Flaticon</a> */
