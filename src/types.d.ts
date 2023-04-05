@@ -39,6 +39,12 @@ export enum ChipValue {
 
 /// Player and dealer ///
 
+export type PlayerState = {
+    cards: Card[],
+    score: number,
+    balance: number,
+}
+
 export interface Dealer {
     cards: Card[],
     score: number,
