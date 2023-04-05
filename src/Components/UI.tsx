@@ -1,4 +1,6 @@
 import "./Styles/UI.style.css";
+import { useSelector } from "react-redux";
+
 import Chip from "./Chip";
 import HitButton from "./HitButton";
 import SplitButton from "./Interface/SplitButton";

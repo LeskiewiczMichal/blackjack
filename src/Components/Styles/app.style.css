@@ -2,6 +2,7 @@
     height: 100vh;
     width: 100vw;
     background-color:  #510000;
+    /* bckcolo572841s */
     background-image: repeating-linear-gradient(-45deg, rgba(255,255,255, 0.25), rgba(255,255,255, 0.25) 1px, transparent 1px, transparent 6px);
     background-size: 8px 8px;
     display: flex;

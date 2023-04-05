@@ -1,4 +1,6 @@
 import "./Styles/chip.style.css"
+import { useDispatch } from "react-redux";
+import deal, { incremenetBet } from "../store/Reducers/tableReducer";
 
 export enum ChipValue {
     chipOne = "one",
@@ -16,16 +18,13 @@ type ChipProps = {
     
 
 export default function Chip(props: ChipProps) {
-
-    const handleClick = () => {
-        console.log(`chip ${props.value} clicked`);
-    }
+    const dispatch = useDispatch()
 
     return (
         <button
             type="button"
             className={`chip chip-${props.value}`}
-            onClick={handleClick}
+            onClick={() => dispatch(incremenetBet())}
         ></button>
     )
 }
