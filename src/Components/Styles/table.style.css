@@ -10,11 +10,14 @@
     flex-direction: column;
     position: relative;
 
-    border-bottom: 26px solid #431a01;
+    border-bottom: 25px solid #241201;
+    background-image: linear-gradient(to bottom, #110332, #180349, #240acf, #180349, #110332);
     /* border-bottom: 26px solid transparent; */
     /* border-image: url("../../Images/wood-pattern.png") 40 40 stretch; */
     /* border-image-slice: 20 20 20 20 fill; */
-    border-radius: 0 0 75% 75%;
+    /* border-radius: 0 0 75% 75%; */
+    border-radius: 0 0 700px 700px;
+    /* border-radius: 0 0 600px 600px; */
     box-shadow: 0px 20px 15px rgb(22, 8, 1); 
     
     
