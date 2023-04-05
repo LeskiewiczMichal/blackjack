@@ -22,7 +22,7 @@ export function generateCards(): Card[] {
     for (let i = 0; i < 6; i++) {
         for (const suit of suits) {
             for (const value of values) {
-                cards.push({ suit, value });
+                cards.push({ suit, value});
             }
         }
     }

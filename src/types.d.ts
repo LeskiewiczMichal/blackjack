@@ -66,6 +66,7 @@ export interface PlayerInterface {
 export type TableState = {
     currentBet: number,
     cards: Card[],
+    inGame: boolean,
     // dealer: DealerInterface,
     // player: PlayerInterface,
 }

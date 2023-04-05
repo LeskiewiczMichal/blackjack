@@ -1,6 +1,19 @@
-export default function Card() {
+import { CardValue, CardSuit } from "../types";
+
+export type CardProps = {
+    suit: CardSuit,
+    value: CardValue,
+    faceUp: boolean,
+};
+
+export default function Card(props: CardProps) {
+
+    const style = {
+        backgroundImage: props.faceUp ?  `url(../Images/Cards/2B.svg)` : `url(../Images/Cards/${props.value}${props.suit}.svg)`,
+    }
+
     return (
-        <div>
+        <div className="card" style={style}>
         </div>
     )
 
