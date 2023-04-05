@@ -22,18 +22,11 @@ export default function UI() {
         <Chip value={ChipValue.chipFiveHundred} />
       </section>
       <section className="interface--main interface--background">
-        {/* <HitButton /> */}
-        {/* <SplitButton /> */}
-        {/* <DoubleDownButton /> */}
-        {/* <StandButton /> */}
         <DealButton />
         <ClearButton />
       </section>
       <section className="interface--table margin-left interface--background">
         <InfoTable />
-        {/* <Chip value={ChipValue.chipFifty} />
-        <Chip value={ChipValue.chipHundred} />
-        <Chip value={ChipValue.chipFiveHundred} /> */}
       </section>
     </nav>
   );

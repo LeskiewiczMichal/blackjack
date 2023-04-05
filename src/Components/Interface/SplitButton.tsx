@@ -4,7 +4,6 @@ export default function SplitButton() {
       <button type="button" className="UI--button UI--split-button ">
         Split
       </button>
-      {/* <span className="button--text">Split</span> */}
     </div>
   );
 }

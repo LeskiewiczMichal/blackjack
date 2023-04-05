@@ -7,9 +7,6 @@ import UI from './Components/UI';
 function App() {
   return (
     <div className="App">
-      {/* <header className="App-header">
-        Okay
-      </header> */}
       <Table />
       <UI />
     </div>
