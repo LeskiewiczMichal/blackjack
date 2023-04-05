@@ -45,6 +45,11 @@ export type PlayerState = {
     balance: number,
 }
 
+export type DealerState = {
+    cards: Card[],
+    score: number,
+}
+
 export interface Dealer {
     cards: Card[],
     score: number,
