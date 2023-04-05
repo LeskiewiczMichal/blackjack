@@ -1,6 +1,5 @@
 import { TableState, TableAction, Action } from "../../types.d"
 import { generateCards } from "./Functions/generateCards"
-// import { createAction, createReducer } from "@reduxjs/toolkit"
 import { createSlice } from "@reduxjs/toolkit"
 
 const cards = generateCards();
@@ -14,9 +13,10 @@ export const tableSlice = createSlice({
     name: "table",
     initialState: initialState,
     reducers: {
-        incremenetBet: (state) => {
-            state.currentBet += 1;
+        incremenetBet: (state, action) => {
+            state.currentBet += action.payload;
         }
+        
     }
 })
 
