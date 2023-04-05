@@ -10,8 +10,8 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <Table />
-    {/* <App /> */}
+    {/* <Table /> */}
+    <App />
   </React.StrictMode>
 );
 

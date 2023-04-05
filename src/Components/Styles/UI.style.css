@@ -1,20 +1,36 @@
 .interface {
     background-color: #000000cf;
     width: 100vw;
-    height: 20vh;
+    height: 10vh;
     margin-top: auto;
     
     display: flex;
     /* align-items: center; */
     justify-content: center;
     padding: 0.5rem;
-    border-top: 10px solid black;   
+    /* border-top: 10px solid black;    */
 }
 
 .interface--main {
     display: flex;
     justify-content: space-between;
-    width: 25%;
+    flex-wrap: wrap;
+    gap: 1rem;
+    /* width: 25%; */
+}
+
+
+.interface--chips {
+    scale: 0.9;
+    gap: 0.8rem;
+}
+
+.margin-left {
+    margin-left: auto;
+}
+
+.margin-right {
+    margin-right: auto;
 }
 
 .UI--button {
@@ -34,20 +50,62 @@
 
     font-weight: bold;
     font-size: 16px;
+
+    border: 5px solid #e8a2e8;
+    box-shadow: 2px 2px 5px #888888;
     
     /* margin-top: auto; */
 }
 
+.UI--button:hover {
+    box-shadow: 0px 0px 10px #0dc864;
+    /* border: 10px solid #e8a2e8; */
+    border: none;
+}
+
 .UI--hit-button {
     background-image: url("../../Icons/hit.svg");
-    background-color: #185ab2;
+    background-color: #ae8ce9;
 }
 /* credits: https://www.svgrepo.com/author/game-icons.net/  */
 
 .UI--split-button {
     background-image: url("../../Icons/split.svg");
-
-    background-color: #eb2626;
+    background-color: #FF5722 ;
+    background-size: 100% 70%;
+    background-position-y: 20%;
 }
-
 /* credits: https://www.svgrepo.com/author/Icooon%20Mono/ */
+
+.UI--clear-button {
+    background-image: url("../../Icons/clear.svg");
+    background-color: #C7CEEA;
+    background-size: 100% 70%;
+    background-position-y: 10%;
+}
+/* credits https://www.svgrepo.com/author/Gitlab/ */
+
+.UI--stand-button {
+    background-image: url("../../Icons/stand.svg");
+    background-color: #FFD6BA;
+    background-size: 100% 75%;
+    
+}
+/* credits: https://www.svgrepo.com/author/Icooon%20Mono/ */
+
+.UI--doubleDown-button {
+    background-image: url("../../Icons/doubleDown.svg");
+    background-color: #B5EAD7;
+    background-size: 60% 55%;
+    background-position-x: center;
+    
+}
+/*creidts: https://www.svgrepo.com/author/zest/ */
+
+.UI--deal-button {
+    background-image: url("../../Icons/deal.svg");
+    background-color: #F5E6CC;
+    background-size: 100% 70%;
+    background-position-y: 10%;
+}
+/* credits: https://www.svgrepo.com/author/Mike%20Hunter/ */
