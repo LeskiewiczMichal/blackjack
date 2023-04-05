@@ -15,12 +15,15 @@ export const tableSlice = createSlice({
     reducers: {
         incremenetBet: (state, action) => {
             state.currentBet += action.payload;
+        },
+        clearBet: (state) => {
+            state.currentBet = 0;
         }
         
     }
 })
 
-export const { incremenetBet } = tableSlice.actions;
+export const { incremenetBet, clearBet } = tableSlice.actions;
 
 export default tableSlice.reducer;
 

@@ -10,7 +10,6 @@ export const dealerSlice = createSlice({
     name: "dealer",
     initialState: initialState,
     reducers: {
-        
     }
 
 })
