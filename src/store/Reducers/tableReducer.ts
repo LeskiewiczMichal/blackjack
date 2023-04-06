@@ -2,7 +2,8 @@ import { TableState, } from "types.d"
 import { createSlice } from "@reduxjs/toolkit"
 
 import { generateCards } from "./Functions/generateCards"
-import { addCardHandler } from "./Functions/addCardHandler"
+import { playerLost } from "./playerReducer"
+
 
 const cards = generateCards();
 
@@ -29,17 +30,24 @@ export const tableSlice = createSlice({
         },
         deal: (state) => {
             if (state.currentBet < 1) { return };
-            state.inGame = true;
-            // Add two initial cards to player
-            
-            
+            state.inGame = true;            
+        },
+        endGame: (state) => {
+            console.log("OKAY");
         }
-        
-        
+    },
+    extraReducers: (builder) => {
+        builder
+            .addCase(playerLost, (state, action) => {
+                state.inGame = false;
+                state.currentBet = 0;
+            })
+            // .addCase("dealer/lost", (state, action) => {
+            //     state.inGame = false;
+            // })
     }
 })
 
-export const { incremenetBet, clearBet, deal, drawCard } = tableSlice.actions;
+export const { incremenetBet, clearBet, deal, drawCard, endGame } = tableSlice.actions;
 
 export default tableSlice.reducer;
-

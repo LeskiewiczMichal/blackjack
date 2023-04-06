@@ -1,8 +1,11 @@
 import { PlayerState, Card } from "types";
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice, PayloadAction } from "@reduxjs/toolkit"
+
+import { useDispatch } from "react-redux";
 
 import { calculateScore } from "store/Reducers/Functions/calculateScore";
 import { addCardHandler } from "store/Reducers/Functions/addCardHandler";
+
 
 
 const initialState: PlayerState = {
@@ -16,15 +19,23 @@ export const playerSlice = createSlice({
     initialState: initialState,
     reducers: {
         addCard: (state, action) => {
+            // const dispatch = useDispatch();
             state.cards = addCardHandler({ cards: state.cards }, action.payload);
-            // const card: Card = action.payload;
-            // state.cards.push(card);
             state.score = calculateScore({ cards: state.cards });
+        },
+        setPlayerScore: (state, action) => {
+            state.score = action.payload;
+        },
+        playerLost: (state, action: PayloadAction<number>) => {
+            state.balance -= action.payload;
+            state.score = 0;
+            state.cards = [];
         }
+
     }
 
 })
 
-export const { addCard } = playerSlice.actions;
+export const { addCard, setPlayerScore, playerLost } = playerSlice.actions;
 
 export default playerSlice.reducer;

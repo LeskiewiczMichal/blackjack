@@ -10,16 +10,19 @@ import { TableState } from '../types';
 import { PlayerState } from '../types';
 import { DealerState } from '../types';
 
-export interface RootState {
-    table: TableState,
-    player: PlayerState,
-    dealer: DealerState,
-}
+// export interface RootState {
+//     table: TableState,
+//     player: PlayerState,
+//     dealer: DealerState,
+// }
 
-export default configureStore({
+export const store = configureStore({
     reducer: {
         table: tableReducer,
         player: playerReducer,
         dealer: dealerReducer,
     }
 });
+
+export type RootState = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch;

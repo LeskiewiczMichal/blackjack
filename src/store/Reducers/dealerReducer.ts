@@ -4,6 +4,7 @@ import { createSlice } from "@reduxjs/toolkit"
 import { Card } from "../../types";
 import { calculateScore } from "./Functions/calculateScore";
 import { addCardHandler } from "./Functions/addCardHandler";
+import { playerLost } from "./playerReducer";
 
 const initialState: DealerState = {
     cards: [],
@@ -17,7 +18,14 @@ export const dealerSlice = createSlice({
         addCard: (state, action) => {
             state.cards = addCardHandler({ cards: state.cards }, action.payload);
             state.score = calculateScore({ cards: state.cards });
-        }
+        },
+    },
+    extraReducers: (builder) => {
+        builder
+            .addCase(playerLost, (state, action) => {
+                state.cards = [];
+                state.score = 0;
+            })
     }
 
 })

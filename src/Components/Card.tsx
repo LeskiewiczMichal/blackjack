@@ -8,12 +8,12 @@ export type CardProps = {
 };
 
 export default function Card(props: CardProps) {
-    // if (!props.faceUp) {
-    //     return (
-    //         <div className="card card--back" >
-    //         </div>
-    //     )
-    // }
+    if (!props.faceUp) {
+        return (
+            <div className="card card--back" >
+            </div>
+        )
+    }
     if (props.value === CardValue.ACE) {
         return (
             <div className={`card ${props.suit}A`} >

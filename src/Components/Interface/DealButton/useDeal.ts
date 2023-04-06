@@ -25,6 +25,7 @@ const useDeal = () => {
             }
             dispatch(dealerAddCard(randomCard2));
         }
+    
     }
 
     return { handleDeal };
