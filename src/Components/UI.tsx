@@ -6,9 +6,9 @@ import { useSelector } from "react-redux";
 // Components
 import Chip from "./Chip";
 import HitButton from "Components/Interface/HitButton/HitButton";
-import SplitButton from "Components/Interface/SplitButton";
-import DoubleDownButton from "Components/Interface/DoubleDownButton";
-import StandButton from "Components/Interface/StandButton";
+import SplitButton from "Components/Interface/SplitButton/SplitButton";
+import DoubleDownButton from "Components/Interface/DoubleDownButton/DoubleDownButton";
+import StandButton from "Components/Interface/StandButton/StandButton";
 import DealButton from "Components/Interface/DealButton/DealButton";
 import ClearButton from "Components/Interface/ClearButton";
 import InfoTable from "Components/Interface/InfoTable";

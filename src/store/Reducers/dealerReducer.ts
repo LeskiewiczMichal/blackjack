@@ -19,6 +19,12 @@ export const dealerSlice = createSlice({
             state.cards = addCardHandler({ cards: state.cards }, action.payload);
             state.score = calculateScore({ cards: state.cards });
         },
+        showCards: (state) => {
+            const card: Card = state.cards[0];
+            card.faceUp = true;
+            state.cards[0] = card;
+            state.score += card.value;
+        }
     },
     extraReducers: (builder) => {
         builder
@@ -30,6 +36,6 @@ export const dealerSlice = createSlice({
 
 })
 
-export const { addCard } = dealerSlice.actions;
+export const { addCard, showCards } = dealerSlice.actions;
 
 export default dealerSlice.reducer;

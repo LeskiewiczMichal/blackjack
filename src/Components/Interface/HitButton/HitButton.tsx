@@ -1,6 +1,6 @@
 import useHit from "./useHit"
 import { RootState } from "store/store";
-import { useAppSelector,useAppDispatch } from "Hooks/hooks";
+import { useAppSelector, useAppDispatch } from "Hooks/hooks";
 import { playerOverTwentyOne } from "Components/Table/Helpers/playerOverTwentyOne";
 
 export default function HitButton() {

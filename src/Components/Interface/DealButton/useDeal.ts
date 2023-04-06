@@ -18,6 +18,7 @@ const useDeal = () => {
             dispatch(drawCard(randomCard));
             dispatch(playerAddCard(randomCard));
 
+
             let randomCard2: Card = cards[Math.floor(Math.random() * cards.length)];
             dispatch(drawCard(randomCard2));
             if (i === 0) {
