@@ -5,13 +5,13 @@ import { useSelector } from "react-redux";
 
 // Components
 import Chip from "./Chip";
-import HitButton from "./HitButton";
-import SplitButton from "./Interface/SplitButton";
-import DoubleDownButton from "./Interface/DoubleDownButton";
-import StandButton from "./Interface/StandButton";
-import DealButton from "./Interface/DealButton/DealButton";
-import ClearButton from "./Interface/ClearButton";
-import InfoTable from "./Interface/InfoTable";
+import HitButton from "Components/Interface/HitButton/HitButton";
+import SplitButton from "Components/Interface/SplitButton";
+import DoubleDownButton from "Components/Interface/DoubleDownButton";
+import StandButton from "Components/Interface/StandButton";
+import DealButton from "Components/Interface/DealButton/DealButton";
+import ClearButton from "Components/Interface/ClearButton";
+import InfoTable from "Components/Interface/InfoTable";
 
 // Enum for chip props
 import { ChipValue } from "./Chip";
