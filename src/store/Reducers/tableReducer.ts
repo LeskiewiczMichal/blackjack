@@ -1,11 +1,8 @@
-import { TableState, TableAction, Action } from "types.d"
-import { generateCards } from "./Functions/generateCards"
+import { TableState, } from "types.d"
 import { createSlice } from "@reduxjs/toolkit"
-import { useDispatch } from "react-redux"
 
-import { addCard  } from "./playerReducer"
-import { addCard as dealerAddCard } from "./dealerReducer"
-
+import { generateCards } from "./Functions/generateCards"
+import { addCardHandler } from "./Functions/addCardHandler"
 
 const cards = generateCards();
 
