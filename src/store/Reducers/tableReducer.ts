@@ -25,25 +25,24 @@ export const tableSlice = createSlice({
         clearBet: (state) => {
             state.currentBet = 0;
         },
-        deal: (state, { payload: dispatch }) => {
+        drawCard: (state, action) => {
+            // Remove card given in action form the deck
+            state.cards.splice(state.cards.indexOf(action.payload), 1);
+            
+        },
+        deal: (state) => {
             if (state.currentBet < 1) { return };
             state.inGame = true;
             // Add two initial cards to player
             
-            for (let i = 0; i < 2; i++) {
-                // let card = state.cards.splice(Math.floor(Math.random() * state.cards.length), 1)[0];
-                // console.log(card);
-                // dispatch(addCard(card));
-                // card = state.cards.splice(Math.floor(Math.random() * state.cards.length), 1)[0];
-                // dispatch(dealerAddCard(card));
-            }
+            
         }
         
         
     }
 })
 
-export const { incremenetBet, clearBet, deal } = tableSlice.actions;
+export const { incremenetBet, clearBet, deal, drawCard } = tableSlice.actions;
 
 export default tableSlice.reducer;
 

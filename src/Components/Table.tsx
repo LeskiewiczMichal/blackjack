@@ -12,10 +12,9 @@ export default function Table() {
     const dealerCards = useSelector((state: RootState) => state.dealer.cards);
 
     const playerCardsJSX = playerCards.map((card, index) => {
-        return <Card key={index} suit={card.suit} value={card.value} faceUp={false} />
+        return <Card key={index} suit={card.suit} value={card.value} faceUp={true} />
     });
 
-    console.log(playerCards)
     const dealerCardsJSX = dealerCards.map((card, index) => {
         return <Card key={index} suit={card.suit} value={card.value} faceUp={false} />
     });
