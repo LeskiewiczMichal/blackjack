@@ -39,6 +39,12 @@ export enum ChipValue {
 
 /// Player and dealer ///
 
+export enum PlayerType {
+    PLAYER = "player",
+    DEALER = "dealer",
+}
+
+
 export type PlayerState = {
     cards: Card[],
     score: number,

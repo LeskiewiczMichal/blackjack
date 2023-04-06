@@ -3,6 +3,8 @@
     width: auto;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
     position: relative;
     border-bottom: 25px solid #241201;
     border-radius: 0 0 700px 700px;

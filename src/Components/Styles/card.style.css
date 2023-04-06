@@ -1,9 +1,12 @@
 .card {
     width: 100px;
-    height: 100px;
+    height: 110px;
     background-color: #FFFFFF;
     background-size: 100% 100%;
-   
+    background-repeat: no-repeat;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px #000000;
 }
 
 
@@ -59,7 +62,7 @@
     background-image: url("../../Images/Cards/ACECLUBS.svg");
 }
 
-/* .DIAMONDS2 {
+.DIAMONDS2 {
     background-image: url("../../Images/Cards/2DIAMONDS.svg");
 }
 
@@ -109,7 +112,7 @@
 
 .DIAMONDSA {
     background-image: url("../../Images/Cards/ACEDIAMONDS.svg");
-} */
+}
 
 .HEARTS2 {
     background-image: url("../../Images/Cards/2HEARTS.svg");
