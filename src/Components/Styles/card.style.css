@@ -218,3 +218,6 @@
     background-image: url("../../Images/Cards/ACESPADES.svg");
 }
 
+.card--back {
+    background-image: url("../../Images/Cards/2B.svg");
+}

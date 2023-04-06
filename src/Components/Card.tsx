@@ -1,5 +1,5 @@
 import "./Styles/card.style.css";
-import { CardValue, CardSuit } from "../types";
+import { CardValue, CardSuit } from "types.d";
 
 export type CardProps = {
     suit: CardSuit,
@@ -8,6 +8,37 @@ export type CardProps = {
 };
 
 export default function Card(props: CardProps) {
+    // if (!props.faceUp) {
+    //     return (
+    //         <div className="card card--back" >
+    //         </div>
+    //     )
+    // }
+    if (props.value === CardValue.ACE) {
+        return (
+            <div className={`card ${props.suit}A`} >
+            </div>
+        )
+    }
+    if (props.value === CardValue.JACK) {
+        return (
+            <div className={`card ${props.suit}J`} >
+            </div>
+        )
+    }
+    if (props.value === CardValue.QUEEN) {
+        return (
+            <div className={`card ${props.suit}Q`} >
+            </div>
+        )
+    }
+    if (props.value === CardValue.KING) {
+        return (
+            <div className={`card ${props.suit}K`} >
+            </div>
+        )
+    }
+
     return (
         <div className={`card ${props.suit}${props.value}`} >
         </div>

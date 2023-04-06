@@ -15,16 +15,14 @@ export enum CardValue {
     SEVEN = 7,
     EIGHT = 8,
     NINE = 9,
-    TEN = 10,
-    JACK = 10,
-    QUEEN = 10,
-    KING = 10,
+    TEN, JACK, QUEEN, KING = 10,
     ACE = 11 | 1,
 }
 
 export type Card = {
     suit: CardSuit,
     value: CardValue,
+    faceUp: boolean,
 }
 
 /// Chips ///
@@ -40,7 +38,7 @@ export enum ChipValue {
 /// Player and dealer ///
 
 export enum PlayerType {
-    PLAYER = "player",
+    PLAYER = PlayerState,
     DEALER = "dealer",
 }
 

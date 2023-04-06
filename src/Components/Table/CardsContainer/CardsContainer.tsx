@@ -14,7 +14,7 @@ type CardsContainerProps = {
 export default function CardsContainer(props: CardsContainerProps) {
     const { player } = props;
      const playerCardsJSX = player.cards.map((card, index) => {
-        return <Card key={index} suit={card.suit} value={card.value} faceUp={true} />
+        return <Card key={index} suit={card.suit} value={card.value} faceUp={card.faceUp} />
     });
    
 

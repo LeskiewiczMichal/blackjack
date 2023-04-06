@@ -18,8 +18,11 @@ const useDeal = () => {
             dispatch(drawCard(randomCard));
             dispatch(playerAddCard(randomCard));
 
-            const randomCard2: Card = cards[Math.floor(Math.random() * cards.length)];
+            let randomCard2: Card = cards[Math.floor(Math.random() * cards.length)];
             dispatch(drawCard(randomCard2));
+            if (i === 0) {
+                randomCard2 = { ...randomCard2, faceUp: false };
+            }
             dispatch(dealerAddCard(randomCard2));
         }
     }

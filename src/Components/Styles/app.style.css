@@ -1,7 +1,16 @@
+:root {
+    --black: #000000;
+    --white: #ffffff;
+    --red-background: #510000;
+    --green-border: #132b03;
+    --interface-brown: #241201;
+    --info-gold: #ffd900;
+  }
+
 .App { 
     height: 100vh;
     width: 100vw;
-    background-color:  #510000;
+    background-color:  var(--red-background);
     /* bckcolo572841s */
     background-image: repeating-linear-gradient(-45deg, rgba(255,255,255, 0.25), rgba(255,255,255, 0.25) 1px, transparent 1px, transparent 6px);
     background-size: 8px 8px;

@@ -1,7 +1,8 @@
-import { PlayerState } from "../../types";
+import { PlayerState, Card } from "types";
 import { createSlice } from "@reduxjs/toolkit"
 
-import { Card } from "../../types";
+import { calculateScore } from "store/Reducers/Functions/calculateScore";
+
 
 const initialState: PlayerState = {
     cards: [],
@@ -15,9 +16,8 @@ export const playerSlice = createSlice({
     reducers: {
         addCard: (state, action) => {
             const card: Card = action.payload;
-            console.log(card);
-            state.score += card.value;
             state.cards.push(card);
+            state.score = calculateScore({ cards: state.cards });
         }
     }
 

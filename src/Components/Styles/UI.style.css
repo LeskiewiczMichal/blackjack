@@ -19,9 +19,9 @@
     justify-content: center;
     align-items: center;
     background-image: url("../../Images/wood-pattern.png");
-    background-color: #241201;
-    box-shadow: 5px 5px 10px #000000;
-    border: 3px solid #132b03;
+    background-color: var(--interface-brown);
+    box-shadow: 5px 5px 10px var(--black);
+    border: 3px solid var(--green-border);
     width: max-content;
     border-radius: 10px;
     padding: 0.3rem;
@@ -52,7 +52,7 @@
 /* GAME INFO TABLE */
 
 .InfoTable--container {
-    color: #FFD700;
+    color: var(--info-gold);
     font-size: 20px;
     display: flex;
     width: 100%;
@@ -83,7 +83,7 @@
     border: none;
     width: 80px;
     height: 80px;
-    box-shadow: 5px 5px 12px #FFFFFF;
+    box-shadow: 5px 5px 12px var(--white);
     background-repeat: no-repeat;
     background-size: 100% 80%;
     border-radius: 30%;
@@ -97,8 +97,8 @@
 }
 
 .UI--button:hover {
-    box-shadow: 0px 0px 10px #FFFFFF;
-    border: 2px solid #FFFFFF;
+    box-shadow: 0px 0px 10px var(--white);
+    border: 2px solid var(--white);
 }
 
 .UI--hit-button {
