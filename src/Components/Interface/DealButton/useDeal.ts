@@ -1,18 +1,16 @@
-import { Card } from "../../types";
+import { Card } from "types";
+import { RootState } from "store/store";
 import { useDispatch, useSelector } from "react-redux"
-import { deal, drawCard } from "../../store/Reducers/tableReducer"
-import { addCard as playerAddCard } from "../../store/Reducers/playerReducer";
-import { addCard as dealerAddCard } from "../../store/Reducers/dealerReducer";
-
-import { RootState } from "../../store/store";
+import { deal, drawCard } from "store/Reducers/tableReducer"
+import { addCard as playerAddCard } from "store/Reducers/playerReducer";
+import { addCard as dealerAddCard } from "store/Reducers/dealerReducer";
 
 
-
-export default function DealButton() {
+const useDeal = () => {
     const cards = useSelector((state: RootState) => state.table.cards);
     const dispatch = useDispatch();
 
-    const handleClick = () => {
+    const handleDeal = () => {
         // Draw random cards for dealer and player
         dispatch(deal());
         for (let i = 0; i < 2; i++) {
@@ -24,12 +22,9 @@ export default function DealButton() {
             dispatch(drawCard(randomCard2));
             dispatch(dealerAddCard(randomCard2));
         }
-        
     }
 
-    return (
-        <button type="button" className="UI--button UI--deal-button" onClick={handleClick}>
-            Deal
-        </button>
-    )
+    return { handleDeal };
 }
+
+export default useDeal;

@@ -1,4 +1,4 @@
-import { TableState, TableAction, Action } from "../../types.d"
+import { TableState, TableAction, Action } from "types.d"
 import { generateCards } from "./Functions/generateCards"
 import { createSlice } from "@reduxjs/toolkit"
 import { useDispatch } from "react-redux"

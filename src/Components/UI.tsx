@@ -9,7 +9,7 @@ import HitButton from "./HitButton";
 import SplitButton from "./Interface/SplitButton";
 import DoubleDownButton from "./Interface/DoubleDownButton";
 import StandButton from "./Interface/StandButton";
-import DealButton from "./Interface/DealButton";
+import DealButton from "./Interface/DealButton/DealButton";
 import ClearButton from "./Interface/ClearButton";
 import InfoTable from "./Interface/InfoTable";
 
