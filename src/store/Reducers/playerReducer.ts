@@ -18,6 +18,7 @@ export const playerSlice = createSlice({
             const card: Card = action.payload;
             state.cards.push(card);
             state.score = calculateScore({ cards: state.cards });
+            console.log(state.cards);
         }
     }
 

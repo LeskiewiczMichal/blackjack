@@ -2,6 +2,7 @@ import { DealerState } from "../../types";
 import { createSlice } from "@reduxjs/toolkit"
 
 import { Card } from "../../types";
+import { calculateScore } from "./Functions/calculateScore";
 
 const initialState: DealerState = {
     cards: [],
@@ -14,8 +15,10 @@ export const dealerSlice = createSlice({
     reducers: {
         addCard: (state, action) => {
             const card: Card = action.payload;
-            state.score += card.value;
-            state.cards.push(card);        }
+            state.cards.push(card);
+            state.score = calculateScore({ cards: state.cards });
+            console.log(state.cards);
+        }
     }
 
 })
