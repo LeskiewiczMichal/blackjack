@@ -7,8 +7,10 @@ import { doubleDown } from "store/Actions/doubleDown"
 export default function DoubleDownButton() {
     const dispatch = useAppDispatch();
     const playerCards = useAppSelector(state => state.player.cards);
+    const playerBalance = useAppSelector(state => state.player.balance);
+    const bet = useAppSelector(state => state.table.currentBet);
 
-    const isDisabled: boolean = playerCards.length !== 2;
+    const isDisabled: boolean = (playerCards.length !== 2 || bet * 2 > playerBalance);
 
     const handleClick = () => {
             dispatch(doubleDown());
