@@ -15,9 +15,10 @@ import {
   setSecondHand,
   setSecondScore,
 } from "store/Reducers/playerReducer";
-import { dealerDrawCard } from "./dealerUtils";
+import { dealerDrawUntillSeventeen } from "./dealerUtils";
 import { calculateScore } from "store/Reducers/Functions/calculateScore";
 import { playerDrawCard } from "./playerUtils";
+import { switchHands } from "./split";
 
 type Winner = PlayerType | null;
 
@@ -27,37 +28,26 @@ export const finishGame = createAsyncThunk(
   async (_, { getState, dispatch }) => {
     let state = getState() as RootState;
 
-    if (
-      state.player.secondHand.length === 0 ||
-      (state.player.secondScore !== null && state.player.secondHand.length > 0)
-    ) {
+    // Check if game really ended - if player did split, he must play with secondd hand
+    // if (
+    //   state.player.secondHand.length === 0 ||
+    //   (state.player.secondScore !== null && state.player.secondHand.length > 0)
+    // ) {
       await dispatch(showCards()); // Flip dealer's hidden card
       await dispatch(setGameFinished(true)); // Set gameFinished to true
 
-      // If player did go over 21, he already lost
-      if (state.player.score > 21) {
-        if (state.player.secondScore === null) {
-            await dispatch(playerLost());
+      // Check if player's hand's are over 21
+      const ended: boolean = unwrapResult(await dispatch(scoresOverTwentyOne()));
+        if (ended) {
             return;
         }
-        if (state.player.secondScore > 21) {
-            await dispatch(playerLost());
-            await dispatch(playerLost());
-            return;
-        }
-      }
 
-      // Dealer draws cards untill he's score is 17 or more
-      let dealerScore = state.dealer.score;
-      while (dealerScore < 17) {
-        await dispatch(dealerDrawCard());
-        state = getState() as RootState;
-        dealerScore = state.dealer.score;
-      }
+        await dispatch(dealerDrawUntillSeventeen());  // Dealer draws cards untill he's score is 17 or more
+        state = getState() as RootState; // Need to update state after dealer's draw
 
-      // Chechking game's result - if dealer did go over 21 and if not comparing with player
+      // Cheching game's result and updating balance
       let winner: Winner = unwrapResult(
-        await dispatch(checkGameResult([state.player.score, dealerScore]))
+        await dispatch(checkGameResult([state.player.score, state.dealer.score]))
       );
       if (winner === PlayerType.PLAYER) {
         await dispatch(playerWon());
@@ -71,7 +61,7 @@ export const finishGame = createAsyncThunk(
       if (state.player.secondScore !== null) {
         winner = unwrapResult(
           await dispatch(
-            checkGameResult([state.player.secondScore, dealerScore])
+            checkGameResult([state.player.secondScore, state.dealer.score])
           )
         );
         if (winner === PlayerType.PLAYER) {
@@ -82,26 +72,13 @@ export const finishGame = createAsyncThunk(
           console.log("draw");
         }
       }
-    } else {
+    } 
+    // else {
       // // If player did split, play second hand
-      // if (state.player.secondHand.length > 0) {
-      const newHand: Card[] = state.player.secondHand;
-      const oldHand: Card[] = state.player.cards;
-      const newScore = calculateScore({ cards: newHand });
-      const oldScore = state.player.score;
-
-    //   Manage second hand
-      await dispatch(setSecondScore(oldScore));
-      await dispatch(setSecondHand(oldHand));
-
-    //   Manage new main hand
-      await dispatch(setPlayerCards(newHand));
-      await dispatch(setPlayerScore(newScore));
-      await dispatch(playerDrawCard());
-    }
-
+    //   dispatch(switchHands());
     // }
-  }
+
+//   }
 );
 
 // Returns type of player who won or null if it's a draw
@@ -146,4 +123,23 @@ const playerLost = createAsyncThunk(
     const balance = state.player.balance;
     dispatch(setBalance(balance - bet));
   }
+);
+
+const scoresOverTwentyOne = createAsyncThunk(
+    "player/scoresOverTwentyOne",
+    async (_, { getState, dispatch }): Promise<boolean> => {
+        const state = getState() as RootState;
+        if (state.player.score > 21) {
+            if (state.player.secondScore === null) {
+                await dispatch(playerLost());
+                return true;
+            }
+            if (state.player.secondScore > 21) {
+                await dispatch(playerLost());
+                await dispatch(playerLost());
+                return true;
+            }
+          }
+        return false;
+    }
 );

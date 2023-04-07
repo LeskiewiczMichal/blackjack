@@ -28,3 +28,15 @@ export const dealerDrawCard = createAsyncThunk(
         await dispatch(setDealerScore(calculateScore({ cards: state.dealer.cards })));
     }
 );
+
+
+export const dealerDrawUntillSeventeen = createAsyncThunk(
+    'player/drawUntillSeventeen',
+    async (_, { getState, dispatch }) => {
+        let state = getState() as RootState;
+        while (state.dealer.score < 17) {
+            await dispatch(dealerDrawCard());
+            state = getState() as RootState;
+        }
+    }
+);
