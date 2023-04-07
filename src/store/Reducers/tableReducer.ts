@@ -40,12 +40,12 @@ export const tableSlice = createSlice({
             state.gameFinished = false;
             state.currentBet = 0;
         },
-        // finishGame: (state) => {
-        //     state.gameFinished = true;
-        // },
-        gameFinished: (state, action: PayloadAction<boolean>) => {
+        setGameFinished: (state, action: PayloadAction<boolean>) => {
             state.gameFinished = action.payload;
-        }
+        },
+        setInGame: (state, action: PayloadAction<boolean>) => {
+            state.inGame = action.payload;
+        },
     },
     extraReducers: (builder) => {
         builder
@@ -58,14 +58,9 @@ export const tableSlice = createSlice({
             // .addCase("dealer/lost", (state, action) => {
             //     state.inGame = false;
             // })
-            .addCase("table/clearTable", (state, action) => {
-                state.inGame = false;
-                state.gameFinished = false;
-                state.currentBet = 0;
-            })
     }
 })
 
-export const { incremenetBet, clearBet, deal, drawCard, newBet, gameFinished } = tableSlice.actions;
+export const { incremenetBet, clearBet, deal, drawCard, newBet, setGameFinished, setInGame } = tableSlice.actions;
 
 export default tableSlice.reducer;

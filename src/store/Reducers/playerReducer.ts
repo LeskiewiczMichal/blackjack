@@ -24,12 +24,15 @@ export const playerSlice = createSlice({
             state.cards = addCardHandler({ cards: state.cards }, action.payload);
             state.score = calculateScore({ cards: state.cards });
         },
-        setPlayerScore: (state, action) => {
+        setPlayerScore: (state, action: PayloadAction<number>) => {
             state.score = action.payload;
         },
         setBalance: (state, action: PayloadAction<number>) => {
             state.balance = action.payload;
         },
+        clearPlayerCards: (state) => {
+            state.cards = [];
+        }
         // playerLost: (state, action: PayloadAction<number>) => {
         //     state.balance -= action.payload;
         // },
@@ -51,6 +54,6 @@ export const playerSlice = createSlice({
 
 })
 
-export const { addCard, setPlayerScore, setBalance } = playerSlice.actions;
+export const { addCard, setPlayerScore, setBalance, clearPlayerCards } = playerSlice.actions;
 
 export default playerSlice.reducer;

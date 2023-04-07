@@ -3,7 +3,7 @@ import { RootState } from "store/store";
 import { useSelector, useDispatch } from "react-redux";
 import { useAppDispatch, useAppSelector } from "./hooks";
 // import {  } from "store/Reducers/playerReducer";
-import { gameFinished } from "store/Reducers/tableReducer";
+import { setGameFinished } from "store/Reducers/tableReducer";
 import { showCards } from "store/Reducers/dealerReducer";
 
 const useGameState = () => {
@@ -11,7 +11,7 @@ const useGameState = () => {
     
     const finishGame = () => {
         showCards();
-        dispatch(gameFinished(true));
+        dispatch(setGameFinished(true));
         
     }
 

@@ -10,10 +10,10 @@ import { calculateScore } from "Components/Interface/Functions/calculateScore";
 export const playerDrawCard = createAsyncThunk(
     'player/drawCard',
     async (_, { getState, dispatch }) => {
-        const state = getState() as RootState;
+        let state = getState() as RootState;
         const randomCard: Card = state.table.cards[Math.floor(Math.random() * state.table.cards.length)];
-        dispatch(drawCard(randomCard));
-        dispatch(addCard(randomCard));
-        dispatch(setPlayerScore(calculateScore({ oldScore: state.player.score, newCard: randomCard })));
+        await dispatch(drawCard(randomCard));
+        await dispatch(addCard(randomCard));
+        await dispatch(setPlayerScore(calculateScore({ oldScore: state.player.score, newCard: randomCard })));
     }
 );

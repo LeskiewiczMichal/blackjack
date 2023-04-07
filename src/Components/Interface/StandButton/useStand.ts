@@ -2,14 +2,14 @@ import { useAppDispatch, useAppSelector } from "Hooks/hooks"
 import useGameState from "Hooks/useGameState";
 import useDealerDraw from "Hooks/useDealerDraw";
 import { showCards } from "store/Reducers/dealerReducer";
-import { gameFinished } from "store/Reducers/tableReducer";
+// import { gameFinished } from "store/Reducers/tableReducer";
 
 const useStand = () => {
     const dispatch = useAppDispatch();
 
     const handleStand = async () => {
         dispatch(showCards());
-        dispatch(gameFinished(true));
+        // dispatch(gameFinished(true));
 
         // const newScore = handleDealerDraw(dealerScore);
         // handleCheckResult(newScore);

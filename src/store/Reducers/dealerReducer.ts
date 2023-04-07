@@ -1,5 +1,5 @@
 import { DealerState, Card, CardSuit } from "types.d";
-import { createSlice } from "@reduxjs/toolkit"
+import { PayloadAction, createSlice } from "@reduxjs/toolkit"
 
 import { calculateScore } from "./Functions/calculateScore";
 import { addCardHandler } from "./Functions/addCardHandler";
@@ -38,6 +38,12 @@ export const dealerSlice = createSlice({
             if (state.score < 17) {
                 console.log(state.score);
             }
+        },
+        clearDealerCards: (state) => {
+            state.cards = [];
+        },
+        setDealerScore: (state, action: PayloadAction<number>) => {
+            state.score = action.payload;
         }
     },
     extraReducers: (builder) => {
@@ -52,14 +58,10 @@ export const dealerSlice = createSlice({
                 state.cards = [];
                 state.score = 0;
             })
-            .addCase("table/clearTable", (state) => {
-                state.cards = [];
-                state.score = 0;
-            })
     }
 
 })
 
-export const { addCard, showCards, clearDealer } = dealerSlice.actions;
+export const { addCard, showCards, clearDealer, clearDealerCards, setDealerScore } = dealerSlice.actions;
 
 export default dealerSlice.reducer;

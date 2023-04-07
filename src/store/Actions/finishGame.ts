@@ -2,7 +2,7 @@ import { Card, PlayerType } from "types.d";
 import { createAsyncThunk, unwrapResult } from "@reduxjs/toolkit";
 
 import { showCards, addCard as dealerAddCard } from "store/Reducers/dealerReducer";
-import { gameFinished, drawCard } from "store/Reducers/tableReducer";
+import { setGameFinished, drawCard } from "store/Reducers/tableReducer";
 import { RootState } from "store/store";
 import { setBalance } from "store/Reducers/playerReducer";
 
@@ -10,7 +10,7 @@ export const finishGame = createAsyncThunk(
     "game/finishGame",
     async (_, { getState ,dispatch  }) => {        
         await dispatch(showCards()); // Flip dealer's hidden card
-        await dispatch(gameFinished(true)); // Set gameFinished to true
+        await dispatch(setGameFinished(true)); // Set gameFinished to true
 
         let state = getState() as RootState;
 
@@ -25,8 +25,9 @@ export const finishGame = createAsyncThunk(
         while (dealerScore < 17) {
             const randomCard: Card = state.table.cards[Math.floor(Math.random() * state.table.cards.length)];
             await dispatch(drawCard(randomCard));
-            await dispatch(dealerAddCard(randomCard));            
-            dealerScore += randomCard.value;
+            await dispatch(dealerAddCard(randomCard));
+            const newState = getState() as RootState;            
+            dealerScore = newState.dealer.score;
         }
 
         // Chechking game's result - dealer going over 21 and than comparing with player
