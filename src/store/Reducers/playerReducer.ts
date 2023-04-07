@@ -8,7 +8,9 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 const initialState: PlayerState = {
     cards: [],
     score: 0,
+    secondScore: null,
     balance: 1000,
+    secondHand: [],
 };
 
 export const playerSlice = createSlice({
@@ -26,11 +28,24 @@ export const playerSlice = createSlice({
         },
         clearPlayerCards: (state) => {
             state.cards = [];
+        },
+        setPlayerCards: (state, action: PayloadAction<Card[]>) => {
+            state.cards = action.payload;
+        },
+        addSecondHandCard: (state, action: PayloadAction<Card>) => {
+            state.secondHand.push(action.payload);
+        },
+        setSecondHand: (state, action: PayloadAction<Card[]>) => {
+            state.secondHand = action.payload;
+        },
+        setSecondScore: (state, action: PayloadAction<number | null>) => {
+            state.secondScore = action.payload;
         }
+
     },
 
 })
 
-export const { addCard, setPlayerScore, setBalance, clearPlayerCards } = playerSlice.actions;
+export const { addCard, setPlayerScore, setBalance, clearPlayerCards, setPlayerCards, addSecondHandCard, setSecondHand, setSecondScore  } = playerSlice.actions;
 
 export default playerSlice.reducer;

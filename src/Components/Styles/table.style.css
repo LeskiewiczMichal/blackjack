@@ -22,3 +22,7 @@
 .table--player {
     display: flex;
 }
+
+.table--second {
+    opacity: 0.5;
+}

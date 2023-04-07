@@ -3,7 +3,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 // Functions
 import { setInGame, setGameFinished, clearBet } from "store/Reducers/tableReducer";
-import { clearPlayerCards, setPlayerScore } from "store/Reducers/playerReducer";
+import { clearPlayerCards, setPlayerScore, setSecondScore, setSecondHand } from "store/Reducers/playerReducer";
 import { clearDealerCards, setDealerScore } from "store/Reducers/dealerReducer";
 
 export const clearTable = createAsyncThunk(
@@ -14,9 +14,11 @@ export const clearTable = createAsyncThunk(
         await dispatch(setGameFinished(false));
         await dispatch(clearBet());
 
-        // Clear playerr
+        // Clear player
         await dispatch(clearPlayerCards());
         await dispatch(setPlayerScore(0));
+        await dispatch(setSecondScore(null));
+        await dispatch(setSecondHand([]));
 
         // Clear dealer
         await dispatch(clearDealerCards());

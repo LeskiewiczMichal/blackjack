@@ -21,15 +21,21 @@ export default function Table() {
                 {table.inGame ? (
                     <>
                         <section className='table--player'>
-                            <PointsDisplay player={dealer}/>
-                            <CardsContainer player={dealer}/>
+                            <PointsDisplay score={dealer.score}/>
+                            <CardsContainer cards={dealer.cards}/>
                         </section>
                         <section className='table--player'>
-                            <PointsDisplay player={player}/>
-                            <CardsContainer player={player}/>
+                            <PointsDisplay score={player.score}/>
+                            <CardsContainer cards={player.cards}/>
                         </section>
                     </>
                 ) : null}
+                {(player.secondHand.length > 0 && player.secondScore != null) ? (
+                    <section className='table--player table--second'>
+                        <PointsDisplay score={player.secondScore}/>
+                        <CardsContainer cards={player.secondHand}/>
+                    </section>
+                ): null}
             </main>  
             
     )

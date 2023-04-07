@@ -49,7 +49,9 @@ export enum PlayerType {
 export type PlayerState = {
     cards: Card[],
     score: number,
+    secondScore: number | null,
     balance: number,
+    secondHand: Card[],
 }
 
 export type DealerState = {

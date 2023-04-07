@@ -5,16 +5,15 @@ import { DealerState, PlayerState } from "types"
 
 
 type PointsDisplayProps = {
-    player: DealerState | PlayerState,
+    score: number,
 }
 
 export default function PointsDisplay(props: PointsDisplayProps) {
-    const { player } = props;
 
     return (
         <div className="points--display">
             <span>Current Score:</span>
-            <span className="points">{player.score}</span>
+            <span className="points">{props.score}</span>
         </div>
     )
 }
