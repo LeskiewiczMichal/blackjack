@@ -23,7 +23,7 @@ export const tableSlice = createSlice({
     name: "table",
     initialState: initialState,
     reducers: {
-        incremenetBet: (state, action: PayloadAction<number>) => {
+        incrementBet: (state, action: PayloadAction<number>) => {
             state.currentBet += action.payload;
         },
         clearBet: (state) => {
@@ -49,6 +49,6 @@ export const tableSlice = createSlice({
     }
 })
 
-export const { incremenetBet, clearBet, drawCard, setGameFinished, setInGame } = tableSlice.actions;
+export const { incrementBet, clearBet, drawCard, setGameFinished, setInGame } = tableSlice.actions;
 
 export default tableSlice.reducer;

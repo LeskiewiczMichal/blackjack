@@ -2,7 +2,7 @@ import "Components/Styles/chip.style.css"
 // Hooks
 import { useAppDispatch, useAppSelector } from "Hooks/hooks";
 // Functions
-import { incremenetBet } from "store/Reducers/tableReducer";
+import { incrementBet } from "store/Reducers/tableReducer";
 
 
 export enum ChipValue {
@@ -53,7 +53,7 @@ export default function Chip(props: ChipProps) {
         if (bet + incremenetValue > playerBalance) {
             return;
         }
-        dispatch(incremenetBet(incremenetValue));
+        dispatch(incrementBet(incremenetValue));
     }
 
     return (
