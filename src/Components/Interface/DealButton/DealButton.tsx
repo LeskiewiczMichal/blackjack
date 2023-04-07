@@ -1,10 +1,13 @@
 import useDeal from "./useDeal";
 import { makeDeal } from "store/Actions/makeDeal";
-import { useAppDispatch } from "Hooks/hooks";
+import { useAppDispatch, useAppSelector } from "Hooks/hooks";
+
 
 export default function DealButton() {
     const dispatch = useAppDispatch();
-    // const { handleDeal } = useDeal();
+    const currentBet = useAppSelector(state => state.table.currentBet);
+
+    const isDisabled: boolean = currentBet === 0;
 
     const handleClick = () => {
         dispatch(makeDeal());
@@ -12,7 +15,7 @@ export default function DealButton() {
     }
 
     return (
-        <button type="button" className="UI--button UI--deal-button" onClick={handleClick}>
+        <button type="button" className={`UI--button UI--deal-button ${isDisabled ? 'UI--button-disabled' : ''}`} onClick={handleClick} disabled={isDisabled}>
             Deal
         </button>
     )
