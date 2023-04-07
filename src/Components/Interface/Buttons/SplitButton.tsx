@@ -5,9 +5,8 @@ export default function SplitButton() {
   const dispatch = useAppDispatch();
   const playerCards = useAppSelector((state) => state.player.cards);
 
-  
   // let buttonActive: boolean = (playerCards.length === 2 && playerCards[0].value === playerCards[1].value);
-  const buttonActive = true;
+  const isDisabled: boolean = (playerCards.length !== 2 || playerCards[0].value !== playerCards[1].value);
 
   const handleClick = () => {
       dispatch(split());
@@ -15,8 +14,9 @@ export default function SplitButton() {
 
   return (
     <div className="button--container">
-      <button type="button" className={`UI--button UI--split-button ${buttonActive ? '' : 'UI--button-disabled'}`}
+      <button type="button" className={`UI--button UI--split-button ${isDisabled ? 'UI--button-disabled' : ''}`}
         onClick={handleClick}
+        disabled={isDisabled}
       >
         Split
       </button>

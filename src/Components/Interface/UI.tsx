@@ -26,9 +26,9 @@ export default function UI() {
       mainInterfaceJSX = (
         <>
           <SplitButton />
-          <DoubleDownButton />
           <StandButton />
           <HitButton />
+          <DoubleDownButton />
         </>
         
       );
