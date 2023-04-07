@@ -1,9 +1,7 @@
 // Types
 import { RootState } from "store/store";
-
 // Libraries
 import { createAsyncThunk, unwrapResult } from "@reduxjs/toolkit";
-
 // Functions
 import { playerDrawCard } from "store/Actions/playerUtils";
 import { finishGame } from "store/Actions/finishGame";
@@ -16,16 +14,15 @@ export const hit = createAsyncThunk(
     await dispatch(playerDrawCard());
     const state = getState() as RootState;
 
-    // If player score is over 21, player has lost
-
+    // If player score is over 21, hand is lost
     if (state.player.score > 21) {
       const splitActive: boolean = unwrapResult(
         await dispatch(playerDidSplit())
       );
       if (splitActive) {
-        dispatch(switchHands());
+        dispatch(switchHands());  // If player has split, switch to second hand
       } else {
-        dispatch(finishGame());
+        dispatch(finishGame());  // If player has not split, end game
       }
     }
   }

@@ -1,24 +1,13 @@
 // Types
-import { PlayerType, Card } from "types.d";
+import { PlayerType } from "types.d";
 import { RootState } from "store/store";
-
 // Libraries
 import { createAsyncThunk, unwrapResult } from "@reduxjs/toolkit";
-
 // Functions
 import { showCards } from "store/Reducers/dealerReducer";
 import { setGameFinished } from "store/Reducers/tableReducer";
-import {
-  setBalance,
-  setPlayerCards,
-  setPlayerScore,
-  setSecondHand,
-  setSecondScore,
-} from "store/Reducers/playerReducer";
+import { setBalance } from "store/Reducers/playerReducer";
 import { dealerDrawUntillSeventeen } from "./dealerUtils";
-import { calculateScore } from "store/Reducers/Functions/calculateScore";
-import { playerDrawCard } from "./playerUtils";
-import { switchHands } from "./split";
 
 type Winner = PlayerType | null;
 
@@ -28,78 +17,48 @@ export const finishGame = createAsyncThunk(
   async (_, { getState, dispatch }) => {
     let state = getState() as RootState;
 
-    // Check if game really ended - if player did split, he must play with secondd hand
-    // if (
-    //   state.player.secondHand.length === 0 ||
-    //   (state.player.secondScore !== null && state.player.secondHand.length > 0)
-    // ) {
-      await dispatch(showCards()); // Flip dealer's hidden card
-      await dispatch(setGameFinished(true)); // Set gameFinished to true
+    await dispatch(showCards()); // Flip dealer's hidden card
+    await dispatch(setGameFinished(true)); // Set gameFinished to true
 
-      // Check if player's hand's are over 21
-      const ended: boolean = unwrapResult(await dispatch(scoresOverTwentyOne()));
-        if (ended) {
-            return;
-        }
+    // Check if player's hand's are over 21
+    const ended: boolean = unwrapResult(await dispatch(scoresOverTwentyOne()));
+    if (ended) {
+      return;
+    }
 
-        await dispatch(dealerDrawUntillSeventeen());  // Dealer draws cards untill he's score is 17 or more
-        state = getState() as RootState; // Need to update state after dealer's draw
+    await dispatch(dealerDrawUntillSeventeen()); // Dealer draws cards untill he's score is 17 or more
+    state = getState() as RootState; // Need to update state after dealer's draw
 
-      // Cheching game's result and updating balance
-      let winner: Winner = unwrapResult(
-        await dispatch(checkGameResult([state.player.score, state.dealer.score]))
-      );
-      if (winner === PlayerType.PLAYER) {
-        await dispatch(playerWon());
-      } else if (winner === PlayerType.DEALER) {
-        await dispatch(playerLost());
-      } else {
-        console.log("draw");
-      }
-
-      // If player did split, check second hand score too
-      if (state.player.secondScore !== null) {
-        winner = unwrapResult(
-          await dispatch(
-            checkGameResult([state.player.secondScore, state.dealer.score])
-          )
-        );
-        if (winner === PlayerType.PLAYER) {
-          await dispatch(playerWon());
-        } else if (winner === PlayerType.DEALER) {
-          await dispatch(playerLost());
-        } else {
-          console.log("draw");
-        }
-      }
-    } 
-    // else {
-      // // If player did split, play second hand
-    //   dispatch(switchHands());
-    // }
-
-//   }
+    // Cheching game's result and updating balance
+    await dispatch(checkGameResult(state.player.score));
+    if (state.player.secondScore !== null) {
+      // If player has split, check second hand
+      await dispatch(checkGameResult(state.player.secondScore));
+    }
+  }
 );
 
-// Returns type of player who won or null if it's a draw
+// Check's who won and updates balance
 const checkGameResult = createAsyncThunk(
   "game/checkGameResult",
-  async (
-    [playerScore, dealerScore]: number[],
-    { getState }
-  ): Promise<Winner> => {
+  async (playerScore: number, { getState, dispatch }) => {
+    const state = getState() as RootState;
+    const dealerScore = state.dealer.score;
     if (playerScore > 21 && dealerScore > 21) {
-        return null;
+      return;
     }
     if (playerScore > 21) {
-      return PlayerType.DEALER;
+      await dispatch(playerLost());
+      return;
     }
     if (dealerScore > 21 || playerScore > dealerScore) {
-      return PlayerType.PLAYER;
+      await dispatch(playerWon());
+      return;
     } else if (playerScore < dealerScore) {
-      return PlayerType.DEALER;
+      await dispatch(playerLost());
+      return;
     }
-    return null;
+    return;
   }
 );
 
@@ -125,21 +84,24 @@ const playerLost = createAsyncThunk(
   }
 );
 
+// Check if player's hand's are over 21
 const scoresOverTwentyOne = createAsyncThunk(
-    "player/scoresOverTwentyOne",
-    async (_, { getState, dispatch }): Promise<boolean> => {
-        const state = getState() as RootState;
-        if (state.player.score > 21) {
-            if (state.player.secondScore === null) {
-                await dispatch(playerLost());
-                return true;
-            }
-            if (state.player.secondScore > 21) {
-                await dispatch(playerLost());
-                await dispatch(playerLost());
-                return true;
-            }
-          }
-        return false;
+  "player/scoresOverTwentyOne",
+  async (_, { getState, dispatch }): Promise<boolean> => {
+    const state = getState() as RootState;
+    if (state.player.score > 21) {
+      if (state.player.secondScore === null) {
+        // If player didn't split, he lost
+        await dispatch(playerLost());
+        return true;
+      }
+      if (state.player.secondScore > 21) {
+        // If player split and both hands are over 21, he lost
+        await dispatch(playerLost());
+        await dispatch(playerLost());
+        return true;
+      }
     }
+    return false;
+  }
 );
