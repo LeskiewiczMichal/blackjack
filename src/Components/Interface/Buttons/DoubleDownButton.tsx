@@ -8,7 +8,7 @@ export default function DoubleDownButton() {
     const dispatch = useAppDispatch();
     const playerCards = useAppSelector(state => state.player.cards);
 
-    let buttonActive: boolean = playerCards.length === 2;
+    const isDisabled: boolean = playerCards.length !== 2;
 
     const handleClick = () => {
             dispatch(doubleDown());
@@ -16,8 +16,9 @@ export default function DoubleDownButton() {
 
     return (
         <button type="button"
-            className={`UI--button UI--doubleDown-button ${buttonActive ? '' : 'UI--button-disabled'}`}
+            className={`UI--button UI--doubleDown-button ${isDisabled ? 'UI--button-disabled' : ''}`}
             onClick={handleClick}
+            disabled={isDisabled}
         >
             Double Down
         </button>
