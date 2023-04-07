@@ -1,11 +1,9 @@
-
 import { useAppSelector } from "Hooks/hooks";
-import isSplitActive from "./isSplitActive";
 
 export default function SplitButton() {
   const playerCards = useAppSelector((state) => state.player.cards);
 
-  let buttonActive: boolean = isSplitActive({ cards: playerCards });
+  let buttonActive: boolean = (playerCards.length === 2 && playerCards[0].value === playerCards[1].value);
 
   return (
     <div className="button--container">

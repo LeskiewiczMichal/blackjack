@@ -1,5 +1,8 @@
-import "./Styles/card.style.css";
+import "Components/Styles/card.style.css";
+
+// Types
 import { CardValue, CardSuit } from "types.d";
+
 
 export type CardProps = {
     suit: CardSuit,
@@ -8,6 +11,7 @@ export type CardProps = {
 };
 
 export default function Card(props: CardProps) {
+    // Check what card to render
     if (!props.faceUp) {
         return (
             <div className="card card--back" >

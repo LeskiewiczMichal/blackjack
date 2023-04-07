@@ -1,5 +1,7 @@
+// Libraries
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
+// Functions
 import { setInGame, setGameFinished, clearBet } from "store/Reducers/tableReducer";
 import { clearPlayerCards, setPlayerScore } from "store/Reducers/playerReducer";
 import { clearDealerCards, setDealerScore } from "store/Reducers/dealerReducer";

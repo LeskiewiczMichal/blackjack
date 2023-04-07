@@ -1,10 +1,8 @@
 import "./cardsContainer.style.css"
-
-import { useSelector } from "react-redux";
-import { RootState } from "store/store";
-
+// Types
 import { DealerState, PlayerState } from "types";
-import Card from "Components/Card";
+// Components
+import Card from "Components/Table/Card";
 
 
 type CardsContainerProps = {
@@ -13,11 +11,12 @@ type CardsContainerProps = {
 
 export default function CardsContainer(props: CardsContainerProps) {
     const { player } = props;
-     const playerCardsJSX = player.cards.map((card, index) => {
+
+    // Map over the cards and create a JSX element for each card
+    const playerCardsJSX = player.cards.map((card, index) => {
         return <Card key={index} suit={card.suit} value={card.value} faceUp={card.faceUp} />
     });
    
-
     return (
         <section className="cards--container">
             {playerCardsJSX}

@@ -1,9 +1,7 @@
-import useNewBet from "./useNewBet"
 import { useAppDispatch } from "Hooks/hooks"
 import { clearTable } from "store/Actions/clearTable"
 
 export default function NewBetButton() {
-    // const { handleNewBet } = useNewBet()
     const dispatch = useAppDispatch()
 
     const handleClick = () => {

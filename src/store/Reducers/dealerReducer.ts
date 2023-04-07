@@ -1,12 +1,8 @@
-import { DealerState, Card, CardSuit } from "types.d";
+// Types
+import { DealerState, Card } from "types.d";
+
+// Libraries
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
-
-import { calculateScore } from "./Functions/calculateScore";
-import { addCardHandler } from "./Functions/addCardHandler";
-import { dealerDrawCard } from "./Functions/dealerDrawCard";
-import { newBet } from "./tableReducer";
-// import { store } from "store/store";
-
 
 
 const initialState: DealerState = {
@@ -18,26 +14,14 @@ export const dealerSlice = createSlice({
     name: "dealer",
     initialState: initialState,
     reducers: {
-        addCard: (state, action) => {
-            state.cards = addCardHandler({ cards: state.cards }, action.payload);
-            // state.score = calculateScore({ cards: state.cards });
-
+        addCard: (state, action: PayloadAction<Card>) => {
+            state.cards.push(action.payload)
         },
         showCards: (state) => {
             const card: Card = state.cards[0];
             card.faceUp = true;
             state.cards[0] = card;
             state.score += card.value;
-            // const reduxStore = store.getState();
-        },
-        clearDealer: (state) => {
-            state.cards = [];
-            state.score = 0;
-        },
-        drawTill17: (state, action) => {
-            if (state.score < 17) {
-                console.log(state.score);
-            }
         },
         clearDealerCards: (state) => {
             state.cards = [];
@@ -46,22 +30,9 @@ export const dealerSlice = createSlice({
             state.score = action.payload;
         }
     },
-    extraReducers: (builder) => {
-        builder
-            // .addCase(finishGame, (state) => {
-            //     const card: Card = state.cards[0];
-            //     card.faceUp = true;
-            //     state.cards[0] = card;
-            //     state.score += card.value;
-            // })
-            .addCase(newBet, (state) => {
-                state.cards = [];
-                state.score = 0;
-            })
-    }
 
 })
 
-export const { addCard, showCards, clearDealer, clearDealerCards, setDealerScore } = dealerSlice.actions;
+export const { addCard, showCards, clearDealerCards, setDealerScore } = dealerSlice.actions;
 
 export default dealerSlice.reducer;

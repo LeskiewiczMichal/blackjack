@@ -1,6 +1,10 @@
-import { Card, CardSuit, CardValue } from '../../../types.d';
+// Types
+import { Card, CardSuit, CardValue } from "types.d";
 
 
+const NUMBER_OF_DECKS = 6;
+
+// Create and return a few decks of cards
 export function generateCards(): Card[] {
     const cards: Card[] = [];
     const suits: CardSuit[] = [CardSuit.HEARTS, CardSuit.DIAMONDS, CardSuit.CLUBS, CardSuit.SPADES];
@@ -19,7 +23,7 @@ export function generateCards(): Card[] {
         CardValue.KING,
         CardValue.ACE,
     ];
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < NUMBER_OF_DECKS; i++) {
         for (const suit of suits) {
             for (const value of values) {
                 cards.push({ suit, value, faceUp: true });

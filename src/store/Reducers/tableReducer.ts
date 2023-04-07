@@ -1,11 +1,15 @@
-import { TableState, } from "types.d"
+// Types
+import { TableState, Card } from "types.d"
+
+// Libraries
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
 
-import { generateCards } from "./Functions/generateCards"
-// import { playerLost } from "./playerReducer"
-import { showCards } from "./dealerReducer"
+// Functions
+import { generateCards } from "store/Reducers/Functions/generateCards"
+import { showCards } from "store/Reducers/dealerReducer"
 
 
+// Initial decks of cards
 const cards = generateCards();
 
 const initialState: TableState = {
@@ -19,26 +23,16 @@ export const tableSlice = createSlice({
     name: "table",
     initialState: initialState,
     reducers: {
-        incremenetBet: (state, action) => {
+        incremenetBet: (state, action: PayloadAction<number>) => {
             state.currentBet += action.payload;
         },
         clearBet: (state) => {
             state.currentBet = 0;
         },
-        drawCard: (state, action) => {
+        drawCard: (state, action: PayloadAction<Card>) => {
             // Remove card given in action form the deck
             state.cards.splice(state.cards.indexOf(action.payload), 1);
             
-        },
-        deal: (state) => {
-            if (state.currentBet < 1) { return };
-            state.inGame = true;    
-            state.gameFinished = false;        
-        },
-        newBet: (state) => {
-            state.inGame = false;
-            state.gameFinished = false;
-            state.currentBet = 0;
         },
         setGameFinished: (state, action: PayloadAction<boolean>) => {
             state.gameFinished = action.payload;
@@ -49,18 +43,12 @@ export const tableSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            // .addCase(playerLost, (state, action) => {
-            //     state.gameFinished = true;
-            // })
-            .addCase(showCards, (state, action) => {
+            .addCase(showCards, (state) => {
                 state.gameFinished = true;
             })
-            // .addCase("dealer/lost", (state, action) => {
-            //     state.inGame = false;
-            // })
     }
 })
 
-export const { incremenetBet, clearBet, deal, drawCard, newBet, setGameFinished, setInGame } = tableSlice.actions;
+export const { incremenetBet, clearBet, drawCard, setGameFinished, setInGame } = tableSlice.actions;
 
 export default tableSlice.reducer;

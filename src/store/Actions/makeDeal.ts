@@ -1,22 +1,33 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import { deal } from "store/Reducers/tableReducer"
-import { playerDrawCard } from "./playerUtils";
-import { dealerDrawCard } from "./dealerUtils";
+// Types
+import { RootState } from "store/store";
 
+// Libraries
+import { createAsyncThunk } from "@reduxjs/toolkit";
+
+// Functions
+import { setGameFinished, setInGame } from "store/Reducers/tableReducer"
+import { playerDrawCard } from "store/Actions/playerUtils";
+import { dealerDrawCard } from "store/Actions/dealerUtils";
+
+const NUMBER_OF_CARDS_FOR_EACH_PLAYER = 2;
 
 export const makeDeal = createAsyncThunk(
     'table/deal',
-    async (_, { dispatch }) => {
-        await dispatch(deal());
-        for (let i = 0; i < 2; i++) {
+    async (_, { getState, dispatch }) => {
+        const state = getState() as RootState;
+
+        // If there is no bet, do nothing
+        if (state.table.currentBet === 0) {
+            return;
+        }
+
+        await dispatch(setGameFinished(false));
+        await dispatch(setInGame(true));
+
+        // Draw initial cards for each player
+        for (let i = 0; i < NUMBER_OF_CARDS_FOR_EACH_PLAYER; i++) {
             await dispatch(playerDrawCard());
             await dispatch(dealerDrawCard());
-            // let randomCard2: Card = cards[Math.floor(Math.random() * cards.length)];
-            // await dispatch(drawCard(randomCard2));
-            // if (i === 0) {
-            //     randomCard2 = { ...randomCard2, faceUp: false };
-            // }
-            // await dispatch(dealerAddCard(randomCard2));
         }
     }
 );

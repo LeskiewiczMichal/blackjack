@@ -1,9 +1,10 @@
-import { useSelector } from "react-redux"
-import { RootState } from "../../store/store";
+// Hooks
+import { useAppSelector } from "Hooks/hooks";
+
 
 export default function InfoTable() {
-    const currentBet: number  = useSelector((state: RootState) => state.table.currentBet)
-    const playerBalance: number = useSelector((state: RootState) => state.player.balance)
+    const currentBet: number  = useAppSelector(state => state.table.currentBet)
+    const playerBalance: number = useAppSelector(state => state.player.balance)
 
     return (
         <div className="InfoTable--container">

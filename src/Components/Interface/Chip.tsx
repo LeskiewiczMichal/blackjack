@@ -1,7 +1,8 @@
-import "./Styles/chip.style.css"
-import { useDispatch, useSelector } from "react-redux";
-import { incremenetBet } from "../store/Reducers/tableReducer";
-import { RootState } from "../store/store";
+import "Components/Styles/chip.style.css"
+// Hooks
+import { useAppDispatch, useAppSelector } from "Hooks/hooks";
+// Functions
+import { incremenetBet } from "store/Reducers/tableReducer";
 
 
 export enum ChipValue {
@@ -18,10 +19,10 @@ type ChipProps = {
 }
    
 export default function Chip(props: ChipProps) {
-    const dispatch = useDispatch()
-    const inGame = useSelector((state: RootState) => state.table.inGame);
-    const bet = useSelector((state: RootState) => state.table.currentBet);
-    const playerBalance = useSelector((state: RootState) => state.player.balance);
+    const dispatch = useAppDispatch()
+    const inGame = useAppSelector(state => state.table.inGame);
+    const bet = useAppSelector(state => state.table.currentBet);
+    const playerBalance = useAppSelector(state => state.player.balance);
 
     // Get the value of the chip to increment the bet by
     let incremenetValue: number = 0;
@@ -48,6 +49,7 @@ export default function Chip(props: ChipProps) {
 
     // Handle incrementing the bet
     const handleClick = () => {
+        // Check if the player has enough money to bet
         if (bet + incremenetValue > playerBalance) {
             return;
         }

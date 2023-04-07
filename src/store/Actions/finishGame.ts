@@ -1,12 +1,19 @@
+// Types
 import { PlayerType } from "types.d";
+import { RootState } from "store/store";
+
+// Libraries
 import { createAsyncThunk, unwrapResult } from "@reduxjs/toolkit";
 
+// Functions
 import { showCards } from "store/Reducers/dealerReducer";
 import { setGameFinished } from "store/Reducers/tableReducer";
-import { RootState } from "store/store";
 import { setBalance } from "store/Reducers/playerReducer";
 import { dealerDrawCard } from "./dealerUtils";
 
+type Winner = PlayerType | null;
+
+// End game and check who won
 export const finishGame = createAsyncThunk(
     "game/finishGame",
     async (_, { getState ,dispatch  }) => {        
@@ -15,28 +22,22 @@ export const finishGame = createAsyncThunk(
 
         let state = getState() as RootState;
 
-        // If player did go over 21, he lost
+        // If player did go over 21, he already lost
         if (state.player.score > 21) {
             await dispatch(playerLost());
             return;
         }
-    
 
         // Dealer draws cards untill he's score is 17 or more
         let dealerScore = state.dealer.score;
         while (dealerScore < 17) {
-            // const randomCard: Card = state.table.cards[Math.floor(Math.random() * state.table.cards.length)];
-            // await dispatch(drawCard(randomCard));
-            // await dispatch(dealerAddCard(randomCard));
-            // const newState = getState() as RootState;
-            // dealerScore = newState.dealer.score;
             await dispatch(dealerDrawCard());
             state = getState() as RootState;
             dealerScore = state.dealer.score;
         }
 
-        // Chechking game's result - dealer going over 21 and than comparing with player
-        const winner: PlayerType | null = unwrapResult(await dispatch(checkGameResult()));
+        // Chechking game's result - if dealer did go over 21 and if not comparing with player
+        const winner: Winner = unwrapResult(await dispatch(checkGameResult()));
         if (winner === PlayerType.PLAYER) {
             await dispatch(playerWon());
         } else if (winner === PlayerType.DEALER) {
@@ -47,10 +48,10 @@ export const finishGame = createAsyncThunk(
     }
 );
 
-
+// Returns type of player who won or null if it's a draw
 const checkGameResult = createAsyncThunk(
     "game/checkGameResult",
-    async (_, { getState, dispatch }): Promise<PlayerType | null> => {
+    async (_, { getState }): Promise<Winner> => {
         const state = getState() as RootState;
         const dealerScore = state.dealer.score;
         const playerScore = state.player.score;
@@ -64,6 +65,7 @@ const checkGameResult = createAsyncThunk(
     }
 );
 
+// Add's money to player's account
 const playerWon = createAsyncThunk(
     "game/playerWon",
     async (_, { getState, dispatch }) => {
@@ -74,6 +76,7 @@ const playerWon = createAsyncThunk(
     }
 );
 
+// Remove's money from player's account
 const playerLost = createAsyncThunk(
     "game/playerWon",
     async (_, { getState, dispatch }) => {
