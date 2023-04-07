@@ -38,8 +38,8 @@ export enum ChipValue {
 /// Player and dealer ///
 
 export enum PlayerType {
-    PLAYER = PlayerState,
-    DEALER = "dealer",
+    PLAYER = "Player",
+    DEALER = "Dealer",
 }
 
 
@@ -71,6 +71,7 @@ export type TableState = {
     currentBet: number,
     cards: Card[],
     inGame: boolean,
+    gameFinished: boolean,
     // dealer: DealerInterface,
     // player: PlayerInterface,
 }

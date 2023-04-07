@@ -1,7 +1,7 @@
 import "./Styles/UI.style.css";
 
 import { RootState } from "../store/store";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "Hooks/hooks";
 
 // Components
 import Chip from "./Chip";
@@ -12,12 +12,41 @@ import StandButton from "Components/Interface/StandButton/StandButton";
 import DealButton from "Components/Interface/DealButton/DealButton";
 import ClearButton from "Components/Interface/ClearButton";
 import InfoTable from "Components/Interface/InfoTable";
+import NewBetButton from "Components/Interface/NewBetButton/NewBetButton";
 
 // Enum for chip props
 import { ChipValue } from "./Chip";
 
 export default function UI() {
-  const table: boolean = useSelector((state: RootState) => state.table.inGame);
+  const inGame: boolean = useAppSelector((state) => state.table.inGame);
+  const gameFinished = useAppSelector((state) => state.table.gameFinished);
+
+  let mainInterfaceJSX: JSX.Element;
+  if (inGame) {
+    if (!gameFinished) {
+      mainInterfaceJSX = (
+        <section className="interface--main interface--background">
+          <SplitButton />
+          <DoubleDownButton />
+          <StandButton />
+          <HitButton />
+        </section>
+      );
+    } else {
+      mainInterfaceJSX = (
+        <section className="interface--main interface--background">
+          <NewBetButton />
+        </section>
+      );
+    }
+  } else {
+    mainInterfaceJSX = (
+      <section className="interface--main interface--background">
+        <DealButton />
+        <ClearButton />
+      </section>
+    );
+  }
 
   return (
     <nav className="interface">
@@ -30,7 +59,8 @@ export default function UI() {
         <Chip value={ChipValue.chipFiveHundred} />
       </section>
       {/* <section className="interface--main interface--background"> */}
-        {table ? 
+      {mainInterfaceJSX}
+      {/* {table ? 
               <section className="interface--main interface--background">
                 <SplitButton />
                 <DoubleDownButton />
@@ -42,8 +72,8 @@ export default function UI() {
                 <DealButton />
                 <ClearButton />
               </section>
-            }
-        {/* <DealButton />
+            } */}
+      {/* <DealButton />
         <ClearButton />
         <SplitButton />
         <DoubleDownButton />

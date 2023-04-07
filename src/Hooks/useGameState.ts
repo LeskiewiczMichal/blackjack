@@ -2,17 +2,21 @@ import { RootState } from "store/store";
 
 import { useSelector, useDispatch } from "react-redux";
 import { useAppDispatch, useAppSelector } from "./hooks";
-import { playerLost } from "store/Reducers/playerReducer";
+// import {  } from "store/Reducers/playerReducer";
+import { gameFinished } from "store/Reducers/tableReducer";
+import { showCards } from "store/Reducers/dealerReducer";
 
-export function useGameState() {
+const useGameState = () => {
     const dispatch = useAppDispatch();
-    const bet = useAppSelector((state: RootState) => state.table.currentBet);
-
-    const lost = () => {
-        dispatch(playerLost(bet));
-    }
     
+    const finishGame = () => {
+        showCards();
+        dispatch(gameFinished(true));
+        
+    }
 
 
-    return { lost };
+    return { finishGame };
 }
+
+export default useGameState;

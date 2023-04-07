@@ -4,7 +4,6 @@ import { useAppDispatch, useAppSelector } from "Hooks/hooks";
 import { drawCard } from "store/Reducers/tableReducer";
 import { addCard, setPlayerScore } from "store/Reducers/playerReducer";
 import { calculateScore } from "Components/Interface/Functions/calculateScore";
-import { playerLost } from "store/Reducers/playerReducer";
 
 const useHit = () => {
     const dispatch = useAppDispatch();
@@ -20,9 +19,9 @@ const useHit = () => {
         dispatch(addCard(randomCard));
         dispatch(setPlayerScore(newScore));
 
-        if (newScore > 21) {
-            dispatch(playerLost(bet));
-        }
+        // if (newScore > 21) {
+        //     dispatch(playerLost(bet));
+        // }
     }
 
     return { handleHit };

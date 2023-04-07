@@ -1,8 +1,9 @@
 import { TableState, } from "types.d"
-import { createSlice } from "@reduxjs/toolkit"
+import { PayloadAction, createSlice } from "@reduxjs/toolkit"
 
 import { generateCards } from "./Functions/generateCards"
-import { playerLost } from "./playerReducer"
+// import { playerLost } from "./playerReducer"
+import { showCards } from "./dealerReducer"
 
 
 const cards = generateCards();
@@ -11,6 +12,7 @@ const initialState: TableState = {
     currentBet: 0,
     cards: cards,
     inGame: false,
+    gameFinished: false,
 }
 
 export const tableSlice = createSlice({
@@ -30,24 +32,40 @@ export const tableSlice = createSlice({
         },
         deal: (state) => {
             if (state.currentBet < 1) { return };
-            state.inGame = true;            
+            state.inGame = true;    
+            state.gameFinished = false;        
         },
-        endGame: (state) => {
-            console.log("OKAY");
+        newBet: (state) => {
+            state.inGame = false;
+            state.gameFinished = false;
+            state.currentBet = 0;
+        },
+        // finishGame: (state) => {
+        //     state.gameFinished = true;
+        // },
+        gameFinished: (state, action: PayloadAction<boolean>) => {
+            state.gameFinished = action.payload;
         }
     },
     extraReducers: (builder) => {
         builder
-            .addCase(playerLost, (state, action) => {
-                state.inGame = false;
-                state.currentBet = 0;
+            // .addCase(playerLost, (state, action) => {
+            //     state.gameFinished = true;
+            // })
+            .addCase(showCards, (state, action) => {
+                state.gameFinished = true;
             })
             // .addCase("dealer/lost", (state, action) => {
             //     state.inGame = false;
             // })
+            .addCase("table/clearTable", (state, action) => {
+                state.inGame = false;
+                state.gameFinished = false;
+                state.currentBet = 0;
+            })
     }
 })
 
-export const { incremenetBet, clearBet, deal, drawCard, endGame } = tableSlice.actions;
+export const { incremenetBet, clearBet, deal, drawCard, newBet, gameFinished } = tableSlice.actions;
 
 export default tableSlice.reducer;

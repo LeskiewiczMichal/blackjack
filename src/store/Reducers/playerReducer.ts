@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 
 import { calculateScore } from "store/Reducers/Functions/calculateScore";
 import { addCardHandler } from "store/Reducers/Functions/addCardHandler";
+import { newBet } from "store/Reducers/tableReducer";
 
 
 
@@ -26,16 +27,30 @@ export const playerSlice = createSlice({
         setPlayerScore: (state, action) => {
             state.score = action.payload;
         },
-        playerLost: (state, action: PayloadAction<number>) => {
-            state.balance -= action.payload;
-            state.score = 0;
-            state.cards = [];
-        }
-
+        setBalance: (state, action: PayloadAction<number>) => {
+            state.balance = action.payload;
+        },
+        // playerLost: (state, action: PayloadAction<number>) => {
+        //     state.balance -= action.payload;
+        // },
+        // playerWon: (state, action: PayloadAction<number>) => {
+        //     state.balance += action.payload;
+        // }
+    },
+    extraReducers: (builder) => {
+        builder
+            .addCase(newBet, (state) => {
+                state.cards = [];
+                state.score = 0;
+            })
+            .addCase("table/clearTable", (state) => {
+                state.cards = [];
+                state.score = 0;
+            })
     }
 
 })
 
-export const { addCard, setPlayerScore, playerLost } = playerSlice.actions;
+export const { addCard, setPlayerScore, setBalance } = playerSlice.actions;
 
 export default playerSlice.reducer;
