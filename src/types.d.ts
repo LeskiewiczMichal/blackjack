@@ -15,8 +15,11 @@ export enum CardValue {
     SEVEN = 7,
     EIGHT = 8,
     NINE = 9,
-    TEN, JACK, QUEEN, KING = 10,
+    TEN = 10,
     ACE = 11 | 1,
+    JACK,
+    QUEEN,
+    KING,
 }
 
 export type Card = {

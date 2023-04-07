@@ -20,7 +20,7 @@ export const dealerSlice = createSlice({
     reducers: {
         addCard: (state, action) => {
             state.cards = addCardHandler({ cards: state.cards }, action.payload);
-            state.score = calculateScore({ cards: state.cards });
+            // state.score = calculateScore({ cards: state.cards });
 
         },
         showCards: (state) => {

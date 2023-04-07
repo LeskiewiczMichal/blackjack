@@ -19,6 +19,10 @@ export function calculateScore(props: CalculateScoreProps) {
                 continue;
             }
         }
+        if (card.value === CardValue.QUEEN || card.value === CardValue.KING || card.value === CardValue.JACK) {
+            score += 10;
+            continue;
+        }
         score += card.value;
     }
     return score;

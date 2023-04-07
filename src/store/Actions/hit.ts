@@ -1,7 +1,7 @@
 import { RootState } from "store/store";
 
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { playerDrawCard } from "./playerDrawCard";
+import { playerDrawCard } from "./playerUtils";
 import { finishGame } from "./finishGame";
 
 

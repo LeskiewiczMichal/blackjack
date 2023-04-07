@@ -1,10 +1,11 @@
-import { Card, PlayerType } from "types.d";
+import { PlayerType } from "types.d";
 import { createAsyncThunk, unwrapResult } from "@reduxjs/toolkit";
 
-import { showCards, addCard as dealerAddCard } from "store/Reducers/dealerReducer";
-import { setGameFinished, drawCard } from "store/Reducers/tableReducer";
+import { showCards } from "store/Reducers/dealerReducer";
+import { setGameFinished } from "store/Reducers/tableReducer";
 import { RootState } from "store/store";
 import { setBalance } from "store/Reducers/playerReducer";
+import { dealerDrawCard } from "./dealerUtils";
 
 export const finishGame = createAsyncThunk(
     "game/finishGame",
@@ -19,15 +20,19 @@ export const finishGame = createAsyncThunk(
             await dispatch(playerLost());
             return;
         }
+    
 
         // Dealer draws cards untill he's score is 17 or more
         let dealerScore = state.dealer.score;
         while (dealerScore < 17) {
-            const randomCard: Card = state.table.cards[Math.floor(Math.random() * state.table.cards.length)];
-            await dispatch(drawCard(randomCard));
-            await dispatch(dealerAddCard(randomCard));
-            const newState = getState() as RootState;            
-            dealerScore = newState.dealer.score;
+            // const randomCard: Card = state.table.cards[Math.floor(Math.random() * state.table.cards.length)];
+            // await dispatch(drawCard(randomCard));
+            // await dispatch(dealerAddCard(randomCard));
+            // const newState = getState() as RootState;
+            // dealerScore = newState.dealer.score;
+            await dispatch(dealerDrawCard());
+            state = getState() as RootState;
+            dealerScore = state.dealer.score;
         }
 
         // Chechking game's result - dealer going over 21 and than comparing with player

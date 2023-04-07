@@ -22,7 +22,7 @@ export const playerSlice = createSlice({
         addCard: (state, action) => {
             // const dispatch = useDispatch();
             state.cards = addCardHandler({ cards: state.cards }, action.payload);
-            state.score = calculateScore({ cards: state.cards });
+            // state.score = calculateScore({ cards: state.cards });
         },
         setPlayerScore: (state, action: PayloadAction<number>) => {
             state.score = action.payload;

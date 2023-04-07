@@ -5,15 +5,17 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 // Functions
 import { drawCard } from "store/Reducers/tableReducer";
 import { addCard, setPlayerScore } from "store/Reducers/playerReducer";
-import { calculateScore } from "Components/Interface/Functions/calculateScore";
+import { calculateScore } from "store/Reducers/Functions/calculateScore";
 
 export const playerDrawCard = createAsyncThunk(
     'player/drawCard',
     async (_, { getState, dispatch }) => {
         let state = getState() as RootState;
+        console.log("player score:" + state.player.score);
         const randomCard: Card = state.table.cards[Math.floor(Math.random() * state.table.cards.length)];
         await dispatch(drawCard(randomCard));
         await dispatch(addCard(randomCard));
-        await dispatch(setPlayerScore(calculateScore({ oldScore: state.player.score, newCard: randomCard })));
+        state = getState() as RootState;
+        await dispatch(setPlayerScore(calculateScore({ cards: state.player.cards})));
     }
 );

@@ -8,16 +8,16 @@ export const clearTable = createAsyncThunk(
     'table/clearTable',
     async (_, { dispatch }) => {
         // Clear table
-        dispatch(setInGame(false));
-        dispatch(setGameFinished(false));
-        dispatch(clearBet());
+        await dispatch(setInGame(false));
+        await dispatch(setGameFinished(false));
+        await dispatch(clearBet());
 
         // Clear playerr
-        dispatch(clearPlayerCards());
-        dispatch(setPlayerScore(0));
+        await dispatch(clearPlayerCards());
+        await dispatch(setPlayerScore(0));
 
         // Clear dealer
-        dispatch(clearDealerCards());
-        dispatch(setDealerScore(0));
+        await dispatch(clearDealerCards());
+        await dispatch(setDealerScore(0));
     }
 );

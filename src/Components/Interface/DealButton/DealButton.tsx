@@ -1,10 +1,13 @@
 import useDeal from "./useDeal";
+import { makeDeal } from "store/Actions/makeDeal";
+import { useAppDispatch } from "Hooks/hooks";
 
 export default function DealButton() {
-    const { handleDeal } = useDeal();
+    const dispatch = useAppDispatch();
+    // const { handleDeal } = useDeal();
 
     const handleClick = () => {
-        handleDeal();
+        dispatch(makeDeal());
         // handleCheckResult();
     }
 
