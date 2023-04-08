@@ -1,4 +1,4 @@
-import { makeDeal } from "store/Actions/makeDeal";
+import { makeDeal } from "store/Actions/bets";
 import { useAppDispatch, useAppSelector } from "Hooks/hooks";
 
 

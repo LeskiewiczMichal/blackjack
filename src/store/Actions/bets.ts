@@ -1,14 +1,13 @@
 // Types
 import { RootState } from "store/store";
-
 // Libraries
 import { createAsyncThunk } from "@reduxjs/toolkit";
-
 // Functions
-import { setGameFinished, setInGame } from "store/Reducers/tableReducer"
+import { setGameFinished, setInGame, setPopUpActive, setInsuranceBet } from "store/Reducers/tableReducer"
 import { playerDrawCard } from "store/Actions/playerUtils";
 import { dealerDrawCard } from "store/Actions/dealerUtils";
 import { hasBlackJack } from "store/Reducers/Functions/hasBlackJack";
+import { onlyAceVisible } from "store/Reducers/Functions/onlyAceVisible";
 
 const NUMBER_OF_CARDS_FOR_EACH_PLAYER = 2;
 
@@ -34,6 +33,23 @@ export const makeDeal = createAsyncThunk(
         state = getState() as RootState;
         if (hasBlackJack({ cards: state.player.cards })) {
             await dispatch(setGameFinished(true));
+            return;
         }
+
+        if (onlyAceVisible({ cards: state.dealer.cards })) {
+            await dispatch(setPopUpActive(true));
+        }
+
+    }
+);
+
+export const betInsurance = createAsyncThunk(
+    'table/betInsurance',
+    async (_, { getState, dispatch }) => {
+        const state = getState() as RootState;
+        if (state.player.balance < Math.floor(state.table.currentBet / 2)) {
+            return;
+        }
+        await dispatch(setInsuranceBet(Math.floor(state.table.currentBet / 2)));
     }
 );

@@ -17,6 +17,8 @@ const initialState: TableState = {
     cards: cards,
     inGame: false,
     gameFinished: false,
+    popUpActive: false,
+    insuranceBet: null,
 }
 
 export const tableSlice = createSlice({
@@ -32,7 +34,6 @@ export const tableSlice = createSlice({
         drawCard: (state, action: PayloadAction<Card>) => {
             // Remove card given in action form the deck
             state.cards.splice(state.cards.indexOf(action.payload), 1);
-            
         },
         setGameFinished: (state, action: PayloadAction<boolean>) => {
             state.gameFinished = action.payload;
@@ -40,6 +41,12 @@ export const tableSlice = createSlice({
         setInGame: (state, action: PayloadAction<boolean>) => {
             state.inGame = action.payload;
         },
+        setPopUpActive: (state, action: PayloadAction<boolean>) => {
+            state.popUpActive = action.payload;
+        },
+        setInsuranceBet: (state, action: PayloadAction<number | null>) => {
+            state.insuranceBet = action.payload;
+        }
     },
     extraReducers: (builder) => {
         builder
@@ -49,6 +56,6 @@ export const tableSlice = createSlice({
     }
 })
 
-export const { incrementBet, clearBet, drawCard, setGameFinished, setInGame } = tableSlice.actions;
+export const { incrementBet, clearBet, drawCard, setGameFinished, setInGame, setPopUpActive, setInsuranceBet } = tableSlice.actions;
 
 export default tableSlice.reducer;

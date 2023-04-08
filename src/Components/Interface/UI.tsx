@@ -19,6 +19,9 @@ import { ChipValue } from "./Chip";  // Enum for Chip component props
 export default function UI() {
   const inGame: boolean = useAppSelector((state) => state.table.inGame);
   const gameFinished = useAppSelector((state) => state.table.gameFinished);
+  const popUpActive = useAppSelector((state) => state.table.popUpActive);
+
+  const isDisabled = popUpActive;
 
   // Check what buttons to render based on the state of the game
   let mainInterfaceJSX: JSX.Element;
@@ -51,7 +54,7 @@ export default function UI() {
   }
 
   return (
-    <nav className="interface">
+    <nav className={`interface ${isDisabled ? 'interface-disabled' : ''}`}>
       <section className="interface--chips margin-right interface--background">
         <Chip value={ChipValue.chipOne} />
         <Chip value={ChipValue.chipTen} />

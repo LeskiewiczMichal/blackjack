@@ -77,6 +77,8 @@ export type TableState = {
     cards: Card[],
     inGame: boolean,
     gameFinished: boolean,
+    popUpActive: boolean,
+    insuranceBet: number | null,
     // dealer: DealerInterface,
     // player: PlayerInterface,
 }

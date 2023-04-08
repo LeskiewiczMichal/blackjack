@@ -1,5 +1,4 @@
 // Types
-import { PlayerType } from "types.d";
 import { RootState } from "store/store";
 // Libraries
 import { createAsyncThunk, unwrapResult } from "@reduxjs/toolkit";
@@ -10,11 +9,9 @@ import { setBalance } from "store/Reducers/playerReducer";
 import { dealerDrawUntillSeventeen } from "./dealerUtils";
 import { clearTable } from "./clearTable";
 import { incrementBet } from "store/Reducers/tableReducer";
-import { makeDeal } from "./makeDeal";
+import { makeDeal } from "./bets";
 import { hasBlackJack } from "store/Reducers/Functions/hasBlackJack";
 
-
-type Winner = PlayerType | null;
 
 // End game and check who won
 export const finishGame = createAsyncThunk(
@@ -24,6 +21,16 @@ export const finishGame = createAsyncThunk(
 
     await dispatch(showCards()); // Flip dealer's hidden card
     await dispatch(setGameFinished(true)); // Set gameFinished to true
+    state = getState() as RootState;
+
+    // Check if player won insurance bet
+    if (state.table.insuranceBet != null) {
+      if (hasBlackJack({ cards: state.dealer.cards })) {
+        await dispatch(setBalance(state.player.balance + state.table.insuranceBet * 2));
+      } else {
+        await dispatch(setBalance(state.player.balance - state.table.insuranceBet));
+      }
+    }
 
     // Check if player's hand's are over 21
     const ended: boolean = unwrapResult(await dispatch(scoresOverTwentyOne()));

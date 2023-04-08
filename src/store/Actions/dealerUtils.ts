@@ -1,5 +1,5 @@
 // Types
-import { Card } from "types";
+import { Card, CardValue } from "types";
 import { RootState } from "store/store";
 
 // Libraries
@@ -40,3 +40,20 @@ export const dealerDrawUntillSeventeen = createAsyncThunk(
         }
     }
 );
+
+
+// export const onlyAceVisible = createAsyncThunk(
+//     'player/onlyAceVisible',
+//     async (_, { getState, dispatch }) => {
+//         let state = getState() as RootState;
+//         if (state.dealer.cards.length !== 2) {
+//             return false;
+//         }
+//         for (const card of state.dealer.cards) {
+//             if (card.value === CardValue.ACE && card.faceUp) {
+//                 return true;
+//             }
+//         }
+//         return false;
+//     }
+// );

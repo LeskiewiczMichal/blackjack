@@ -1,8 +1,8 @@
 import React from 'react';
-import "./Components/Styles/app.style.css"
+import "Components/Styles/app.style.css"
 
-import Table from './Components/Table/Table';
-import UI from './Components/Interface/UI';
+import Table from 'Components/Table/Table';
+import UI from 'Components/Interface/UI';
 
 
 function App() {
