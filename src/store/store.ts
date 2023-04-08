@@ -1,10 +1,10 @@
 // Libraries
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore } from "@reduxjs/toolkit";
 
 // Reducers
-import tableReducer from './Reducers/tableReducer';
-import playerReducer from './Reducers/playerReducer';
-import dealerReducer from './Reducers/dealerReducer';
+import tableReducer from "./Reducers/tableReducer";
+import playerReducer from "./Reducers/playerReducer";
+import dealerReducer from "./Reducers/dealerReducer";
 
 export const store = configureStore({
   reducer: {

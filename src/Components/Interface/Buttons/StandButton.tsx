@@ -1,11 +1,10 @@
 // Hooks
-import { useAppDispatch } from 'Hooks/hooks';
+import { useAppDispatch } from "Hooks/hooks";
 // Libraries
-import { unwrapResult } from '@reduxjs/toolkit';
+import { unwrapResult } from "@reduxjs/toolkit";
 // Functions
-import { finishGame } from 'store/Actions/gameState';
-import { playerDidSplit } from 'store/Actions/split';
-import { switchHands } from 'store/Actions/split';
+import { finishGame } from "Actions/gameState";
+import { playerDidSplit, switchHands } from "Actions/split";
 
 export default function StandButton() {
   const dispatch = useAppDispatch();
@@ -20,7 +19,11 @@ export default function StandButton() {
   };
 
   return (
-    <button type='button' className='UI--button UI--stand-button' onClick={handleClick}>
+    <button
+      type="button"
+      className="UI--button UI--stand-button"
+      onClick={handleClick}
+    >
       Stand
     </button>
   );

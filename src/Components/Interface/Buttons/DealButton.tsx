@@ -1,5 +1,5 @@
-import { makeDeal } from 'Actions/bets';
-import { useAppDispatch, useAppSelector } from 'Hooks/hooks';
+import { makeDeal } from "Actions/bets";
+import { useAppDispatch, useAppSelector } from "Hooks/hooks";
 
 export default function DealButton() {
   const dispatch = useAppDispatch();
@@ -13,8 +13,10 @@ export default function DealButton() {
 
   return (
     <button
-      type='button'
-      className={`UI--button UI--deal-button ${isDisabled ? 'UI--button-disabled' : ''}`}
+      type="button"
+      className={`UI--button UI--deal-button ${
+        isDisabled ? "UI--button-disabled" : ""
+      }`}
       onClick={handleClick}
       disabled={isDisabled}
     >

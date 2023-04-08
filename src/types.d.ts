@@ -1,9 +1,9 @@
 // / Card ///
 export enum CardSuit {
-  HEARTS = 'HEARTS',
-  DIAMONDS = 'DIAMONDS',
-  CLUBS = 'CLUBS',
-  SPADES = 'SPADES',
+  HEARTS = "HEARTS",
+  DIAMONDS = "DIAMONDS",
+  CLUBS = "CLUBS",
+  SPADES = "SPADES",
 }
 
 export enum CardValue {
@@ -16,7 +16,7 @@ export enum CardValue {
   EIGHT = 8,
   NINE = 9,
   TEN = 10,
-  ACE = 11 | 1,
+  ACE,
   JACK,
   QUEEN,
   KING,
@@ -41,8 +41,8 @@ export enum ChipValue {
 // / Player and dealer ///
 
 export enum PlayerType {
-  PLAYER = 'Player',
-  DEALER = 'Dealer',
+  PLAYER = "Player",
+  DEALER = "Dealer",
 }
 
 export type PlayerState = {
@@ -83,10 +83,10 @@ export type TableState = {
 };
 
 export enum Action {
-  DEAL = 'deal',
-  BET = 'bet',
+  DEAL = "deal",
+  BET = "bet",
 }
 
 export type TableAction =
-  | { type: 'deal'; payload: { balance: number; bet: number } }
-  | { type: 'bet'; payload: { value: ChipValue[] } };
+  | { type: "deal"; payload: { balance: number; bet: number } }
+  | { type: "bet"; payload: { value: ChipValue[] } };

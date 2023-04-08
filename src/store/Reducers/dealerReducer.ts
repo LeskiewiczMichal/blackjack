@@ -1,8 +1,9 @@
 // Types
-import { DealerState, Card } from 'types.d';
+import { DealerState, Card } from "types.d";
 
 // Libraries
-import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { calculateScore } from "Functions/calculateScore";
 
 const initialState: DealerState = {
   cards: [],
@@ -10,8 +11,8 @@ const initialState: DealerState = {
 };
 
 export const dealerSlice = createSlice({
-  name: 'dealer',
-  initialState: initialState,
+  name: "dealer",
+  initialState,
   reducers: {
     addCard: (state, action: PayloadAction<Card>) => {
       state.cards.push(action.payload);
@@ -20,7 +21,7 @@ export const dealerSlice = createSlice({
       const card: Card = state.cards[0];
       card.faceUp = true;
       state.cards[0] = card;
-      state.score += card.value;
+      state.score = calculateScore({ cards: state.cards });
     },
     clearDealerCards: (state) => {
       state.cards = [];
@@ -31,6 +32,7 @@ export const dealerSlice = createSlice({
   },
 });
 
-export const { addCard, showCards, clearDealerCards, setDealerScore } = dealerSlice.actions;
+export const { addCard, showCards, clearDealerCards, setDealerScore } =
+  dealerSlice.actions;
 
 export default dealerSlice.reducer;

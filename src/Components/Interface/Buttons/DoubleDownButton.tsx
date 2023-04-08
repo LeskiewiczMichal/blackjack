@@ -1,7 +1,7 @@
 // Libraries
-import { useAppSelector, useAppDispatch } from 'Hooks/hooks';
+import { useAppSelector, useAppDispatch } from "Hooks/hooks";
 // Functions
-import { doubleDown } from 'store/Actions/doubleDown';
+import doubleDown from "Actions/doubleDown";
 
 export default function DoubleDownButton() {
   const dispatch = useAppDispatch();
@@ -9,7 +9,8 @@ export default function DoubleDownButton() {
   const playerBalance = useAppSelector((state) => state.player.balance);
   const bet = useAppSelector((state) => state.table.currentBet);
 
-  const isDisabled: boolean = playerCards.length !== 2 || bet * 2 > playerBalance;
+  const isDisabled: boolean =
+    playerCards.length !== 2 || bet * 2 > playerBalance;
 
   const handleClick = () => {
     dispatch(doubleDown());
@@ -17,8 +18,10 @@ export default function DoubleDownButton() {
 
   return (
     <button
-      type='button'
-      className={`UI--button UI--doubleDown-button ${isDisabled ? 'UI--button-disabled' : ''}`}
+      type="button"
+      className={`UI--button UI--doubleDown-button ${
+        isDisabled ? "UI--button-disabled" : ""
+      }`}
       onClick={handleClick}
       disabled={isDisabled}
     >

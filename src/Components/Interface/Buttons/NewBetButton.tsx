@@ -1,5 +1,5 @@
-import { useAppDispatch } from 'Hooks/hooks';
-import { clearTable } from 'store/Actions/clearTable';
+import { useAppDispatch } from "Hooks/hooks";
+import clearTable from "Actions/clearTable";
 
 export default function NewBetButton() {
   const dispatch = useAppDispatch();
@@ -9,7 +9,11 @@ export default function NewBetButton() {
   };
 
   return (
-    <button type='button' className='UI--button UI--deal-button' onClick={handleClick}>
+    <button
+      type="button"
+      className="UI--button UI--deal-button"
+      onClick={handleClick}
+    >
       New Bet
     </button>
   );

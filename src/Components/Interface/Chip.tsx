@@ -1,16 +1,16 @@
-import 'Components/Styles/chip.style.css';
+import "Components/Styles/chip.style.css";
 // Hooks
-import { useAppDispatch, useAppSelector } from 'Hooks/hooks';
+import { useAppDispatch, useAppSelector } from "Hooks/hooks";
 // Functions
-import { incrementBet } from 'store/Reducers/tableReducer';
+import { incrementBet } from "store/Reducers/tableReducer";
 
 export enum ChipValue {
-  chipOne = 'one',
-  chipTen = 'ten',
-  chipTwentyFive = 'twenty-five',
-  chipFifty = 'fifty',
-  chipHundred = 'hundred',
-  chipFiveHundred = 'five-hundred',
+  chipOne = "one",
+  chipTen = "ten",
+  chipTwentyFive = "twenty-five",
+  chipFifty = "fifty",
+  chipHundred = "hundred",
+  chipFiveHundred = "five-hundred",
 }
 
 type ChipProps = {
@@ -22,10 +22,11 @@ export default function Chip(props: ChipProps) {
   const inGame = useAppSelector((state) => state.table.inGame);
   const bet = useAppSelector((state) => state.table.currentBet);
   const playerBalance = useAppSelector((state) => state.player.balance);
+  const { value } = props;
 
   // Get the value of the chip to increment the bet by
   let incremenetValue = 0;
-  switch (props.value) {
+  switch (value) {
     case ChipValue.chipOne:
       incremenetValue = 1;
       break;
@@ -44,6 +45,8 @@ export default function Chip(props: ChipProps) {
     case ChipValue.chipFiveHundred:
       incremenetValue = 500;
       break;
+    default:
+      break;
   }
 
   // Handle incrementing the bet
@@ -57,10 +60,11 @@ export default function Chip(props: ChipProps) {
 
   return (
     <button
-      type='button'
-      className={`chip chip-${props.value}`}
+      type="button"
+      className={`chip chip-${value}`}
       onClick={handleClick}
       disabled={inGame}
-    ></button>
+      aria-label={`Select chip with value ${value}`}
+    />
   );
 }

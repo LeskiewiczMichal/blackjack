@@ -1,33 +1,22 @@
-import { Card, CardValue } from 'types.d';
+import { Card, CardValue } from "types.d";
+import { areInitialCards } from "./areInitialCards";
 
 type HasBlackJackProps = {
   cards: Card[];
 };
 
+// Check if the cards are exactly one ace and one figure
 export function hasBlackJack(props: HasBlackJackProps): boolean {
   const { cards } = props;
 
-  if (cards.length !== 2) {
+  if (!areInitialCards({ cards })) {
     return false;
   }
 
-  let hasFigure = false;
-  let hasAce = false;
-
-  for (const card of cards) {
-    if (card.value === CardValue.ACE) {
-      hasAce = true;
-      continue;
-    }
-    if (
-      card.value === CardValue.JACK ||
-      card.value === CardValue.QUEEN ||
-      card.value === CardValue.KING
-    ) {
-      hasFigure = true;
-      continue;
-    }
-  }
+  const hasAce = cards.some((card) => card.value === CardValue.ACE);
+  const hasFigure = cards.some((card) =>
+    [CardValue.JACK, CardValue.QUEEN, CardValue.KING].includes(card.value),
+  );
 
   if (hasAce && hasFigure) {
     return true;

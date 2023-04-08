@@ -1,19 +1,19 @@
 // Types
-import { Card } from 'types';
-import { RootState } from 'store/store';
+import { Card } from "types";
+import { RootState } from "store/store";
 
 // Libraries
-import { createAsyncThunk } from '@reduxjs/toolkit';
+import { createAsyncThunk } from "@reduxjs/toolkit";
 
 // Functions
-import { drawCard } from 'store/Reducers/tableReducer';
-import { addCard, setPlayerScore } from 'store/Reducers/playerReducer';
-import { calculateScore } from 'Functions/calculateScore';
+import { drawCard } from "store/Reducers/tableReducer";
+import { addCard, setPlayerScore } from "store/Reducers/playerReducer";
+import { calculateScore } from "Functions/calculateScore";
 // import { hasBlackJack } from "store/Reducers/Functions/hasBlackJack";
 
 // Get's a random card from the deck on the table, adds it to player's hand and updates the score
 export const playerDrawCard = createAsyncThunk(
-  'player/drawCard',
+  "player/drawCard",
   async (_, { getState, dispatch }) => {
     let state = getState() as RootState;
     const randomCard: Card =
@@ -22,15 +22,8 @@ export const playerDrawCard = createAsyncThunk(
     await dispatch(addCard(randomCard));
 
     state = getState() as RootState;
-    await dispatch(setPlayerScore(calculateScore({ cards: state.player.cards })));
+    await dispatch(
+      setPlayerScore(calculateScore({ cards: state.player.cards })),
+    );
   },
 );
-
-// export const playerBlackJack = createAsyncThunk(
-//     'player/hasBlackJack',
-//     async (_, { getState, dispatch }) => {
-//         let state = getState() as RootState;
-//         if (hasBlackJack({ cards: state.player.cards })) {
-
-//         }
-// )

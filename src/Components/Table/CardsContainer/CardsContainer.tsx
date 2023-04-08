@@ -1,8 +1,9 @@
-import './cardsContainer.style.css';
+import "./cardsContainer.style.css";
+import { nanoid } from "nanoid";
 // Types
-import { DealerState, PlayerState, Card as CardType } from 'types';
+import { Card as CardType } from "types";
 // Components
-import Card from 'Components/Table/Card';
+import Card from "Components/Table/Card";
 
 type CardsContainerProps = {
   cards: CardType[];
@@ -10,9 +11,15 @@ type CardsContainerProps = {
 
 export default function CardsContainer(props: CardsContainerProps) {
   // Map over the cards and create a JSX element for each card
-  const playerCardsJSX = props.cards.map((card, index) => {
-    return <Card key={index} suit={card.suit} value={card.value} faceUp={card.faceUp} />;
-  });
+  const { cards } = props;
+  const playerCardsJSX = cards.map((card) => (
+    <Card
+      key={nanoid()}
+      suit={card.suit}
+      value={card.value}
+      faceUp={card.faceUp}
+    />
+  ));
 
-  return <section className='cards--container'>{playerCardsJSX}</section>;
+  return <section className="cards--container">{playerCardsJSX}</section>;
 }

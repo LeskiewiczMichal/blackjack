@@ -1,5 +1,5 @@
-import { useAppSelector, useAppDispatch } from 'Hooks/hooks';
-import { split } from 'store/Actions/split';
+import { useAppSelector, useAppDispatch } from "Hooks/hooks";
+import { split } from "Actions/split";
 
 export default function SplitButton() {
   const dispatch = useAppDispatch();
@@ -17,10 +17,12 @@ export default function SplitButton() {
   };
 
   return (
-    <div className='button--container'>
+    <div className="button--container">
       <button
-        type='button'
-        className={`UI--button UI--split-button ${isDisabled ? 'UI--button-disabled' : ''}`}
+        type="button"
+        className={`UI--button UI--split-button ${
+          isDisabled ? "UI--button-disabled" : ""
+        }`}
         onClick={handleClick}
         disabled={isDisabled}
       >

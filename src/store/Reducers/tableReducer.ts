@@ -1,19 +1,19 @@
 // Types
-import { TableState, Card } from 'types.d';
+import { TableState, Card } from "types.d";
 
 // Libraries
-import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 // Functions
-import { generateCards } from 'Functions/generateCards';
-import { showCards } from 'store/Reducers/dealerReducer';
+import { generateCards } from "Functions/generateCards";
+import { showCards } from "store/Reducers/dealerReducer";
 
 // Initial decks of cards
 const cards = generateCards();
 
 const initialState: TableState = {
   currentBet: 0,
-  cards: cards,
+  cards,
   inGame: false,
   gameFinished: false,
   popUpActive: false,
@@ -21,8 +21,8 @@ const initialState: TableState = {
 };
 
 export const tableSlice = createSlice({
-  name: 'table',
-  initialState: initialState,
+  name: "table",
+  initialState,
   reducers: {
     incrementBet: (state, action: PayloadAction<number>) => {
       state.currentBet += action.payload;

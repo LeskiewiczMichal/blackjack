@@ -1,8 +1,8 @@
 // Types
-import { PlayerState, Card } from 'types';
+import { PlayerState, Card } from "types";
 
 // Libraries
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const initialState: PlayerState = {
   cards: [],
@@ -13,8 +13,8 @@ const initialState: PlayerState = {
 };
 
 export const playerSlice = createSlice({
-  name: 'player',
-  initialState: initialState,
+  name: "player",
+  initialState,
   reducers: {
     addCard: (state, action: PayloadAction<Card>) => {
       state.cards.push(action.payload);

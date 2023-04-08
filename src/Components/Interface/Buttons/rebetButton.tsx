@@ -1,5 +1,5 @@
-import { useAppDispatch, useAppSelector } from 'Hooks/hooks';
-import { rebet } from 'store/Actions/gameState';
+import { useAppDispatch, useAppSelector } from "Hooks/hooks";
+import { rebet } from "Actions/gameState";
 
 export default function RebetButton() {
   const dispatch = useAppDispatch();
@@ -14,8 +14,10 @@ export default function RebetButton() {
 
   return (
     <button
-      type='button'
-      className={`UI--button UI--hit-button ${isDisabled ? 'UI--button-disabled' : ''}`}
+      type="button"
+      className={`UI--button UI--hit-button ${
+        isDisabled ? "UI--button-disabled" : ""
+      }`}
       onClick={handleClick}
       disabled={isDisabled}
     >
