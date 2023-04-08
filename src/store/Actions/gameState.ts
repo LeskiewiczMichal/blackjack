@@ -91,7 +91,7 @@ const playerWon = createAsyncThunk(
     const balance = state.player.balance;
 
     if (hasBlackJack({ cards: state.player.cards })) {
-      dispatch(setBalance(balance + bet * 2.0));
+      dispatch(setBalance(balance + bet * 1.5));
       return;
     }
 
