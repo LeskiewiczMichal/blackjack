@@ -1,166 +1,162 @@
 .margin-left {
-    margin-left: auto;
+  margin-left: auto;
 }
 
 .margin-right {
-    margin-right: auto;
+  margin-right: auto;
 }
 
 .interface {
-    width: 100vw;
-    margin-top: auto;
-    display: flex;
-    justify-content: center;
-    padding: 0.5rem;
+  width: 100vw;
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem;
 }
 
 .interface-disabled {
-    pointer-events: none;
-    opacity: 0.6;
+  pointer-events: none;
+  opacity: 0.6;
 }
 
 .interface--background {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* background-image: url("../../Images/wood-pattern.png"); */
-    background-image: var(--wooden-table-url);
-    background-color: var(--interface-brown);
-    box-shadow: 5px 5px 10px var(--black);
-    border: 3px solid var(--green-border);
-    width: max-content;
-    border-radius: 10px;
-    padding: 0.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-image: url("../../Images/wood-pattern.png"); */
+  background-image: var(--wooden-table-url);
+  background-color: var(--interface-brown);
+  box-shadow: 5px 5px 10px var(--black);
+  border: 3px solid var(--green-border);
+  width: max-content;
+  border-radius: 10px;
+  padding: 0.3rem;
 }
 
 .interface--main {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 1rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
-
 .interface--chips {
-    scale: 0.9;
-    gap: 0.8rem;
-    flex: 1;
+  scale: 0.9;
+  gap: 0.8rem;
+  flex: 1;
 }
 
 .interface--table {
-    flex: 1;
-    scale: 0.9;
-    gap: 0.8rem;
+  flex: 1;
+  scale: 0.9;
+  gap: 0.8rem;
 }
 
 /* GAME INFO TABLE */
 
 .InfoTable--container {
-    color: var(--info-gold);
-    font-size: 20px;
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
-    align-items: center;
-    font-weight: bold;
-    font-size: 1.5rem;
-    gap: 0.3rem;
+  color: var(--info-gold);
+  font-size: 20px;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.5rem;
+  gap: 0.3rem;
 }
 
 .InfoTable--row {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 0.3rem;
-    gap: 0.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0.3rem;
+  gap: 0.3rem;
 }
 
 .InfoTable--Insurance-active {
-    flex-direction: column;
+  flex-direction: column;
 }
 
 .InfoTable--money {
-    font-size: 3rem;
+  font-size: 3rem;
 }
-
 
 /* BUTTONS STYLING */
 
 .UI--button {
-    border: none;
-    width: 80px;
-    height: 80px;
-    box-shadow: 5px 5px 12px var(--white);
-    background-repeat: no-repeat;
-    background-size: 100% 80%;
-    border-radius: 30%;
-    display: flex;
-    align-items: end;
-    justify-content: center;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 16px;
-    box-shadow: 0 0 5px #000000;
+  border: none;
+  width: 80px;
+  height: 80px;
+  box-shadow: 5px 5px 12px var(--white);
+  background-repeat: no-repeat;
+  background-size: 100% 80%;
+  border-radius: 30%;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  box-shadow: 0 0 5px #000000;
 }
 
 .UI--button:hover {
-    box-shadow: 0px 0px 10px var(--white);
-    border: 2px solid var(--white);
+  box-shadow: 0px 0px 10px var(--white);
+  border: 2px solid var(--white);
 }
 
 .UI--hit-button {
-    background-image: url("../../Icons/hit.svg");
-    background-color: #6530c1;
+  background-image: url('../../Icons/hit.svg');
+  background-color: #6530c1;
 }
 /* credits: https://www.svgrepo.com/author/game-icons.net/  */
 
 .UI--split-button {
-    background-image: url("../../Icons/split.svg");
-    background-color: #c13207 ;
-    background-size: 100% 70%;
-    background-position-y: 20%;
+  background-image: url('../../Icons/split.svg');
+  background-color: #c13207;
+  background-size: 100% 70%;
+  background-position-y: 20%;
 }
 /* credits: https://www.svgrepo.com/author/Icooon%20Mono/ */
 
 .UI--clear-button {
-    background-image: url("../../Icons/clear.svg");
-    background-color: #007c9b;
-    background-size: 100% 70%;
-    background-position-y: 15%;
+  background-image: url('../../Icons/clear.svg');
+  background-color: #007c9b;
+  background-size: 100% 70%;
+  background-position-y: 15%;
 }
 /* credits https://www.svgrepo.com/author/Gitlab/ */
 
 .UI--stand-button {
-    background-image: url("../../Icons/stand.svg");
-    background-color: #900098;
-    background-size: 100% 75%;
-    background-position-y: 10%;
+  background-image: url('../../Icons/stand.svg');
+  background-color: #900098;
+  background-size: 100% 75%;
+  background-position-y: 10%;
 }
 /* credits: https://www.svgrepo.com/author/Icooon%20Mono/ */
 
 .UI--doubleDown-button {
-    background-image: url("../../Icons/doubleDown.svg");
-    background-color: #018756;
-    background-size: 60% 55%;
-    background-position-x: center;
-    
+  background-image: url('../../Icons/doubleDown.svg');
+  background-color: #018756;
+  background-size: 60% 55%;
+  background-position-x: center;
 }
 /*creidts: https://www.svgrepo.com/author/zest/ */
 
 .UI--deal-button {
-    background-image: url("../../Icons/deal.svg");
-    background-color: #86245d;
-    background-size: 100% 70%;
-    background-position-y: 15%;
+  background-image: url('../../Icons/deal.svg');
+  background-color: #86245d;
+  background-size: 100% 70%;
+  background-position-y: 15%;
 }
 /* credits: https://www.svgrepo.com/author/Mike%20Hunter/ */
 
 .UI--button-disabled {
-    /* background-color: #c13207 ; */
-    opacity: 0.6;
-    cursor: not-allowed;
+  /* background-color: #c13207 ; */
+  opacity: 0.6;
+  cursor: not-allowed;
 }
-

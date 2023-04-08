@@ -1,16 +1,16 @@
-import { useAppDispatch } from "Hooks/hooks";
-import { hit } from "store/Actions/hit";
+import { useAppDispatch } from 'Hooks/hooks';
+import { hit } from 'store/Actions/hit';
 
 export default function HitButton() {
-    const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
 
-    const handleClick = () => {
-        dispatch(hit());
-    }
+  const handleClick = () => {
+    dispatch(hit());
+  };
 
-    return (
-        <button type="button" className="UI--button UI--hit-button" onClick={handleClick}>
-            Hit
-        </button>
-    )
+  return (
+    <button type='button' className='UI--button UI--hit-button' onClick={handleClick}>
+      Hit
+    </button>
+  );
 }

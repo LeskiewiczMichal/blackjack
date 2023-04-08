@@ -1,20 +1,19 @@
-import "Components/Styles/UI.style.css";
+import 'Components/Styles/UI.style.css';
 // Hooks
-import { useAppSelector } from "Hooks/hooks";
+import { useAppSelector } from 'Hooks/hooks';
 // Components
-import Chip from "Components/Interface/Chip";
-import HitButton from "Components/Interface/Buttons/HitButton";
-import SplitButton from "Components/Interface/Buttons/SplitButton";
-import DoubleDownButton from "Components/Interface/Buttons/DoubleDownButton";
-import StandButton from "Components/Interface/Buttons/StandButton";
-import DealButton from "Components/Interface/Buttons/DealButton";
-import ClearButton from "Components/Interface/Buttons/ClearButton";
-import InfoTable from "Components/Interface/InfoTable";
-import NewBetButton from "Components/Interface/Buttons/NewBetButton";
-import RebetButton from "./Buttons/rebetButton";
+import Chip from 'Components/Interface/Chip';
+import HitButton from 'Components/Interface/Buttons/HitButton';
+import SplitButton from 'Components/Interface/Buttons/SplitButton';
+import DoubleDownButton from 'Components/Interface/Buttons/DoubleDownButton';
+import StandButton from 'Components/Interface/Buttons/StandButton';
+import DealButton from 'Components/Interface/Buttons/DealButton';
+import ClearButton from 'Components/Interface/Buttons/ClearButton';
+import InfoTable from 'Components/Interface/InfoTable';
+import NewBetButton from 'Components/Interface/Buttons/NewBetButton';
+import RebetButton from './Buttons/rebetButton';
 
-import { ChipValue } from "./Chip";  // Enum for Chip component props
-
+import { ChipValue } from './Chip'; // Enum for Chip component props
 
 export default function UI() {
   const inGame: boolean = useAppSelector((state) => state.table.inGame);
@@ -34,7 +33,6 @@ export default function UI() {
           <HitButton />
           <DoubleDownButton />
         </>
-        
       );
     } else {
       mainInterfaceJSX = (
@@ -55,7 +53,7 @@ export default function UI() {
 
   return (
     <nav className={`interface ${isDisabled ? 'interface-disabled' : ''}`}>
-      <section className="interface--chips margin-right interface--background">
+      <section className='interface--chips margin-right interface--background'>
         <Chip value={ChipValue.chipOne} />
         <Chip value={ChipValue.chipTen} />
         <Chip value={ChipValue.chipTwentyFive} />
@@ -63,10 +61,8 @@ export default function UI() {
         <Chip value={ChipValue.chipHundred} />
         <Chip value={ChipValue.chipFiveHundred} />
       </section>
-      <section className="interface--main interface--background">
-        {mainInterfaceJSX}
-      </section>
-      <section className="interface--table margin-left interface--background">
+      <section className='interface--main interface--background'>{mainInterfaceJSX}</section>
+      <section className='interface--table margin-left interface--background'>
         <InfoTable />
       </section>
     </nav>

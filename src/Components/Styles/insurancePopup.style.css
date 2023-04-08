@@ -1,43 +1,43 @@
 .insurance-popup--container {
-    width: 35%;
-    height: 30%;
-    padding: 1rem;
-    background-color: #000000d2;
-    box-shadow: 0 0 10px var(--black);
+  width: 35%;
+  height: 30%;
+  padding: 1rem;
+  background-color: #000000d2;
+  box-shadow: 0 0 10px var(--black);
 
-    border: 1px solid var(--info-gold);
-    border-radius: 15px;
+  border: 1px solid var(--info-gold);
+  border-radius: 15px;
 
-    color: var(--info-gold);
-    font-size: 20px;
-    font-weight: bold;
+  color: var(--info-gold);
+  font-size: 20px;
+  font-weight: bold;
 
-    z-index: 999;
-    display: flex;
-    gap: 1rem;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  z-index: 999;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .insurance-text {
-    text-align: center;
+  text-align: center;
 }
 
 .insurance-buttons--wrapper {
-    display: flex;
-    width: 30%;
-    justify-content: space-between;
+  display: flex;
+  width: 30%;
+  justify-content: space-between;
 }
 
 .insurance-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0.5rem;
-    color: var(--info-gold);
-    font-size: 20px;
-    background-color: var(--interface-brown);
-    background-image: var(--wooden-table-url);
-    cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  color: var(--info-gold);
+  font-size: 20px;
+  background-color: var(--interface-brown);
+  background-image: var(--wooden-table-url);
+  cursor: pointer;
 }
