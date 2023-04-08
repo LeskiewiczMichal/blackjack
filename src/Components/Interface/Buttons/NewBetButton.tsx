@@ -1,5 +1,5 @@
 import { useAppDispatch } from "Hooks/hooks";
-import clearTable from "Actions/clearTable";
+import { clearTable } from "Actions/clearTable";
 
 export default function NewBetButton() {
   const dispatch = useAppDispatch();

@@ -1,7 +1,4 @@
-// Libraries
 import { createAsyncThunk } from "@reduxjs/toolkit";
-
-// Functions
 import {
   setInGame,
   setGameFinished,
@@ -37,4 +34,4 @@ const clearTable = createAsyncThunk(
   },
 );
 
-export default clearTable;
+export { clearTable };

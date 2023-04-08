@@ -1,17 +1,12 @@
-// Types
 import { Card } from "types";
 import { RootState } from "store/store";
-
-// Libraries
 import { createAsyncThunk } from "@reduxjs/toolkit";
-
-// Functions
 import { drawCard } from "store/Reducers/tableReducer";
 import { addCard, setDealerScore } from "store/Reducers/dealerReducer";
 import { calculateScore } from "Functions/calculateScore";
 
 // Get's a random card from the deck on the table, adds it to dealer's hand and updates the score
-export const dealerDrawCard = createAsyncThunk(
+const dealerDrawCard = createAsyncThunk(
   "player/drawCard",
   async (_, { getState, dispatch }) => {
     let state = getState() as RootState;
@@ -32,7 +27,7 @@ export const dealerDrawCard = createAsyncThunk(
   },
 );
 
-export const dealerDrawUntillSeventeen = createAsyncThunk(
+const dealerDrawUntillSeventeen = createAsyncThunk(
   "player/drawUntillSeventeen",
   async (_, { getState, dispatch }) => {
     let state = getState() as RootState;
@@ -42,3 +37,5 @@ export const dealerDrawUntillSeventeen = createAsyncThunk(
     }
   },
 );
+
+export { dealerDrawCard, dealerDrawUntillSeventeen };

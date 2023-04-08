@@ -1,14 +1,11 @@
-// Types
 import { RootState } from "store/store";
-// Libraries
 import { createAsyncThunk, unwrapResult } from "@reduxjs/toolkit";
-// Functions
 import { playerDrawCard } from "Actions/playerUtils";
 import { finishGame } from "Actions/gameState";
-import { playerDidSplit, switchHands } from "./split";
+import { playerDidSplit, switchHands } from "Actions/split";
 
 // Draw a card for the player
-export const hit = createAsyncThunk(
+const hit = createAsyncThunk(
   "player/hit",
   async (_, { getState, dispatch }) => {
     await dispatch(playerDrawCard());
@@ -20,10 +17,12 @@ export const hit = createAsyncThunk(
         await dispatch(playerDidSplit()),
       );
       if (splitActive) {
-        dispatch(switchHands()); // If player has split, switch to second hand
+        dispatch(switchHands());
       } else {
-        dispatch(finishGame()); // If player has not split, end game
+        dispatch(finishGame());
       }
     }
   },
 );
+
+export { hit };

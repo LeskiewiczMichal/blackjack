@@ -1,9 +1,6 @@
-// Types
 import { Card } from "types.d";
 import { RootState } from "store/store";
-// Libraries
 import { createAsyncThunk } from "@reduxjs/toolkit";
-// Functions
 import {
   setPlayerCards,
   setPlayerScore,
@@ -14,7 +11,7 @@ import {
 import { calculateScore } from "Functions/calculateScore";
 import { playerDrawCard } from "./playerUtils";
 
-export const split = createAsyncThunk(
+const split = createAsyncThunk(
   "player/split",
   async (_, { getState, dispatch }) => {
     const state = getState() as RootState;
@@ -32,7 +29,7 @@ export const split = createAsyncThunk(
   },
 );
 
-export const switchHands = createAsyncThunk(
+const switchHands = createAsyncThunk(
   "player/switchHands",
   async (_, { getState, dispatch }) => {
     const state = getState() as RootState;
@@ -52,7 +49,7 @@ export const switchHands = createAsyncThunk(
   },
 );
 
-export const playerDidSplit = createAsyncThunk(
+const playerDidSplit = createAsyncThunk(
   "player/playerDidSplit",
   async (_, { getState }): Promise<boolean> => {
     const state = getState() as RootState;
@@ -61,3 +58,5 @@ export const playerDidSplit = createAsyncThunk(
     );
   },
 );
+
+export { split, switchHands, playerDidSplit };

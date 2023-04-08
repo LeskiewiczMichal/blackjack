@@ -4,8 +4,8 @@ import { hit } from "Actions/hit";
 export default function HitButton() {
   const dispatch = useAppDispatch();
 
-  const handleClick = () => {
-    dispatch(hit());
+  const handleClick = async () => {
+    await dispatch(hit());
   };
 
   return (

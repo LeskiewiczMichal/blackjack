@@ -1,15 +1,9 @@
-import "Components/Styles/table.style.css";
-
-// Types
+import "./table.style.css";
 import { RootState } from "store/store";
-
-// Libraries
 import { useSelector } from "react-redux";
-
-// Components
 import CardsContainer from "Components/Table/CardsContainer/CardsContainer";
 import PointsDisplay from "Components/Table/PointsDisplay/PointsDisplay";
-import InsurancePopup from "Components/Interface/InsurancePopup";
+import InsurancePopup from "Components/Interface/InsurancePopUp/InsurancePopup";
 
 export default function Table() {
   const player = useSelector((state: RootState) => state.player);

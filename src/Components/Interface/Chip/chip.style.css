@@ -15,27 +15,27 @@
 }
 
 .chip-one {
-  background-image: url('/src/Images/Chips/1_chip.png');
+  background-image: url("/src/Images/Chips/1_chip.png");
 }
 
 .chip-ten {
-  background-image: url('/src/Images/Chips/10_chip.png');
+  background-image: url("/src/Images/Chips/10_chip.png");
 }
 
 .chip-twenty-five {
-  background-image: url('/src/Images/Chips/25_chip.png');
+  background-image: url("/src/Images/Chips/25_chip.png");
 }
 
 .chip-fifty {
-  background-image: url('/src/Images/Chips/50_chip.png');
+  background-image: url("/src/Images/Chips/50_chip.png");
 }
 
 .chip-hundred {
-  background-image: url('/src/Images/Chips/100_chip.png');
+  background-image: url("/src/Images/Chips/100_chip.png");
 }
 
 .chip-five-hundred {
-  background-image: url('/src/Images/Chips/500_chip.png');
+  background-image: url("/src/Images/Chips/500_chip.png");
 }
 
 /* <div> Icons made by <a href="https://www.flaticon.com/authors/smashingstocks" title="smashingstocks"> smashingstocks </a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com'</a></div> */

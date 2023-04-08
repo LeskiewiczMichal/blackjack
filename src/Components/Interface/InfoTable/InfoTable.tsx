@@ -1,4 +1,4 @@
-// Hooks
+import "./infoTable.style.css";
 import { useAppSelector } from "Hooks/hooks";
 
 export default function InfoTable() {

@@ -1,7 +1,5 @@
-import "Components/Styles/chip.style.css";
-// Hooks
+import "./chip.style.css";
 import { useAppDispatch, useAppSelector } from "Hooks/hooks";
-// Functions
 import { incrementBet } from "store/Reducers/tableReducer";
 
 export enum ChipValue {

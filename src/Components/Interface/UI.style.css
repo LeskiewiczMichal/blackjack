@@ -1,0 +1,55 @@
+.margin-left {
+  margin-left: auto;
+}
+
+.margin-right {
+  margin-right: auto;
+}
+
+.interface {
+  width: 100vw;
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+.interface-disabled {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.interface--background {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-image: url("../../Images/wood-pattern.png"); */
+  background-image: var(--wooden-table-url);
+  background-color: var(--interface-brown);
+  box-shadow: 5px 5px 10px var(--black);
+  border: 3px solid var(--green-border);
+  width: max-content;
+  border-radius: 10px;
+  padding: 0.3rem;
+}
+
+.interface--main {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.interface--chips {
+  scale: 0.9;
+  gap: 0.8rem;
+  flex: 1;
+}
+
+.interface--table {
+  flex: 1;
+  scale: 0.9;
+  gap: 0.8rem;
+}

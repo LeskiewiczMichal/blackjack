@@ -1,19 +1,19 @@
-import "Components/Styles/UI.style.css";
-// Hooks
+import "./UI.style.css";
+import "./Buttons/buttons.style.css";
+
 import { useAppSelector } from "Hooks/hooks";
-// Components
-import Chip from "Components/Interface/Chip";
+import Chip from "Components/Interface/Chip/Chip";
 import HitButton from "Components/Interface/Buttons/HitButton";
 import SplitButton from "Components/Interface/Buttons/SplitButton";
 import DoubleDownButton from "Components/Interface/Buttons/DoubleDownButton";
 import StandButton from "Components/Interface/Buttons/StandButton";
 import DealButton from "Components/Interface/Buttons/DealButton";
 import ClearButton from "Components/Interface/Buttons/ClearButton";
-import InfoTable from "Components/Interface/InfoTable";
+import InfoTable from "Components/Interface/InfoTable/InfoTable";
 import NewBetButton from "Components/Interface/Buttons/NewBetButton";
 import RebetButton from "./Buttons/rebetButton";
 
-import { ChipValue } from "./Chip"; // Enum for Chip component props
+import { ChipValue } from "./Chip/Chip"; // Enum for Chip component props
 
 export default function UI() {
   const inGame: boolean = useAppSelector((state) => state.table.inGame);

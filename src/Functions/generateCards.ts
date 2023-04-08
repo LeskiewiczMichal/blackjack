@@ -1,4 +1,3 @@
-// Types
 import { Card, CardSuit, CardValue } from "types.d";
 
 const NUMBER_OF_DECKS = 6;

@@ -1,9 +1,7 @@
 import "./cardsContainer.style.css";
 import { nanoid } from "nanoid";
-// Types
 import { Card as CardType } from "types";
-// Components
-import Card from "Components/Table/Card";
+import Card from "Components/Table/Card/Card";
 
 type CardsContainerProps = {
   cards: CardType[];

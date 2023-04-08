@@ -1,7 +1,5 @@
-// Libraries
 import { useAppSelector, useAppDispatch } from "Hooks/hooks";
-// Functions
-import doubleDown from "Actions/doubleDown";
+import { doubleDown } from "Actions/doubleDown";
 
 export default function DoubleDownButton() {
   const dispatch = useAppDispatch();

@@ -1,4 +1,3 @@
-// Types
 import { Card, CardValue } from "types.d";
 
 type CalculateScoreProps = {
