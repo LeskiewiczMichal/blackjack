@@ -4,7 +4,7 @@ import { hit } from "Actions/hit";
 export default function HitButton() {
   const dispatch = useAppDispatch();
 
-  const handleClick = async () => {
+  const hitHandler = async () => {
     await dispatch(hit());
   };
 
@@ -12,7 +12,7 @@ export default function HitButton() {
     <button
       type="button"
       className="UI--button UI--hit-button"
-      onClick={handleClick}
+      onClick={hitHandler}
     >
       Hit
     </button>

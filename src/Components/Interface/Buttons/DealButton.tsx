@@ -7,7 +7,7 @@ export default function DealButton() {
 
   const isDisabled: boolean = currentBet === 0;
 
-  const handleClick = () => {
+  const dealHandler = () => {
     dispatch(makeDeal());
   };
 
@@ -17,7 +17,7 @@ export default function DealButton() {
       className={`UI--button UI--deal-button ${
         isDisabled ? "UI--button-disabled" : ""
       }`}
-      onClick={handleClick}
+      onClick={dealHandler}
       disabled={isDisabled}
     >
       Deal

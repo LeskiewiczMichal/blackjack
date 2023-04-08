@@ -8,7 +8,7 @@ export default function RebetButton() {
 
   const isDisabled: boolean = playerBalance < bet;
 
-  const handleClick = () => {
+  const rebetHandler = () => {
     dispatch(rebet());
   };
 
@@ -18,7 +18,7 @@ export default function RebetButton() {
       className={`UI--button UI--hit-button ${
         isDisabled ? "UI--button-disabled" : ""
       }`}
-      onClick={handleClick}
+      onClick={rebetHandler}
       disabled={isDisabled}
     >
       REBET

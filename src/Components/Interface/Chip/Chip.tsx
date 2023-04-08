@@ -48,7 +48,7 @@ export default function Chip(props: ChipProps) {
   }
 
   // Handle incrementing the bet
-  const handleClick = () => {
+  const handleBet = () => {
     // Check if the player has enough money to bet
     if (bet + incremenetValue > playerBalance) {
       return;
@@ -60,7 +60,7 @@ export default function Chip(props: ChipProps) {
     <button
       type="button"
       className={`chip chip-${value}`}
-      onClick={handleClick}
+      onClick={handleBet}
       disabled={inGame}
       aria-label={`Select chip with value ${value}`}
     />

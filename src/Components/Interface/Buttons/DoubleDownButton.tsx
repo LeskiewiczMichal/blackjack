@@ -10,7 +10,7 @@ export default function DoubleDownButton() {
   const isDisabled: boolean =
     playerCards.length !== 2 || bet * 2 > playerBalance;
 
-  const handleClick = () => {
+  const doubleDownHandler = () => {
     dispatch(doubleDown());
   };
 
@@ -20,7 +20,7 @@ export default function DoubleDownButton() {
       className={`UI--button UI--doubleDown-button ${
         isDisabled ? "UI--button-disabled" : ""
       }`}
-      onClick={handleClick}
+      onClick={doubleDownHandler}
       disabled={isDisabled}
     >
       Double Down

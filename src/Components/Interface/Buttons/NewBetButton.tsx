@@ -4,7 +4,7 @@ import { clearTable } from "Actions/clearTable";
 export default function NewBetButton() {
   const dispatch = useAppDispatch();
 
-  const handleClick = () => {
+  const newBetHandler = () => {
     dispatch(clearTable());
   };
 
@@ -12,7 +12,7 @@ export default function NewBetButton() {
     <button
       type="button"
       className="UI--button UI--deal-button"
-      onClick={handleClick}
+      onClick={newBetHandler}
     >
       New Bet
     </button>

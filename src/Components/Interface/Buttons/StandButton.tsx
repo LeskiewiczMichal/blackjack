@@ -6,7 +6,7 @@ import { switchHands, playerDidSplit } from "Actions/split";
 export default function StandButton() {
   const dispatch = useAppDispatch();
 
-  const handleClick = async () => {
+  const standHandler = async () => {
     const splitActive = unwrapResult(await dispatch(playerDidSplit()));
     if (splitActive) {
       dispatch(switchHands());
@@ -19,7 +19,7 @@ export default function StandButton() {
     <button
       type="button"
       className="UI--button UI--stand-button"
-      onClick={handleClick}
+      onClick={standHandler}
     >
       Stand
     </button>

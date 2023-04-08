@@ -1,18 +1,38 @@
 import { useAppSelector, useAppDispatch } from "Hooks/hooks";
 import { split } from "Actions/split";
-/// NOTE: split on two different figures is not active right now ////
-// NOTE: if player already split once, dont let him do it again //
+import { isFigure } from "Functions/isFigure";
+
 export default function SplitButton() {
   const dispatch = useAppDispatch();
   const player = useAppSelector((state) => state.player);
   const bet = useAppSelector((state) => state.table.currentBet);
+  const secondScore = useAppSelector((state) => state.player.secondScore);
+  const { cards, balance } = player;
+  const firstCard = player.cards[0];
+  const secondCard = player.cards[1];
 
-  const isDisabled: boolean =
-    player.cards.length !== 2 ||
-    player.cards[0].value !== player.cards[1].value ||
-    player.balance < bet * 2;
+  let isDisabled: boolean;
 
-  const handleClick = async () => {
+  if (cards.length !== 2) {
+    isDisabled = true;
+  } else if (secondScore !== null) {
+    isDisabled = true;
+  } else if (
+    // Card values are different, but both are figures so can split
+    firstCard.value !== secondCard.value &&
+    isFigure({ card: firstCard }) &&
+    isFigure({ card: secondCard })
+  ) {
+    isDisabled = false;
+  } else if (firstCard.value !== secondCard.value) {
+    isDisabled = true;
+  } else if (balance < bet * 2) {
+    isDisabled = true;
+  } else {
+    isDisabled = false;
+  }
+
+  const splitHandler = async () => {
     await dispatch(split());
   };
 
@@ -23,7 +43,7 @@ export default function SplitButton() {
         className={`UI--button UI--split-button ${
           isDisabled ? "UI--button-disabled" : ""
         }`}
-        onClick={handleClick}
+        onClick={splitHandler}
         disabled={isDisabled}
       >
         Split
