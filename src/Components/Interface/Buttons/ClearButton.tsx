@@ -14,7 +14,7 @@ export default function ClearButton() {
       className="UI--button UI--clear-button"
       onClick={clearHandler}
     >
-      Clear
+      CLEAR
     </button>
   );
 }

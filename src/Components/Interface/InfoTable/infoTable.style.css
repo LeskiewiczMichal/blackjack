@@ -6,7 +6,7 @@
   justify-content: space-around;
   align-items: center;
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   gap: 0.3rem;
 }
 
@@ -14,6 +14,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   width: 100%;
   padding: 0.3rem;
   gap: 0.3rem;
@@ -24,5 +25,12 @@
 }
 
 .InfoTable--money {
-  font-size: 3rem;
+  font-size: 2.6rem;
+}
+
+
+@media (max-width: 900px) {
+  .InfoTable--container {
+    flex-wrap: wrap;
+  }
 }

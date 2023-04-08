@@ -20,7 +20,7 @@ export default function DealButton() {
       onClick={dealHandler}
       disabled={isDisabled}
     >
-      Deal
+      DEAL
     </button>
   );
 }

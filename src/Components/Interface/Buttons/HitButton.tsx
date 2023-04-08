@@ -14,7 +14,7 @@ export default function HitButton() {
       className="UI--button UI--hit-button"
       onClick={hitHandler}
     >
-      Hit
+      HIT
     </button>
   );
 }

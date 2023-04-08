@@ -46,7 +46,7 @@ export default function SplitButton() {
         onClick={splitHandler}
         disabled={isDisabled}
       >
-        Split
+        SPLIT
       </button>
     </div>
   );

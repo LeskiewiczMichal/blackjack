@@ -21,7 +21,7 @@ export default function StandButton() {
       className="UI--button UI--stand-button"
       onClick={standHandler}
     >
-      Stand
+      STAND
     </button>
   );
 }

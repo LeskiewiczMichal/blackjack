@@ -23,7 +23,7 @@ export default function DoubleDownButton() {
       onClick={doubleDownHandler}
       disabled={isDisabled}
     >
-      Double Down
+      DOUBLE DOWN
     </button>
   );
 }
