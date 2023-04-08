@@ -11,6 +11,8 @@ import { dealerDrawUntillSeventeen } from "./dealerUtils";
 import { clearTable } from "./clearTable";
 import { incrementBet } from "store/Reducers/tableReducer";
 import { makeDeal } from "./makeDeal";
+import { hasBlackJack } from "store/Reducers/Functions/hasBlackJack";
+
 
 type Winner = PlayerType | null;
 
@@ -49,7 +51,6 @@ export const rebet = createAsyncThunk(
       return;
     }
     const bet = state.table.currentBet;
-    
     await dispatch(clearTable());
     await dispatch(incrementBet(bet));
     await dispatch(makeDeal());
@@ -88,6 +89,12 @@ const playerWon = createAsyncThunk(
     const state = getState() as RootState;
     const bet = state.table.currentBet;
     const balance = state.player.balance;
+
+    if (hasBlackJack({ cards: state.player.cards })) {
+      dispatch(setBalance(balance + bet * 2.0));
+      return;
+    }
+
     dispatch(setBalance(balance + bet));
   }
 );

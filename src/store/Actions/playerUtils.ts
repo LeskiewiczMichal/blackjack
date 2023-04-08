@@ -9,6 +9,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { drawCard } from "store/Reducers/tableReducer";
 import { addCard, setPlayerScore } from "store/Reducers/playerReducer";
 import { calculateScore } from "store/Reducers/Functions/calculateScore";
+// import { hasBlackJack } from "store/Reducers/Functions/hasBlackJack";
 
 // Get's a random card from the deck on the table, adds it to player's hand and updates the score
 export const playerDrawCard = createAsyncThunk(
@@ -23,3 +24,13 @@ export const playerDrawCard = createAsyncThunk(
         await dispatch(setPlayerScore(calculateScore({ cards: state.player.cards })));
     }
 );
+
+
+// export const playerBlackJack = createAsyncThunk(
+//     'player/hasBlackJack',
+//     async (_, { getState, dispatch }) => {
+//         let state = getState() as RootState;
+//         if (hasBlackJack({ cards: state.player.cards })) {
+
+//         }
+// )
