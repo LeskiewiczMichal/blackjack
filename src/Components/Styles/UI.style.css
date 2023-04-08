@@ -23,7 +23,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("../../Images/wood-pattern.png");
+    /* background-image: url("../../Images/wood-pattern.png"); */
+    background-image: var(--wooden-table-url);
     background-color: var(--interface-brown);
     box-shadow: 5px 5px 10px var(--black);
     border: 3px solid var(--green-border);

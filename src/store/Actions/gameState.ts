@@ -18,29 +18,19 @@ export const finishGame = createAsyncThunk(
   "game/finishGame",
   async (_, { getState, dispatch }) => {
     let state = getState() as RootState;
-
     await dispatch(showCards()); // Flip dealer's hidden card
     await dispatch(setGameFinished(true)); // Set gameFinished to true
+
     state = getState() as RootState;
-
-    // Check if player won insurance bet
-    if (state.table.insuranceBet != null) {
-      if (hasBlackJack({ cards: state.dealer.cards })) {
-        await dispatch(setBalance(state.player.balance + state.table.insuranceBet * 2));
-      } else {
-        await dispatch(setBalance(state.player.balance - state.table.insuranceBet));
-      }
-    }
-
+    await dispatch(checkForInsurance());  // Check if player won insurance bet
     // Check if player's hand's are over 21
     const ended: boolean = unwrapResult(await dispatch(scoresOverTwentyOne()));
     if (ended) {
       return;
     }
-
     await dispatch(dealerDrawUntillSeventeen()); // Dealer draws cards untill he's score is 17 or more
-    state = getState() as RootState; // Need to update state after dealer's draw
 
+    state = getState() as RootState; // Need to update state after dealer's draw
     // Cheching game's result and updating balance
     await dispatch(checkGameResult(state.player.score));
     if (state.player.secondScore !== null) {
@@ -136,5 +126,21 @@ const scoresOverTwentyOne = createAsyncThunk(
       }
     }
     return false;
+  }
+);
+
+// If table has insurance bet, check who won and update balance
+const checkForInsurance = createAsyncThunk(
+  "game/checkInsurance",
+  async (_, { getState, dispatch }) => {
+    const state = getState() as RootState;
+    if (state.table.insuranceBet === null) {
+      return;
+    }
+    if (hasBlackJack({ cards: state.dealer.cards })) {
+      await dispatch(setBalance(state.player.balance + state.table.insuranceBet * 2));
+    } else {
+      await dispatch(setBalance(state.player.balance - state.table.insuranceBet));
+    }
   }
 );
