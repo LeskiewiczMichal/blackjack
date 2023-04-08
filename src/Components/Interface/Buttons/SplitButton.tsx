@@ -3,10 +3,11 @@ import { split } from "store/Actions/split";
 
 export default function SplitButton() {
   const dispatch = useAppDispatch();
-  const playerCards = useAppSelector((state) => state.player.cards);
+  const player = useAppSelector((state) => state.player);
+  const bet = useAppSelector((state) => state.table.currentBet);
 
   // let buttonActive: boolean = (playerCards.length === 2 && playerCards[0].value === playerCards[1].value);
-  const isDisabled: boolean = (playerCards.length !== 2 || playerCards[0].value !== playerCards[1].value);
+  const isDisabled: boolean = (player.cards.length !== 2 || player.cards[0].value !== player.cards[1].value || player.balance < bet * 2);
 
   const handleClick = () => {
       dispatch(split());
