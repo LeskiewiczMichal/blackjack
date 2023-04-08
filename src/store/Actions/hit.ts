@@ -4,7 +4,7 @@ import { RootState } from "store/store";
 import { createAsyncThunk, unwrapResult } from "@reduxjs/toolkit";
 // Functions
 import { playerDrawCard } from "store/Actions/playerUtils";
-import { finishGame } from "store/Actions/finishGame";
+import { finishGame } from "store/Actions/gameState";
 import { playerDidSplit, switchHands } from "./split";
 
 // Draw a card for the player

@@ -3,7 +3,7 @@ import { useAppDispatch } from "Hooks/hooks";
 // Libraries
 import { unwrapResult } from "@reduxjs/toolkit";
 // Functions
-import { finishGame } from "store/Actions/finishGame";
+import { finishGame } from "store/Actions/gameState";
 import { playerDidSplit } from "store/Actions/split";
 import { switchHands } from "store/Actions/split";
 

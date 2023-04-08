@@ -5,7 +5,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 // Functions
 import { incrementBet } from "store/Reducers/tableReducer";
 import { playerDrawCard } from "store/Actions/playerUtils";
-import { finishGame } from "store/Actions/finishGame";
+import { finishGame } from "store/Actions/gameState";
 
 export const doubleDown = createAsyncThunk(
     'player/doubleDown',

@@ -8,6 +8,9 @@ import { showCards } from "store/Reducers/dealerReducer";
 import { setGameFinished } from "store/Reducers/tableReducer";
 import { setBalance } from "store/Reducers/playerReducer";
 import { dealerDrawUntillSeventeen } from "./dealerUtils";
+import { clearTable } from "./clearTable";
+import { incrementBet } from "store/Reducers/tableReducer";
+import { makeDeal } from "./makeDeal";
 
 type Winner = PlayerType | null;
 
@@ -37,6 +40,22 @@ export const finishGame = createAsyncThunk(
     }
   }
 );
+
+export const rebet = createAsyncThunk(
+  "game/rebet",
+  async (_, { getState, dispatch }) => {
+    const state = getState() as RootState;
+    if (state.player.balance < state.table.currentBet) {
+      return;
+    }
+    const bet = state.table.currentBet;
+    
+    await dispatch(clearTable());
+    await dispatch(incrementBet(bet));
+    await dispatch(makeDeal());
+  }
+);
+
 
 // Check's who won and updates balance
 const checkGameResult = createAsyncThunk(

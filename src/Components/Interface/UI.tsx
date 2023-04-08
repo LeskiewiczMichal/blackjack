@@ -11,6 +11,7 @@ import DealButton from "Components/Interface/Buttons/DealButton";
 import ClearButton from "Components/Interface/Buttons/ClearButton";
 import InfoTable from "Components/Interface/InfoTable";
 import NewBetButton from "Components/Interface/Buttons/NewBetButton";
+import RebetButton from "./Buttons/rebetButton";
 
 import { ChipValue } from "./Chip";  // Enum for Chip component props
 
@@ -36,6 +37,7 @@ export default function UI() {
       mainInterfaceJSX = (
         <>
           <NewBetButton />
+          <RebetButton />
         </>
       );
     }
