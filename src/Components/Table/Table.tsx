@@ -1,5 +1,6 @@
 import "./table.style.css";
 import { RootState } from "store/store";
+import { PlayerType } from "types.d";
 import { useSelector } from "react-redux";
 import CardsContainer from "Components/Table/CardsContainer/CardsContainer";
 import PointsDisplay from "Components/Table/PointsDisplay/PointsDisplay";
@@ -23,19 +24,22 @@ export default function Table() {
       {table.inGame ? (
         <>
           <section className="table--player">
-            <PointsDisplay score={dealer.score} />
+            <PointsDisplay score={dealer.score} player={PlayerType.DEALER} />
             <CardsContainer cards={dealer.cards} />
           </section>
           {popUpJSX}
           <section className="table--player">
-            <PointsDisplay score={player.score} />
+            <PointsDisplay score={player.score} player={PlayerType.PLAYER} />
             <CardsContainer cards={player.cards} />
           </section>
         </>
       ) : null}
       {player.secondHand.length > 0 && player.secondScore != null ? (
         <section className="table--player table--second">
-          <PointsDisplay score={player.secondScore} />
+          <PointsDisplay
+            score={player.secondScore}
+            player={PlayerType.PLAYER}
+          />
           <CardsContainer cards={player.secondHand} />
         </section>
       ) : null}

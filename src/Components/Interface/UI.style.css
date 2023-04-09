@@ -87,6 +87,7 @@
     padding: 0;
     width: 90%;
     scale: 1;
+    order: 1;
   }
 
   .interface--main {
@@ -97,6 +98,7 @@
     flex-direction: row;
     flex-wrap: nowrap;
     width: 90%;
+    order: 2;
   }
 
   .interface--chips {
@@ -107,6 +109,7 @@
     flex-wrap: nowrap;
     width: max-content;
     width: 90%;
+    order: 3;
   }
 
   .margin-left {

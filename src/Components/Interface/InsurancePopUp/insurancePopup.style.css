@@ -2,7 +2,7 @@
   width: 35%;
   height: 30%;
   padding: 1rem;
-  background-color: #000000d2;
+  background-color: #000000da;
   box-shadow: 0 0 10px var(--black);
 
   border: 1px solid var(--info-gold);
@@ -40,4 +40,23 @@
   background-color: var(--interface-brown);
   background-image: var(--wooden-table-url);
   cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .insurance-popup--container {
+    top: 10%;
+    position: fixed;
+    width: 70%;
+    height: 60%;
+    gap: 2rem;
+    background-color: #000000;
+  }
+
+  .insurance-buttons--wrapper {
+    width: 70%;
+  }
+
+  .insurance-button {
+    min-width: 90px;
+  }
 }

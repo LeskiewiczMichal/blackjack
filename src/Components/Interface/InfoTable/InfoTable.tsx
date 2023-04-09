@@ -14,11 +14,11 @@ export default function InfoTable() {
     betJSX = (
       <div className="InfoTable--Insurance-active">
         <div className="InfoTable--row">
-          <span>Current bet:</span>
+          <span className="InfoTable--text">Current bet:</span>
           <span className="InfoTable--money">{currentBet}$</span>
         </div>
         <div className="InfoTable--row">
-          <span>Insurance bet:</span>
+          <span className="InfoTable--text">Insurance bet:</span>
           <span className="InfoTable--money">{insuranceBet}$</span>
         </div>
       </div>
@@ -26,7 +26,7 @@ export default function InfoTable() {
   } else {
     betJSX = (
       <div className="InfoTable--row">
-        <span>Current bet:</span>
+        <span className="InfoTable--text">Current bet:</span>
         <span className="InfoTable--money">{currentBet}$</span>
       </div>
     );
@@ -35,7 +35,7 @@ export default function InfoTable() {
   return (
     <div className="InfoTable--container">
       <div className="InfoTable--row">
-        <span>Balance:</span>
+        <span className="InfoTable--text">Balance:</span>
         <span className="InfoTable--money">{playerBalance}$</span>
       </div>
       {betJSX}
