@@ -1,3 +1,13 @@
 .cards--container {
   display: flex;
 }
+
+@media (max-width: 600px) {
+  .cards--container {
+    max-width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    scale: 0.9;
+  }
+}

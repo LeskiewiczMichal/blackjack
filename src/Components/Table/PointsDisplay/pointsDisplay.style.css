@@ -16,3 +16,12 @@
   font-weight: bold;
   font-size: 24px;
 }
+
+
+@media (max-width: 600px) {
+  .points--display {
+    scale: 0.9;
+    /* max-width: 50%; */
+    flex: none;
+  }
+}
