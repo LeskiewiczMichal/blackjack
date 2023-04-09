@@ -15,7 +15,7 @@ export default function RebetButton() {
   return (
     <button
       type="button"
-      className={`UI--button UI--hit-button ${
+      className={`UI--button UI--rebet-button ${
         isDisabled ? "UI--button-disabled" : ""
       }`}
       onClick={rebetHandler}

@@ -11,7 +11,7 @@ export default function NewBetButton() {
   return (
     <button
       type="button"
-      className="UI--button UI--deal-button"
+      className="UI--button UI--newBet-button"
       onClick={newBetHandler}
     >
       NEW BET

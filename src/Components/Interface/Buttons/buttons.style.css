@@ -23,30 +23,32 @@
 .UI--hit-button {
   background-image: url("/src/Icons/hit.svg");
   background-color: #6530c1;
+  background-size: 100% 70%;
+  background-position-y: 15%;
 }
 /* credits: https://www.svgrepo.com/author/game-icons.net/  */
 
 .UI--split-button {
   background-image: url("/src/Icons/split.svg");
   background-color: #c13207;
-  background-size: 100% 70%;
-  background-position-y: 20%;
+  background-size: 100% 60%;
+  background-position-y: 25%;
 }
 /* credits: https://www.svgrepo.com/author/Icooon%20Mono/ */
 
 .UI--clear-button {
   background-image: url("/src/Icons/clear.svg");
   background-color: #007c9b;
-  background-size: 100% 70%;
-  background-position-y: 15%;
+  background-size: 100% 60%;
+  background-position-y: 25%;
 }
 /* credits https://www.svgrepo.com/author/Gitlab/ */
 
 .UI--stand-button {
   background-image: url("/src/Icons/stand.svg");
   background-color: #900098;
-  background-size: 100% 75%;
-  background-position-y: 10%;
+  background-size: 100% 60%;
+  background-position-y: 25%;
 }
 /* credits: https://www.svgrepo.com/author/Icooon%20Mono/ */
 
@@ -61,13 +63,28 @@
 .UI--deal-button {
   background-image: url("/src/Icons/deal.svg");
   background-color: #86245d;
-  background-size: 100% 70%;
-  background-position-y: 15%;
+  background-size: 100% 60%;
+  background-position-y: 25%;
 }
 /* credits: https://www.svgrepo.com/author/Mike%20Hunter/ */
 
+.UI--newBet-button {
+  background-image: url("/src/Icons/new_bet.svg");
+  background-color: #1b903c;
+  background-size: 100% 60%;
+}
+/* credits: https://www.svgrepo.com/author/Chanut%20is%20Industries/ */
+
+.UI--rebet-button {
+  background-image: url("/src/Icons/rebet.svg");
+  background-color: #831717;
+  background-size: 100% 60%;
+  background-position-y: 15%;
+}
+/* credits: https://www.svgrepo.com/ */
+
+
 .UI--button-disabled {
-  /* background-color: #c13207 ; */
   opacity: 0.6;
   cursor: not-allowed;
 }
