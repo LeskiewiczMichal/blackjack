@@ -104,7 +104,7 @@
 
   .interface--chips {
     scale: 1;
-    padding: 0;
+    padding: 10px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;

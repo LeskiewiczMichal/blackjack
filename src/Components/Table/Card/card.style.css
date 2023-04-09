@@ -220,3 +220,10 @@
 .card--back {
   background-image: url("/src/Images/Cards/2B.svg");
 }
+
+@media screen and (max-width: 600px) {
+  .card {
+    width: 55px;
+    height: 75px;
+  }
+}
