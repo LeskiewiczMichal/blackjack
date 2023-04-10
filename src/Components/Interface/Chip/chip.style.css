@@ -38,8 +38,8 @@
   background-image: url("/src/assets/chips/500_chip.png");
 }
 
-/* <div> Icons made by <a href="https://www.flaticon.com/authors/smashingstocks" title="smashingstocks"> smashingstocks </a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com'</a></div> */
-/* <a href="https://www.flaticon.com/free-icons/poker-chip" title="poker chip icons">Poker chip icons created by smashingstocks - Flaticon</a> */
+/* Credits: https://www.flaticon.com/authors/smashingstocks" */
+
 
 @media (max-width: 600px) {
   .chip {
