@@ -19,6 +19,9 @@ const playerDrawCard = createAsyncThunk(
     await dispatch(
       setPlayerScore(calculateScore({ cards: state.player.cards })),
     );
+
+    // eslint-disable-next-line no-promise-executor-return
+    await new Promise((resolve) => setTimeout(resolve, 1000)); // Wait for animation to end
   },
 );
 

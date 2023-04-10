@@ -1,6 +1,7 @@
 import "./UI.style.css";
 import "./Buttons/buttons.style.css";
 
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { useAppSelector } from "Hooks/hooks";
 import Chip from "Components/Interface/Chip/Chip";
 import HitButton from "Components/Interface/Buttons/HitButton";
@@ -19,6 +20,7 @@ export default function UI() {
   const inGame: boolean = useAppSelector((state) => state.table.inGame);
   const gameFinished = useAppSelector((state) => state.table.gameFinished);
   const popUpActive = useAppSelector((state) => state.table.popUpActive);
+  const [parent] = useAutoAnimate();
 
   const isDisabled = popUpActive;
 
@@ -61,7 +63,7 @@ export default function UI() {
         <Chip value={ChipValue.chipHundred} />
         <Chip value={ChipValue.chipFiveHundred} />
       </section>
-      <section className="interface--main interface--background">
+      <section className="interface--main interface--background" ref={parent}>
         {mainInterfaceJSX}
       </section>
       <section className="interface--table margin-left interface--background">

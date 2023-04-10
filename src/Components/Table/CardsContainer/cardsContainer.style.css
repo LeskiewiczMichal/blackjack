@@ -2,6 +2,33 @@
   display: flex;
 }
 
+.card--enter-active {
+  animation: card--enter 1s ease forwards;
+}
+
+/* .card--exit-active {  
+  animation : card--exit 1s ease forwards;
+} */
+
+@keyframes card--enter {
+  0% {
+    transform: translate(0, -100%);
+    margin: -100%;
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes card--exit {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(0, -100%);
+  }
+}
+
 @media (max-width: 600px) {
   .cards--container {
     max-width: 100%;

@@ -24,6 +24,9 @@ const dealerDrawCard = createAsyncThunk(
     await dispatch(
       setDealerScore(calculateScore({ cards: state.dealer.cards })),
     );
+
+    // eslint-disable-next-line no-promise-executor-return
+    await new Promise((resolve) => setTimeout(resolve, 1000)); // Wait for animation to end
   },
 );
 

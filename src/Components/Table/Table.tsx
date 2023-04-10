@@ -24,12 +24,16 @@ export default function Table() {
       {table.inGame ? (
         <>
           <section className="table--player">
+            {/* {table.inGame ? (   */}
             <PointsDisplay score={dealer.score} player={PlayerType.DEALER} />
+            {/* ) : null} */}
             <CardsContainer cards={dealer.cards} />
           </section>
           {popUpJSX}
           <section className="table--player">
+            {/* {table.inGame ? ( */}
             <PointsDisplay score={player.score} player={PlayerType.PLAYER} />
+            {/* ) : null} */}
             <CardsContainer cards={player.cards} />
           </section>
         </>

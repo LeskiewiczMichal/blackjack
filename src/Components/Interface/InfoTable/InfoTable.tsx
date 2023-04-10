@@ -1,3 +1,4 @@
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 import "./infoTable.style.css";
 import { useAppSelector } from "Hooks/hooks";
 
@@ -7,6 +8,7 @@ export default function InfoTable() {
   const insuranceBet: number | null = useAppSelector(
     (state) => state.table.insuranceBet,
   );
+  const [parent] = useAutoAnimate();
 
   let betJSX: JSX.Element;
 
@@ -15,11 +17,15 @@ export default function InfoTable() {
       <div className="InfoTable--Insurance-active">
         <div className="InfoTable--row">
           <span className="InfoTable--text">Current bet:</span>
-          <span className="InfoTable--money">{currentBet}$</span>
+          <span className="InfoTable--money" ref={parent}>
+            {currentBet}$
+          </span>
         </div>
         <div className="InfoTable--row">
           <span className="InfoTable--text">Insurance bet:</span>
-          <span className="InfoTable--money">{insuranceBet}$</span>
+          <span className="InfoTable--money" ref={parent}>
+            {insuranceBet}$
+          </span>
         </div>
       </div>
     );
@@ -27,7 +33,9 @@ export default function InfoTable() {
     betJSX = (
       <div className="InfoTable--row">
         <span className="InfoTable--text">Current bet:</span>
-        <span className="InfoTable--money">{currentBet}$</span>
+        <span className="InfoTable--money" ref={parent}>
+          {currentBet}$
+        </span>
       </div>
     );
   }
@@ -36,7 +44,9 @@ export default function InfoTable() {
     <div className="InfoTable--container">
       <div className="InfoTable--row">
         <span className="InfoTable--text">Balance:</span>
-        <span className="InfoTable--money">{playerBalance}$</span>
+        <span className="InfoTable--money" ref={parent}>
+          {playerBalance}$
+        </span>
       </div>
       {betJSX}
     </div>

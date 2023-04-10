@@ -8,6 +8,8 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { generateCards } from "Functions/generateCards";
 import { showCards } from "store/Reducers/dealerReducer";
 
+/// NOTE: When cards run out, should refill the deck;
+
 // Initial decks of cards
 const cards = generateCards();
 
@@ -18,6 +20,7 @@ const initialState: TableState = {
   gameFinished: false,
   popUpActive: false,
   insuranceBet: null,
+  animationOn: false,
 };
 
 export const tableSlice = createSlice({
@@ -46,6 +49,9 @@ export const tableSlice = createSlice({
     setInsuranceBet: (state, action: PayloadAction<number | null>) => {
       state.insuranceBet = action.payload;
     },
+    setAnimationOn: (state, action: PayloadAction<boolean>) => {
+      state.animationOn = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(showCards, (state) => {
@@ -62,6 +68,7 @@ export const {
   setInGame,
   setPopUpActive,
   setInsuranceBet,
+  setAnimationOn,
 } = tableSlice.actions;
 
 export default tableSlice.reducer;
