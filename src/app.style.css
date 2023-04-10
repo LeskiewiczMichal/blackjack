@@ -9,7 +9,7 @@
 }
 
 /* Needed for mobile to work properly - changes screen size */
-html { 
+html {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

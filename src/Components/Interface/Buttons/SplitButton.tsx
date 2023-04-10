@@ -7,13 +7,16 @@ export default function SplitButton() {
   const player = useAppSelector((state) => state.player);
   const bet = useAppSelector((state) => state.table.currentBet);
   const secondScore = useAppSelector((state) => state.player.secondScore);
+  const animationOn = useAppSelector((state) => state.table.animationOn);
   const { cards, balance } = player;
   const firstCard = player.cards[0];
   const secondCard = player.cards[1];
 
   let isDisabled: boolean;
 
-  if (cards.length !== 2) {
+  if (animationOn) {
+    isDisabled = true;
+  } else if (cards.length !== 2) {
     isDisabled = true;
   } else if (secondScore !== null) {
     isDisabled = true;

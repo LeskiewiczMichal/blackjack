@@ -91,3 +91,8 @@ export enum Action {
 export type TableAction =
   | { type: "deal"; payload: { balance: number; bet: number } }
   | { type: "bet"; payload: { value: ChipValue[] } };
+
+/// HELPERS ///
+export type HelperSliceState = {
+  disableSwapHandsAnimation: boolean;
+};

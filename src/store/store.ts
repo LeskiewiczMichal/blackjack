@@ -5,12 +5,14 @@ import { configureStore } from "@reduxjs/toolkit";
 import tableReducer from "./Reducers/tableReducer";
 import playerReducer from "./Reducers/playerReducer";
 import dealerReducer from "./Reducers/dealerReducer";
+import helperReducer from "./Reducers/helperReducer";
 
 export const store = configureStore({
   reducer: {
     table: tableReducer,
     player: playerReducer,
     dealer: dealerReducer,
+    helpers: helperReducer,
   },
 });
 

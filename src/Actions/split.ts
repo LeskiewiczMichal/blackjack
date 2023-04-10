@@ -8,6 +8,7 @@ import {
   setSecondScore,
   setSecondHand,
 } from "store/Reducers/playerReducer";
+import { setDisableSwapHandsAnimation } from "store/Reducers/helperReducer";
 import { calculateScore } from "Functions/calculateScore";
 import { playerDrawCard } from "./playerUtils";
 
@@ -45,7 +46,10 @@ const switchHands = createAsyncThunk(
     //   Manage new main hand
     await dispatch(setPlayerCards(newHand));
     await dispatch(setPlayerScore(newScore));
+    await dispatch(setDisableSwapHandsAnimation(true));
     await dispatch(playerDrawCard());
+
+    await dispatch(setDisableSwapHandsAnimation(false));
   },
 );
 
