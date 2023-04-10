@@ -16,7 +16,7 @@
   0% {
     /* opacity: 0; */
     transform: translate(400%, -500%);
-    margin: -100%;
+    /* margin: -100%; */
   }
   /* 50% {
     transform: translate(0, -80%);
