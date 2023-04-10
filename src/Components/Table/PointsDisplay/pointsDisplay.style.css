@@ -10,6 +10,12 @@
   padding: 0.2rem;
   color: var(--info-gold);
   font-size: large;
+  max-height: 80px;
+  width: 200px;
+
+  /* position: absolute; */
+  /* left: 50px; */
+  /* top: -65px; */
 }
 
 .points {
@@ -25,5 +31,9 @@
     flex: none;
     flex-direction: row;
     gap: 0.4rem;
+    position: inherit;
+    left: 0;
+    top: 0;
+    height: 30px
   }
 }

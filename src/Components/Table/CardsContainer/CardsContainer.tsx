@@ -13,7 +13,7 @@ export default function CardsContainer(props: CardsContainerProps) {
   const { cards } = props;
 
   return (
-    <TransitionGroup className="cards--container" onenter>
+    <TransitionGroup className="cards--container">
       {cards.map((card, index) => (
         <CSSTransition
           // Index as a key is needed here for animations to work

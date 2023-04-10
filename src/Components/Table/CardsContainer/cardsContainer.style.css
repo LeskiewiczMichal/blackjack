@@ -3,7 +3,9 @@
 }
 
 .card--enter-active {
+  animation-fill-mode: forwards;
   animation: card--enter 1s ease forwards;
+  /* transform: translate(0, -500%); */
 }
 
 /* .card--exit-active {  
@@ -12,10 +14,16 @@
 
 @keyframes card--enter {
   0% {
-    transform: translate(0, -100%);
+    /* opacity: 0; */
+    transform: translate(400%, -500%);
     margin: -100%;
   }
+  /* 50% {
+    transform: translate(0, -80%);
+    /* margin: -80%; */
+  /*} */
   100% {
+    /* opacity: 1; */
     transform: translate(0, 0);
   }
 }

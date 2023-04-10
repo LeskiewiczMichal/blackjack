@@ -5,11 +5,13 @@ import { useSelector } from "react-redux";
 import CardsContainer from "Components/Table/CardsContainer/CardsContainer";
 import PointsDisplay from "Components/Table/PointsDisplay/PointsDisplay";
 import InsurancePopup from "Components/Interface/InsurancePopUp/InsurancePopup";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 export default function Table() {
   const player = useSelector((state: RootState) => state.player);
   const dealer = useSelector((state: RootState) => state.dealer);
   const table = useSelector((state: RootState) => state.table);
+  const [parent] = useAutoAnimate();
 
   let popUpJSX: JSX.Element | null;
 
@@ -20,9 +22,10 @@ export default function Table() {
   }
 
   return (
-    <main className="table--container table-texture">
+    <main className="table--container table-texture" ref={parent}>
       {table.inGame ? (
         <>
+          {/* <PointsDisplay score={dealer.score} player={PlayerType.DEALER} /> */}
           <section className="table--player">
             {/* {table.inGame ? (   */}
             <PointsDisplay score={dealer.score} player={PlayerType.DEALER} />

@@ -44,7 +44,7 @@ export default function SplitButton() {
           isDisabled ? "UI--button-disabled" : ""
         }`}
         onClick={splitHandler}
-        disabled={isDisabled}
+        // disabled={isDisabled}
       >
         SPLIT
       </button>
