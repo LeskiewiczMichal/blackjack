@@ -4,14 +4,14 @@ import {
   setGameFinished,
   clearBet,
   setInsuranceBet,
-} from "store/Reducers/tableReducer";
+} from "store/reducers/tableReducer";
 import {
   clearPlayerCards,
   setPlayerScore,
   setSecondScore,
   setSecondHand,
-} from "store/Reducers/playerReducer";
-import { clearDealerCards, setDealerScore } from "store/Reducers/dealerReducer";
+} from "store/reducers/playerReducer";
+import { clearDealerCards, setDealerScore } from "store/reducers/dealerReducer";
 
 const clearTable = createAsyncThunk(
   "table/clearTable",

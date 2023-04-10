@@ -1,8 +1,8 @@
 import "./cardsContainer.style.css";
 import { Card as CardType } from "types";
-import Card from "Components/Table/Card/Card";
+import Card from "components/table/card/Card";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
-import { useAppSelector } from "Hooks/hooks";
+import { useAppSelector } from "hooks/hooks";
 
 type CardsContainerProps = {
   cards: CardType[];

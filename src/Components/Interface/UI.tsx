@@ -1,20 +1,20 @@
 import "./UI.style.css";
-import "./Buttons/buttons.style.css";
+import "./buttons/buttons.style.css";
 
 import { useAutoAnimate } from "@formkit/auto-animate/react";
-import { useAppSelector } from "Hooks/hooks";
-import Chip from "Components/Interface/Chip/Chip";
-import HitButton from "Components/Interface/Buttons/HitButton";
-import SplitButton from "Components/Interface/Buttons/SplitButton";
-import DoubleDownButton from "Components/Interface/Buttons/DoubleDownButton";
-import StandButton from "Components/Interface/Buttons/StandButton";
-import DealButton from "Components/Interface/Buttons/DealButton";
-import ClearButton from "Components/Interface/Buttons/ClearButton";
-import InfoTable from "Components/Interface/InfoTable/InfoTable";
-import NewBetButton from "Components/Interface/Buttons/NewBetButton";
-import RebetButton from "./Buttons/rebetButton";
+import { useAppSelector } from "hooks/hooks";
+import Chip from "components/interface/chip/Chip";
+import HitButton from "components/interface/buttons/HitButton";
+import SplitButton from "components/interface/buttons/SplitButton";
+import DoubleDownButton from "./buttons/DoubleDownButton";
+import StandButton from "./buttons/StandButton";
+import DealButton from "./buttons/DealButton";
+import ClearButton from "./buttons/ClearButton";
+import InfoTable from "./infoTable/InfoTable";
+import NewBetButton from "./buttons/NewBetButton";
+import RebetButton from "./buttons/rebetButton";
 
-import { ChipValue } from "./Chip/Chip"; // Enum for Chip component props
+import { ChipValue } from "./chip/Chip"; // Enum for Chip component props
 
 export default function UI() {
   const inGame: boolean = useAppSelector((state) => state.table.inGame);

@@ -1,6 +1,6 @@
-import { useAppSelector, useAppDispatch } from "Hooks/hooks";
-import { doubleDown } from "Actions/doubleDown";
-import { setAnimationOn } from "store/Reducers/tableReducer";
+import { useAppSelector, useAppDispatch } from "hooks/hooks";
+import { doubleDown } from "actions/doubleDown";
+import { setAnimationOn } from "store/reducers/tableReducer";
 
 export default function DoubleDownButton() {
   const dispatch = useAppDispatch();

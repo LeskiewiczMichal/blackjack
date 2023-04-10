@@ -1,6 +1,6 @@
-import { makeDeal } from "Actions/bets";
-import { useAppDispatch, useAppSelector } from "Hooks/hooks";
-import { setAnimationOn } from "store/Reducers/tableReducer";
+import { useAppDispatch, useAppSelector } from "hooks/hooks";
+import { setAnimationOn } from "store/reducers/tableReducer";
+import { deal } from "actions/deal";
 
 export default function DealButton() {
   const dispatch = useAppDispatch();
@@ -11,7 +11,7 @@ export default function DealButton() {
 
   const dealHandler = async () => {
     await dispatch(setAnimationOn(true));
-    await dispatch(makeDeal());
+    await dispatch(deal());
     await dispatch(setAnimationOn(false));
   };
 

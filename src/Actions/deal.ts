@@ -4,18 +4,17 @@ import {
   setGameFinished,
   setInGame,
   setPopUpActive,
-  setInsuranceBet,
-} from "store/Reducers/tableReducer";
-import { playerDrawCard } from "Actions/playerUtils";
-import { dealerDrawCard } from "Actions/dealerUtils";
-import { hasBlackJack } from "Functions/hasBlackJack";
-import { onlyAceVisible } from "Functions/onlyAceVisible";
-import { finishGame } from "Actions/gameState";
+} from "store/reducers/tableReducer";
+import { playerDrawCard } from "actions/playerUtils";
+import { dealerDrawCard } from "actions/dealerUtils";
+import { hasBlackJack } from "utils/hasBlackJack";
+import { onlyAceVisible } from "utils/onlyAceVisible";
+import { finishGame } from "actions/gameState";
 
 const NUMBER_OF_CARDS_FOR_EACH_PLAYER = 2;
 
 // Set's bet and deals initial cards
-const makeDeal = createAsyncThunk(
+const deal = createAsyncThunk(
   "table/deal",
   async (_, { getState, dispatch }) => {
     let state = getState() as RootState;
@@ -44,15 +43,4 @@ const makeDeal = createAsyncThunk(
   },
 );
 
-const betInsurance = createAsyncThunk(
-  "table/betInsurance",
-  async (_, { getState, dispatch }) => {
-    const state = getState() as RootState;
-    if (state.player.balance < Math.floor(state.table.currentBet / 2)) {
-      return;
-    }
-    await dispatch(setInsuranceBet(Math.floor(state.table.currentBet / 2)));
-  },
-);
-
-export { makeDeal, betInsurance };
+export { deal };

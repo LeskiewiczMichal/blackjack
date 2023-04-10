@@ -3,7 +3,7 @@ import { DealerState, Card } from "types.d";
 
 // Libraries
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { calculateScore } from "Functions/calculateScore";
+import { calculateScore } from "utils/calculateScore";
 
 const initialState: DealerState = {
   cards: [],

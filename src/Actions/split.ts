@@ -7,10 +7,10 @@ import {
   addSecondHandCard,
   setSecondScore,
   setSecondHand,
-} from "store/Reducers/playerReducer";
-import { setDisableSwapHandsAnimation } from "store/Reducers/helperReducer";
-import { calculateScore } from "Functions/calculateScore";
-import { playerDrawCard } from "./playerUtils";
+} from "store/reducers/playerReducer";
+import { setDisableSwapHandsAnimation } from "store/reducers/helperReducer";
+import { calculateScore } from "utils/calculateScore";
+import { playerDrawCard } from "actions/playerUtils";
 
 const split = createAsyncThunk(
   "player/split",

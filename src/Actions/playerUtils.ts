@@ -1,9 +1,9 @@
 import { Card } from "types";
 import { RootState } from "store/store";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { drawCard } from "store/Reducers/tableReducer";
-import { addCard, setPlayerScore } from "store/Reducers/playerReducer";
-import { calculateScore } from "Functions/calculateScore";
+import { drawCard } from "store/reducers/tableReducer";
+import { addCard, setPlayerScore } from "store/reducers/playerReducer";
+import { calculateScore } from "utils/calculateScore";
 
 // Get's a random card from the deck on the table, adds it to player's hand and updates the score
 const playerDrawCard = createAsyncThunk(

@@ -1,8 +1,8 @@
 import { RootState } from "store/store";
 import { createAsyncThunk, unwrapResult } from "@reduxjs/toolkit";
-import { playerDrawCard } from "Actions/playerUtils";
-import { finishGame } from "Actions/gameState";
-import { playerDidSplit, switchHands } from "Actions/split";
+import { playerDrawCard } from "actions/playerUtils";
+import { finishGame } from "actions/gameState";
+import { playerDidSplit, switchHands } from "actions/split";
 
 // Draw a card for the player
 const hit = createAsyncThunk(

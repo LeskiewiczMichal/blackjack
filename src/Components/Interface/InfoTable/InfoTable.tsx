@@ -1,6 +1,6 @@
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import "./infoTable.style.css";
-import { useAppSelector } from "Hooks/hooks";
+import { useAppSelector } from "hooks/hooks";
 
 export default function InfoTable() {
   const currentBet: number = useAppSelector((state) => state.table.currentBet);

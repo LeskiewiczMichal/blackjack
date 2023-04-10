@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { clearBet } from "store/Reducers/tableReducer";
+import { clearBet } from "store/reducers/tableReducer";
 
 export default function ClearButton() {
   const dispatch = useDispatch();

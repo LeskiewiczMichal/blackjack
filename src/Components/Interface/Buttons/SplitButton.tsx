@@ -1,6 +1,6 @@
-import { useAppSelector, useAppDispatch } from "Hooks/hooks";
-import { split } from "Actions/split";
-import { isFigure } from "Functions/isFigure";
+import { useAppSelector, useAppDispatch } from "hooks/hooks";
+import { split } from "actions/split";
+import { isFigure } from "utils/isFigure";
 
 export default function SplitButton() {
   const dispatch = useAppDispatch();

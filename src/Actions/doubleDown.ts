@@ -1,8 +1,8 @@
 import { RootState } from "store/store";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { incrementBet } from "store/Reducers/tableReducer";
-import { playerDrawCard } from "Actions/playerUtils";
-import { finishGame } from "Actions/gameState";
+import { incrementBet } from "store/reducers/tableReducer";
+import { playerDrawCard } from "actions/playerUtils";
+import { finishGame } from "actions/gameState";
 
 const doubleDown = createAsyncThunk(
   "player/doubleDown",

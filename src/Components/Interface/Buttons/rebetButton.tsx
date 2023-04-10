@@ -1,6 +1,6 @@
-import { useAppDispatch, useAppSelector } from "Hooks/hooks";
-import { rebet } from "Actions/gameState";
-import { setAnimationOn } from "store/Reducers/tableReducer";
+import { useAppDispatch, useAppSelector } from "hooks/hooks";
+import { rebet } from "actions/gameState";
+import { setAnimationOn } from "store/reducers/tableReducer";
 
 export default function RebetButton() {
   const dispatch = useAppDispatch();

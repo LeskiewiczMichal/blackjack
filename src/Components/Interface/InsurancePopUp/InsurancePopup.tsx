@@ -1,7 +1,7 @@
 import "./insurancePopup.style.css";
-import { useAppDispatch } from "Hooks/hooks";
-import { setPopUpActive } from "store/Reducers/tableReducer";
-import { betInsurance } from "Actions/bets";
+import { useAppDispatch } from "hooks/hooks";
+import { setPopUpActive } from "store/reducers/tableReducer";
+import { betInsurance } from "actions/betInsurance";
 
 export default function InsurancePopup() {
   const dispatch = useAppDispatch();

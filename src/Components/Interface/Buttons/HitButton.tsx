@@ -1,6 +1,6 @@
-import { useAppDispatch, useAppSelector } from "Hooks/hooks";
-import { hit } from "Actions/hit";
-import { setAnimationOn } from "store/Reducers/tableReducer";
+import { useAppDispatch, useAppSelector } from "hooks/hooks";
+import { hit } from "actions/hit";
+import { setAnimationOn } from "store/reducers/tableReducer";
 
 export default function HitButton() {
   const dispatch = useAppDispatch();

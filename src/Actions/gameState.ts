@@ -1,15 +1,15 @@
 import { PlayerType } from "types.d";
 import { RootState } from "store/store";
 import { createAsyncThunk, unwrapResult } from "@reduxjs/toolkit";
-import { showCards } from "store/Reducers/dealerReducer";
-import { setGameFinished, incrementBet } from "store/Reducers/tableReducer";
-import { setBalance } from "store/Reducers/playerReducer";
-import { hasBlackJack } from "Functions/hasBlackJack";
-import { checkWinner } from "Functions/checkWinner";
-import { playedTwoHands } from "Functions/playedTwoHands";
-import { dealerDrawUntillSeventeen } from "./dealerUtils";
-import { clearTable } from "./clearTable";
-import { makeDeal } from "./bets";
+import { showCards } from "store/reducers/dealerReducer";
+import { setGameFinished, incrementBet } from "store/reducers/tableReducer";
+import { setBalance } from "store/reducers/playerReducer";
+import { hasBlackJack } from "utils/hasBlackJack";
+import { checkWinner } from "utils/checkWinner";
+import { playedTwoHands } from "utils/playedTwoHands";
+import { dealerDrawUntillSeventeen } from "actions/dealerUtils";
+import { clearTable } from "actions/clearTable";
+import { deal } from "./deal";
 
 const rebet = createAsyncThunk(
   "game/rebet",
@@ -21,7 +21,7 @@ const rebet = createAsyncThunk(
     const bet = state.table.currentBet;
     await dispatch(clearTable());
     await dispatch(incrementBet(bet));
-    await dispatch(makeDeal());
+    await dispatch(deal());
   },
 );
 

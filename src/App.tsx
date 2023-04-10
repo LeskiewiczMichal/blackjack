@@ -1,7 +1,7 @@
 import "./app.style.css";
 
-import Table from "Components/Table/Table";
-import UI from "Components/Interface/UI";
+import Table from "components/table/Table";
+import UI from "components/interface/UI";
 
 function App() {
   return (

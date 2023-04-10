@@ -5,8 +5,8 @@ import { TableState, Card } from "types.d";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 // Functions
-import { generateCards } from "Functions/generateCards";
-import { showCards } from "store/Reducers/dealerReducer";
+import { generateCards } from "utils/generateCards";
+import { showCards } from "store/reducers/dealerReducer";
 
 /// NOTE: When cards run out, should refill the deck;
 

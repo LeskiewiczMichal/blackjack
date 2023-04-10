@@ -2,9 +2,9 @@ import "./table.style.css";
 import { RootState } from "store/store";
 import { PlayerType } from "types.d";
 import { useSelector } from "react-redux";
-import CardsContainer from "Components/Table/CardsContainer/CardsContainer";
-import PointsDisplay from "Components/Table/PointsDisplay/PointsDisplay";
-import InsurancePopup from "Components/Interface/InsurancePopUp/InsurancePopup";
+import CardsContainer from "components/table/cardsContainer/CardsContainer";
+import PointsDisplay from "components/table/pointsDisplay/PointsDisplay";
+import InsurancePopup from "components/interface/insurancePopUp/InsurancePopup";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 export default function Table() {

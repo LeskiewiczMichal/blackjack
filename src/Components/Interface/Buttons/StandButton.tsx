@@ -1,7 +1,7 @@
-import { useAppDispatch, useAppSelector } from "Hooks/hooks";
+import { useAppDispatch, useAppSelector } from "hooks/hooks";
 import { unwrapResult } from "@reduxjs/toolkit";
-import { finishGame } from "Actions/gameState";
-import { switchHands, playerDidSplit } from "Actions/split";
+import { finishGame } from "actions/gameState";
+import { switchHands, playerDidSplit } from "actions/split";
 
 export default function StandButton() {
   const dispatch = useAppDispatch();
