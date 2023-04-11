@@ -4,8 +4,8 @@ import { clearTable } from "actions/clearTable";
 export default function NewBetButton() {
   const dispatch = useAppDispatch();
 
-  const newBetHandler = () => {
-    dispatch(clearTable());
+  const newBetHandler = async () => {
+    await dispatch(clearTable());
   };
 
   return (
