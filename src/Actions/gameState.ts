@@ -13,7 +13,7 @@ import { deal } from "./deal";
 
 const rebet = createAsyncThunk(
   "game/rebet",
-  async (_, { getState, dispatch }) => {
+  async (_, { getState, dispatch }): Promise<void> => {
     const state = getState() as RootState;
     if (state.player.balance < state.table.currentBet) {
       return;
@@ -28,7 +28,7 @@ const rebet = createAsyncThunk(
 // Add's money to player's account
 const playerWon = createAsyncThunk(
   "game/playerWon",
-  async (_, { getState, dispatch }) => {
+  async (_, { getState, dispatch }): Promise<void> => {
     const state = getState() as RootState;
     const bet = state.table.currentBet;
     const { balance } = state.player;
@@ -45,7 +45,7 @@ const playerWon = createAsyncThunk(
 // Remove's money from player's account
 const playerLost = createAsyncThunk(
   "game/playerWon",
-  async (_, { getState, dispatch }) => {
+  async (_, { getState, dispatch }): Promise<void> => {
     const state = getState() as RootState;
     const bet = state.table.currentBet;
     const { balance } = state.player;
@@ -78,7 +78,7 @@ const scoresOverTwentyOne = createAsyncThunk(
 // If table has insurance bet, check who won and update balance
 const checkForInsurance = createAsyncThunk(
   "game/checkInsurance",
-  async (_, { getState, dispatch }) => {
+  async (_, { getState, dispatch }): Promise<void> => {
     const state = getState() as RootState;
     if (state.table.insuranceBet === null) {
       return;
@@ -98,7 +98,7 @@ const checkForInsurance = createAsyncThunk(
 // End game and check who won
 const finishGame = createAsyncThunk(
   "game/finishGame",
-  async (_, { getState, dispatch }) => {
+  async (_, { getState, dispatch }): Promise<void> => {
     await dispatch(showCards()); // Flip dealer's hidden card
     await dispatch(setGameFinished(true));
     await dispatch(checkForInsurance());

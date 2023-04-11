@@ -16,7 +16,7 @@ const NUMBER_OF_CARDS_FOR_EACH_PLAYER = 2;
 // Set's bet and deals initial cards
 const deal = createAsyncThunk(
   "table/deal",
-  async (_, { getState, dispatch }) => {
+  async (_, { getState, dispatch }): Promise<void> => {
     let state = getState() as RootState;
 
     if (state.table.currentBet === 0) {

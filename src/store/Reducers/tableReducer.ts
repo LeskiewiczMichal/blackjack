@@ -1,10 +1,5 @@
-// Types
 import { TableState, Card } from "types.d";
-
-// Libraries
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-
-// Functions
 import { generateCards } from "utils/generateCards";
 import { showCards } from "store/reducers/dealerReducer";
 
@@ -52,6 +47,9 @@ export const tableSlice = createSlice({
     setAnimationOn: (state, action: PayloadAction<boolean>) => {
       state.animationOn = action.payload;
     },
+    setCards: (state, action: PayloadAction<Card[]>) => {
+      state.cards = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(showCards, (state) => {
@@ -69,6 +67,7 @@ export const {
   setPopUpActive,
   setInsuranceBet,
   setAnimationOn,
+  setCards,
 } = tableSlice.actions;
 
 export default tableSlice.reducer;

@@ -14,7 +14,7 @@ import { playerDrawCard } from "actions/playerUtils";
 
 const split = createAsyncThunk(
   "player/split",
-  async (_, { getState, dispatch }) => {
+  async (_, { getState, dispatch }): Promise<void> => {
     const state = getState() as RootState;
     const fistCard = state.player.cards[0];
     const secondCard = state.player.cards[1];
@@ -32,7 +32,7 @@ const split = createAsyncThunk(
 
 const switchHands = createAsyncThunk(
   "player/switchHands",
-  async (_, { getState, dispatch }) => {
+  async (_, { getState, dispatch }): Promise<void> => {
     const state = getState() as RootState;
     const newHand: Card[] = state.player.secondHand;
     const oldHand: Card[] = state.player.cards;

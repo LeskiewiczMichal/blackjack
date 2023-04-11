@@ -1,7 +1,4 @@
-// Types
 import { PlayerState, Card } from "types";
-
-// Libraries
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const initialState: PlayerState = {

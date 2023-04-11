@@ -1,5 +1,5 @@
-import { useAutoAnimate } from "@formkit/auto-animate/react";
 import "./infoTable.style.css";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { useAppSelector } from "hooks/hooks";
 
 export default function InfoTable() {

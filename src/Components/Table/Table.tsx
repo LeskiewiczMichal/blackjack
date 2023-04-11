@@ -1,21 +1,33 @@
 import "./table.style.css";
-import { RootState } from "store/store";
 import { PlayerType } from "types.d";
-import { useSelector } from "react-redux";
+import { useAppSelector, useAppDispatch } from "hooks/hooks";
 import CardsContainer from "components/table/cardsContainer/CardsContainer";
 import PointsDisplay from "components/table/pointsDisplay/PointsDisplay";
 import InsurancePopup from "components/interface/insurancePopUp/InsurancePopup";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
+import { generateCards } from "utils/generateCards";
+import { setCards } from "store/reducers/tableReducer";
+import { useEffect } from "react";
 
 export default function Table() {
-  const player = useSelector((state: RootState) => state.player);
-  const dealer = useSelector((state: RootState) => state.dealer);
-  const table = useSelector((state: RootState) => state.table);
+  const dispatch = useAppDispatch();
+  const player = useAppSelector((state) => state.player);
+  const dealer = useAppSelector((state) => state.dealer);
+  const popUpActive = useAppSelector((state) => state.table.popUpActive);
+  const inGame = useAppSelector((state) => state.table.inGame);
+  const cards = useAppSelector((state) => state.table.cards);
   const [parent] = useAutoAnimate();
+
+  useEffect(() => {
+    if (cards.length <= 0) {
+      const newCards = generateCards();
+      dispatch(setCards(newCards));
+    }
+  }, [cards, dispatch]);
 
   let popUpJSX: JSX.Element | null;
 
-  if (table.popUpActive) {
+  if (popUpActive) {
     popUpJSX = <InsurancePopup />;
   } else {
     popUpJSX = null;
@@ -23,20 +35,15 @@ export default function Table() {
 
   return (
     <main className="table--container table-texture" ref={parent}>
-      {table.inGame ? (
+      {inGame ? (
         <>
-          {/* <PointsDisplay score={dealer.score} player={PlayerType.DEALER} /> */}
           <section className="table--player">
-            {/* {table.inGame ? (   */}
             <PointsDisplay score={dealer.score} player={PlayerType.DEALER} />
-            {/* ) : null} */}
             <CardsContainer cards={dealer.cards} />
           </section>
           {popUpJSX}
           <section className="table--player">
-            {/* {table.inGame ? ( */}
             <PointsDisplay score={player.score} player={PlayerType.PLAYER} />
-            {/* ) : null} */}
             <CardsContainer cards={player.cards} />
           </section>
         </>

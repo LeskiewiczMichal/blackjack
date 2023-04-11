@@ -1,7 +1,4 @@
-// Types
 import { HelperSliceState } from "types";
-
-// Libraries
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const initialState: HelperSliceState = {

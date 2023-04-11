@@ -8,7 +8,7 @@ import { calculateScore } from "utils/calculateScore";
 // Get's a random card from the deck on the table, adds it to player's hand and updates the score
 const playerDrawCard = createAsyncThunk(
   "player/drawCard",
-  async (_, { getState, dispatch }) => {
+  async (_, { getState, dispatch }): Promise<void> => {
     let state = getState() as RootState;
     const randomCard: Card =
       state.table.cards[Math.floor(Math.random() * state.table.cards.length)]; // Get a random card from the deck

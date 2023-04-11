@@ -7,7 +7,7 @@ import { playerDidSplit, switchHands } from "actions/split";
 // Draw a card for the player
 const hit = createAsyncThunk(
   "player/hit",
-  async (_, { getState, dispatch }) => {
+  async (_, { getState, dispatch }): Promise<void> => {
     await dispatch(playerDrawCard());
 
     const state = getState() as RootState;

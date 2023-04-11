@@ -4,7 +4,7 @@ import { setInsuranceBet } from "store/reducers/tableReducer";
 
 const betInsurance = createAsyncThunk(
   "table/betInsurance",
-  async (_, { getState, dispatch }) => {
+  async (_, { getState, dispatch }): Promise<void> => {
     const state = getState() as RootState;
     if (state.player.balance < Math.floor(state.table.currentBet / 2)) {
       return;

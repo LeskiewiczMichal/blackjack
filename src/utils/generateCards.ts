@@ -4,7 +4,6 @@ const NUMBER_OF_DECKS = 6;
 
 // Create and return a few decks of cards
 export function generateCards(): Card[] {
-  // const cards: Card[] = [];
   const suits: CardSuit[] = [
     CardSuit.HEARTS,
     CardSuit.DIAMONDS,

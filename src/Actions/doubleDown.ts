@@ -6,7 +6,7 @@ import { finishGame } from "actions/gameState";
 
 const doubleDown = createAsyncThunk(
   "player/doubleDown",
-  async (_, { getState, dispatch }) => {
+  async (_, { getState, dispatch }): Promise<void> => {
     const state = getState() as RootState;
     await dispatch(incrementBet(state.table.currentBet));
     await dispatch(playerDrawCard());
