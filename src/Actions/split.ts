@@ -1,6 +1,5 @@
-import { Card } from "types.d";
-import { RootState } from "store/store";
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { Card, PlayerState } from "types.d";
+import { RootState, AppThunk } from "store/store";
 import {
   setPlayerCards,
   setPlayerScore,
@@ -11,56 +10,49 @@ import {
 import { setDisableSwapHandsAnimation } from "store/reducers/helperReducer";
 import { calculateScore } from "utils/calculateScore";
 import { playerDrawCard } from "actions/playerUtils";
+import { AnyAction } from "redux";
+import { ThunkAction } from "redux-thunk";
 
-const split = createAsyncThunk(
-  "player/split",
-  async (_, { getState, dispatch }): Promise<void> => {
-    const state = getState() as RootState;
-    const fistCard = state.player.cards[0];
-    const secondCard = state.player.cards[1];
+const split = (): AppThunk => async (dispatch, getState) => {
+  const { cards: playerCards } = getState().player as PlayerState;
+  const fistCard = playerCards[0];
+  const secondCard = playerCards[1];
 
-    // First hand
-    const newCards: Card[] = [fistCard];
-    await dispatch(setPlayerCards(newCards));
-    await dispatch(setPlayerScore(calculateScore({ cards: newCards })));
-    await dispatch(playerDrawCard());
+  // First hand
+  const newCards: Card[] = [fistCard];
+  await dispatch(setPlayerCards(newCards));
+  await dispatch(setPlayerScore(calculateScore({ cards: newCards })));
+  await dispatch(playerDrawCard());
 
-    // Second hand
-    await dispatch(addSecondHandCard(secondCard));
-  },
-);
+  // Second hand
+  await dispatch(addSecondHandCard(secondCard));
+};
 
-const switchHands = createAsyncThunk(
-  "player/switchHands",
-  async (_, { getState, dispatch }): Promise<void> => {
-    const state = getState() as RootState;
-    const newHand: Card[] = state.player.secondHand;
-    const oldHand: Card[] = state.player.cards;
-    const newScore = calculateScore({ cards: newHand });
-    const oldScore = state.player.score;
+const switchHands = (): AppThunk => async (dispatch, getState) => {
+  const player = getState().player as PlayerState;
+  const newHand: Card[] = player.secondHand;
+  const oldHand: Card[] = player.cards;
+  const oldScore = player.score;
+  const newScore = calculateScore({ cards: newHand });
 
-    //   Manage second hand
-    await dispatch(setSecondScore(oldScore));
-    await dispatch(setSecondHand(oldHand));
+  //   Manage second hand
+  await dispatch(setSecondScore(oldScore));
+  await dispatch(setSecondHand(oldHand));
 
-    //   Manage new main hand
-    await dispatch(setPlayerCards(newHand));
-    await dispatch(setPlayerScore(newScore));
-    await dispatch(setDisableSwapHandsAnimation(true));
-    await dispatch(playerDrawCard());
+  //   Manage new main hand
+  await dispatch(setPlayerCards(newHand));
+  await dispatch(setPlayerScore(newScore));
+  await dispatch(setDisableSwapHandsAnimation(true));
+  await playerDrawCard();
 
-    await dispatch(setDisableSwapHandsAnimation(false));
-  },
-);
+  await dispatch(setDisableSwapHandsAnimation(false));
+};
 
-const playerDidSplit = createAsyncThunk(
-  "player/playerDidSplit",
-  async (_, { getState }): Promise<boolean> => {
-    const state = getState() as RootState;
-    return (
-      state.player.secondScore === null && state.player.secondHand.length > 0
-    );
-  },
-);
+const playerDidSplit =
+  (): ThunkAction<Promise<boolean>, RootState, unknown, AnyAction> =>
+  async (dispatch, getState) => {
+    const player = getState().player as PlayerState;
+    return player.secondScore === null && player.secondHand.length > 0;
+  };
 
 export { split, switchHands, playerDidSplit };

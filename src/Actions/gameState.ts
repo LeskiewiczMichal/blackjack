@@ -1,6 +1,6 @@
-import { PlayerType } from "types.d";
-import { RootState } from "store/store";
-import { createAsyncThunk, unwrapResult } from "@reduxjs/toolkit";
+import { PlayerState, PlayerType, TableState } from "types.d";
+import { RootState, AppThunk } from "store/store";
+import { AnyAction, ThunkAction } from "@reduxjs/toolkit";
 import { showCards } from "store/reducers/dealerReducer";
 import { setGameFinished, incrementBet } from "store/reducers/tableReducer";
 import { setBalance } from "store/reducers/playerReducer";
@@ -11,60 +11,51 @@ import { dealerDrawUntillSeventeen } from "actions/dealerUtils";
 import { clearTable } from "actions/clearTable";
 import { deal } from "./deal";
 
-const rebet = createAsyncThunk(
-  "game/rebet",
-  async (_, { getState, dispatch }): Promise<void> => {
-    const state = getState() as RootState;
-    if (state.player.balance < state.table.currentBet) {
-      return;
-    }
-    const bet = state.table.currentBet;
-    await dispatch(clearTable());
-    await dispatch(incrementBet(bet));
-    await dispatch(deal());
-  },
-);
+const rebet = (): AppThunk => async (dispatch, getState) => {
+  const { balance } = getState().player as PlayerState;
+  const { currentBet } = getState().table as TableState;
+  if (balance < currentBet) {
+    return;
+  }
+
+  await dispatch(clearTable());
+  await dispatch(incrementBet(currentBet));
+  await dispatch(deal());
+};
 
 // Add's money to player's account
-const playerWon = createAsyncThunk(
-  "game/playerWon",
-  async (_, { getState, dispatch }): Promise<void> => {
-    const state = getState() as RootState;
-    const bet = state.table.currentBet;
-    const { balance } = state.player;
+const playerWon = (): AppThunk => async (dispatch, getState) => {
+  const { currentBet } = getState().table as TableState;
+  const { balance, cards } = getState().player as PlayerState;
 
-    if (hasBlackJack({ cards: state.player.cards })) {
-      dispatch(setBalance(balance + bet * 1.5));
-      return;
-    }
+  if (hasBlackJack({ cards })) {
+    dispatch(setBalance(balance + currentBet * 1.5));
+    return;
+  }
 
-    dispatch(setBalance(balance + bet));
-  },
-);
+  dispatch(setBalance(balance + currentBet));
+};
 
 // Remove's money from player's account
-const playerLost = createAsyncThunk(
-  "game/playerWon",
-  async (_, { getState, dispatch }): Promise<void> => {
-    const state = getState() as RootState;
-    const bet = state.table.currentBet;
-    const { balance } = state.player;
-    dispatch(setBalance(balance - bet));
-  },
-);
+const playerLost = (): AppThunk => async (dispatch, getState) => {
+  const { balance } = getState().player as PlayerState;
+  const { currentBet } = getState().table as TableState;
+  dispatch(setBalance(balance - currentBet));
+};
 
 // Check if player's hand's are over 21
-const scoresOverTwentyOne = createAsyncThunk(
-  "player/scoresOverTwentyOne",
-  async (_, { getState, dispatch }): Promise<boolean> => {
-    const state = getState() as RootState;
-    if (state.player.score > 21) {
-      if (!playedTwoHands({ player: state.player })) {
+const scoresOverTwentyOne =
+  (): ThunkAction<Promise<boolean>, RootState, unknown, AnyAction> =>
+  async (dispatch, getState) => {
+    const player = getState().player as PlayerState;
+    const { score, secondScore } = player;
+    if (score > 21) {
+      if (!playedTwoHands({ player })) {
         // If player didn't split, he lost
         await dispatch(playerLost());
         return true;
       }
-      if (state.player.secondScore! > 21) {
+      if (secondScore! > 21) {
         // If player split and both hands are over 21, he lost
         await dispatch(playerLost());
         await dispatch(playerLost());
@@ -72,72 +63,62 @@ const scoresOverTwentyOne = createAsyncThunk(
       }
     }
     return false;
-  },
-);
+  };
 
 // If table has insurance bet, check who won and update balance
-const checkForInsurance = createAsyncThunk(
-  "game/checkInsurance",
-  async (_, { getState, dispatch }): Promise<void> => {
-    const state = getState() as RootState;
-    if (state.table.insuranceBet === null) {
-      return;
-    }
-    if (hasBlackJack({ cards: state.dealer.cards })) {
-      await dispatch(
-        setBalance(state.player.balance + state.table.insuranceBet * 2),
-      );
-    } else {
-      await dispatch(
-        setBalance(state.player.balance - state.table.insuranceBet),
-      );
-    }
-  },
-);
+const checkForInsurance = (): AppThunk => async (dispatch, getState) => {
+  const state = getState() as RootState;
+  const { table, player, dealer } = state;
+  if (table.insuranceBet === null) {
+    return;
+  }
+  if (hasBlackJack({ cards: dealer.cards })) {
+    await dispatch(setBalance(player.balance + table.insuranceBet * 2));
+  } else {
+    await dispatch(setBalance(player.balance - table.insuranceBet));
+  }
+};
 
 // End game and check who won
-const finishGame = createAsyncThunk(
-  "game/finishGame",
-  async (_, { getState, dispatch }): Promise<void> => {
-    await dispatch(showCards()); // Flip dealer's hidden card
-    await dispatch(setGameFinished(true));
-    await dispatch(checkForInsurance());
+const finishGame = (): AppThunk => async (dispatch, getState) => {
+  await dispatch(showCards()); // Flip dealer's hidden card
+  await dispatch(setGameFinished(true));
+  await dispatch(checkForInsurance());
 
-    const ended: boolean = unwrapResult(await dispatch(scoresOverTwentyOne()));
-    if (ended) {
-      return;
-    }
+  const ended: boolean = await dispatch(scoresOverTwentyOne());
+  if (ended) {
+    return;
+  }
 
-    await dispatch(dealerDrawUntillSeventeen());
+  await dispatch(dealerDrawUntillSeventeen());
 
-    const state = getState() as RootState;
-    const { score: playerScore, secondScore: playerSecondScore } = state.player;
-    const { score: dealerScore } = state.dealer;
+  const { player, dealer } = getState() as RootState;
+  const { score: playerScore, secondScore: playerSecondScore } = player;
+  const { score: dealerScore } = dealer;
 
-    let winner = checkWinner({
-      playerScore,
+  let winner = checkWinner({
+    playerScore,
+    dealerScore,
+  });
+
+  if (winner === PlayerType.PLAYER) {
+    await dispatch(playerWon());
+  } else if (winner === PlayerType.DEALER) {
+    await dispatch(playerLost());
+  }
+
+  // If player has split, check second hand
+  if (playedTwoHands({ player })) {
+    winner = checkWinner({
+      playerScore: playerSecondScore!,
       dealerScore,
     });
-
     if (winner === PlayerType.PLAYER) {
       await dispatch(playerWon());
     } else if (winner === PlayerType.DEALER) {
       await dispatch(playerLost());
     }
-
-    // If player has split, check second hand
-    if (playedTwoHands({ player: state.player })) {
-      winner = checkWinner({
-        playerScore: playerSecondScore!,
-        dealerScore,
-      });
-      if (winner === PlayerType.PLAYER) {
-        await dispatch(playerWon());
-      } else if (winner === PlayerType.DEALER) {
-        await dispatch(playerLost());
-      }
-    }
-  },
-);
+  }
+};
 
 export { rebet, finishGame };

@@ -1,5 +1,4 @@
 import { useAppDispatch, useAppSelector } from "hooks/hooks";
-import { unwrapResult } from "@reduxjs/toolkit";
 import { finishGame } from "actions/gameState";
 import { switchHands, playerDidSplit } from "actions/split";
 import { setActionOn } from "store/reducers/tableReducer";
@@ -11,8 +10,7 @@ export default function StandButton() {
   const isDisabled = actionOn;
 
   const standHandler = async () => {
-
-    const splitActive = unwrapResult(await dispatch(playerDidSplit()));
+    const splitActive = await dispatch(playerDidSplit());
     await dispatch(setActionOn(true));
     if (splitActive) {
       await dispatch(switchHands());

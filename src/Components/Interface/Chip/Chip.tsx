@@ -48,12 +48,12 @@ export default function Chip(props: ChipProps) {
   }
 
   // Handle incrementing the bet
-  const handleBet = () => {
+  const handleBet = async () => {
     // Check if the player has enough money to bet
     if (bet + incremenetValue > playerBalance) {
       return;
     }
-    dispatch(incrementBet(incremenetValue));
+    await dispatch(incrementBet(incremenetValue));
   };
 
   return (

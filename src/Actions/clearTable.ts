@@ -1,4 +1,3 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
 import {
   setInGame,
   setGameFinished,
@@ -12,27 +11,24 @@ import {
   setSecondHand,
 } from "store/reducers/playerReducer";
 import { clearDealerCards, setDealerScore } from "store/reducers/dealerReducer";
+import { AppThunk } from "store/store";
 
-const clearTable = createAsyncThunk(
-  "table/clearTable",
-  async (_, { dispatch }): Promise<void> => {
-    console.log("OK");
-    // Clear table
-    await dispatch(setInGame(false));
-    await dispatch(setGameFinished(false));
-    await dispatch(clearBet());
-    await dispatch(setInsuranceBet(null));
+const clearTable = (): AppThunk => async (dispatch) => {
+  // Clear table
+  await dispatch(setInGame(false));
+  await dispatch(setGameFinished(false));
+  await dispatch(clearBet());
+  await dispatch(setInsuranceBet(null));
 
-    // Clear player
-    await dispatch(clearPlayerCards());
-    await dispatch(setPlayerScore(0));
-    await dispatch(setSecondScore(null));
-    await dispatch(setSecondHand([]));
+  // Clear player
+  await dispatch(clearPlayerCards());
+  await dispatch(setPlayerScore(0));
+  await dispatch(setSecondScore(null));
+  await dispatch(setSecondHand([]));
 
-    // Clear dealer
-    await dispatch(clearDealerCards());
-    await dispatch(setDealerScore(0));
-  },
-);
+  // Clear dealer
+  await dispatch(clearDealerCards());
+  await dispatch(setDealerScore(0));
+};
 
 export { clearTable };

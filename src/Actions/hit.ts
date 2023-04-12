@@ -1,29 +1,24 @@
-import { RootState } from "store/store";
-import { createAsyncThunk, unwrapResult } from "@reduxjs/toolkit";
+import { AppThunk } from "store/store";
 import { playerDrawCard } from "actions/playerUtils";
 import { finishGame } from "actions/gameState";
 import { playerDidSplit, switchHands } from "actions/split";
+import { PlayerState } from "types";
 
 // Draw a card for the player
-const hit = createAsyncThunk(
-  "player/hit",
-  async (_, { getState, dispatch }): Promise<void> => {
-    await dispatch(playerDrawCard());
+const hit = (): AppThunk => async (dispatch, getState) => {
+  await dispatch(playerDrawCard());
 
-    const state = getState() as RootState;
+  const { score: playerScore } = getState().player as PlayerState;
 
-    // If player score is over 21, hand is lost
-    if (state.player.score > 21) {
-      const splitActive: boolean = unwrapResult(
-        await dispatch(playerDidSplit()),
-      );
-      if (splitActive) {
-        dispatch(switchHands());
-      } else {
-        dispatch(finishGame());
-      }
+  // If player score is over 21, hand is lost
+  if (playerScore > 21) {
+    const splitActive: boolean = await dispatch(playerDidSplit());
+    if (splitActive) {
+      dispatch(switchHands());
+    } else {
+      dispatch(finishGame());
     }
-  },
-);
+  }
+};
 
 export { hit };

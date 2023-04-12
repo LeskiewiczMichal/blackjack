@@ -1,44 +1,38 @@
-import { Card } from "types";
-import { RootState } from "store/store";
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { Card, TableState, DealerState } from "types";
+import { AppThunk } from "store/store";
 import { drawCard } from "store/reducers/tableReducer";
 import { addCard, setDealerScore } from "store/reducers/dealerReducer";
 import { calculateScore } from "utils/calculateScore";
 
 // Get's a random card from the deck on the table, adds it to dealer's hand and updates the score
-const dealerDrawCard = createAsyncThunk(
-  "player/drawCard",
-  async (_, { getState, dispatch }): Promise<void> => {
-    let state = getState() as RootState;
-    let randomCard: Card =
-      state.table.cards[Math.floor(Math.random() * state.table.cards.length)]; // Get a random card from the deck
-    await dispatch(drawCard(randomCard));
+const dealerDrawCard = (): AppThunk => async (dispatch, getState) => {
+  const { cards: tableCards } = getState().table as TableState;
+  let { cards: dealerCards } = getState().dealer as DealerState;
 
-    // If it's the first card, hide it
-    if (state.dealer.cards.length === 0) {
-      randomCard = { ...randomCard, faceUp: false };
-    }
-    await dispatch(addCard(randomCard));
+  let randomCard: Card =
+    tableCards[Math.floor(Math.random() * tableCards.length)]; // Get a random card from the deck
+  await dispatch(drawCard(randomCard));
 
-    state = getState() as RootState;
-    await dispatch(
-      setDealerScore(calculateScore({ cards: state.dealer.cards })),
-    );
+  // If it's the first card, hide it
+  if (dealerCards.length === 0) {
+    randomCard = { ...randomCard, faceUp: false };
+  }
+  await dispatch(addCard(randomCard));
 
-    // eslint-disable-next-line no-promise-executor-return
-    await new Promise((resolve) => setTimeout(resolve, 1000)); // Wait for animation to end
-  },
-);
+  ({ cards: dealerCards } = getState().dealer as DealerState);
+  await dispatch(setDealerScore(calculateScore({ cards: dealerCards })));
 
-const dealerDrawUntillSeventeen = createAsyncThunk(
-  "player/drawUntillSeventeen",
-  async (_, { getState, dispatch }): Promise<void> => {
-    let state = getState() as RootState;
-    while (state.dealer.score < 17) {
+  // eslint-disable-next-line no-promise-executor-return
+  await new Promise((resolve) => setTimeout(resolve, 1000)); // Wait for animation to end
+};
+
+const dealerDrawUntillSeventeen =
+  (): AppThunk => async (dispatch, getState) => {
+    let { score: dealerScore } = getState().dealer as DealerState;
+    while (dealerScore < 17) {
       await dispatch(dealerDrawCard());
-      state = getState() as RootState;
+      ({ score: dealerScore } = getState().dealer as DealerState);
     }
-  },
-);
+  };
 
 export { dealerDrawCard, dealerDrawUntillSeventeen };

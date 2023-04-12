@@ -1,28 +1,22 @@
-import { Card } from "types";
-import { RootState } from "store/store";
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { Card, TableState, PlayerState } from "types";
+import { AppThunk } from "store/store";
 import { drawCard } from "store/reducers/tableReducer";
 import { addCard, setPlayerScore } from "store/reducers/playerReducer";
 import { calculateScore } from "utils/calculateScore";
 
 // Get's a random card from the deck on the table, adds it to player's hand and updates the score
-const playerDrawCard = createAsyncThunk(
-  "player/drawCard",
-  async (_, { getState, dispatch }): Promise<void> => {
-    let state = getState() as RootState;
-    const randomCard: Card =
-      state.table.cards[Math.floor(Math.random() * state.table.cards.length)]; // Get a random card from the deck
-    await dispatch(drawCard(randomCard));
-    await dispatch(addCard(randomCard));
+const playerDrawCard = (): AppThunk => async (dispatch, getState) => {
+  const { cards } = getState().table as TableState;
 
-    state = getState() as RootState;
-    await dispatch(
-      setPlayerScore(calculateScore({ cards: state.player.cards })),
-    );
+  const randomCard: Card = cards[Math.floor(Math.random() * cards.length)]; // Get a random card from the deck
+  await dispatch(drawCard(randomCard));
+  await dispatch(addCard(randomCard));
 
-    // eslint-disable-next-line no-promise-executor-return
-    await new Promise((resolve) => setTimeout(resolve, 1000)); // Wait for animation to end
-  },
-);
+  const { cards: playerCards } = getState().player as PlayerState;
+  await dispatch(setPlayerScore(calculateScore({ cards: playerCards })));
+
+  // eslint-disable-next-line no-promise-executor-return
+  await new Promise((resolve) => setTimeout(resolve, 1000)); // Wait for animation to end
+};
 
 export { playerDrawCard };

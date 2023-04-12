@@ -1,16 +1,16 @@
-import { RootState } from "store/store";
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { RootState, AppThunk } from "store/store";
 import { setInsuranceBet } from "store/reducers/tableReducer";
 
-const betInsurance = createAsyncThunk(
-  "table/betInsurance",
-  async (_, { getState, dispatch }): Promise<void> => {
-    const state = getState() as RootState;
-    if (state.player.balance < Math.floor(state.table.currentBet / 2)) {
-      return;
-    }
-    await dispatch(setInsuranceBet(Math.floor(state.table.currentBet / 2)));
-  },
-);
+// Adds insurance bet worth half of the current bet to the table
+const betInsurance = (): AppThunk => async (dispatch, getState) => {
+  const state = getState() as RootState;
+  const { balance } = state.player;
+  const { currentBet } = state.table;
+
+  if (balance < Math.floor(currentBet / 2)) {
+    return;
+  }
+  await dispatch(setInsuranceBet(Math.floor(currentBet / 2)));
+};
 
 export { betInsurance };
