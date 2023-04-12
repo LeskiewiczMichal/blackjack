@@ -4,8 +4,8 @@ import { clearBet } from "store/reducers/tableReducer";
 export default function ClearButton() {
   const dispatch = useDispatch();
 
-  const clearHandler = () => {
-    dispatch(clearBet());
+  const clearHandler = async () => {
+    await dispatch(clearBet());
   };
 
   return (

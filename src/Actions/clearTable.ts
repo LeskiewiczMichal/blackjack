@@ -16,6 +16,7 @@ import { clearDealerCards, setDealerScore } from "store/reducers/dealerReducer";
 const clearTable = createAsyncThunk(
   "table/clearTable",
   async (_, { dispatch }): Promise<void> => {
+    console.log("OK");
     // Clear table
     await dispatch(setInGame(false));
     await dispatch(setGameFinished(false));

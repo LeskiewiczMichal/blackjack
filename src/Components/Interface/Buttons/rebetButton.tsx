@@ -6,8 +6,9 @@ export default function RebetButton() {
   const dispatch = useAppDispatch();
   const playerBalance = useAppSelector((state) => state.player.balance);
   const bet = useAppSelector((state) => state.table.currentBet);
+  const animationOn = useAppSelector((state) => state.table.animationOn);
 
-  const isDisabled: boolean = playerBalance < bet;
+  const isDisabled: boolean = playerBalance < bet || animationOn;
 
   const rebetHandler = async () => {
     await dispatch(setAnimationOn(true));
