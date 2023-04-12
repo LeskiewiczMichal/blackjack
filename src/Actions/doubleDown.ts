@@ -1,7 +1,7 @@
 import { AppThunk } from "store/store";
 import { incrementBet } from "store/reducers/tableReducer";
 import { playerDrawCard } from "actions/playerUtils";
-import { finishGame } from "actions/gameState";
+import { finishGame } from "actions/finishGame";
 import { TableState } from "types";
 
 const doubleDown = (): AppThunk => async (dispatch, getState) => {

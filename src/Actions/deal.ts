@@ -9,7 +9,7 @@ import { playerDrawCard } from "actions/playerUtils";
 import { dealerDrawCard } from "actions/dealerUtils";
 import { hasBlackJack } from "utils/hasBlackJack";
 import { onlyAceVisible } from "utils/onlyAceVisible";
-import { finishGame } from "actions/gameState";
+import { finishGame } from "actions/finishGame";
 
 const NUMBER_OF_CARDS_FOR_EACH_PLAYER = 2;
 

@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from "hooks/hooks";
-import { rebet } from "actions/gameState";
+import { rebet } from "actions/rebet";
 import { setActionOn } from "store/reducers/tableReducer";
 
 export default function RebetButton() {

@@ -12,7 +12,7 @@ import DealButton from "./buttons/DealButton";
 import ClearButton from "./buttons/ClearButton";
 import InfoTable from "./infoTable/InfoTable";
 import NewBetButton from "./buttons/NewBetButton";
-import RebetButton from "./buttons/rebetButton";
+import RebetButton from "./buttons/RebetButton";
 
 import { ChipValue } from "./chip/Chip"; // Enum for Chip component props
 

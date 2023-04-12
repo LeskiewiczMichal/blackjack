@@ -1,6 +1,6 @@
 import { AppThunk } from "store/store";
 import { playerDrawCard } from "actions/playerUtils";
-import { finishGame } from "actions/gameState";
+import { finishGame } from "actions/finishGame";
 import { playerDidSplit, switchHands } from "actions/split";
 import { PlayerState } from "types";
 

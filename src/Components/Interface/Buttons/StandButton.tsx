@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from "hooks/hooks";
-import { finishGame } from "actions/gameState";
+import { finishGame } from "actions/finishGame";
 import { switchHands, playerDidSplit } from "actions/split";
 import { setActionOn } from "store/reducers/tableReducer";
 

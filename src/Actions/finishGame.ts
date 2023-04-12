@@ -2,26 +2,12 @@ import { PlayerState, PlayerType, TableState } from "types.d";
 import { RootState, AppThunk } from "store/store";
 import { AnyAction, ThunkAction } from "@reduxjs/toolkit";
 import { showCards } from "store/reducers/dealerReducer";
-import { setGameFinished, incrementBet } from "store/reducers/tableReducer";
+import { setGameFinished } from "store/reducers/tableReducer";
 import { setBalance } from "store/reducers/playerReducer";
 import { hasBlackJack } from "utils/hasBlackJack";
 import { checkWinner } from "utils/checkWinner";
 import { playedTwoHands } from "utils/playedTwoHands";
 import { dealerDrawUntillSeventeen } from "actions/dealerUtils";
-import { clearTable } from "actions/clearTable";
-import { deal } from "./deal";
-
-const rebet = (): AppThunk => async (dispatch, getState) => {
-  const { balance } = getState().player as PlayerState;
-  const { currentBet } = getState().table as TableState;
-  if (balance < currentBet) {
-    return;
-  }
-
-  await dispatch(clearTable());
-  await dispatch(incrementBet(currentBet));
-  await dispatch(deal());
-};
 
 // Add's money to player's account
 const playerWon = (): AppThunk => async (dispatch, getState) => {
@@ -121,4 +107,4 @@ const finishGame = (): AppThunk => async (dispatch, getState) => {
   }
 };
 
-export { rebet, finishGame };
+export { finishGame };
