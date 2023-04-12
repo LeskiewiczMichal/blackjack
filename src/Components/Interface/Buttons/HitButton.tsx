@@ -1,17 +1,17 @@
 import { useAppDispatch, useAppSelector } from "hooks/hooks";
 import { hit } from "actions/hit";
-import { setAnimationOn } from "store/reducers/tableReducer";
+import { setActionOn } from "store/reducers/tableReducer";
 
 export default function HitButton() {
   const dispatch = useAppDispatch();
-  const animationOn = useAppSelector((state) => state.table.animationOn);
+  const actionOn = useAppSelector((state) => state.table.actionOn);
 
-  const isDisabled = animationOn;
+  const isDisabled = actionOn;
 
   const hitHandler = async () => {
-    await dispatch(setAnimationOn(true));
+    await dispatch(setActionOn(true));
     await dispatch(hit());
-    await dispatch(setAnimationOn(false));
+    await dispatch(setActionOn(false));
   };
 
   return (

@@ -1,20 +1,21 @@
 import { useAppSelector, useAppDispatch } from "hooks/hooks";
 import { split } from "actions/split";
 import { isFigure } from "utils/isFigure";
+import { setActionOn } from "store/reducers/tableReducer";
 
 export default function SplitButton() {
   const dispatch = useAppDispatch();
   const player = useAppSelector((state) => state.player);
   const bet = useAppSelector((state) => state.table.currentBet);
   const secondScore = useAppSelector((state) => state.player.secondScore);
-  const animationOn = useAppSelector((state) => state.table.animationOn);
+  const actionOn = useAppSelector((state) => state.table.actionOn);
   const { cards, balance } = player;
   const firstCard = player.cards[0];
   const secondCard = player.cards[1];
 
   let isDisabled: boolean;
 
-  if (animationOn) {
+  if (actionOn) {
     isDisabled = true;
   } else if (cards.length !== 2) {
     isDisabled = true;
@@ -36,7 +37,9 @@ export default function SplitButton() {
   }
 
   const splitHandler = async () => {
+    await dispatch(setActionOn(true));
     await dispatch(split());
+    await dispatch(setActionOn(false));
   };
 
   return (

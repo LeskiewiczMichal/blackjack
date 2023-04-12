@@ -1,19 +1,19 @@
 import { useAppDispatch, useAppSelector } from "hooks/hooks";
 import { rebet } from "actions/gameState";
-import { setAnimationOn } from "store/reducers/tableReducer";
+import { setActionOn } from "store/reducers/tableReducer";
 
 export default function RebetButton() {
   const dispatch = useAppDispatch();
   const playerBalance = useAppSelector((state) => state.player.balance);
   const bet = useAppSelector((state) => state.table.currentBet);
-  const animationOn = useAppSelector((state) => state.table.animationOn);
+  const actionOn = useAppSelector((state) => state.table.actionOn);
 
-  const isDisabled: boolean = playerBalance < bet || animationOn;
+  const isDisabled: boolean = playerBalance < bet || actionOn;
 
   const rebetHandler = async () => {
-    await dispatch(setAnimationOn(true));
+    await dispatch(setActionOn(true));
     await dispatch(rebet());
-    await dispatch(setAnimationOn(false));
+    await dispatch(setActionOn(false));
   };
 
   return (

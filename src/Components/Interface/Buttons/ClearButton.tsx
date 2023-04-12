@@ -1,11 +1,17 @@
 import { useDispatch } from "react-redux";
-import { clearBet } from "store/reducers/tableReducer";
+import { clearBet, setActionOn } from "store/reducers/tableReducer";
+import { useAppSelector } from "hooks/hooks";
 
 export default function ClearButton() {
   const dispatch = useDispatch();
+  const actionOn = useAppSelector((state) => state.table.actionOn);
+
+  const isDisabled = actionOn;
 
   const clearHandler = async () => {
+    await dispatch(setActionOn(true));
     await dispatch(clearBet());
+    await dispatch(setActionOn(false));
   };
 
   return (
@@ -13,6 +19,7 @@ export default function ClearButton() {
       type="button"
       className="UI--button UI--clear-button"
       onClick={clearHandler}
+      disabled={isDisabled}
     >
       CLEAR
     </button>

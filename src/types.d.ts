@@ -78,9 +78,7 @@ export type TableState = {
   gameFinished: boolean;
   popUpActive: boolean;
   insuranceBet: number | null;
-  animationOn: boolean;
-  // dealer: DealerInterface,
-  // player: PlayerInterface,
+  actionOn: boolean;
 };
 
 export enum Action {

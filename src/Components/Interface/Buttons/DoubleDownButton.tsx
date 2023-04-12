@@ -1,21 +1,21 @@
 import { useAppSelector, useAppDispatch } from "hooks/hooks";
 import { doubleDown } from "actions/doubleDown";
-import { setAnimationOn } from "store/reducers/tableReducer";
+import { setActionOn } from "store/reducers/tableReducer";
 
 export default function DoubleDownButton() {
   const dispatch = useAppDispatch();
   const playerCards = useAppSelector((state) => state.player.cards);
   const playerBalance = useAppSelector((state) => state.player.balance);
   const bet = useAppSelector((state) => state.table.currentBet);
-  const animationOn = useAppSelector((state) => state.table.animationOn);
+  const actionOn = useAppSelector((state) => state.table.actionOn);
 
   const isDisabled: boolean =
-    playerCards.length !== 2 || bet * 2 > playerBalance || animationOn;
+    playerCards.length !== 2 || bet * 2 > playerBalance || actionOn;
 
   const doubleDownHandler = async () => {
-    await dispatch(setAnimationOn(true));
+    await dispatch(setActionOn(true));
     await dispatch(doubleDown());
-    await dispatch(setAnimationOn(false));
+    await dispatch(setActionOn(false));
   };
 
   return (
