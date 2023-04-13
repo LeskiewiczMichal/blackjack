@@ -69,6 +69,8 @@ const checkForInsurance = (): AppThunk => async (dispatch, getState) => {
 // End game and check who won
 const finishGame = (): AppThunk => async (dispatch, getState) => {
   await dispatch(showCards()); // Flip dealer's hidden card
+  // eslint-disable-next-line no-promise-executor-return
+  await new Promise((resolve) => setTimeout(resolve, 900)); // Use a Promise to wait
   await dispatch(setGameFinished(true));
   await dispatch(checkForInsurance());
 
