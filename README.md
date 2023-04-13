@@ -1,5 +1,6 @@
 # Blackjack Game
 A blackjack game written in Typescript. I used Redux-toolkit for state managment.
+Other technologies I've used are Howel for sound, and React-transition-group for animations.
 
 ## See it live here:
 
@@ -17,3 +18,8 @@ UI Buttons icons:
 Chip images:        https://www.flaticon.com/authors/smashingstocks
 
 Cards:              https://www.me.uk/cards/
+
+Sounds:
+    Chips:          https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=38461
+    Cards:          https://pixabay.com/sound-effects/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=91468
+    Background:     https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=19130

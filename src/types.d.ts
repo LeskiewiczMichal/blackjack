@@ -93,4 +93,5 @@ export type TableAction =
 /// HELPERS ///
 export type HelperSliceState = {
   disableSwapHandsAnimation: boolean;
+  soundsPlaying: boolean;
 };

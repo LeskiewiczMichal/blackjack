@@ -1,6 +1,12 @@
 import "./chip.style.css";
 import { useAppDispatch, useAppSelector } from "hooks/hooks";
 import { incrementBet } from "store/reducers/tableReducer";
+import { Howl } from "howler";
+import sound from "assets/sounds/chip.mp3";
+
+const chipSound = new Howl({
+  src: [sound],
+});
 
 export enum ChipValue {
   chipOne = "one",
@@ -20,6 +26,7 @@ export default function Chip(props: ChipProps) {
   const inGame = useAppSelector((state) => state.table.inGame);
   const bet = useAppSelector((state) => state.table.currentBet);
   const playerBalance = useAppSelector((state) => state.player.balance);
+  const soundsPlaying = useAppSelector((state) => state.helpers.soundsPlaying);
   const { value } = props;
 
   // Get the value of the chip to increment the bet by
@@ -52,6 +59,9 @@ export default function Chip(props: ChipProps) {
     // Check if the player has enough money to bet
     if (bet + incremenetValue > playerBalance) {
       return;
+    }
+    if (soundsPlaying) {
+      chipSound.play();
     }
     await dispatch(incrementBet(incremenetValue));
   };

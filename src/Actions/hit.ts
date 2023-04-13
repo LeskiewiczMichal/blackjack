@@ -8,7 +8,6 @@ import { wrapActionIntoSetActionOn } from "./wrapActionIntoHandler";
 // Draw a card for the player
 const hit = (): AppThunk => async (dispatch, getState) => {
   await dispatch(playerDrawCard());
-
   const { score: playerScore } = getState().player as PlayerState;
 
   // If player score is over 21, hand is lost

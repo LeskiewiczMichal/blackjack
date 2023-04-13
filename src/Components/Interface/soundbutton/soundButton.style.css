@@ -1,0 +1,29 @@
+.sound-button {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #000000d9;
+    box-shadow: 0 0 5px var(--black);
+    border: 1px solid var(--black);
+    border-radius: 100%;
+    height: 40px;
+    width: 40px;
+    right: 1%;
+    top: 1%;
+
+    background-size: 80% 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    cursor: pointer;
+}
+
+.audio-on {
+    background-image: url("/src/assets/icons/audio_on.svg");
+}
+
+.audio-off {
+    background-image: url("/src/assets/icons/audio_off.svg");
+}
