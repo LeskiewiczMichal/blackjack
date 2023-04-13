@@ -69,4 +69,8 @@
     min-height: 100px;
     width: 60%;
   }
+
+  .table-texture {
+    background-image: url("../../assets/table_mobile.jpg");
+  }
 }

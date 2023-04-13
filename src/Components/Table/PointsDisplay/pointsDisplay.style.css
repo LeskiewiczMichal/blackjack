@@ -1,21 +1,19 @@
 .points--display {
   background-color: var(--interface-brown);
+  background-image: var(--wooden-table-url);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: fit-content;
-  border: 3px solid var(--green-border);
+  border: 5px solid var(--green-border);
   border-radius: 10px;
+  box-shadow: 0 0 10px var(--black);
   padding: 0.2rem;
   color: var(--info-gold);
   font-size: large;
   max-height: 80px;
   width: 200px;
-
-  /* position: absolute; */
-  /* left: 50px; */
-  /* top: -65px; */
 }
 
 .points {
