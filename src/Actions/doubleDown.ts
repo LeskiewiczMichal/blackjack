@@ -3,6 +3,7 @@ import { incrementBet } from "store/reducers/tableReducer";
 import { playerDrawCard } from "actions/playerUtils";
 import { finishGame } from "actions/finishGame";
 import { TableState } from "types";
+import { wrapActionIntoSetActionOn } from "./wrapActionIntoHandler";
 
 const doubleDown = (): AppThunk => async (dispatch, getState) => {
   const { currentBet } = getState().table as TableState;
@@ -11,4 +12,9 @@ const doubleDown = (): AppThunk => async (dispatch, getState) => {
   await dispatch(finishGame());
 };
 
-export { doubleDown };
+const doubleDownWithSetActionOn = (): AppThunk =>
+  wrapActionIntoSetActionOn(async (dispatch) => {
+    await dispatch(doubleDown());
+  });
+
+export { doubleDownWithSetActionOn as doubleDown };

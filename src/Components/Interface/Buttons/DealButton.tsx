@@ -1,5 +1,4 @@
 import { useAppDispatch, useAppSelector } from "hooks/hooks";
-import { setActionOn } from "store/reducers/tableReducer";
 import { deal } from "actions/deal";
 
 export default function DealButton() {
@@ -10,9 +9,7 @@ export default function DealButton() {
   const isDisabled: boolean = currentBet === 0 || actionOn;
 
   const dealHandler = async () => {
-    await dispatch(setActionOn(true));
     await dispatch(deal());
-    await dispatch(setActionOn(false));
   };
 
   return (

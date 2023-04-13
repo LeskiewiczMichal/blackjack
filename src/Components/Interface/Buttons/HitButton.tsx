@@ -1,6 +1,5 @@
 import { useAppDispatch, useAppSelector } from "hooks/hooks";
 import { hit } from "actions/hit";
-import { setActionOn } from "store/reducers/tableReducer";
 
 export default function HitButton() {
   const dispatch = useAppDispatch();
@@ -9,9 +8,7 @@ export default function HitButton() {
   const isDisabled = actionOn;
 
   const hitHandler = async () => {
-    await dispatch(setActionOn(true));
     await dispatch(hit());
-    await dispatch(setActionOn(false));
   };
 
   return (

@@ -10,6 +10,7 @@ import { dealerDrawCard } from "actions/dealerUtils";
 import { hasBlackJack } from "utils/hasBlackJack";
 import { onlyAceVisible } from "utils/onlyAceVisible";
 import { finishGame } from "actions/finishGame";
+import { wrapActionIntoSetActionOn } from "./wrapActionIntoHandler";
 
 const NUMBER_OF_CARDS_FOR_EACH_PLAYER = 2;
 
@@ -39,4 +40,9 @@ const deal = (): AppThunk => async (dispatch, getState) => {
   }
 };
 
-export { deal };
+const dealWithSetActionOn = (): AppThunk =>
+  wrapActionIntoSetActionOn(async (dispatch) => {
+    await dispatch(deal());
+  });
+
+export { dealWithSetActionOn as deal };

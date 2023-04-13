@@ -1,7 +1,6 @@
 import { useAppDispatch, useAppSelector } from "hooks/hooks";
 import { finishGame } from "actions/finishGame";
 import { switchHands, playerDidSplit } from "actions/split";
-import { setActionOn } from "store/reducers/tableReducer";
 
 export default function StandButton() {
   const dispatch = useAppDispatch();
@@ -11,13 +10,11 @@ export default function StandButton() {
 
   const standHandler = async () => {
     const splitActive = await dispatch(playerDidSplit());
-    await dispatch(setActionOn(true));
     if (splitActive) {
       await dispatch(switchHands());
     } else {
       await dispatch(finishGame());
     }
-    await dispatch(setActionOn(false));
   };
 
   return (

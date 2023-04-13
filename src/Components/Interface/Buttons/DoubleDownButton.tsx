@@ -1,6 +1,5 @@
 import { useAppSelector, useAppDispatch } from "hooks/hooks";
 import { doubleDown } from "actions/doubleDown";
-import { setActionOn } from "store/reducers/tableReducer";
 
 export default function DoubleDownButton() {
   const dispatch = useAppDispatch();
@@ -13,9 +12,7 @@ export default function DoubleDownButton() {
     playerCards.length !== 2 || bet * 2 > playerBalance || actionOn;
 
   const doubleDownHandler = async () => {
-    await dispatch(setActionOn(true));
     await dispatch(doubleDown());
-    await dispatch(setActionOn(false));
   };
 
   return (

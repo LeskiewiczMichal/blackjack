@@ -1,6 +1,5 @@
 import { useAppDispatch, useAppSelector } from "hooks/hooks";
 import { clearTable } from "actions/clearTable";
-import { setActionOn } from "store/reducers/tableReducer";
 
 export default function NewBetButton() {
   const dispatch = useAppDispatch();
@@ -9,9 +8,7 @@ export default function NewBetButton() {
   const isDisabled = actionOn;
 
   const newBetHandler = async () => {
-    await dispatch(setActionOn(true));
     await dispatch(clearTable());
-    await dispatch(setActionOn(false));
   };
 
   return (

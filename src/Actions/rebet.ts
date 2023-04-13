@@ -1,6 +1,7 @@
 import { PlayerState, TableState } from "types.d";
 import { AppThunk } from "store/store";
 import { incrementBet } from "store/reducers/tableReducer";
+import { wrapActionIntoSetActionOn } from "actions/wrapActionIntoHandler";
 import { clearTable } from "./clearTable";
 import { deal } from "./deal";
 
@@ -16,4 +17,9 @@ const rebet = (): AppThunk => async (dispatch, getState) => {
   await dispatch(deal());
 };
 
-export { rebet };
+const rebetWithSetActionOn = (): AppThunk =>
+  wrapActionIntoSetActionOn(async (dispatch) => {
+    await dispatch(rebet());
+  });
+
+export { rebetWithSetActionOn as rebet };

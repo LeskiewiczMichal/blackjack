@@ -8,6 +8,7 @@ import { hasBlackJack } from "utils/hasBlackJack";
 import { checkWinner } from "utils/checkWinner";
 import { playedTwoHands } from "utils/playedTwoHands";
 import { dealerDrawUntillSeventeen } from "actions/dealerUtils";
+import { wrapActionIntoSetActionOn } from "./wrapActionIntoHandler";
 
 // Add's money to player's account
 const playerWon = (): AppThunk => async (dispatch, getState) => {
@@ -107,4 +108,9 @@ const finishGame = (): AppThunk => async (dispatch, getState) => {
   }
 };
 
-export { finishGame };
+const finishGameWithSetActionOn = (): AppThunk =>
+  wrapActionIntoSetActionOn(async (dispatch) => {
+    await dispatch(finishGame());
+  });
+
+export { finishGameWithSetActionOn as finishGame };

@@ -12,6 +12,7 @@ import { calculateScore } from "utils/calculateScore";
 import { playerDrawCard } from "actions/playerUtils";
 import { AnyAction } from "redux";
 import { ThunkAction } from "redux-thunk";
+import { wrapActionIntoSetActionOn } from "./wrapActionIntoHandler";
 
 const split = (): AppThunk => async (dispatch, getState) => {
   const { cards: playerCards } = getState().player as PlayerState;
@@ -55,4 +56,19 @@ const playerDidSplit =
     return player.secondScore === null && player.secondHand.length > 0;
   };
 
-export { split, switchHands, playerDidSplit };
+// Wrap function into setAction
+const splitWithSetActionOn = (): AppThunk =>
+  wrapActionIntoSetActionOn(async (dispatch) => {
+    await dispatch(split());
+  });
+
+const switchHandsWithSetActionOn = (): AppThunk =>
+  wrapActionIntoSetActionOn(async (dispatch) => {
+    await dispatch(switchHands());
+  });
+
+export {
+  splitWithSetActionOn as split,
+  switchHandsWithSetActionOn as switchHands,
+  playerDidSplit,
+};

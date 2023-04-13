@@ -1,7 +1,6 @@
 import { useAppSelector, useAppDispatch } from "hooks/hooks";
 import { split } from "actions/split";
 import { isFigure } from "utils/isFigure";
-import { setActionOn } from "store/reducers/tableReducer";
 
 export default function SplitButton() {
   const dispatch = useAppDispatch();
@@ -37,9 +36,7 @@ export default function SplitButton() {
   }
 
   const splitHandler = async () => {
-    await dispatch(setActionOn(true));
     await dispatch(split());
-    await dispatch(setActionOn(false));
   };
 
   return (

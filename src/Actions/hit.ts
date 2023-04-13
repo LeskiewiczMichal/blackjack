@@ -3,6 +3,7 @@ import { playerDrawCard } from "actions/playerUtils";
 import { finishGame } from "actions/finishGame";
 import { playerDidSplit, switchHands } from "actions/split";
 import { PlayerState } from "types";
+import { wrapActionIntoSetActionOn } from "./wrapActionIntoHandler";
 
 // Draw a card for the player
 const hit = (): AppThunk => async (dispatch, getState) => {
@@ -14,11 +15,16 @@ const hit = (): AppThunk => async (dispatch, getState) => {
   if (playerScore > 21) {
     const splitActive: boolean = await dispatch(playerDidSplit());
     if (splitActive) {
-      dispatch(switchHands());
+      await dispatch(switchHands());
     } else {
-      dispatch(finishGame());
+      await dispatch(finishGame());
     }
   }
 };
 
-export { hit };
+const hitWithSetActionOn = (): AppThunk =>
+  wrapActionIntoSetActionOn(async (dispatch) => {
+    await dispatch(hit());
+  });
+
+export { hitWithSetActionOn as hit };
