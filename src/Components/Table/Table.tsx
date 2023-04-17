@@ -4,7 +4,6 @@ import { useAppSelector, useAppDispatch } from "hooks/hooks";
 import CardsContainer from "components/table/cardsContainer/CardsContainer";
 import PointsDisplay from "components/table/pointsDisplay/PointsDisplay";
 import InsurancePopup from "components/interface/insurancePopUp/InsurancePopup";
-import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { generateCards } from "utils/generateCards";
 import { setCards } from "store/reducers/tableReducer";
 import { useEffect } from "react";
@@ -16,7 +15,6 @@ export default function Table() {
   const popUpActive = useAppSelector((state) => state.table.popUpActive);
   const inGame = useAppSelector((state) => state.table.inGame);
   const cards = useAppSelector((state) => state.table.cards);
-  const [parent] = useAutoAnimate();
 
   useEffect(() => {
     if (cards.length <= 0) {
@@ -34,7 +32,7 @@ export default function Table() {
   }
 
   return (
-    <main className="table--container table-texture" ref={parent}>
+    <main className="table--container table-texture">
       {inGame ? (
         <>
           <section className="table--player">

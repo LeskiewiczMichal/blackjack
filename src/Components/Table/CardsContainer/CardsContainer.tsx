@@ -14,6 +14,7 @@ export default function CardsContainer(props: CardsContainerProps) {
   const disableAnimations = useAppSelector(
     (state) => state.helpers.disableSwapHandsAnimation,
   );
+  const sweepCards = useAppSelector((state) => state.helpers.sweepCards);
   const [alreadyAnimated, setAlreadyAnimated] = useState([
     false,
     false,
@@ -30,6 +31,10 @@ export default function CardsContainer(props: CardsContainerProps) {
     false,
     false,
   ]);
+
+  useEffect(() => {
+    console.log("SWEEP");
+  }, [sweepCards]);
 
   // Set alreadyAnimated for cards that are already rendered on split, so they don't animate again
   useEffect(() => {
@@ -55,7 +60,13 @@ export default function CardsContainer(props: CardsContainerProps) {
           suit={card.suit}
           value={card.value}
           faceUp={card.faceUp}
-          animationClass={alreadyAnimated[index] === true ? "" : "card--enter"}
+          animationClass={
+            sweepCards === true
+              ? "card--exit"
+              : alreadyAnimated[index] === true
+              ? ""
+              : "card--enter"
+          }
         />
       ))}
     </section>

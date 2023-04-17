@@ -4,6 +4,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 const initialState: HelperSliceState = {
   disableSwapHandsAnimation: false,
   soundsPlaying: true,
+  sweepCards: false,
 };
 
 export const helperSlice = createSlice({
@@ -16,10 +17,13 @@ export const helperSlice = createSlice({
     setSoundsPlaying: (state, action: PayloadAction<boolean>) => {
       state.soundsPlaying = action.payload;
     },
+    setSweepCards: (state, action: PayloadAction<boolean>) => {
+      state.sweepCards = action.payload;
+    },
   },
 });
 
-export const { setDisableSwapHandsAnimation, setSoundsPlaying } =
+export const { setDisableSwapHandsAnimation, setSoundsPlaying, setSweepCards } =
   helperSlice.actions;
 
 export default helperSlice.reducer;
