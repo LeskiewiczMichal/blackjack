@@ -15,37 +15,35 @@ export default function CardsContainer(props: CardsContainerProps) {
     (state) => state.helpers.disableSwapHandsAnimation,
   );
 
-  if (disableAnimations) {
-    return (
-      <section className="cards--container">
-        {cards.map((card, index) => (
-          <Card
-            // Index as a key is needed here for animations to work
-            // eslint-disable-next-line react/no-array-index-key
-            key={index}
-            suit={card.suit}
-            value={card.value}
-            faceUp={card.faceUp}
-          />
-        ))}
-      </section>
-    );
-  }
+  // if (disableAnimations) {
+  //   return (
+  //     <section className="cards--container">
+  //       {cards.map((card, index) => (
+  //         <Card
+  //           // Index as a key is needed here for animations to work
+  //           // eslint-disable-next-line react/no-array-index-key
+  //           key={index}
+  //           suit={card.suit}
+  //           value={card.value}
+  //           faceUp={card.faceUp}
+  //         />
+  //       ))}
+  //     </section>
+  //   );
+  // }
+  /// DISABLING ANIMATIONS ///
 
   return (
     <TransitionGroup className="cards--container">
       {cards.map((card, index) => (
-        <CSSTransition
+        <Card
+          // Index as a key is needed here for animations to work
           // eslint-disable-next-line react/no-array-index-key
           key={index}
-          classNames={{
-            enterActive: "card--enter-active",
-            exitActive: "card--exit-active",
-          }}
-          timeout={900}
-        >
-          <Card suit={card.suit} value={card.value} faceUp={card.faceUp} />
-        </CSSTransition>
+          suit={card.suit}
+          value={card.value}
+          faceUp={card.faceUp}
+        />
       ))}
     </TransitionGroup>
   );

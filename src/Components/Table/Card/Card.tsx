@@ -12,20 +12,20 @@ export default function Card(props: CardProps) {
 
   // Check what card to render
   if (!faceUp) {
-    return <div className="card card--back" />;
+    return <div className="card card--back card--enter-active" />;
   }
   if (value === CardValue.ACE) {
-    return <div className={`card ${suit}A`} />;
+    return <div className={`card ${suit}A card--enter-active`} />;
   }
   if (value === CardValue.JACK) {
-    return <div className={`card ${suit}J`} />;
+    return <div className={`card ${suit}J card--enter-active`} />;
   }
   if (value === CardValue.QUEEN) {
-    return <div className={`card ${suit}Q`} />;
+    return <div className={`card ${suit}Q card--enter-active`} />;
   }
   if (value === CardValue.KING) {
-    return <div className={`card ${suit}K`} />;
+    return <div className={`card ${suit}K card--enter-active`} />;
   }
 
-  return <div className={`card ${suit}${value}`} />;
+  return <div className={`card ${suit}${value} card--enter-active`} />;
 }

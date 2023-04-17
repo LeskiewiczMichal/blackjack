@@ -3,39 +3,26 @@
 }
 
 .card--enter-active {
-  animation-fill-mode: forwards;
   animation: card--enter 1s ease forwards;
-  /* transform: translate(0, -500%); */
 }
 
-/* .card--exit-active {  
-  animation : card--exit 1s ease forwards;
-} */
-
 @keyframes card--enter {
-  0% {
-    /* opacity: 0; */
+  from {
     transform: translate(400%, -500%);
-    /* margin: -100%; */
   }
-  /* 50% {
-    transform: translate(0, -80%);
-    /* margin: -80%; */
-  /*} */
-  100% {
-    /* opacity: 1; */
+  to {
     transform: translate(0, 0);
   }
 }
 
-@keyframes card--exit {
+/* @keyframes card--exit {
   0% {
     transform: translate(0, 0);
   }
   100% {
     transform: translate(0, -100%);
   }
-}
+} */
 
 @media (max-width: 600px) {
   .cards--container {
