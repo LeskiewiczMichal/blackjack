@@ -10,6 +10,19 @@
   animation-fill-mode: forwards;
 }
 
+.card--enter {
+  animation: card--enter 1s ease forwards;
+}
+
+@keyframes card--enter {
+  from {
+    transform: translate(400%, -500%);
+  }
+  to {
+    transform: translate(0, 0);
+  }
+}
+
 .CLUBS2 {
   background-image: url("/src/assets/cards/2CLUBS.svg");
 }

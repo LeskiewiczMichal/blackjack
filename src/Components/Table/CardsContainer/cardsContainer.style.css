@@ -2,19 +2,6 @@
   display: flex;
 }
 
-.card--enter-active {
-  animation: card--enter 1s ease forwards;
-}
-
-@keyframes card--enter {
-  from {
-    transform: translate(400%, -500%);
-  }
-  to {
-    transform: translate(0, 0);
-  }
-}
-
 /* @keyframes card--exit {
   0% {
     transform: translate(0, 0);

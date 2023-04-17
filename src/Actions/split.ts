@@ -44,8 +44,8 @@ const switchHands = (): AppThunk => async (dispatch, getState) => {
   await dispatch(setPlayerCards(newHand));
   await dispatch(setPlayerScore(newScore));
   await dispatch(setDisableSwapHandsAnimation(true));
-  await dispatch(playerDrawCard());
 
+  await dispatch(playerDrawCard());
   await dispatch(setDisableSwapHandsAnimation(false));
 };
 
