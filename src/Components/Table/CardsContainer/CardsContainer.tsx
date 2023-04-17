@@ -31,8 +31,8 @@ export default function CardsContainer(props: CardsContainerProps) {
     false,
   ]);
 
+  // Set alreadyAnimated for cards that are already rendered on split, so they don't animate again
   useEffect(() => {
-    // Set alreadyAnimated to true for all indices after component is rendered
     if (disableAnimations) {
       setAlreadyAnimated((prev) => {
         const newAlreadyAnimated = [...prev];
@@ -42,6 +42,7 @@ export default function CardsContainer(props: CardsContainerProps) {
         return newAlreadyAnimated;
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [disableAnimations]);
 
   return (
