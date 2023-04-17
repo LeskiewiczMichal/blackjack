@@ -18,96 +18,6 @@
   animation: card--exit 1s ease forwards;
 }
 
-@keyframes card--enter {
-  from {
-    transform: translate(400%, -700%);
-  }
-  to {
-    transform: translate(0, 0);
-  }
-}
-
-@keyframes card--exit {
-  from {
-    transform: translate(0, 0);
-  }
-  to {
-    transform: translate(-100%, -700%);
-  }
-}
-
-@-webkit-keyframes card--enter {
-  from {
-    transform: translate(400%, -700%);
-  }
-  to {
-    transform: translate(0, 0);
-  }
-}
-
-@-webkit-keyframes card--exit {
-  from {
-    transform: translate(0, 0);
-  }
-  to {
-    transform: translate(-100%, -700%);
-  }
-}
-
-@-moz-keyframes card--enter {
-  from {
-    transform: translate(400%, -700%);
-  }
-  to {
-    transform: translate(0, 0);
-  }
-}
-
-@-moz-keyframes card--exit {
-  from {
-    transform: translate(0, 0);
-  }
-  to {
-    transform: translate(-100%, -700%);
-  }
-}
-
-@-ms-keyframes card--enter {
-  from {
-    transform: translate(400%, -700%);
-  }
-  to {
-    transform: translate(0, 0);
-  }
-}
-
-@-ms-keyframes card--exit {
-  from {
-    transform: translate(0, 0);
-  }
-  to {
-    transform: translate(-100%, -700%);
-  }
-}
-
-@-o-keyframes card--enter {
-  from {
-    transform: translate(400%, -700%);
-  }
-  to {
-    transform: translate(0, 0);
-  }
-}
-
-@-o-keyframes card--exit {
-  from {
-    transform: translate(0, 0);
-  }
-  to {
-    transform: translate(-100%, -700%);
-  }
-}
-
 
 .CLUBS2 {
   background-image: url("/src/assets/cards/2CLUBS.svg");
@@ -325,5 +235,96 @@
   .card {
     width: 55px;
     height: 75px;
+  }
+}
+
+
+@keyframes card--enter {
+  from {
+    transform: translate(400%, -700%);
+  }
+  to {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes card--exit {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(-100%, -700%);
+  }
+}
+
+@-webkit-keyframes card--enter {
+  from {
+    transform: translate(400%, -700%);
+  }
+  to {
+    transform: translate(0, 0);
+  }
+}
+
+@-webkit-keyframes card--exit {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(-100%, -700%);
+  }
+}
+
+@-moz-keyframes card--enter {
+  from {
+    transform: translate(400%, -700%);
+  }
+  to {
+    transform: translate(0, 0);
+  }
+}
+
+@-moz-keyframes card--exit {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(-100%, -700%);
+  }
+}
+
+@-ms-keyframes card--enter {
+  from {
+    transform: translate(400%, -700%);
+  }
+  to {
+    transform: translate(0, 0);
+  }
+}
+
+@-ms-keyframes card--exit {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(-100%, -700%);
+  }
+}
+
+@-o-keyframes card--enter {
+  from {
+    transform: translate(400%, -700%);
+  }
+  to {
+    transform: translate(0, 0);
+  }
+}
+
+@-o-keyframes card--exit {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(-100%, -700%);
   }
 }

@@ -1,7 +1,6 @@
 import { useAppDispatch, useAppSelector } from "hooks/hooks";
 import { rebet } from "actions/rebet";
 
-
 export default function RebetButton() {
   const dispatch = useAppDispatch();
   const playerBalance = useAppSelector((state) => state.player.balance);

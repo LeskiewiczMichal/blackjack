@@ -32,10 +32,6 @@ export default function CardsContainer(props: CardsContainerProps) {
     false,
   ]);
 
-  useEffect(() => {
-    console.log("SWEEP");
-  }, [sweepCards]);
-
   // Set alreadyAnimated for cards that are already rendered on split, so they don't animate again
   useEffect(() => {
     if (disableAnimations) {
@@ -50,6 +46,16 @@ export default function CardsContainer(props: CardsContainerProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [disableAnimations]);
 
+  const getCurrentAnimation = (index: number): string => {
+    if (sweepCards) {
+      return "card--exit";
+    }
+    if (alreadyAnimated[index]) {
+      return "";
+    }
+    return "card--enter";
+  };
+
   return (
     <section className="cards--container">
       {cards.map((card, index) => (
@@ -60,13 +66,7 @@ export default function CardsContainer(props: CardsContainerProps) {
           suit={card.suit}
           value={card.value}
           faceUp={card.faceUp}
-          animationClass={
-            sweepCards === true
-              ? "card--exit"
-              : alreadyAnimated[index] === true
-              ? ""
-              : "card--enter"
-          }
+          animationClass={getCurrentAnimation(index)}
         />
       ))}
     </section>
