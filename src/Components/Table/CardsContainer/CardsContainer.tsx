@@ -1,7 +1,6 @@
 import "./cardsContainer.style.css";
 import { Card as CardType } from "types";
 import Card from "components/table/card/Card";
-import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { useAppSelector } from "hooks/hooks";
 
 type CardsContainerProps = {
@@ -34,7 +33,7 @@ export default function CardsContainer(props: CardsContainerProps) {
   /// DISABLING ANIMATIONS ///
 
   return (
-    <TransitionGroup className="cards--container">
+    <section className="cards--container">
       {cards.map((card, index) => (
         <Card
           // Index as a key is needed here for animations to work
@@ -45,6 +44,6 @@ export default function CardsContainer(props: CardsContainerProps) {
           faceUp={card.faceUp}
         />
       ))}
-    </TransitionGroup>
+    </section>
   );
 }
