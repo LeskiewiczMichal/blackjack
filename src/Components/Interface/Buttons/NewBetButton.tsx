@@ -1,5 +1,6 @@
 import { useAppDispatch, useAppSelector } from "hooks/hooks";
 import { clearTable } from "actions/clearTable";
+import { setSweepCards } from "store/reducers/helperReducer";
 
 export default function NewBetButton() {
   const dispatch = useAppDispatch();
@@ -8,7 +9,11 @@ export default function NewBetButton() {
   const isDisabled = actionOn;
 
   const newBetHandler = async () => {
+    await dispatch(setSweepCards(true));
+    // eslint-disable-next-line no-promise-executor-return
+    await new Promise((resolve) => setTimeout(resolve, 1000)); // Wait for animation to end
     await dispatch(clearTable());
+    await dispatch(setSweepCards(false));
   };
 
   return (
