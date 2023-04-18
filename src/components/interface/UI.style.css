@@ -54,6 +54,12 @@
   gap: 0.8rem;
 }
 
+@media (min-width: 1100px) {
+  .interface--background {
+    flex-wrap: nowrap;
+  }
+}
+
 @media (max-width: 900px) {
   .interface--main {
     scale: 0.9;
