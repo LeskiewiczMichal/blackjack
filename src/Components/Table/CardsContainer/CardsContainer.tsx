@@ -1,16 +1,17 @@
 import "./cardsContainer.style.css";
-import { Card as CardType } from "types";
+import { Card as CardType, PlayerType } from "types.d";
 import Card from "components/table/card/Card";
 import { useAppSelector } from "hooks/hooks";
 import { useEffect, useState } from "react";
 
 type CardsContainerProps = {
   cards: CardType[];
+  player: PlayerType;
 };
 
 export default function CardsContainer(props: CardsContainerProps) {
   // Map over the cards and create a JSX element for each card
-  const { cards } = props;
+  const { cards, player } = props;
   const disableAnimations = useAppSelector(
     (state) => state.helpers.disableSwapHandsAnimation,
   );
@@ -35,13 +36,13 @@ export default function CardsContainer(props: CardsContainerProps) {
   // Set alreadyAnimated for cards that are already rendered on split, so they don't animate again
   useEffect(() => {
     if (disableAnimations) {
-      setAlreadyAnimated((prev) => {
-        const newAlreadyAnimated = [...prev];
-        for (let i = 0; i < cards.length; i++) {
-          newAlreadyAnimated[i] = true;
+      const newAlreadyAnimated = [...alreadyAnimated];
+      cards.forEach((card, index) => {
+        if (card.faceUp) {
+          newAlreadyAnimated[index] = true;
         }
-        return newAlreadyAnimated;
       });
+      setAlreadyAnimated(newAlreadyAnimated);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [disableAnimations]);
@@ -50,10 +51,20 @@ export default function CardsContainer(props: CardsContainerProps) {
     if (sweepCards) {
       return "card--exit";
     }
+
+    if (cards[index].faceUp && index === 0 && player === PlayerType.DEALER) {
+      return "card--rotate";
+    }
+
     if (alreadyAnimated[index]) {
       return "";
     }
-    return "card--enter";
+
+    if (cards[index].faceUp) {
+      return "card--enter";
+    }
+
+    return "card--enter-back-shown";
   };
 
   return (

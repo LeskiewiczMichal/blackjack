@@ -28,7 +28,11 @@ export function generateCards(): Card[] {
 
   const cards: Card[] = Array.from({ length: NUMBER_OF_DECKS }).flatMap(() =>
     suits.flatMap((suit) =>
-      values.map((value) => ({ suit, value, faceUp: true })),
+      values.map((value) => ({
+        suit,
+        value,
+        faceUp: true,
+      })),
     ),
   );
 

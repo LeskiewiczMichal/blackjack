@@ -37,12 +37,12 @@ export default function Table() {
         <>
           <section className="table--player">
             <PointsDisplay score={dealer.score} player={PlayerType.DEALER} />
-            <CardsContainer cards={dealer.cards} />
+            <CardsContainer cards={dealer.cards} player={PlayerType.DEALER} />
           </section>
           {popUpJSX}
           <section className="table--player">
             <PointsDisplay score={player.score} player={PlayerType.PLAYER} />
-            <CardsContainer cards={player.cards} />
+            <CardsContainer cards={player.cards} player={PlayerType.PLAYER} />
           </section>
         </>
       ) : null}
@@ -52,7 +52,10 @@ export default function Table() {
             score={player.secondScore}
             player={PlayerType.PLAYER}
           />
-          <CardsContainer cards={player.secondHand} />
+          <CardsContainer
+            cards={player.secondHand}
+            player={PlayerType.PLAYER}
+          />
         </section>
       ) : null}
     </main>
