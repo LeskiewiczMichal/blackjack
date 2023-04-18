@@ -12,6 +12,25 @@
   transform-style: preserve-3d;
 }
 
+.card--front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: 100% 100%;
+  backface-visibility: hidden;
+}
+
+.card--back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: 100% 100%;
+  backface-visibility: hidden;
+
+  background-image: url("/src/assets/cards/2B.svg");
+  transform: rotateY(180deg);
+}
+
 .card--enter {
   animation: card--enter 1s ease forwards;
 }
@@ -36,183 +55,131 @@
 .CLUBS2 {
   background-image: url("/src/assets/cards/2CLUBS.svg");
   position: absolute;
-  /* width: 100%; */
-  /* height: 100%; */
 }
 
 .CLUBS3 {
   background-image: url("/src/assets/cards/3CLUBS.svg");
   position: absolute;
-  /* width: 100%; */
-  /* height: 100%; */
 }
 
 .CLUBS4 {
   background-image: url("/src/assets/cards/4CLUBS.svg");
   position: absolute;
-  /* width: 100%; */
-  /* height: 100%; */
 }
 
 .CLUBS5 {
   background-image: url("/src/assets/cards/5CLUBS.svg");
   position: absolute;
-  /* width: 100%; */
-  /* height: 100%; */
 }
 
 .CLUBS6 {
   background-image: url("/src/assets/cards/6CLUBS.svg");
   position: absolute;
-  /* width: 100%; */
-  /* height: 100%; */
 }
 
 .CLUBS7 {
   background-image: url("/src/assets/cards/7CLUBS.svg");
   position: absolute;
-  /* width: 100%; */
-  /* height: 100%; */
 }
 
 .CLUBS8 {
   background-image: url("/src/assets/cards/8CLUBS.svg");
   position: absolute;
-  /* width: 100%; */
-  /* height: 100%; */
 }
 
 .CLUBS9 {
   background-image: url("/src/assets/cards/9CLUBS.svg");
   position: absolute;
-  /* width: 100%; */
-  /* height: 100%; */
 }
 
 .CLUBS10 {
   background-image: url("/src/assets/cards/10CLUBS.svg");
   position: absolute;
-  /* width: 100%; */
-  /* height: 100%; */
 }
 
 .CLUBSJ {
   background-image: url("/src/assets/cards/JACKCLUBS.svg");
   position: absolute;
-  /* width: 100%; */
-  /* height: 100%; */
 }
 
 .CLUBSQ {
   background-image: url("/src/assets/cards/QUEENCLUBS.svg");
   position: absolute;
-  /* width: 100%; */
-  /* height: 100%; */
 }
 
 .CLUBSK {
   background-image: url("/src/assets/cards/KINGCLUBS.svg");
   position: absolute;
-  /* width: 100%; */
-  /* height: 100%; */
 }
 
 .CLUBSA {
   background-image: url("/src/assets/cards/ACECLUBS.svg");
   position: absolute;
-  /* width: 100%; */
-  /* height: 100%; */
 }
 
 .DIAMONDS2 {
   background-image: url("/src/assets/cards/2DIAMONDS.svg");
   position: absolute;
-  /* width: 100%; */
-  /* height: 100%; */
 }
 
 .DIAMONDS3 {
   background-image: url("/src/assets/cards/3DIAMONDS.svg");
   position: absolute;
-  /* width: 100%; */
-  /* height: 100%; */
 }
 
 .DIAMONDS4 {
   background-image: url("/src/assets/cards/4DIAMONDS.svg");
   position: absolute;
-  /* width: 100%; */
-  /* height: 100%; */
 }
 
 .DIAMONDS5 {
   background-image: url("/src/assets/cards/5DIAMONDS.svg");
   position: absolute;
-  /* width: 100%; */
-  /* height: 100%; */
 }
 
 .DIAMONDS6 {
   background-image: url("/src/assets/cards/6DIAMONDS.svg");
   position: absolute;
-  /* width: 100%; */
-  /* height: 100%; */
 }
 
 .DIAMONDS7 {
   background-image: url("/src/assets/cards/7DIAMONDS.svg");
   position: absolute;
-  /* width: 100%; */
-  /* height: 100%; */
 }
 
 .DIAMONDS8 {
   background-image: url("/src/assets/cards/8DIAMONDS.svg");
   position: absolute;
-  /* width: 100%; */
-  /* height: 100%; */
 }
 
 .DIAMONDS9 {
   background-image: url("/src/assets/cards/9DIAMONDS.svg");
   position: absolute;
-  /* width: 100%; */
-  /* height: 100%; */
 }
 
 .DIAMONDS10 {
   background-image: url("/src/assets/cards/10DIAMONDS.svg");
   position: absolute;
-  /* width: 100%; */
-  /* height: 100%; */
 }
 
 .DIAMONDSJ {
   background-image: url("/src/assets/cards/JACKDIAMONDS.svg");
   position: absolute;
-  /* width: 100%; */
-  /* height: 100%; */
 }
 
 .DIAMONDSQ {
   background-image: url("/src/assets/cards/QUEENDIAMONDS.svg");
   position: absolute;
-  /* width: 100%; */
-  /* height: 100%; */
 }
 
 .DIAMONDSK {
   background-image: url("/src/assets/cards/KINGDIAMONDS.svg");
   position: absolute;
-  /* width: 100%; */
-  /* height: 100%; */
 }
 
 .DIAMONDSA {
   background-image: url("/src/assets/cards/ACEDIAMONDS.svg");
   position: absolute;
-  /* width: 100%; */
-  /* height: 100%; */
 }
 
 .HEARTS2 {
@@ -321,25 +288,6 @@
   background-image: url("/src/assets/cards/ACESPADES.svg");
 }
 
-
-.card--front {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-size: 100% 100%;
-  backface-visibility: hidden;
-}
-
-.card--back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-size: 100% 100%;
-  backface-visibility: hidden;
-
-  background-image: url("/src/assets/cards/2B.svg");
-  transform: rotateY(180deg);
-}
 
 @media screen and (max-width: 600px) {
   .card {

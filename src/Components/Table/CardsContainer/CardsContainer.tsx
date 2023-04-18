@@ -33,7 +33,7 @@ export default function CardsContainer(props: CardsContainerProps) {
     false,
   ]);
 
-  // Set alreadyAnimated for cards that are already rendered on split, so they don't animate again
+  // Used on split to set alreadyAnimated for cards that are already rendered, so they don't animate again
   useEffect(() => {
     if (disableAnimations) {
       const newAlreadyAnimated = [...alreadyAnimated];
@@ -76,7 +76,6 @@ export default function CardsContainer(props: CardsContainerProps) {
           key={index}
           suit={card.suit}
           value={card.value}
-          faceUp={card.faceUp}
           animationClass={getCurrentAnimation(index)}
         />
       ))}

@@ -2,15 +2,6 @@
   display: flex;
 }
 
-/* @keyframes card--exit {
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(0, -100%);
-  }
-} */
-
 @media (max-width: 600px) {
   .cards--container {
     max-width: 100%;
