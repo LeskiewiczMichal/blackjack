@@ -1,15 +1,11 @@
 import "./app.style.css";
 
-import Table from "components/table/Table";
-import UI from "components/interface/UI";
-import SoundButton from "components/interface/soundbutton/SoundButton";
+import Game from "./pages/Game";
 
 function App() {
   return (
     <div className="App">
-      <Table />
-      <UI />
-      <SoundButton />
+      <Game />
     </div>
   );
 }

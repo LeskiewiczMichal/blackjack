@@ -19,7 +19,7 @@
         },
         "ecmaVersion": "latest",
         "sourceType": "module",
-        "project": "./tsconfig.json"
+        "project": "/users/michalleskiewicz/programowanie/bootcamp/blackjack/client/tsconfig.json"
     },
     "plugins": [
         "react",
