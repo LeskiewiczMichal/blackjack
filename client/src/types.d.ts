@@ -96,3 +96,9 @@ export type HelperSliceState = {
   soundsPlaying: boolean;
   sweepCards: boolean;
 };
+
+// AUTHENTICATION ///
+export type AuthReducerState = {
+  user: string | null;
+  error: string | null;
+};

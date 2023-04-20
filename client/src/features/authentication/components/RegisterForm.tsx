@@ -1,7 +1,13 @@
 import "./loginForm.css";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAppDispatch } from "hooks/hooks";
+import { registerUser } from "../actions/registerUser";
 
 export default function RegisterForm() {
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -15,6 +21,18 @@ export default function RegisterForm() {
     } else if (name === "password") {
       setPassword(value);
     }
+  };
+
+  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    const userData = {
+      username,
+      email,
+      password,
+    };
+    dispatch(registerUser(userData));
+
+    return navigate("/");
   };
 
   return (
@@ -43,7 +61,9 @@ export default function RegisterForm() {
         onChange={(event) => handleChange(event)}
         required
       />
-      <button type="submit">Sign up</button>
+      <button type="submit" onClick={handleSubmit}>
+        Sign up
+      </button>
     </form>
   );
 }
