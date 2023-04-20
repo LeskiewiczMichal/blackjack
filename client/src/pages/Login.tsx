@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
 import "./login.css";
+import { Link } from "react-router-dom";
 
 import { LoginForm } from "features/authentication/index";
 
