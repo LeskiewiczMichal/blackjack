@@ -12,7 +12,7 @@ export default function LoginForm() {
   const [password, setPassword] = useState("");
 
   if (user) {
-    return <Navigate to="/game" />;
+    return <Navigate to="/menu" />;
   }
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {

@@ -7,8 +7,6 @@ const mongoose = require("mongoose");
 const passportLocalMongoose = require("passport-local-mongoose");
 // const MongoStore = require("connect-mongo")(session);
 const cors = require("cors");
-const jwt = require("jsonwebtoken");
-const bcrypt = require("bcryptjs");
 const ensureAuthenticated = require("./middleware/ensureAuthenticated");
 const Schema = mongoose.Schema;
 // require("dotenv").config(); // Load environment variables from .env file
@@ -17,12 +15,12 @@ const UserDetails = require("./userDetails");
 
 const app = express();
 
+// CORS for my localhost
 const corsOptions = {
-  origin: 'http://localhost:3000',
+  origin: "http://localhost:3000",
   credentials: true,
 };
 app.use(cors(corsOptions));
-
 
 // Set up session
 app.use(
@@ -30,25 +28,19 @@ app.use(
     secret: "blackjack",
     resave: false,
     saveUninitialized: false,
-    // store: new MongoStore({ mongooseConnection: mongoose.connection }),
   })
 );
+
+// Set up passport
 passport.use(UserDetails.createStrategy());
-// Serialize and deserialize user
 passport.serializeUser(UserDetails.serializeUser());
 passport.deserializeUser(UserDetails.deserializeUser());
 
+// Configs
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-
-// app.get("/", (req, res) => {
-//   console.log("Working fine");
-//   res.json({
-//     message: "Welcome to the API",
-//   });
-// });
 
 app.get("/users", ensureAuthenticated, async (req, res) => {
   const user = req.user;
@@ -65,16 +57,8 @@ app.get("/users", ensureAuthenticated, async (req, res) => {
   }
 });
 
+// Register user
 app.post("/users", async (req, res) => {
-  // let hashedPassword = await bcrypt.hash(req.body.password, 5);
-
-  // const user = new User({
-  //   username: req.body.username,
-  //   email: req.body.email,
-  //   password: hashedPassword,
-  //   balance: 1000,
-  // });
-
   UserDetails.register(
     new UserDetails({
       username: req.body.username,
@@ -94,6 +78,7 @@ app.post("/users", async (req, res) => {
   );
 });
 
+// Update user balance
 app.put("/users/balance", ensureAuthenticated, async (req, res) => {
   const user = req.user;
 
@@ -111,18 +96,13 @@ app.put("/users/balance", ensureAuthenticated, async (req, res) => {
   }
 });
 
+// Login user
 app.post("/users/login", passport.authenticate("local"), (req, res) => {
-  // Authenticate user and get him from database
   const user = req.user;
-
-  //   req.logIn(user, (err) => {
-  //     if (err) {
-  //       return res.status(400).json(err);
-  //     }
-  //   });
   res.json({ user });
 });
 
+// Logout user
 app.post("/users/logout", (req, res) => {
   req.logout();
   res.json({ message: "Logout successful" });

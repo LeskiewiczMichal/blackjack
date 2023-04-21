@@ -1,16 +1,21 @@
 import "./loginForm.css";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useAppDispatch } from "hooks/hooks";
+import { useNavigate, Navigate } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "hooks/hooks";
 import { registerUser } from "../actions/registerUser";
 
 export default function RegisterForm() {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
+  const user = useAppSelector((state) => state.auth.user);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  if (user) {
+    return <Navigate to="/menu" />;
+  }
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
