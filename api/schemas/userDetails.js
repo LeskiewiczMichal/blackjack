@@ -15,6 +15,8 @@ const User = new mongoose.Schema({
 //   password: String,
   email: { type: String, required: true },
   balance: { type: Number, required: true },
+  ownedSkins: [{ type: mongoose.Schema.Types.ObjectId, ref: "Skin" }],
+  activeSkins: [{ type: mongoose.Schema.Types.ObjectId, ref: "Skin" }],
 });
 
 // Setting up passport plugin

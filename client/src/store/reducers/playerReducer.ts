@@ -1,6 +1,6 @@
 import { PlayerState, Card } from "types";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { loginSuccess } from "./authReducer";
+import { loginSuccess, LoginSuccessProps } from "./authReducer";
 
 const initialState: PlayerState = {
   cards: [],
@@ -42,7 +42,7 @@ export const playerSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(
       loginSuccess,
-      (state, action: PayloadAction<{ username: string; balance: number }>) => {
+      (state, action: PayloadAction<LoginSuccessProps>) => {
         state.balance = action.payload.balance;
       },
     );

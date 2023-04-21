@@ -1,5 +1,6 @@
+import { Skin } from "types.d";
 import { AppThunk } from "store/store";
-import { loginSuccess, loginFailure } from "store/reducers/authReducer";
+import { loginFailure, loginSuccess } from "store/reducers/authReducer";
 
 export type LoginUserProps = {
   email: string;
@@ -20,14 +21,48 @@ const loginUser =
       });
 
       const { user } = await response.json();
-      dispatch(
-        loginSuccess({ username: user.username, balance: user.balance }),
+      console.log(user);
+      if (!user) {
+        throw new Error("User not found");
+      }
+
+      // Extract skins
+      const ownedSkins: Skin[] = user.ownedSkins.map((skin: any) => {
+        return {
+          // eslint-disable-next-line no-underscore-dangle
+          id: skin._id,
+          name: skin.name,
+          price: skin.price,
+          prevImage: skin.prevImage,
+          category: skin.category,
+        };
+      });
+
+      const activeSkins: Skin[] = user.activeSkins.map((skin: any) => {
+        return {
+          // eslint-disable-next-line no-underscore-dangle
+          id: skin._id,
+          name: skin.name,
+          price: skin.price,
+          prevImage: skin.prevImage,
+          category: skin.category,
+        };
+      });
+
+      await dispatch(
+        loginSuccess({
+          username: user.username,
+          balance: user.balance,
+          ownedSkins,
+          activeSkins,
+        }),
       );
     } catch (error: any) {
       // TODO: Handle error
       // eslint-disable-next-line no-console
       console.error(error);
       dispatch(loginFailure(error.response.data.message));
+      throw error;
     }
   };
 

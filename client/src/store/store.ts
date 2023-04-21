@@ -7,6 +7,7 @@ import playerReducer from "./reducers/playerReducer";
 import dealerReducer from "./reducers/dealerReducer";
 import helperReducer from "./reducers/helperReducer";
 import authReducer from "./reducers/authReducer";
+import shopReducer from "./reducers/shopReducer";
 
 export const store = configureStore({
   reducer: {
@@ -15,6 +16,7 @@ export const store = configureStore({
     dealer: dealerReducer,
     helpers: helperReducer,
     auth: authReducer,
+    shop: shopReducer,
   },
 });
 

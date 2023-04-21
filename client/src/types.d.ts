@@ -98,7 +98,30 @@ export type HelperSliceState = {
 };
 
 // AUTHENTICATION ///
+export type User = {
+  username: string;
+  email: string;
+  balance: number;
+  owedSkins: Skin[];
+  activeSkins: Skin[];
+};
+
 export type AuthReducerState = {
   user: string | null;
   error: string | null;
+};
+
+// SHOP ///
+export type Skin = {
+  id: string;
+  name: string;
+  price: number;
+  prevImage: string;
+  category: string;
+};
+
+export type ShopSliceState = {
+  skins: Skin[] | null;
+  ownedSkins: Skin[] | null;
+  activeSkins: Skin[] | null;
 };

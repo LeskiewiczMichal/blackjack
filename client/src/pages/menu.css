@@ -9,12 +9,9 @@
     justify-content: center;
     align-items: center;
     background: #ffffffd1;
-    width: 90%;
-    height: 90%;
+    width: 100%;
+    height: 100%;
 
-    border: 5px solid #004825;
-    border-radius: 10px;
-    box-shadow: 0 0 5px #000000;
     gap: 2rem;
 }
 

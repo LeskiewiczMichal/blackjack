@@ -1,4 +1,4 @@
-import { AuthReducerState } from "types";
+import { AuthReducerState, Skin } from "types";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const initialState: AuthReducerState = {
@@ -6,14 +6,18 @@ const initialState: AuthReducerState = {
   error: null,
 };
 
+export type LoginSuccessProps = {
+  username: string;
+  balance: number;
+  ownedSkins: Skin[];
+  activeSkins: Skin[];
+};
+
 export const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    loginSuccess: (
-      state,
-      action: PayloadAction<{ username: string; balance: number }>,
-    ) => {
+    loginSuccess: (state, action: PayloadAction<LoginSuccessProps>) => {
       state.user = action.payload.username;
       state.error = null;
     },

@@ -11,7 +11,8 @@ const ensureAuthenticated = require("./middleware/ensureAuthenticated");
 const Schema = mongoose.Schema;
 // require("dotenv").config(); // Load environment variables from .env file
 
-const UserDetails = require("./userDetails");
+const UserDetails = require("./schemas/userDetails");
+const Skin = require("./schemas/skin");
 
 const app = express();
 
@@ -64,6 +65,8 @@ app.post("/users", async (req, res) => {
       username: req.body.username,
       email: req.body.email,
       balance: 1000,
+      ownedSkins: [],
+      activeSkins: [],
     }),
     req.body.password,
     (err, user) => {
@@ -97,15 +100,29 @@ app.put("/users/balance", ensureAuthenticated, async (req, res) => {
 });
 
 // Login user
-app.post("/users/login", passport.authenticate("local"), (req, res) => {
-  const user = req.user;
-  res.json({ user });
-});
+  app.post("/users/login", passport.authenticate("local"), async (req, res) => {
+    const user = req.user;
+    await user.populate("activeSkins");
+    await user.populate("ownedSkins");
+    res.json({ user });
+  });
 
 // Logout user
 app.post("/users/logout", (req, res) => {
   req.logout();
   res.json({ message: "Logout successful" });
 });
+
+/// SHOP ///
+app.get("/skins", (req, res) => {
+  Skin.find({}, (err, skins) => {
+    if (err) {
+      console.log(err);
+      return res.status(500).json({ message: err.message });
+    }
+    res.json({ skins });
+  });
+})
+
 
 app.listen(9000, () => console.log("App listening on port 9000"));
