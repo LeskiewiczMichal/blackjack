@@ -2,7 +2,7 @@ import "./loginForm.css";
 import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "hooks/hooks";
 import { Navigate } from "react-router-dom";
-import { loginUser, LoginUserProps } from "../actions/loginUser";
+import { loginUser, LoginUserProps } from "../services/loginUser";
 
 export default function LoginForm() {
   const dispatch = useAppDispatch();

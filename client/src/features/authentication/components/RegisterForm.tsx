@@ -2,7 +2,7 @@ import "./loginForm.css";
 import { useState } from "react";
 import { useNavigate, Navigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "hooks/hooks";
-import { registerUser } from "../actions/registerUser";
+import { registerUser } from "../services/registerUser";
 
 export default function RegisterForm() {
   const dispatch = useAppDispatch();
