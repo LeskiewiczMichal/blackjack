@@ -6,6 +6,7 @@ const initialState: ShopSliceState = {
   skins: null,
   ownedSkins: null,
   activeSkins: null,
+  skinPreview: null,
 };
 
 export const shopSlice = createSlice({
@@ -21,6 +22,12 @@ export const shopSlice = createSlice({
     ) => {
       state.ownedSkins = action.payload;
     },
+    setSkinPreview: (
+      state,
+      action: PayloadAction<ShopSliceState["skinPreview"]>,
+    ) => {
+      state.skinPreview = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(
@@ -33,6 +40,6 @@ export const shopSlice = createSlice({
   },
 });
 
-export const { setSkins, setOwnedkins } = shopSlice.actions;
+export const { setSkins, setOwnedkins, setSkinPreview } = shopSlice.actions;
 
 export default shopSlice.reducer;

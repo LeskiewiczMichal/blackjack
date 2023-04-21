@@ -1,22 +1,35 @@
 import "./skinsList.css";
-import { useEffect } from "react";
 
 import { useAppSelector, useAppDispatch } from "hooks/hooks";
 import { getSkins } from "../services/getSkins";
+import { getSkinPreview } from "../services/getSkinPreview";
 
 export default function SkinsList() {
   const dispatch = useAppDispatch();
   const skins = useAppSelector((state) => state.shop.skins);
+  const ownedSkins = useAppSelector((state) => state.shop.ownedSkins);
 
   if (!skins) {
     dispatch(getSkins());
   }
 
+  let filteredSkins;
+  if (ownedSkins) {
+    filteredSkins = skins?.filter((skin) =>
+      ownedSkins.find((ownedSkin) => ownedSkin.id === skin.id),
+    );
+  }
+
   return (
-    <section>
-      {skins?.map((skin) => (
-        <button type="button" key={skin.id}>
-          {skin.name}
+    <section className="skins-list--container">
+      {filteredSkins?.map((skin) => (
+        <button
+          type="button"
+          className="skins-list--button"
+          key={skin.id}
+          onClick={async () => dispatch(getSkinPreview(skin.id))}
+        >
+          {skin.name} {skin.category}
         </button>
       ))}
     </section>

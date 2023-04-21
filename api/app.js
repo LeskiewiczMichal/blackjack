@@ -123,4 +123,13 @@ app.get("/skins", async (req, res) => {
   }
 });
 
+app.get("/skins/:id", async (req, res) => {
+  try {
+    const skin = await Skin.findById(req.params.id);
+    res.json({ skin });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 app.listen(9000, () => console.log("App listening on port 9000"));

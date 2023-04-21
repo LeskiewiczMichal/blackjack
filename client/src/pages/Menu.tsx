@@ -20,6 +20,13 @@ export default function Menu() {
         <button
           type="button"
           className="menu--content-button"
+          onClick={() => navigate("/profile")}
+        >
+          Profile
+        </button>
+        <button
+          type="button"
+          className="menu--content-button"
           onClick={() => navigate("/shop")}
         >
           Shop

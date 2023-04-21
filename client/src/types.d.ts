@@ -124,4 +124,5 @@ export type ShopSliceState = {
   skins: Skin[] | null;
   ownedSkins: Skin[] | null;
   activeSkins: Skin[] | null;
+  skinPreview: Skin | null;
 };
