@@ -8,8 +8,10 @@ export default function LoginForm() {
   const dispatch = useAppDispatch();
 
   const user = useAppSelector((state) => state.auth.user);
+  // const skins = useAppSelector((state) => state.shop.skins);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  
 
   if (user) {
     return <Navigate to="/menu" />;

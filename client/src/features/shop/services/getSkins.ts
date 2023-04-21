@@ -1,4 +1,6 @@
+import { Skin } from "types.d";
 import { AppThunk } from "store/store";
+import { setSkins } from "store/reducers/shopReducer";
 
 const getSkins = (): AppThunk => async (dispatch) => {
   try {
@@ -11,7 +13,22 @@ const getSkins = (): AppThunk => async (dispatch) => {
     });
 
     const { skins } = await response.json();
-    console.log(skins);
+    if (!skins) {
+      throw new Error("Skins not found");
+    }
+
+    const skinsArray: Skin[] = skins.map((skin: any) => {
+      return {
+        // eslint-disable-next-line no-underscore-dangle
+        id: skin._id,
+        name: skin.name,
+        price: skin.price,
+        prevImage: skin.prevImage,
+        category: skin.category,
+      };
+    });
+
+    dispatch(setSkins(skinsArray));
   } catch (error: any) {
     // TODO: Handle error
     // eslint-disable-next-line no-console

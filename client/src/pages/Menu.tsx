@@ -17,7 +17,11 @@ export default function Menu() {
         >
           Start Game
         </button>
-        <button type="button" className="menu--content-button">
+        <button
+          type="button"
+          className="menu--content-button"
+          onClick={() => navigate("/shop")}
+        >
           Shop
         </button>
       </main>

@@ -100,12 +100,12 @@ app.put("/users/balance", ensureAuthenticated, async (req, res) => {
 });
 
 // Login user
-  app.post("/users/login", passport.authenticate("local"), async (req, res) => {
-    const user = req.user;
-    await user.populate("activeSkins");
-    await user.populate("ownedSkins");
-    res.json({ user });
-  });
+app.post("/users/login", passport.authenticate("local"), async (req, res) => {
+  const user = req.user;
+  await user.populate("activeSkins");
+  await user.populate("ownedSkins");
+  res.json({ user });
+});
 
 // Logout user
 app.post("/users/logout", (req, res) => {
@@ -114,15 +114,13 @@ app.post("/users/logout", (req, res) => {
 });
 
 /// SHOP ///
-app.get("/skins", (req, res) => {
-  Skin.find({}, (err, skins) => {
-    if (err) {
-      console.log(err);
-      return res.status(500).json({ message: err.message });
-    }
+app.get("/skins", async (req, res) => {
+  try {
+    const skins = await Skin.find({});
     res.json({ skins });
-  });
-})
-
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
 
 app.listen(9000, () => console.log("App listening on port 9000"));
