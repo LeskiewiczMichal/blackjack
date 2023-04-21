@@ -108,6 +108,7 @@ export type User = {
 
 export type AuthReducerState = {
   user: string | null;
+  email: string | null;
   error: string | null;
 };
 

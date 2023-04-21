@@ -4,6 +4,7 @@ import Login from "./Login";
 import Register from "./Register";
 import Menu from "./Menu";
 import Shop from "./Shop";
+import Profile from "./Profile";
 
 export default function RouteSwitch() {
   return (
@@ -15,6 +16,7 @@ export default function RouteSwitch() {
         <Route path="/menu" element={<Menu />} />
         <Route path="/game" element={<Game />} />
         <Route path="/shop" element={<Shop />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </BrowserRouter>
   );

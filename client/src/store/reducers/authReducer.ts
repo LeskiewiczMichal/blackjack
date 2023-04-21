@@ -3,11 +3,13 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const initialState: AuthReducerState = {
   user: null,
+  email: null,
   error: null,
 };
 
 export type LoginSuccessProps = {
   username: string;
+  email: string;
   balance: number;
   ownedSkins: Skin[];
   activeSkins: Skin[];
@@ -19,6 +21,7 @@ export const authSlice = createSlice({
   reducers: {
     loginSuccess: (state, action: PayloadAction<LoginSuccessProps>) => {
       state.user = action.payload.username;
+      state.email = action.payload.email;
       state.error = null;
     },
     loginFailure: (state, action: PayloadAction<string>) => {

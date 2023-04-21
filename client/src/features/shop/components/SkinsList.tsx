@@ -13,16 +13,19 @@ export default function SkinsList() {
     dispatch(getSkins());
   }
 
-  let filteredSkins;
-  if (ownedSkins) {
-    filteredSkins = skins?.filter((skin) =>
-      ownedSkins.find((ownedSkin) => ownedSkin.id === skin.id),
-    );
-  }
+//   FILTER SKINS THAT ARE OWNED
+
+// filter getting only the skins that are in ownedSkins
+//   let filteredSkins;
+//   if (ownedSkins) {
+//     filteredSkins = skins?.filter((skin) =>
+//       ownedSkins.find((ownedSkin) => ownedSkin.id === skin.id),
+//     );
+//   }
 
   return (
     <section className="skins-list--container">
-      {filteredSkins?.map((skin) => (
+      {skins?.map((skin) => (
         <button
           type="button"
           className="skins-list--button"

@@ -113,6 +113,27 @@ app.post("/users/logout", (req, res) => {
   res.json({ message: "Logout successful" });
 });
 
+// Get user skins
+app.get("/users/skins", ensureAuthenticated, async (req, res) => {
+  const user = req.user;
+
+  if (!user) {
+    return res.status(401).json({ message: "Unauthorized" });
+  }
+
+  try {
+    user.populate("activeSkins");
+    user.populate("ownedSkins");
+
+    return res.json({
+      ownedSkins: user.ownedSkins,
+      activeSkins: user.activeSkins,
+    });
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+});
+
 /// SHOP ///
 app.get("/skins", async (req, res) => {
   try {
@@ -127,6 +148,40 @@ app.get("/skins/:id", async (req, res) => {
   try {
     const skin = await Skin.findById(req.params.id);
     res.json({ skin });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+// Activate skin
+app.post("/skins/activate/:id", ensureAuthenticated, async (req, res) => {
+  const user = req.user;
+
+  if (!user) {
+    return res.status(401).json({ message: "Unauthorized" });
+  }
+
+  try {
+    const skin = await Skin.findById(req.params.id);
+
+    // Check if skin of the same category is already in user's active skins
+    const activeSkin = await Skin.findOne({
+      _id: { $in: user.activeSkins },
+      category: skin.category,
+    });
+
+    if (activeSkin) {
+      // If so, remove it from active skins
+      user.activeSkins = user.activeSkins.filter(
+        (skin) => skin.toString() !== activeSkin._id.toString()
+      );
+    }
+
+    // Add skin to user's active skins
+    user.activeSkins.push(skin._id);
+
+    await user.save();
+    res.json({ ownedSkins: user.ownedSkins, activeSkins: user.activeSkins });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

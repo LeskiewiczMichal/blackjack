@@ -21,7 +21,6 @@ const loginUser =
       });
 
       const { user } = await response.json();
-      console.log(user);
       if (!user) {
         throw new Error("User not found");
       }
@@ -52,6 +51,7 @@ const loginUser =
       await dispatch(
         loginSuccess({
           username: user.username,
+          email: user.email,
           balance: user.balance,
           ownedSkins,
           activeSkins,

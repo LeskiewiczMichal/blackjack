@@ -16,11 +16,17 @@ export const shopSlice = createSlice({
     setSkins: (state, action: PayloadAction<ShopSliceState["skins"]>) => {
       state.skins = action.payload;
     },
-    setOwnedkins: (
+    setOwnedSkins: (
       state,
       action: PayloadAction<ShopSliceState["ownedSkins"]>,
     ) => {
       state.ownedSkins = action.payload;
+    },
+    setActiveSkins: (
+      state,
+      action: PayloadAction<ShopSliceState["activeSkins"]>,
+    ) => {
+      state.activeSkins = action.payload;
     },
     setSkinPreview: (
       state,
@@ -40,6 +46,7 @@ export const shopSlice = createSlice({
   },
 });
 
-export const { setSkins, setOwnedkins, setSkinPreview } = shopSlice.actions;
+export const { setSkins, setOwnedSkins, setSkinPreview, setActiveSkins } =
+  shopSlice.actions;
 
 export default shopSlice.reducer;
