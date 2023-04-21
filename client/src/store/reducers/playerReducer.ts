@@ -1,5 +1,6 @@
 import { PlayerState, Card } from "types";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { loginSuccess } from "./authReducer";
 
 const initialState: PlayerState = {
   cards: [],
@@ -37,6 +38,14 @@ export const playerSlice = createSlice({
     setSecondScore: (state, action: PayloadAction<number | null>) => {
       state.secondScore = action.payload;
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(
+      loginSuccess,
+      (state, action: PayloadAction<{ username: string; balance: number }>) => {
+        state.balance = action.payload.balance;
+      },
+    );
   },
 });
 

@@ -10,7 +10,10 @@ export const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    loginSuccess: (state, action: PayloadAction<{ username: string }>) => {
+    loginSuccess: (
+      state,
+      action: PayloadAction<{ username: string; balance: number }>,
+    ) => {
       state.user = action.payload.username;
       state.error = null;
     },

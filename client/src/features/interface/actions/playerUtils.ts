@@ -1,10 +1,21 @@
-import { Card, TableState, PlayerState, HelperSliceState } from "types.d";
+import {
+  Card,
+  TableState,
+  PlayerState,
+  HelperSliceState,
+  AuthReducerState,
+} from "types.d";
 import { AppThunk } from "store/store";
 import { Howl } from "howler";
 import { drawCard } from "store/reducers/tableReducer";
-import { addCard, setPlayerScore } from "store/reducers/playerReducer";
+import {
+  addCard,
+  setPlayerScore,
+  setBalance,
+} from "store/reducers/playerReducer";
 import { calculateScore } from "utils/calculateScore";
 import sound from "assets/sounds/draw_card.mp3";
+import { setUserBalance } from "../services/setUserBalance";
 
 const drawSound = new Howl({
   src: [sound],
@@ -29,4 +40,18 @@ const playerDrawCard = (): AppThunk => async (dispatch, getState) => {
   await new Promise((resolve) => setTimeout(resolve, 1000)); // Wait for animation to end
 };
 
-export { playerDrawCard };
+const playerSetBalance =
+  (newBalance: number): AppThunk =>
+  async (dispatch, getState) => {
+    const { user } = getState().auth as AuthReducerState;
+
+    if (user) {
+      // Update user's balance on the server
+      await dispatch(setUserBalance(newBalance));
+      console.log("User's balance updated");
+    } else {
+      await dispatch(setBalance(newBalance));
+    }
+  };
+
+export { playerDrawCard, playerSetBalance };

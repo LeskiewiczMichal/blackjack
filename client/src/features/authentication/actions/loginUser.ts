@@ -19,7 +19,9 @@ const loginUser =
       });
 
       const { user } = await response.json();
-      dispatch(loginSuccess({ username: user.username }));
+      dispatch(
+        loginSuccess({ username: user.username, balance: user.balance }),
+      );
     } catch (error: any) {
       // TODO: Handle error
       // eslint-disable-next-line no-console

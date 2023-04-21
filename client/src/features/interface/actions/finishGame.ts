@@ -3,12 +3,12 @@ import { RootState, AppThunk } from "store/store";
 import { AnyAction, ThunkAction } from "@reduxjs/toolkit";
 import { showCards } from "store/reducers/dealerReducer";
 import { setGameFinished } from "store/reducers/tableReducer";
-import { setBalance } from "store/reducers/playerReducer";
 import { hasBlackJack } from "utils/hasBlackJack";
 import { checkWinner } from "utils/checkWinner";
 import { playedTwoHands } from "utils/playedTwoHands";
 import { dealerDrawUntillSeventeen } from "./dealerUtils";
 import { wrapActionIntoSetActionOn } from "./wrapActionIntoHandler";
+import { playerSetBalance } from "./playerUtils";
 
 // Add's money to player's account
 const playerWon = (): AppThunk => async (dispatch, getState) => {
@@ -16,18 +16,18 @@ const playerWon = (): AppThunk => async (dispatch, getState) => {
   const { balance, cards } = getState().player as PlayerState;
 
   if (hasBlackJack({ cards })) {
-    dispatch(setBalance(balance + currentBet * 1.5));
+    await dispatch(playerSetBalance(balance + currentBet * 1.5));
     return;
   }
 
-  dispatch(setBalance(balance + currentBet));
+  await dispatch(playerSetBalance(balance + currentBet));
 };
 
 // Remove's money from player's account
 const playerLost = (): AppThunk => async (dispatch, getState) => {
   const { balance } = getState().player as PlayerState;
   const { currentBet } = getState().table as TableState;
-  dispatch(setBalance(balance - currentBet));
+  dispatch(playerSetBalance(balance - currentBet));
 };
 
 // Check if player's hand's are over 21
@@ -60,9 +60,9 @@ const checkForInsurance = (): AppThunk => async (dispatch, getState) => {
     return;
   }
   if (hasBlackJack({ cards: dealer.cards })) {
-    await dispatch(setBalance(player.balance + table.insuranceBet * 2));
+    await dispatch(playerSetBalance(player.balance + table.insuranceBet * 2));
   } else {
-    await dispatch(setBalance(player.balance - table.insuranceBet));
+    await dispatch(playerSetBalance(player.balance - table.insuranceBet));
   }
 };
 
