@@ -11,8 +11,7 @@ const updateUserBalance = (): AppThunk => async (dispatch) => {
     });
 
     const { user } = await response.json();
-    console.log(user);
-    // dispatch(setBalance(user.balance));
+    await dispatch(setBalance(user.balance));
   } catch (error: any) {
     // eslint-disable-next-line no-console
     console.log(error);

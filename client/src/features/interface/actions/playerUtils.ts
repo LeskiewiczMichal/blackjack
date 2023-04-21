@@ -48,7 +48,6 @@ const playerSetBalance =
     if (user) {
       // Update user's balance on the server
       await dispatch(setUserBalance(newBalance));
-      console.log("User's balance updated");
     } else {
       await dispatch(setBalance(newBalance));
     }

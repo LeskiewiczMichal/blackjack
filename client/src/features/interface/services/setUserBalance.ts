@@ -5,11 +5,12 @@ const setUserBalance =
   (newBalance: number): AppThunk =>
   async (dispatch) => {
     try {
-      const response = await fetch("http://localhost:9000/users", {
+      const response = await fetch("http://localhost:9000/users/balance", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
+        credentials: "include", // Include cookies
         body: JSON.stringify({ balance: newBalance }),
       });
 

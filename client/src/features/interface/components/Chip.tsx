@@ -4,8 +4,6 @@ import { incrementBet } from "store/reducers/tableReducer";
 import { Howl } from "howler";
 import sound from "assets/sounds/chip.mp3";
 
-import { updateUserBalance } from "features/authentication/index";
-
 const chipSound = new Howl({
   src: [sound],
 });
@@ -65,9 +63,6 @@ export default function Chip(props: ChipProps) {
     if (soundsPlaying) {
       chipSound.play();
     }
-
-    /// TESTING
-    await dispatch(updateUserBalance());
 
     await dispatch(incrementBet(incremenetValue));
   };

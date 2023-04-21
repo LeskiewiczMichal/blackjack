@@ -17,7 +17,12 @@ const UserDetails = require("./userDetails");
 
 const app = express();
 
-app.use(cors());
+const corsOptions = {
+  origin: 'http://localhost:3000',
+  credentials: true,
+};
+app.use(cors(corsOptions));
+
 
 // Set up session
 app.use(
@@ -89,7 +94,7 @@ app.post("/users", async (req, res) => {
   );
 });
 
-app.put("/users", ensureAuthenticated, async (req, res) => {
+app.put("/users/balance", ensureAuthenticated, async (req, res) => {
   const user = req.user;
 
   if (!user) {
