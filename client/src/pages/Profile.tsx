@@ -1,9 +1,11 @@
 import "./game.css";
 import "./profile.css";
+import { Skin } from "types.d";
 
 import { Navigate } from "react-router-dom";
 import { useAppSelector, useAppDispatch } from "hooks/hooks";
 import { activateSkin } from "features/skins/services/activateSkin";
+import { filterSkins } from "utils/filterSkins";
 
 export default function Profile() {
   const dispatch = useAppDispatch();
@@ -11,19 +13,31 @@ export default function Profile() {
   const user = useAppSelector((state) => state.auth.user);
   const email = useAppSelector((state) => state.auth.email);
   const ownedSkins = useAppSelector((state) => state.shop.ownedSkins);
-  const activeSkins = useAppSelector((state) => state.shop.activeSkins);
+  const activeSkins = useAppSelector((state) => state.skins);
 
   if (!user) {
     return <Navigate to="/" />;
   }
 
-  let filteredSkins;
-  if (activeSkins) {
-    // Remove skins that are in acriveSkins from ownedSkins
-    filteredSkins = ownedSkins?.filter((ownedSkin) =>
-      activeSkins.find((activeSkin) => activeSkin.id === ownedSkin.id),
-    );
+  const activeSkinsArray: Skin[] = []; // Array of active skins to render
+  let filteredOwnedSkins: Skin[] = [];
+  if (ownedSkins && activeSkins) {
+    if (activeSkins.cards) {
+      activeSkinsArray.push(activeSkins.cards);
+    }
+    if (activeSkins.chips) {
+      activeSkinsArray.push(activeSkins.chips);
+    }
+    if (activeSkins.interfaceBackground) {
+      activeSkinsArray.push(activeSkins.interfaceBackground);
+    }
+
+    filteredOwnedSkins = filterSkins(ownedSkins, activeSkinsArray);
   }
+
+  const handleActivateSkin = async (skinId: string) => {
+    await dispatch(activateSkin(skinId));
+  };
 
   return (
     <div className="App">
@@ -35,27 +49,27 @@ export default function Profile() {
         </main>
         <section className="profile--collection">
           <h2>Active skins:</h2>
-          {activeSkins?.map((skin) => {
+          {activeSkinsArray?.map((skin) => {
             return (
               <button
                 type="button"
                 className="profile--collection-skin"
                 key={skin.id}
               >
-                <p>{skin.name}</p>
+                {skin.name} {skin.category}
               </button>
             );
           })}
           <h2>Owned skins:</h2>
-          {filteredSkins?.map((skin) => {
+          {filteredOwnedSkins?.map((skin) => {
             return (
               <button
                 type="button"
                 className="profile--collection-skin"
                 key={skin.id}
-                onClick={async () => dispatch(activateSkin(skin.id))}
+                onClick={async () => handleActivateSkin(skin.id)}
               >
-                <p>{skin.name}</p>
+                {skin.name} {skin.category}
               </button>
             );
           })}

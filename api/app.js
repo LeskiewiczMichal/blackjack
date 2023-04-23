@@ -14,6 +14,12 @@ const Schema = mongoose.Schema;
 const UserDetails = require("./schemas/userDetails");
 const Skin = require("./schemas/skin");
 
+const mongoDb =
+  "mongodb+srv://leskiewicz02robocze:blackjack@cluster0.bj62xhx.mongodb.net/?retryWrites=true&w=majority";
+mongoose.connect(mongoDb, { useUnifiedTopology: true, useNewUrlParser: true });
+const db = mongoose.connection;
+db.on("error", console.error.bind(console, "mongo connection error"));
+
 const app = express();
 
 // CORS for my localhost
@@ -181,6 +187,9 @@ app.post("/skins/activate/:id", ensureAuthenticated, async (req, res) => {
     user.activeSkins.push(skin._id);
 
     await user.save();
+
+    await user.populate("activeSkins");
+    await user.populate("ownedSkins");
     res.json({ ownedSkins: user.ownedSkins, activeSkins: user.activeSkins });
   } catch (error) {
     res.status(500).json({ message: error.message });

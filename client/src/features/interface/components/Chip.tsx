@@ -27,6 +27,7 @@ export default function Chip(props: ChipProps) {
   const bet = useAppSelector((state) => state.table.currentBet);
   const playerBalance = useAppSelector((state) => state.player.balance);
   const soundsPlaying = useAppSelector((state) => state.helpers.soundsPlaying);
+  const skin = useAppSelector((state) => state.skins.chips);
   const { value } = props;
 
   // Get the value of the chip to increment the bet by
@@ -70,7 +71,7 @@ export default function Chip(props: ChipProps) {
   return (
     <button
       type="button"
-      className={`chip chip-${value}`}
+      className={`chip chip-${value} chip-${skin}`}
       onClick={handleBet}
       disabled={inGame}
       aria-label={`Select chip with value ${value}`}

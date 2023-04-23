@@ -112,18 +112,30 @@ export type AuthReducerState = {
   error: string | null;
 };
 
-// SHOP ///
+/// SKINS ///
+export enum SkinCategories {
+  CARDS = "Cards",
+  CHIPS = "Chips",
+  INTERFACE_BACKGROUND = "InterfaceBackground",
+}
+
 export type Skin = {
   id: string;
   name: string;
   price: number;
   prevImage: string;
-  category: string;
+  category: SkinCategories;
 };
 
+export type ActiveSkinsSlice = {
+  chips: Skin | null;
+  cards: Skin | null;
+  interfaceBackground: Skin | null;
+};
+
+/// SHOP ///
 export type ShopSliceState = {
   skins: Skin[] | null;
   ownedSkins: Skin[] | null;
-  activeSkins: Skin[] | null;
   skinPreview: Skin | null;
 };

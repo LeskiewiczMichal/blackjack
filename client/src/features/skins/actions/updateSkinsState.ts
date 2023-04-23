@@ -1,6 +1,10 @@
-import { Skin } from "types";
+import { Skin, SkinCategories } from "types.d";
 import { AppThunk } from "store/store";
-import { setOwnedSkins, setActiveSkins } from "store/reducers/shopReducer";
+import { setOwnedSkins } from "store/reducers/shopReducer";
+import {
+  setActiveSkins,
+  SetActiveSkinsProps,
+} from "store/reducers/activeSkinsReducer";
 
 export type UpdateSkinsStateProps = {
   ownedSkins: Skin[];
@@ -34,8 +38,28 @@ const updateSkinsState =
       };
     });
 
+    const activeSkinsObject: SetActiveSkinsProps = {
+      chips: null,
+      cards: null,
+      interfaceBackground: null,
+    };
+
+    // TODO: Refactor this
+    // eslint-disable-next-line no-restricted-syntax
+    for (const skin of activeSkinsArray) {
+      const category = skin.category as SkinCategories;
+
+      if (category === SkinCategories.CHIPS) {
+        activeSkinsObject.chips = skin;
+      } else if (category === SkinCategories.CARDS) {
+        activeSkinsObject.cards = skin;
+      } else if (category === SkinCategories.INTERFACE_BACKGROUND) {
+        activeSkinsObject.interfaceBackground = skin;
+      }
+    }
+
     await dispatch(setOwnedSkins(ownedSkinsArray));
-    await dispatch(setActiveSkins(activeSkinsArray));
+    await dispatch(setActiveSkins(activeSkinsObject));
   };
 
 export { updateSkinsState };

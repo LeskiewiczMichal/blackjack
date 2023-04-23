@@ -8,6 +8,7 @@ import dealerReducer from "./reducers/dealerReducer";
 import helperReducer from "./reducers/helperReducer";
 import authReducer from "./reducers/authReducer";
 import shopReducer from "./reducers/shopReducer";
+import activeSkinsReducer from "./reducers/activeSkinsReducer";
 
 export const store = configureStore({
   reducer: {
@@ -17,6 +18,7 @@ export const store = configureStore({
     helpers: helperReducer,
     auth: authReducer,
     shop: shopReducer,
+    skins: activeSkinsReducer,
   },
 });
 

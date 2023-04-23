@@ -1,6 +1,8 @@
 import "./skinsList.css";
+import { Skin, SkinCategories } from "types.d";
 
 import { useAppSelector, useAppDispatch } from "hooks/hooks";
+import { filterSkins } from "utils/filterSkins";
 import { getSkins } from "../services/getSkins";
 import { getSkinPreview } from "../services/getSkinPreview";
 
@@ -13,26 +15,25 @@ export default function SkinsList() {
     dispatch(getSkins());
   }
 
-//   FILTER SKINS THAT ARE OWNED
-
-// filter getting only the skins that are in ownedSkins
-//   let filteredSkins;
-//   if (ownedSkins) {
-//     filteredSkins = skins?.filter((skin) =>
-//       ownedSkins.find((ownedSkin) => ownedSkin.id === skin.id),
-//     );
-//   }
+  // filter getting only the skins that are in ownedSkins
+  let filteredSkins: Skin[] = [];
+  if (skins && ownedSkins) {
+    filteredSkins = filterSkins(skins, ownedSkins);
+  }
 
   return (
     <section className="skins-list--container">
-      {skins?.map((skin) => (
+      {filteredSkins?.map((skin) => (
         <button
           type="button"
           className="skins-list--button"
           key={skin.id}
           onClick={async () => dispatch(getSkinPreview(skin.id))}
         >
-          {skin.name} {skin.category}
+          {skin.name}{" "}
+          {skin.category === SkinCategories.INTERFACE_BACKGROUND
+            ? "Interface Background"
+            : `${skin.category}`}
         </button>
       ))}
     </section>

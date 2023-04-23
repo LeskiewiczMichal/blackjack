@@ -5,7 +5,6 @@ import { loginSuccess, LoginSuccessProps } from "./authReducer";
 const initialState: ShopSliceState = {
   skins: null,
   ownedSkins: null,
-  activeSkins: null,
   skinPreview: null,
 };
 
@@ -22,12 +21,6 @@ export const shopSlice = createSlice({
     ) => {
       state.ownedSkins = action.payload;
     },
-    setActiveSkins: (
-      state,
-      action: PayloadAction<ShopSliceState["activeSkins"]>,
-    ) => {
-      state.activeSkins = action.payload;
-    },
     setSkinPreview: (
       state,
       action: PayloadAction<ShopSliceState["skinPreview"]>,
@@ -40,13 +33,11 @@ export const shopSlice = createSlice({
       loginSuccess,
       (state, action: PayloadAction<LoginSuccessProps>) => {
         state.ownedSkins = action.payload.ownedSkins;
-        state.activeSkins = action.payload.activeSkins;
       },
     );
   },
 });
 
-export const { setSkins, setOwnedSkins, setSkinPreview, setActiveSkins } =
-  shopSlice.actions;
+export const { setSkins, setOwnedSkins, setSkinPreview } = shopSlice.actions;
 
 export default shopSlice.reducer;
