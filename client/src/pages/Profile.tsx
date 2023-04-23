@@ -5,6 +5,7 @@ import { Skin } from "types.d";
 import { Navigate } from "react-router-dom";
 import { useAppSelector, useAppDispatch } from "hooks/hooks";
 import { activateSkin } from "features/skins/services/activateSkin";
+import { deactivateSkin } from "features/skins/services/deactivateSkin";
 import { filterSkins } from "utils/filterSkins";
 
 export default function Profile() {
@@ -39,6 +40,10 @@ export default function Profile() {
     await dispatch(activateSkin(skinId));
   };
 
+  const handleDeactivateSkin = async (skinId: string) => {
+    await dispatch(deactivateSkin(skinId));
+  };
+
   return (
     <div className="App">
       <section className="profile--content">
@@ -55,6 +60,7 @@ export default function Profile() {
                 type="button"
                 className="profile--collection-skin"
                 key={skin.id}
+                onClick={async () => handleDeactivateSkin(skin.id)}
               >
                 {skin.name} {skin.category}
               </button>

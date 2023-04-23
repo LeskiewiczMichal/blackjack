@@ -196,4 +196,38 @@ app.post("/skins/activate/:id", ensureAuthenticated, async (req, res) => {
   }
 });
 
+// Deactivate skin
+app.post("/skins/deactivate/:id", ensureAuthenticated, async (req, res) => {
+  const user = req.user;
+
+  if (!user) {
+    return res.status(401).json({ message: "Unauthorized" });
+  }
+
+  try {
+    const skin = await Skin.findById(req.params.id);
+
+    // Check if skin of the same category is already in user's active skins
+    const activeSkin = await Skin.findOne({
+      _id: { $in: user.activeSkins },
+      category: skin.category,
+    });
+
+    if (activeSkin) {
+      // If so, remove it from active skins
+      user.activeSkins = user.activeSkins.filter(
+        (skin) => skin.toString() !== activeSkin._id.toString()
+      );
+    }
+
+    await user.save();
+
+    await user.populate("activeSkins");
+    await user.populate("ownedSkins");
+    res.json({ ownedSkins: user.ownedSkins, activeSkins: user.activeSkins });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 app.listen(9000, () => console.log("App listening on port 9000"));

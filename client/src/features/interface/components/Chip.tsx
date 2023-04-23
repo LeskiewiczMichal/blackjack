@@ -55,6 +55,13 @@ export default function Chip(props: ChipProps) {
       break;
   }
 
+  let skinClass = "--Default";
+  if (skin) {
+    skinClass = `--${skin.name}`;
+  }
+
+  console.log(skinClass);
+
   // Handle incrementing the bet
   const handleBet = async () => {
     // Check if the player has enough money to bet
@@ -71,7 +78,7 @@ export default function Chip(props: ChipProps) {
   return (
     <button
       type="button"
-      className={`chip chip-${value} chip-${skin}`}
+      className={`chip chip-${value}${skinClass}`}
       onClick={handleBet}
       disabled={inGame}
       aria-label={`Select chip with value ${value}`}

@@ -14,28 +14,160 @@
   background-color: white;
 }
 
-.chip-one {
+.chip-one--Default {
   background-image: url("../assets/chips/1_chip.png");
 }
 
-.chip-ten {
+.chip-ten--Default {
   background-image: url("../assets/chips/10_chip.png");
 }
 
-.chip-twenty-five {
+.chip-twenty-five--Default {
   background-image: url("../assets/chips/25_chip.png");
 }
 
-.chip-fifty {
+.chip-fifty--Default {
   background-image: url("../assets/chips/50_chip.png");
 }
 
-.chip-hundred {
+.chip-hundred--Default {
   background-image: url("../assets/chips/100_chip.png");
 }
 
-.chip-five-hundred {
+.chip-five-hundred--Default {
   background-image: url("../assets/chips/500_chip.png");
+}
+
+.chip-one--Neon {
+  background-image: url("../assets/chips/1_chip_neon.png");
+  background-color: #FF00B1;
+  box-shadow: 0 0 8px #FF00B1;
+}
+
+.chip-one--Neon:hover {
+  box-shadow: 0 0 25px #FF00B1;
+  background-color: #FF00B1;
+}
+
+.chip-ten--Neon {
+  background-image: url("../assets/chips/10_chip_neon.png");
+  background-color: #0BFF1C;
+  box-shadow: 0 0 8px #0BFF1C;
+}
+
+.chip-ten--Neon:hover {
+  box-shadow: 0 0 25px #0BFF1C;
+  background-color: #0BFF1C;
+}
+
+.chip-twenty-five--Neon {
+  background-image: url("../assets/chips/25_chip_neon.png");
+  box-shadow: 0 0 8px #FF0000;
+  background-color: #FF0000;
+}
+
+.chip-twenty-five--Neon:hover {
+  box-shadow: 0 0 25px #FF0000;
+  background-color: #FF0000;
+}
+
+.chip-fifty--Neon {
+  background-image: url("../assets/chips/50_chip_neon.png");
+  box-shadow: 0 0 8px #FF5600;
+  background-color: #FF5600;
+}
+
+.chip-fifty--Neon:hover {
+  box-shadow: 0 0 25px #FF5600;
+  background-color: #FF5600;
+}
+
+.chip-hundred--Neon {
+  background-image: url("../assets/chips/100_chip_neon.png");
+  box-shadow: 0 0 8px #E200FF;
+  background-color: #E200FF;
+}
+
+.chip-hundred--Neon:hover {
+  box-shadow: 0 0 25px #E200FF;
+  background-color: #E200FF;
+}
+
+.chip-five-hundred--Neon {
+  background-image: url("../assets/chips/500_chip_neon.png");
+  box-shadow: 0 0 8px #00FDFF;
+  background-color: #00FDFF;
+}
+
+.chip-five-hundred--Neon:hover {
+  box-shadow: 0 0 25px #00FDFF;
+  background-color: #00FDFF;
+}
+
+.chip-one--Dark {
+  background-image: url("../assets/chips/1_chip_dark.png");
+  background-color: #000000;
+  box-shadow: 0 0 8px #000000;
+}
+
+.chip-one--Dark:hover {
+  box-shadow: 0 0 25px #000000;
+  background-color: #000000;
+}
+
+.chip-ten--Dark {
+  background-image: url("../assets/chips/10_chip_dark.png");
+  background-color: #000000;
+  box-shadow: 0 0 8px #000000;
+}
+
+.chip-ten--Dark:hover {
+  box-shadow: 0 0 25px #000000;
+  background-color: #000000;
+}
+
+.chip-twenty-five--Dark {
+  background-image: url("../assets/chips/25_chip_dark.png");
+  background-color: #000000;
+  box-shadow: 0 0 8px #000000;
+}
+
+.chip-twenty-five--Dark:hover {
+  box-shadow: 0 0 25px #000000;
+  background-color: #000000;
+}
+
+.chip-fifty--Dark {
+  background-image: url("../assets/chips/50_chip_dark.png");
+  background-color: #000000;
+  box-shadow: 0 0 8px #000000;
+}
+
+.chip-fifty--Dark:hover {
+  box-shadow: 0 0 25px #000000;
+  background-color: #000000;
+}
+
+.chip-hundred--Dark {
+  background-image: url("../assets/chips/100_chip_dark.png");
+  background-color: #000000;
+  box-shadow: 0 0 8px #000000;
+}
+
+.chip-hundred--Dark:hover {
+  box-shadow: 0 0 25px #000000;
+  background-color: #000000;
+}
+
+.chip-five-hundred--Dark {
+  background-image: url("../assets/chips/500_chip_dark.png");
+  background-color: #000000;
+  box-shadow: 0 0 8px #000000;
+}
+
+.chip-five-hundred--Dark:hover {
+  box-shadow: 0 0 25px #000000;
+  background-color: #000000;
 }
 
 /* Credits: https://www.flaticon.com/authors/smashingstocks" */
