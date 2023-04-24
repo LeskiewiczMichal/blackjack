@@ -1,28 +1,33 @@
-const Skin = require("../models/skin");
+import { Request, Response } from "express";
+import { AuthenticatedRequestWithId } from "../types";
+import { Skin, SkinInterface } from "../models/skin";
+import { UserInterface } from "../models/userDetails";
 
 // Get skins
-const getAll = async (req, res) => {
+const getAll = async (req: Request, res: Response) => {
   try {
     const skins = await Skin.find({});
     res.json({ skins });
-  } catch (error) {
+  } catch (error: any) {
     res.status(500).json({ message: error.message });
   }
 };
 
 // Get skin by id
-const getById = async (req, res) => {
+const getById = async (req: Request, res: Response) => {
   try {
+    console.log(req.params.id);
     const skin = await Skin.findById(req.params.id);
-    res.json(skin);
-  } catch (error) {
+    console.log(skin);
+    res.json( { skin });
+  } catch (error: any) {
     res.status(500).json({ message: error.message });
   }
 };
 
 // Buy skin
-const buy = async (req, res) => {
-  const user = req.user;
+const buy = async (req: Request, res: Response) => {
+  const user = req.user as UserInterface;
 
   if (!user) {
     return res.status(401).json({ message: "Unauthorized" });
@@ -30,6 +35,10 @@ const buy = async (req, res) => {
 
   try {
     const skin = await Skin.findById(req.params.id);
+
+    if (!skin) {
+      return res.status(404).json({ message: "Skin not found" });
+    }
 
     // Check if user has enough money
     if (user.balance < skin.price) {
@@ -52,14 +61,14 @@ const buy = async (req, res) => {
       activeSkins: user.activeSkins,
       userBalance: user.balance,
     });
-  } catch (error) {
+  } catch (error: any) {
     return res.status(500).json({ message: error.message });
   }
 };
 
 // Activate skin
-const activate = async (req, res) => {
-  const user = req.user;
+const activate = async (req: Request, res: Response) => {
+  const user = req.user as AuthenticatedRequestWithId["user"];
 
   if (!user) {
     return res.status(401).json({ message: "Unauthorized" });
@@ -67,6 +76,10 @@ const activate = async (req, res) => {
 
   try {
     const skin = await Skin.findById(req.params.id);
+
+    if (!skin) {
+      return res.status(404).json({ message: "Skin not found" });
+    }
 
     // Check if skin of the same category is already in user's active skins
     const activeSkin = await Skin.findOne({
@@ -77,7 +90,7 @@ const activate = async (req, res) => {
     if (activeSkin) {
       // If so, remove it from active skins
       user.activeSkins = user.activeSkins.filter(
-        (skin) => skin.toString() !== activeSkin._id.toString()
+        (skin: SkinInterface) => skin.toString() !== activeSkin._id.toString()
       );
     }
 
@@ -89,14 +102,14 @@ const activate = async (req, res) => {
     await user.populate("activeSkins");
     await user.populate("ownedSkins");
     res.json({ ownedSkins: user.ownedSkins, activeSkins: user.activeSkins });
-  } catch (error) {
+  } catch (error: any) {
     res.status(500).json({ message: error.message });
   }
 };
 
 // Deactivate skin
-const deactivate = async (req, res) => {
-  const user = req.user;
+const deactivate = async (req: Request, res: Response) => {
+  const user = req.user as AuthenticatedRequestWithId["user"];
 
   if (!user) {
     return res.status(401).json({ message: "Unauthorized" });
@@ -104,6 +117,10 @@ const deactivate = async (req, res) => {
 
   try {
     const skin = await Skin.findById(req.params.id);
+
+    if (!skin) {
+      return res.status(404).json({ message: "Skin not found" });
+    }
 
     // Check if skin of the same category is already in user's active skins
     const activeSkin = await Skin.findOne({
@@ -114,7 +131,7 @@ const deactivate = async (req, res) => {
     if (activeSkin) {
       // If so, remove it from active skins
       user.activeSkins = user.activeSkins.filter(
-        (skin) => skin.toString() !== activeSkin._id.toString()
+        (skin: SkinInterface) => skin.toString() !== activeSkin._id.toString()
       );
     }
 
@@ -123,15 +140,9 @@ const deactivate = async (req, res) => {
     await user.populate("activeSkins");
     await user.populate("ownedSkins");
     res.json({ ownedSkins: user.ownedSkins, activeSkins: user.activeSkins });
-  } catch (error) {
+  } catch (error: any) {
     res.status(500).json({ message: error.message });
   }
 };
 
-module.exports = {
-  getAll,
-  getById,
-  buy,
-  activate,
-  deactivate,
-};
+export { getAll, getById, buy, activate, deactivate };

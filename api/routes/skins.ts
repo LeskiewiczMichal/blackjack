@@ -1,13 +1,12 @@
-const { Router } = require("express");
-const ensureAuthenticated = require("../middleware/ensureAuthenticated");
-const Skin = require("../models/skin");
-const {
+import { Router } from "express";
+import { ensureAuthenticated } from "../middleware/ensureAuthenticated";
+import {
   getAll,
   getById,
   buy,
   activate,
   deactivate,
-} = require("../controllers/skinsController");
+} from "../controllers/skinsController";
 
 const router = Router();
 
@@ -26,4 +25,4 @@ router.post("/activate/:id", ensureAuthenticated, activate);
 // Deactivate skin
 router.post("/deactivate/:id", ensureAuthenticated, deactivate);
 
-module.exports = router;
+export { router as skinsRouter };

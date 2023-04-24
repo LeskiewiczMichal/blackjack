@@ -1,15 +1,14 @@
-const { Router } = require("express");
-const passport = require("passport");
-const ensureAuthenticated = require("../middleware/ensureAuthenticated");
-const UserDetails = require("../models/userDetails");
-const {
+import { Router } from "express";
+import passport from "passport";
+import { ensureAuthenticated } from "../middleware/ensureAuthenticated";
+import {
   getUserData,
   register,
   updateBalance,
   login,
-  logout,
+  logoutUser,
   getUserSkins,
-} = require("../controllers/usersController");
+} from "../controllers/usersController";
 
 const router = Router();
 
@@ -26,9 +25,11 @@ router.put("/balance", ensureAuthenticated, updateBalance);
 router.post("/login", passport.authenticate("local"), login);
 
 // Logout user
-router.post("/logout", logout);
+router.post("/logout", logoutUser);
 
 // Get user skins
 router.get("/skins", ensureAuthenticated, getUserSkins);
 
-module.exports = router;
+
+export { router as usersRouter };
+

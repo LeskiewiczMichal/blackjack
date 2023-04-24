@@ -1,21 +1,13 @@
 require("dotenv").config(); // Load environment variables from .env file
-const express = require("express");
-const path = require("path");
-const usersRoute = require("./routes/users");
-const skinsRoute = require("./routes/skins");
-const session = require("express-session");
-const passport = require("passport");
-const LocalStrategy = require("passport-local").Strategy;
 const mongoose = require("mongoose");
-const passportLocalMongoose = require("passport-local-mongoose");
-// const MongoStore = require("connect-mongo")(session);
-const cors = require("cors");
-const ensureAuthenticated = require("./middleware/ensureAuthenticated");
-const Schema = mongoose.Schema;
+import express from "express";
+import session from "express-session";
+import passport from "passport";
+import cors from "cors";
 
-const UserDetails = require("./models/userDetails");
-const Skin = require("./models/skin");
-
+import { usersRouter } from "./routes/users";
+import { skinsRouter } from "./routes/skins";
+import { User } from "./models/userDetails";
 
 mongoose.connect(process.env.DB_CONNECTION, {
   useUnifiedTopology: true,
@@ -44,9 +36,9 @@ app.use(
 );
 
 // Set up passport
-passport.use(UserDetails.createStrategy());
-passport.serializeUser(UserDetails.serializeUser());
-passport.deserializeUser(UserDetails.deserializeUser());
+passport.use((User as any).createStrategy());
+passport.serializeUser((User as any).serializeUser());
+passport.deserializeUser((User as any).deserializeUser());
 
 // Configs
 app.use(passport.initialize());
@@ -55,8 +47,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 // Routes
-app.use("/users", usersRoute);
-app.use("/skins", skinsRoute);
-
+app.use("/users", usersRouter);
+app.use("/skins", skinsRouter);
 
 app.listen(PORT, () => console.log(`App listening on port ${PORT}`));
