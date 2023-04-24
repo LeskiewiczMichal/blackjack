@@ -1,4 +1,4 @@
-import { ActiveSkinsSlice, Skin, SkinCategories } from "types";
+import { ActiveSkinsSlice, Skin, SkinCategories } from "types.d";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { loginSuccess, LoginSuccessProps } from "./authReducer";
 
