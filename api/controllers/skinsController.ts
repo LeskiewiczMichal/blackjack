@@ -16,9 +16,7 @@ const getAll = async (req: Request, res: Response) => {
 // Get skin by id
 const getById = async (req: Request, res: Response) => {
   try {
-    console.log(req.params.id);
     const skin = await Skin.findById(req.params.id);
-    console.log(skin);
     res.json( { skin });
   } catch (error: any) {
     res.status(500).json({ message: error.message });

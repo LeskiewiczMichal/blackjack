@@ -25,9 +25,7 @@ exports.getAll = getAll;
 // Get skin by id
 const getById = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        console.log(req.params.id);
         const skin = yield skin_1.Skin.findById(req.params.id);
-        console.log(skin);
         res.json({ skin });
     }
     catch (error) {

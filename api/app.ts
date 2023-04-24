@@ -1,20 +1,14 @@
-require("dotenv").config(); // Load environment variables from .env file
-const mongoose = require("mongoose");
+require("dotenv").config();
 import express from "express";
-import session from "express-session";
-import passport from "passport";
 import cors from "cors";
 
+import { connectToMongoDB } from "./middleware/connectToMongoDB";
+import { setUpSession } from "./middleware/setUpSession";
+import { passportConfig } from "./middleware/passportConfig";
 import { usersRouter } from "./routes/users";
 import { skinsRouter } from "./routes/skins";
-import { User } from "./models/userDetails";
 
-mongoose.connect(process.env.DB_CONNECTION, {
-  useUnifiedTopology: true,
-  useNewUrlParser: true,
-});
-const db = mongoose.connection;
-db.on("error", console.error.bind(console, "mongo connection error"));
+connectToMongoDB(); // Database
 
 const app = express();
 const PORT = process.env.PORT || 9000;
@@ -24,25 +18,11 @@ const corsOptions = {
   origin: "http://localhost:3000",
   credentials: true,
 };
+
+// Middleware
 app.use(cors(corsOptions));
-
-// Set up session
-app.use(
-  session({
-    secret: "blackjack",
-    resave: false,
-    saveUninitialized: false,
-  })
-);
-
-// Set up passport
-passport.use((User as any).createStrategy());
-passport.serializeUser((User as any).serializeUser());
-passport.deserializeUser((User as any).deserializeUser());
-
-// Configs
-app.use(passport.initialize());
-app.use(passport.session());
+app.use(setUpSession);
+app.use(passportConfig);
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
