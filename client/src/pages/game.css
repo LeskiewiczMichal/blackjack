@@ -6,6 +6,8 @@
   --interface-brown: #241201;
   --info-gold: #ffd900;
   --wooden-table-url: url("/src/assets/wood-pattern.png");
+  --interface-neon-pink: #ff00b1;
+  --interface-neon-green: #59ff00;
 }
 
 /* Needed for mobile to work properly - changes screen size */

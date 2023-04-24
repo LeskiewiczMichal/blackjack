@@ -4,6 +4,7 @@ import "./shop.css";
 import { SkinsList, SkinDisplay } from "features/shop/index";
 import { useAppSelector } from "hooks/hooks";
 import { Navigate } from "react-router-dom";
+import { BackButton } from "features/interface";
 // import { useNavigate } from "react-router-dom";
 
 export default function Shop() {
@@ -17,6 +18,7 @@ export default function Shop() {
 
   return (
     <main className="shop">
+      <BackButton />
       <section className="shop--products">
         <h4>Your balance: {balance}</h4>
         <SkinsList />

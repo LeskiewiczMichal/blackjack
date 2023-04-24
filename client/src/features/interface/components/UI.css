@@ -34,7 +34,30 @@
   }
 
   .interface--background--Neon {
-    background-color: #FF00B1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--interface-neon-pink);
+    box-shadow: 0 0 20px var(--interface-neon-pink);
+    border: 3px solid var(--interface-neon-green);
+    /* width: max-content; */
+    border-radius: 10px;
+    padding: 0.3rem;
+    flex-wrap: wrap;
+  }
+
+  .interface--background--Dark {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: var(--wooden-table-url);
+    background-color: var(--black);
+    box-shadow: 5px 5px 10px var(--black);
+    border: 3px solid var(--green-border);
+    /* width: max-content; */
+    border-radius: 10px;
+    padding: 0.3rem;
+    flex-wrap: wrap;
   }
   
   .interface--main {

@@ -1,4 +1,4 @@
-.points--display {
+.points--display--Default {
   background-color: var(--interface-brown);
   background-image: var(--wooden-table-url);
   display: flex;
@@ -11,6 +11,41 @@
   box-shadow: 0 0 10px var(--black);
   padding: 0.2rem;
   color: var(--info-gold);
+  font-size: large;
+  max-height: 80px;
+  width: 200px;
+}
+
+.points--display--Neon {
+  background-color: var(--interface-neon-pink);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: fit-content;
+  border: 5px solid var(--interface-neon-green);
+  border-radius: 10px;
+  box-shadow: 0 0 10px var(--interface-neon-pink);
+  padding: 0.2rem;
+  color: var(--interface-neon-green);
+  font-size: large;
+  max-height: 80px;
+  width: 200px;
+}
+
+.points--display--Dark {
+  background-color: var(--black);
+  background-image: var(--wooden-table-url);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: fit-content;
+  border: 5px solid var(--white);
+  border-radius: 10px;
+  box-shadow: 0 0 10px var(--black);
+  padding: 0.2rem;
+  color: var(--white);
   font-size: large;
   max-height: 80px;
   width: 200px;

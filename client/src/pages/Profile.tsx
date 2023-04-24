@@ -7,6 +7,7 @@ import { useAppSelector, useAppDispatch } from "hooks/hooks";
 import { activateSkin } from "features/skins/services/activateSkin";
 import { deactivateSkin } from "features/skins/services/deactivateSkin";
 import { filterSkins } from "utils/filterSkins";
+import { BackButton } from "features/interface";
 
 export default function Profile() {
   const dispatch = useAppDispatch();
@@ -46,6 +47,7 @@ export default function Profile() {
 
   return (
     <div className="App">
+      <BackButton />
       <section className="profile--content">
         <main className="profile--info">
           <h1>Profile</h1>
