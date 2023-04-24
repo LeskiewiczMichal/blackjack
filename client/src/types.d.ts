@@ -123,7 +123,6 @@ export type Skin = {
   id: string;
   name: string;
   price: number;
-  prevImage: string;
   category: SkinCategories;
 };
 

@@ -40,4 +40,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 1rem;
+}
+
+.shop--preview > h4 {
+    margin: 0;
+    font-size: 23px;
+    font-weight: 700;
+    color: #FFFFFF;
 }

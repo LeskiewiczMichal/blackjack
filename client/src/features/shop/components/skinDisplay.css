@@ -1,14 +1,29 @@
 .skin-display--image {
     display: flex;
-    width: 200px;
+    width: 90%;
     height: 200px;
     background-color: #ffffff;
+    border: 2px solid #000000;
     border-radius: 0.5rem;
-    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     background-size: 100% 100%;
     background-position: center;
 }
 
-.neon-chips--image {
-    background-image: url("../assets/1_chip.png");
+.Neon-Chips {
+    background-image: url("../assets/neon_chips_preview.png");
+}
+
+.Neon-Cards {
+    background-image: url("../assets/neon_cards_preview.png");
+    width: 75%;
+}
+
+.Dark-Chips {
+    background-image: url("../assets/dark_chips_preview.png");
+}
+
+.Dark-Cards {
+    background-image: url("../assets/dark_cards_preview.png");
+    width: 75%;
 }

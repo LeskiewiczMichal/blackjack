@@ -19,7 +19,7 @@
     opacity: 0.6;
   }
   
-  .interface--background {
+  .interface--background--Default {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,6 +31,10 @@
     border-radius: 10px;
     padding: 0.3rem;
     flex-wrap: wrap;
+  }
+
+  .interface--background--Neon {
+    background-color: #FF00B1;
   }
   
   .interface--main {

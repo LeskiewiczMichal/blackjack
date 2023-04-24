@@ -159,6 +159,55 @@ app.get("/skins/:id", async (req, res) => {
   }
 });
 
+app.post("/skins/buy/:id", ensureAuthenticated, async (req, res) => {
+  const user = req.user;
+
+  if (!user) {
+    return res.status(401).json({ message: "Unauthorized" });
+  }
+
+  try {
+    const skin = await Skin.findById(req.params.id);
+
+    // Check if user already owns this skin
+    // const ownedSkin = await Skin.findOne({
+    //   _id: { $in: user.ownedSkins },
+    //   category: skin.category,
+    // });
+
+    // if (ownedSkin) {
+    //   console.log(skin);
+    //   console.log(ownedSkin);
+    //   return res.status(400).json({ message: "You already own this skin" });
+    // }
+
+    // Check if user has enough money
+    if (user.balance < skin.price) {
+      return res.status(400).json({ message: "Not enough money" });
+    }
+
+
+    // Add skin to user's owned skins
+    user.ownedSkins.push(skin._id);
+
+    // Remove money from user's balance
+    user.balance -= skin.price;
+
+    await user.save();
+
+    await user.populate("activeSkins");
+    await user.populate("ownedSkins");
+
+    return res.json({
+      ownedSkins: user.ownedSkins,
+      activeSkins: user.activeSkins,
+      userBalance: user.balance,
+    });
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+});
+
 // Activate skin
 app.post("/skins/activate/:id", ensureAuthenticated, async (req, res) => {
   const user = req.user;

@@ -23,7 +23,6 @@ const getSkins = (): AppThunk => async (dispatch) => {
         id: skin._id,
         name: skin.name,
         price: skin.price,
-        prevImage: skin.prevImage,
         category: skin.category,
       };
     });

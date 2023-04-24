@@ -9,6 +9,7 @@ import { Navigate } from "react-router-dom";
 export default function Shop() {
   //   const navigate = useNavigate();
   const user = useAppSelector((state) => state.auth.user);
+  const balance = useAppSelector((state) => state.player.balance);
 
   if (!user) {
     return <Navigate to="/" />;
@@ -17,6 +18,7 @@ export default function Shop() {
   return (
     <main className="shop">
       <section className="shop--products">
+        <h4>Your balance: {balance}</h4>
         <SkinsList />
       </section>
       <section className="shop--preview">

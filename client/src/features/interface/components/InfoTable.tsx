@@ -5,6 +5,7 @@ import { useAppSelector } from "hooks/hooks";
 export default function InfoTable() {
   const currentBet: number = useAppSelector((state) => state.table.currentBet);
   const playerBalance: number = useAppSelector((state) => state.player.balance);
+
   const insuranceBet: number | null = useAppSelector(
     (state) => state.table.insuranceBet,
   );

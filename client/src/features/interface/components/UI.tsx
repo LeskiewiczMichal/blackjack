@@ -20,6 +20,8 @@ export default function UI() {
   const inGame: boolean = useAppSelector((state) => state.table.inGame);
   const gameFinished = useAppSelector((state) => state.table.gameFinished);
   const popUpActive = useAppSelector((state) => state.table.popUpActive);
+  const skin = useAppSelector((state) => state.skins.interfaceBackground);
+
   const [parent] = useAutoAnimate();
 
   const isDisabled = popUpActive;
@@ -53,9 +55,16 @@ export default function UI() {
     );
   }
 
+  let skinClass = "--Default";
+  if (skin) {
+    skinClass = `--${skin.name}`;
+  }
+
   return (
     <nav className={`interface ${isDisabled ? "interface-disabled" : ""}`}>
-      <section className="interface--chips margin-right interface--background">
+      <section
+        className={`interface--chips margin-right interface--background${skinClass}`}
+      >
         <Chip value={ChipValue.chipOne} />
         <Chip value={ChipValue.chipTen} />
         <Chip value={ChipValue.chipTwentyFive} />
@@ -63,10 +72,15 @@ export default function UI() {
         <Chip value={ChipValue.chipHundred} />
         <Chip value={ChipValue.chipFiveHundred} />
       </section>
-      <section className="interface--main interface--background" ref={parent}>
+      <section
+        className={`interface--main interface--background${skinClass}`}
+        ref={parent}
+      >
         {mainInterfaceJSX}
       </section>
-      <section className="interface--table margin-left interface--background">
+      <section
+        className={`interface--table margin-left interface--background${skinClass}`}
+      >
         <InfoTable />
       </section>
     </nav>
