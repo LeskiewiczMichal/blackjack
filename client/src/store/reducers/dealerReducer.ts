@@ -1,5 +1,6 @@
-import { DealerState, Card } from "types.d";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+
+import { DealerState, Card } from "types.d";
 import { calculateScore } from "utils/calculateScore";
 
 const initialState: DealerState = {

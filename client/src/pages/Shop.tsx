@@ -5,10 +5,8 @@ import { SkinsList, SkinDisplay } from "features/shop/index";
 import { useAppSelector } from "hooks/hooks";
 import { Navigate } from "react-router-dom";
 import { BackButton } from "features/interface";
-// import { useNavigate } from "react-router-dom";
 
 export default function Shop() {
-  //   const navigate = useNavigate();
   const user = useAppSelector((state) => state.auth.user);
   const balance = useAppSelector((state) => state.player.balance);
 

@@ -44,19 +44,22 @@ const updateSkinsState =
       interfaceBackground: null,
     };
 
-    // TODO: Refactor this
-    // eslint-disable-next-line no-restricted-syntax
-    for (const skin of activeSkinsArray) {
+    activeSkinsArray.forEach((skin) => {
       const category = skin.category as SkinCategories;
-
-      if (category === SkinCategories.CHIPS) {
-        activeSkinsObject.chips = skin;
-      } else if (category === SkinCategories.CARDS) {
-        activeSkinsObject.cards = skin;
-      } else if (category === SkinCategories.INTERFACE_BACKGROUND) {
-        activeSkinsObject.interfaceBackground = skin;
+      switch (category) {
+        case SkinCategories.CHIPS:
+          activeSkinsObject.chips = skin;
+          break;
+        case SkinCategories.CARDS:
+          activeSkinsObject.cards = skin;
+          break;
+        case SkinCategories.INTERFACE_BACKGROUND:
+          activeSkinsObject.interfaceBackground = skin;
+          break;
+        default:
+          break;
       }
-    }
+    });
 
     await dispatch(setOwnedSkins(ownedSkinsArray));
     await dispatch(setActiveSkins(activeSkinsObject));

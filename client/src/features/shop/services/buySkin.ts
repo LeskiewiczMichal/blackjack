@@ -18,7 +18,6 @@ const buySkin =
       );
 
       const { ownedSkins, activeSkins, userBalance } = await response.json();
-      console.log(ownedSkins, activeSkins, userBalance);
 
       await dispatch(updateSkinsState({ ownedSkins, activeSkins }));
       await dispatch(setBalance(userBalance));

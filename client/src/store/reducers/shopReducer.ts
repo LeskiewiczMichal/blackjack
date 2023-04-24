@@ -1,5 +1,6 @@
-import { ShopSliceState } from "types";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+
+import { ShopSliceState, Skin } from "types";
 import { loginSuccess, LoginSuccessProps } from "./authReducer";
 
 const initialState: ShopSliceState = {
@@ -8,23 +9,19 @@ const initialState: ShopSliceState = {
   skinPreview: null,
 };
 
+type SkinsState = Skin[] | null;
+
 export const shopSlice = createSlice({
   name: "shop",
   initialState,
   reducers: {
-    setSkins: (state, action: PayloadAction<ShopSliceState["skins"]>) => {
+    setSkins: (state, action: PayloadAction<SkinsState>) => {
       state.skins = action.payload;
     },
-    setOwnedSkins: (
-      state,
-      action: PayloadAction<ShopSliceState["ownedSkins"]>,
-    ) => {
+    setOwnedSkins: (state, action: PayloadAction<SkinsState>) => {
       state.ownedSkins = action.payload;
     },
-    setSkinPreview: (
-      state,
-      action: PayloadAction<ShopSliceState["skinPreview"]>,
-    ) => {
+    setSkinPreview: (state, action: PayloadAction<Skin>) => {
       state.skinPreview = action.payload;
     },
   },

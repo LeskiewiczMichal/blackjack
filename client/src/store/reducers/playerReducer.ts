@@ -1,5 +1,6 @@
-import { PlayerState, Card } from "types";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+
+import { PlayerState, Card } from "types";
 import { loginSuccess, LoginSuccessProps } from "./authReducer";
 
 const initialState: PlayerState = {

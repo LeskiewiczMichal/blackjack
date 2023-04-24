@@ -1,5 +1,6 @@
-import { TableState, Card } from "types.d";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+
+import { TableState, Card } from "types.d";
 import { generateCards } from "utils/generateCards";
 import { showCards } from "store/reducers/dealerReducer";
 

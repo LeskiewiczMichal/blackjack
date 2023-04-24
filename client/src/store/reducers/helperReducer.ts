@@ -1,5 +1,5 @@
-import { HelperSliceState } from "types";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { HelperSliceState } from "types.d";
 
 const initialState: HelperSliceState = {
   disableSwapHandsAnimation: false,

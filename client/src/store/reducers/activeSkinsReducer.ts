@@ -1,4 +1,4 @@
-import { ActiveSkinsSlice, Skin } from "types";
+import { ActiveSkinsSlice, Skin, SkinCategories } from "types";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { loginSuccess, LoginSuccessProps } from "./authReducer";
 
@@ -31,11 +31,11 @@ export const shopSlice = createSlice({
         const { activeSkins } = action.payload;
 
         activeSkins.forEach((skin: Skin) => {
-          if (skin.category === "Chips") {
+          if (skin.category === SkinCategories.CHIPS) {
             state.chips = skin;
-          } else if (skin.category === "Cards") {
+          } else if (skin.category === SkinCategories.CARDS) {
             state.cards = skin;
-          } else if (skin.category === "InterfaceBackground") {
+          } else if (skin.category === SkinCategories.INTERFACE_BACKGROUND) {
             state.interfaceBackground = skin;
           }
         });
