@@ -56,11 +56,7 @@ const loginUser =
         }),
       );
     } catch (error: any) {
-      // TODO: Handle error
-      // eslint-disable-next-line no-console
-      console.error(error);
-      dispatch(loginFailure(error.response.data.message));
-      throw error;
+      dispatch(loginFailure("Invalid email or password"));
     }
   };
 

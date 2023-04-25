@@ -8,7 +8,7 @@ export default function LoginForm() {
   const dispatch = useAppDispatch();
 
   const user = useAppSelector((state) => state.auth.user);
-  // const skins = useAppSelector((state) => state.shop.skins);
+  const error = useAppSelector((state) => state.auth.error);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -32,7 +32,6 @@ export default function LoginForm() {
       email,
       password,
     };
-
     dispatch(loginUser(userData));
   };
 
@@ -57,6 +56,7 @@ export default function LoginForm() {
       <button type="submit" onClick={(e) => handleSubmit(e)}>
         Login
       </button>
+      {error && <p className="error">{error}</p>}
     </form>
   );
 }

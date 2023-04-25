@@ -42,4 +42,11 @@
     input:focus {
         background-color: #90C290;
     }
+
+    p {
+        font-size: 18px;
+        font-weight: 700;
+        font-family: "RobotoSans";
+        color: $interface--light-red--darkened;
+    }
 }
