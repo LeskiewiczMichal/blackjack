@@ -4,7 +4,7 @@
 .menu--content {
   @include width-height--hundred-percent;
   @include column-flex-centered;
-  @include red-smoke-background;
+  @include green-smoke-background;
   height: 100vh;
   gap: 1.5rem;
   text-align: center;

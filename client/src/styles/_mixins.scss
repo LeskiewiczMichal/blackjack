@@ -21,8 +21,8 @@
   height: 100%;
 }
 
-@mixin red-smoke-background($power: 35%) {
-  background: linear-gradient(160deg, #a6425345 $power, #ffffff 50%);
+@mixin green-smoke-background($power: 35%) {
+  background: linear-gradient(160deg, #AFE3C0 $power, #ffffff 50%);
 }
 
 @mixin set-background-position {

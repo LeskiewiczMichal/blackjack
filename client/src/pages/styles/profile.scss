@@ -3,7 +3,7 @@
 
 .profile--content {
   @include column-flex-centered;
-  @include red-smoke-background($power: 0%);
+  @include green-smoke-background($power: 0%);
   height: 90vh;
   width: 100%;
   text-align: center;
