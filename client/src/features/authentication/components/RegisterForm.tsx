@@ -1,4 +1,4 @@
-import "./loginForm.css";
+import "./loginForm.scss";
 import { useState } from "react";
 import { useNavigate, Navigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "hooks/hooks";

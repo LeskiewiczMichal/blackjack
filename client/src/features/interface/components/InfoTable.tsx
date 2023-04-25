@@ -1,4 +1,4 @@
-import "./infoTable.style.css";
+import "./infoTable.scss";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { useAppSelector } from "hooks/hooks";
 

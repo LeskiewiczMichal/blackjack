@@ -1,4 +1,4 @@
-import "./loginForm.css";
+import "./loginForm.scss";
 import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "hooks/hooks";
 import { Navigate } from "react-router-dom";
@@ -11,7 +11,6 @@ export default function LoginForm() {
   // const skins = useAppSelector((state) => state.shop.skins);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  
 
   if (user) {
     return <Navigate to="/menu" />;

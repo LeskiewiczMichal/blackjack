@@ -1,5 +1,5 @@
-import "./UI.css";
-import "./buttons/buttons.style.css";
+import "./UI.scss";
+import "./buttons/buttons.scss";
 
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { useAppSelector } from "hooks/hooks";

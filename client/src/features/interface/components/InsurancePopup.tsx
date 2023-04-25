@@ -1,4 +1,4 @@
-import "./insurancePopup.style.css";
+import "./insurancePopup.scss";
 import { useAppDispatch } from "hooks/hooks";
 import { setPopUpActive } from "store/reducers/tableReducer";
 import { betInsurance } from "../actions/betInsurance";

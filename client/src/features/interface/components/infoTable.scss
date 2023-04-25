@@ -1,8 +1,10 @@
-.InfoTable--container--Default {
-  color: var(--info-gold);
+@import "../../../styles/mixins";
+@import "../../../styles/variables";
+
+@mixin infotable--container {
   font-size: 20px;
   font-weight: bold;
-  
+
   display: flex;
   width: 100%;
   justify-content: space-around;
@@ -10,34 +12,23 @@
   gap: 0.3rem;
 }
 
+.InfoTable--container--Default {
+  color: $informations--gold;
+  @include infotable--container;
+}
+
 .InfoTable--container--Neon {
-  color: var(--interface-neon-green);
-  font-size: 20px;
-  font-weight: bold;
-  
-  display: flex;
-  width: 100%;
-  justify-content: space-around;
-  align-items: center;
-  gap: 0.3rem;
+  color: $interface--neon-green;
+  @include infotable--container;
 }
 
 .InfoTable--container--Dark {
   color: var(--white);
-  font-size: 20px;
-  font-weight: bold;
-  
-  display: flex;
-  width: 100%;
-  justify-content: space-around;
-  align-items: center;
-  gap: 0.3rem;
+  @include infotable--container;
 }
 
 .InfoTable--row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flex-centered;
   flex-wrap: wrap;
   width: 100%;
   padding: 0.3rem;

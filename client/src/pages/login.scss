@@ -23,6 +23,7 @@
         font-size: 4rem;
         font-weight: 700;
         color: $interface--dark-green;
+        font-family: "Lora";
     }
 }
 
@@ -40,6 +41,7 @@
     h1 {
         font-size: 3rem;
         font-weight: 700;
+        font-family: "Lora";
         margin: 0;
         color: $interface--light-red;
     }
@@ -60,10 +62,11 @@
     box-shadow: 0 0 5px $black;
     border-radius: 15px;
     padding: 0 1rem;
-    font-size: 22px;
     outline: none;
     cursor: pointer;
+    font-size: 22px;
     font-weight: 700;
+    font-family: "RobotoSans";
 }
 
 .login-page--register-button:hover {

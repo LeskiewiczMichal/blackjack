@@ -1,4 +1,4 @@
-import "./chip.style.css";
+import "./chip.scss";
 import { useAppDispatch, useAppSelector } from "hooks/hooks";
 import { incrementBet } from "store/reducers/tableReducer";
 import { Howl } from "howler";

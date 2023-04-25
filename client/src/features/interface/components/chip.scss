@@ -1,3 +1,6 @@
+@import "../../../styles/mixins";
+@import "../../../styles/variables";
+
 .chip {
   background-size: 100% 100%;
   width: 65px;
@@ -6,12 +9,12 @@
   border: none;
   cursor: pointer;
   background-color: #db0c0c00;
-  box-shadow: 3px 5px 8px #000000;
+  box-shadow: 3px 5px 8px $black;
 }
 
 .chip:hover {
-  box-shadow: 0 0 15px white;
-  background-color: white;
+  box-shadow: 0 0 15px $white;
+  background-color: $white;
 }
 
 .chip-one--Default {
@@ -40,138 +43,137 @@
 
 .chip-one--Neon {
   background-image: url("../assets/chips/1_chip_neon.png");
-  background-color: #FF00B1;
-  box-shadow: 0 0 8px #FF00B1;
+  background-color: $interface--neon-pink;
+  box-shadow: 0 0 8px $interface--neon-pink;
 }
 
 .chip-one--Neon:hover {
-  box-shadow: 0 0 25px #FF00B1;
-  background-color: #FF00B1;
+  box-shadow: 0 0 25px $interface--neon-pink;
+  background-color: $interface--neon-pink;
 }
 
 .chip-ten--Neon {
   background-image: url("../assets/chips/10_chip_neon.png");
-  background-color: #0BFF1C;
-  box-shadow: 0 0 8px #0BFF1C;
+  background-color: $interface--neon-green;
+  box-shadow: 0 0 8px $interface--neon-green;
 }
 
 .chip-ten--Neon:hover {
-  box-shadow: 0 0 25px #0BFF1C;
-  background-color: #0BFF1C;
+  box-shadow: 0 0 25px $interface--neon-green;
+  background-color: $interface--neon-green;
 }
 
 .chip-twenty-five--Neon {
   background-image: url("../assets/chips/25_chip_neon.png");
-  box-shadow: 0 0 8px #FF0000;
-  background-color: #FF0000;
+  box-shadow: 0 0 8px #ff0000;
+  background-color: #ff0000;
 }
 
 .chip-twenty-five--Neon:hover {
-  box-shadow: 0 0 25px #FF0000;
-  background-color: #FF0000;
+  box-shadow: 0 0 25px #ff0000;
+  background-color: #ff0000;
 }
 
 .chip-fifty--Neon {
   background-image: url("../assets/chips/50_chip_neon.png");
-  box-shadow: 0 0 8px #FF5600;
-  background-color: #FF5600;
+  box-shadow: 0 0 8px #ff5600;
+  background-color: #ff5600;
 }
 
 .chip-fifty--Neon:hover {
-  box-shadow: 0 0 25px #FF5600;
-  background-color: #FF5600;
+  box-shadow: 0 0 25px #ff5600;
+  background-color: #ff5600;
 }
 
 .chip-hundred--Neon {
   background-image: url("../assets/chips/100_chip_neon.png");
-  box-shadow: 0 0 8px #E200FF;
-  background-color: #E200FF;
+  box-shadow: 0 0 8px #e200ff;
+  background-color: #e200ff;
 }
 
 .chip-hundred--Neon:hover {
-  box-shadow: 0 0 25px #E200FF;
-  background-color: #E200FF;
+  box-shadow: 0 0 25px #e200ff;
+  background-color: #e200ff;
 }
 
 .chip-five-hundred--Neon {
   background-image: url("../assets/chips/500_chip_neon.png");
-  box-shadow: 0 0 8px #00FDFF;
-  background-color: #00FDFF;
+  box-shadow: 0 0 8px #00fdff;
+  background-color: #00fdff;
 }
 
 .chip-five-hundred--Neon:hover {
-  box-shadow: 0 0 25px #00FDFF;
-  background-color: #00FDFF;
+  box-shadow: 0 0 25px #00fdff;
+  background-color: #00fdff;
 }
 
 .chip-one--Dark {
   background-image: url("../assets/chips/1_chip_dark.png");
-  background-color: #000000;
-  box-shadow: 0 0 8px #000000;
+  background-color: $black;
+  box-shadow: 0 0 8px $black;
 }
 
 .chip-one--Dark:hover {
-  box-shadow: 0 0 25px #000000;
-  background-color: #000000;
+  box-shadow: 0 0 25px $black;
+  background-color: $black;
 }
 
 .chip-ten--Dark {
   background-image: url("../assets/chips/10_chip_dark.png");
-  background-color: #000000;
-  box-shadow: 0 0 8px #000000;
+  background-color: $black;
+  box-shadow: 0 0 8px $black;
 }
 
 .chip-ten--Dark:hover {
-  box-shadow: 0 0 25px #000000;
-  background-color: #000000;
+  box-shadow: 0 0 25px $black;
+  background-color: $black;
 }
 
 .chip-twenty-five--Dark {
   background-image: url("../assets/chips/25_chip_dark.png");
-  background-color: #000000;
-  box-shadow: 0 0 8px #000000;
+  background-color: $black;
+  box-shadow: 0 0 8px $black;
 }
 
 .chip-twenty-five--Dark:hover {
-  box-shadow: 0 0 25px #000000;
-  background-color: #000000;
+  box-shadow: 0 0 25px $black;
+  background-color: $black;
 }
 
 .chip-fifty--Dark {
   background-image: url("../assets/chips/50_chip_dark.png");
-  background-color: #000000;
-  box-shadow: 0 0 8px #000000;
+  background-color: $black;
+  box-shadow: 0 0 8px $black;
 }
 
 .chip-fifty--Dark:hover {
-  box-shadow: 0 0 25px #000000;
-  background-color: #000000;
+  box-shadow: 0 0 25px $black;
+  background-color: $black;
 }
 
 .chip-hundred--Dark {
   background-image: url("../assets/chips/100_chip_dark.png");
-  background-color: #000000;
-  box-shadow: 0 0 8px #000000;
+  background-color: $black;
+  box-shadow: 0 0 8px $black;
 }
 
 .chip-hundred--Dark:hover {
-  box-shadow: 0 0 25px #000000;
-  background-color: #000000;
+  box-shadow: 0 0 25px $black;
+  background-color: $black;
 }
 
 .chip-five-hundred--Dark {
   background-image: url("../assets/chips/500_chip_dark.png");
-  background-color: #000000;
-  box-shadow: 0 0 8px #000000;
+  background-color: $black;
+  box-shadow: 0 0 8px $black;
 }
 
 .chip-five-hundred--Dark:hover {
-  box-shadow: 0 0 25px #000000;
-  background-color: #000000;
+  box-shadow: 0 0 25px $black;
+  background-color: $black;
 }
 
 /* Credits: https://www.flaticon.com/authors/smashingstocks" */
-
 
 @media (max-width: 600px) {
   .chip {

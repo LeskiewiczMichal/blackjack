@@ -1,0 +1,74 @@
+@import "../../../styles/mixins";
+@import "../../../styles/variables";
+
+.insurance-popup--container {
+  @include column-flex-centered;
+  width: 35%;
+  height: 30%;
+  padding: 1rem;
+  background-color: #000000da;
+  box-shadow: 0 0 10px $black;
+
+  border: 1px solid $informations--gold;
+  border-radius: 15px;
+
+  color: $informations--gold;
+  font-size: 20px;
+  font-weight: bold;
+
+  z-index: 999;
+  gap: 1rem;
+}
+
+.insurance-text {
+  text-align: center;
+}
+
+.insurance-buttons--wrapper {
+  display: flex;
+  width: 30%;
+  justify-content: space-between;
+}
+
+.insurance-buttons--wrapper {
+  button {
+    @include flex-centered;
+    padding: 0.5rem;
+    font-size: 20px;
+    color: $informations--gold;
+    background-color: $interface--brown;
+    background-image: url("../../../assets/wood-pattern.png");
+    cursor: pointer;
+  }
+}
+
+// .insurance-button {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   padding: 0.5rem;
+//   color: var(--info-gold);
+//   font-size: 20px;
+//   background-color: var(--interface-brown);
+//   background-image: var(--wooden-table-url);
+//   cursor: pointer;
+// }
+
+@media (max-width: 600px) {
+  .insurance-popup--container {
+    position: fixed;
+    top: 10%;
+    width: 70%;
+    height: 60%;
+    gap: 2rem;
+    background-color: $black;
+  }
+
+  .insurance-buttons--wrapper {
+    width: 70%;
+  }
+
+  .insurance-button {
+    min-width: 90px;
+  }
+}
