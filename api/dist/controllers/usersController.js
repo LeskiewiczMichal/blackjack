@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getUserSkins = exports.logoutUser = exports.login = exports.updateBalance = exports.register = exports.getUserData = void 0;
+exports.goBancrupt = exports.getUserSkins = exports.logoutUser = exports.login = exports.updateBalance = exports.register = exports.getUserData = void 0;
 const passport_1 = __importDefault(require("passport"));
 const userDetails_1 = require("../models/userDetails");
 const getUserData = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -93,3 +93,20 @@ const getUserSkins = (req, res) => __awaiter(void 0, void 0, void 0, function* (
     }
 });
 exports.getUserSkins = getUserSkins;
+const goBancrupt = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const user = req.user;
+    if (!user) {
+        return res.status(401).json({ message: "Unauthorized" });
+    }
+    try {
+        const userData = (yield userDetails_1.User.findById(user._id).exec());
+        userData.balance = 1000;
+        userData.activeSkins = [];
+        yield userData.save();
+        return res.json({ user: userData });
+    }
+    catch (error) {
+        return res.status(500).json({ message: error.message });
+    }
+});
+exports.goBancrupt = goBancrupt;

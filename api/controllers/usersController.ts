@@ -89,4 +89,22 @@ const getUserSkins = async (req: Request, res: Response) => {
   }
 };
 
-export { getUserData, register, updateBalance, login, logoutUser, getUserSkins };
+const goBancrupt = async (req: Request, res: Response) => {
+  const user = req.user as UserInterface;
+
+  if (!user) {
+    return res.status(401).json({ message: "Unauthorized" });
+  }
+
+  try {
+    const userData = (await User.findById(user._id).exec()) as UserInterface;
+    userData.balance = 1000;
+    userData.activeSkins = [];
+    await userData.save();
+    return res.json({ user: userData });
+  } catch (error: any) {
+    return res.status(500).json({ message: error.message });
+  }
+}
+
+export { getUserData, register, updateBalance, login, logoutUser, getUserSkins, goBancrupt };

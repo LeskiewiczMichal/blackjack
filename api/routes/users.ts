@@ -8,6 +8,7 @@ import {
   login,
   logoutUser,
   getUserSkins,
+  goBancrupt,
 } from "../controllers/usersController";
 
 const router = Router();
@@ -30,6 +31,6 @@ router.post("/logout", ensureAuthenticated, logoutUser);
 // Get user skins
 router.get("/skins", ensureAuthenticated, getUserSkins);
 
+router.post("/bancrupt", ensureAuthenticated, goBancrupt);
 
 export { router as usersRouter };
-

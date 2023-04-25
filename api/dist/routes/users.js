@@ -22,3 +22,4 @@ router.post("/login", passport_1.default.authenticate("local"), usersController_
 router.post("/logout", ensureAuthenticated_1.ensureAuthenticated, usersController_1.logoutUser);
 // Get user skins
 router.get("/skins", ensureAuthenticated_1.ensureAuthenticated, usersController_1.getUserSkins);
+router.post("/bancrupt", ensureAuthenticated_1.ensureAuthenticated, usersController_1.goBancrupt);
