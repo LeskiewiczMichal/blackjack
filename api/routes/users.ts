@@ -25,7 +25,7 @@ router.put("/balance", ensureAuthenticated, updateBalance);
 router.post("/login", passport.authenticate("local"), login);
 
 // Logout user
-router.post("/logout", logoutUser);
+router.post("/logout", ensureAuthenticated, logoutUser);
 
 // Get user skins
 router.get("/skins", ensureAuthenticated, getUserSkins);

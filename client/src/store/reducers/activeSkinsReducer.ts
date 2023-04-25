@@ -1,6 +1,6 @@
 import { ActiveSkinsSlice, Skin, SkinCategories } from "types.d";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { loginSuccess, LoginSuccessProps } from "./authReducer";
+import { loginSuccess, LoginSuccessProps, logoutSuccess } from "./authReducer";
 
 const initialState: ActiveSkinsSlice = {
   chips: null,
@@ -25,22 +25,28 @@ export const shopSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(
-      loginSuccess,
-      (state, action: PayloadAction<LoginSuccessProps>) => {
-        const { activeSkins } = action.payload;
+    builder
+      .addCase(
+        loginSuccess,
+        (state, action: PayloadAction<LoginSuccessProps>) => {
+          const { activeSkins } = action.payload;
 
-        activeSkins.forEach((skin: Skin) => {
-          if (skin.category === SkinCategories.CHIPS) {
-            state.chips = skin;
-          } else if (skin.category === SkinCategories.CARDS) {
-            state.cards = skin;
-          } else if (skin.category === SkinCategories.INTERFACE_BACKGROUND) {
-            state.interfaceBackground = skin;
-          }
-        });
-      },
-    );
+          activeSkins.forEach((skin: Skin) => {
+            if (skin.category === SkinCategories.CHIPS) {
+              state.chips = skin;
+            } else if (skin.category === SkinCategories.CARDS) {
+              state.cards = skin;
+            } else if (skin.category === SkinCategories.INTERFACE_BACKGROUND) {
+              state.interfaceBackground = skin;
+            }
+          });
+        },
+      )
+      .addCase(logoutSuccess, (state) => {
+        state.chips = null;
+        state.cards = null;
+        state.interfaceBackground = null;
+      });
   },
 });
 

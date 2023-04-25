@@ -19,6 +19,6 @@ router.put("/balance", ensureAuthenticated_1.ensureAuthenticated, usersControlle
 // Login user
 router.post("/login", passport_1.default.authenticate("local"), usersController_1.login);
 // Logout user
-router.post("/logout", usersController_1.logoutUser);
+router.post("/logout", ensureAuthenticated_1.ensureAuthenticated, usersController_1.logoutUser);
 // Get user skins
 router.get("/skins", ensureAuthenticated_1.ensureAuthenticated, usersController_1.getUserSkins);

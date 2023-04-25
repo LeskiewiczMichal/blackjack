@@ -1,9 +1,11 @@
 import "./styles/menu.scss";
 
 import { useNavigate, Navigate } from "react-router-dom";
-import { useAppSelector } from "hooks/hooks";
+import { useAppSelector, useAppDispatch } from "hooks/hooks";
+import { logoutUser } from "features/authentication";
 
 export default function Menu() {
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const user = useAppSelector((state) => state.auth.user);
 
@@ -22,6 +24,14 @@ export default function Menu() {
       </button>
       <button type="button" onClick={() => navigate("/shop")}>
         Shop
+      </button>
+      <button
+        type="button"
+        onClick={async () => {
+          await dispatch(logoutUser());
+        }}
+      >
+        Logout
       </button>
     </main>
   );

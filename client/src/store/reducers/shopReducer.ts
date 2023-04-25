@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import { ShopSliceState, Skin } from "types";
-import { loginSuccess, LoginSuccessProps } from "./authReducer";
+import { loginSuccess, LoginSuccessProps, logoutSuccess } from "./authReducer";
 
 const initialState: ShopSliceState = {
   skins: null,
@@ -26,12 +26,16 @@ export const shopSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(
-      loginSuccess,
-      (state, action: PayloadAction<LoginSuccessProps>) => {
-        state.ownedSkins = action.payload.ownedSkins;
-      },
-    );
+    builder
+      .addCase(
+        loginSuccess,
+        (state, action: PayloadAction<LoginSuccessProps>) => {
+          state.ownedSkins = action.payload.ownedSkins;
+        },
+      )
+      .addCase(logoutSuccess, (state) => {
+        state.ownedSkins = null;
+      });
   },
 });
 
