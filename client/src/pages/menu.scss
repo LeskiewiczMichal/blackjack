@@ -1,0 +1,62 @@
+@import "../styles/mixins";
+@import "../styles/variables";
+
+.menu--content {
+  @include width-height--hundred-percent;
+  @include column-flex-centered;
+  height: 100vh;
+  background: $white;
+  gap: 1.5rem;
+  background: linear-gradient(
+    160deg,
+    $interface--very-light-green 35%,
+    #ffffff 50%
+  );
+  text-align: center;
+}
+
+.menu--content {
+  h1 {
+    font-size: 6rem;
+    font-weight: 700;
+    color: $interface--dark-green;
+    flex: 0.3;
+    margin: 0;
+    font-family: "Lora-Italic";
+  }
+
+  button {
+    width: 40%;
+    min-width: fit-content;
+    border: 1px solid $interface--dark-green;
+    border-radius: 15px;
+    padding: 1rem;
+    outline: none;
+    background-color: $interface--light-green;
+    box-shadow: 0 0 5px $interface--light-green;
+    font-size: 22px;
+    font-weight: 700;
+    font-family: 'RobotoSlab';
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: $interface--light-green--darkened;
+  }
+}
+
+@media (max-width: 900px) {
+  .menu--content {
+    h1 {
+      font-size: 5rem;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .menu--content {
+    h1 {
+      font-size: 4.5rem;
+    }
+  }
+}

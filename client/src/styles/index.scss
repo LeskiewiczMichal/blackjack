@@ -1,0 +1,39 @@
+@import "./mixins";
+@import "./variables";
+@font-face {
+  font-family: "Lora";
+  src: url("../assets/fonts/Lora-VariableFont_wght.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Lora-Italic";
+  src: url("../assets/fonts/Lora-Italic-VariableFont_wght.woff2");
+}
+@font-face {
+  font-family: "RobotoSlab";
+  src: url("../assets/fonts/RobotoSlab-VariableFont_wght.woff2");
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/* Needed for mobile to work properly - changes screen size */
+html {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}

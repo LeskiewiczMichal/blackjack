@@ -1,0 +1,18 @@
+@import "../styles/mixins";
+@import "../styles/variables";
+
+.Game {
+  height: 100vh;
+  background-color: $background--red;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(255, 255, 255, 0.25),
+    rgba(255, 255, 255, 0.25) 1px,
+    transparent 1px,
+    transparent 6px
+  );
+  background-size: 8px 8px;
+  display: flex;
+  flex-direction: column;
+  /* overflow: inherit; Disables scrolling */
+}

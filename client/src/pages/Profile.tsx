@@ -1,5 +1,4 @@
-import "./game.css";
-import "./profile.css";
+import "./profile.scss";
 import { Skin } from "types.d";
 
 import { Navigate } from "react-router-dom";

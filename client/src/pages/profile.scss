@@ -1,0 +1,70 @@
+@import "../styles/mixins";
+@import "../styles/variables";
+
+.profile--content {
+  @include width-height--hundred-percent;
+  @include column-flex-centered;
+  background: $white;
+}
+
+/* INFO */
+.profile--info {
+  @include column-flex-centered;
+  padding: 1rem;
+  width: 100%;
+}
+
+.profile--info {
+  h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    color: $interface--light-red--darkened;
+    flex: 0.3;
+    margin: 2rem;
+  }
+
+  p {
+    font-size: 2rem;
+    font-weight: 700;
+    color: $interface--light-red--darkened;
+    flex: 0.3;
+    margin: 1rem;
+  }
+}
+
+/* COLLECTION */
+.profile--collection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+  height: 100%;
+  overflow: scroll;
+  gap: 0.5rem;
+}
+
+.profile--collection-skin {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 700;
+  border: 3px solid $interface--light-red--darkened;
+  background-color: $interface--light-red;
+  border-radius: 10px;
+}
+
+.profile--collection-skin:hover {
+  cursor: pointer;
+  background-color: $interface--light-red--darkened;
+}
+
+// @media (max-width: 600px) {
+//     .profile--info {
+//         h1 {
+//             font
+//         }
+//     }
+// }

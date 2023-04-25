@@ -1,4 +1,3 @@
-import "./game.css";
 import "./shop.css";
 
 import { SkinsList, SkinDisplay } from "features/shop/index";
