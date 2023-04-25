@@ -4,14 +4,15 @@
 .menu--content {
   @include width-height--hundred-percent;
   @include column-flex-centered;
+  @include red-smoke-background;
   height: 100vh;
-  background: $white;
   gap: 1.5rem;
-  background: linear-gradient(
-    160deg,
-    $interface--very-light-green 35%,
-    #ffffff 50%
-  );
+  // background: linear-gradient(
+  //   160deg,
+  //   #a6425345 35%,
+  //   $white 50%
+  // );
+  // b85f5f67
   text-align: center;
 }
 
@@ -57,6 +58,10 @@
   .menu--content {
     h1 {
       font-size: 4.5rem;
+    }
+
+    button {
+      width: 80%;
     }
   }
 }

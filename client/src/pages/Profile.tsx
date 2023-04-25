@@ -1,5 +1,5 @@
 import "./profile.scss";
-import { Skin } from "types.d";
+import { Skin, SkinCategories } from "types.d";
 
 import { Navigate } from "react-router-dom";
 import { useAppSelector, useAppDispatch } from "hooks/hooks";
@@ -50,36 +50,54 @@ export default function Profile() {
       <section className="profile--content">
         <main className="profile--info">
           <h1>Profile</h1>
-          <p>Username: {user}</p>
-          <p>Email: {email}</p>
+          <p>
+            <i>Username</i>: {user}
+          </p>
+          <p>
+            <i>Email</i>: {email}
+          </p>
         </main>
-        <section className="profile--collection">
-          <h2>Active skins:</h2>
-          {activeSkinsArray?.map((skin) => {
-            return (
-              <button
-                type="button"
-                className="profile--collection-skin"
-                key={skin.id}
-                onClick={async () => handleDeactivateSkin(skin.id)}
-              >
-                {skin.name} {skin.category}
-              </button>
-            );
-          })}
-          <h2>Owned skins:</h2>
-          {filteredOwnedSkins?.map((skin) => {
-            return (
-              <button
-                type="button"
-                className="profile--collection-skin"
-                key={skin.id}
-                onClick={async () => handleActivateSkin(skin.id)}
-              >
-                {skin.name} {skin.category}
-              </button>
-            );
-          })}
+        <section className="profile--collection-wrapper">
+          <section className="profile--collection">
+            <h2>Active skins:</h2>
+            <section>
+              {activeSkinsArray?.map((skin) => {
+                return (
+                  <button
+                    type="button"
+                    className="profile--collection-skin"
+                    key={skin.id}
+                    onClick={async () => handleDeactivateSkin(skin.id)}
+                  >
+                    {skin.name}{" "}
+                    {skin.category === SkinCategories.INTERFACE_BACKGROUND
+                      ? "Interface"
+                      : `${skin.category}`}
+                  </button>
+                );
+              })}
+            </section>
+          </section>
+          <section className="profile--collection">
+            <h2>Owned skins:</h2>
+            <section>
+              {filteredOwnedSkins?.map((skin) => {
+                return (
+                  <button
+                    type="button"
+                    className="profile--collection-skin"
+                    key={skin.id}
+                    onClick={async () => handleActivateSkin(skin.id)}
+                  >
+                    {skin.name}{" "}
+                    {skin.category === SkinCategories.INTERFACE_BACKGROUND
+                      ? "Interface"
+                      : `${skin.category}`}
+                  </button>
+                );
+              })}
+            </section>
+          </section>
         </section>
       </section>
     </div>

@@ -1,4 +1,4 @@
-import "./skinDisplay.css";
+import "./skinDisplay.scss";
 
 import { useAppSelector, useAppDispatch } from "hooks/hooks";
 import { buySkin } from "../services/buySkin";
@@ -22,10 +22,15 @@ export default function SkinDisplay() {
   return (
     <>
       <div className={`skin-display--image ${skin.name}-${skin.category}`} />
-      <h4>Name: {skin.name}</h4>
-      <h4>Price: {skin.price}</h4>
+      <h4 className="skin-display--text">
+        <i>Name</i>: {skin.name}
+      </h4>
+      <h4 className="skin-display--text">
+        <i>Price</i>: {skin.price}$
+      </h4>
       <button
         type="button"
+        className="skin-display--button"
         onClick={async () => handleBuy()}
         disabled={isDisabled}
       >

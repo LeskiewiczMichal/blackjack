@@ -1,4 +1,4 @@
-import "./shop.css";
+import "./shop.scss";
 
 import { SkinsList, SkinDisplay } from "features/shop/index";
 import { useAppSelector } from "hooks/hooks";
@@ -15,14 +15,16 @@ export default function Shop() {
 
   return (
     <main className="shop">
-      <BackButton />
       <section className="shop--products">
-        <h4>Your balance: {balance}</h4>
+        <h4>
+          <i>Your balance</i>: {balance}$
+        </h4>
         <SkinsList />
       </section>
       <section className="shop--preview">
         <SkinDisplay />
       </section>
+      <BackButton />
     </main>
   );
 }

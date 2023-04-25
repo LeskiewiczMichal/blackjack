@@ -1,4 +1,4 @@
-import "./register.css";
+import "./register.scss";
 
 import { RegisterForm } from "features/authentication/index";
 

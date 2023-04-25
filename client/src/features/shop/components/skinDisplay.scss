@@ -1,0 +1,58 @@
+@import "../../../styles/mixins";
+@import "../../../styles/variables";
+
+.skin-display--image {
+  display: flex;
+  width: 90%;
+  height: 200px;
+  border: 2px solid $black;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  background-size: 100% 100%;
+  background-position: center;
+}
+
+.skin-display--text {
+    color: $interface--light-red;
+    font-family: "Lora";
+    font-size: 2rem;
+    text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+    margin: 0;
+}
+
+.skin-display--button {
+  width: 30%;
+  min-width: fit-content;
+  height: 40px;
+  border: none;
+  background-color: $interface--light-red;
+  box-shadow: 0 0 5px $black;
+  border-radius: 15px;
+  padding: 0 1rem;
+  font-size: 22px;
+  outline: none;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.skin-display--button:hover {
+  background-color: $interface--light-red--darkened;
+}
+
+.Neon-Chips {
+  background-image: url("../assets/neon_chips_preview.png");
+}
+
+.Neon-Cards {
+  background-image: url("../assets/neon_cards_preview.png");
+  width: 75%;
+}
+
+.Dark-Chips {
+  background-image: url("../assets/dark_chips_preview.png");
+}
+
+.Dark-Cards {
+  background-image: url("../assets/dark_cards_preview.png");
+  width: 75%;
+}

@@ -1,4 +1,4 @@
-import "./skinsList.css";
+import "./skinsList.scss";
 import { Skin, SkinCategories } from "types.d";
 
 import { useAppSelector, useAppDispatch } from "hooks/hooks";

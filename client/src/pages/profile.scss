@@ -2,9 +2,12 @@
 @import "../styles/variables";
 
 .profile--content {
-  @include width-height--hundred-percent;
   @include column-flex-centered;
-  background: $white;
+  @include red-smoke-background($power: 0%);
+  height: 90vh;
+  width: 100%;
+  text-align: center;
+
 }
 
 /* INFO */
@@ -18,7 +21,8 @@
   h1 {
     font-size: 4rem;
     font-weight: 700;
-    color: $interface--light-red--darkened;
+    font-family: "Lora-Italic";
+    color: $interface--dark-green;
     flex: 0.3;
     margin: 2rem;
   }
@@ -26,45 +30,73 @@
   p {
     font-size: 2rem;
     font-weight: 700;
-    color: $interface--light-red--darkened;
+    font-family: "Lora";
+    color: $interface--dark-green;
     flex: 0.3;
     margin: 1rem;
   }
 }
 
 /* COLLECTION */
-.profile--collection {
+.profile--collection-wrapper {
   display: flex;
-  flex-direction: column;
+  width: 90%;
+  justify-content: center;
   align-items: center;
-  width: 60%;
-  height: 100%;
-  overflow: scroll;
-  gap: 0.5rem;
+  gap: 1rem;
+  color: $interface--dark-green;
+}
+
+.profile--collection {
+  height: 50vh;
+  width: 100%;
+  @include column-flex-centered;
+  border: 3px solid $interface--very-light-green;
+  border-radius: 15px;
+//   text-align: center;
+}
+
+.profile--collection {
+  h2 {
+    font-family: "RobotoSlab";
+    font-size: 30px;
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+    height: 80%;
+    flex: 1;
+    gap: 0.5rem;
+    overflow: scroll;
+  }
 }
 
 .profile--collection-skin {
-  width: 100%;
-  padding: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flex-centered;
+  width: 80%;
+  background-color: $interface--light-green;
   font-size: 20px;
   font-weight: 700;
-  border: 3px solid $interface--light-red--darkened;
-  background-color: $interface--light-red;
+  font-family: "RobotoSans";
+  border: 3px solid $interface--light-green--darkened;
   border-radius: 10px;
+  padding: 1rem;
 }
 
 .profile--collection-skin:hover {
   cursor: pointer;
-  background-color: $interface--light-red--darkened;
+  background-color: $interface--light-green--darkened;
 }
 
-// @media (max-width: 600px) {
-//     .profile--info {
-//         h1 {
-//             font
-//         }
-//     }
-// }
+
+@media (max-width: 600px) {
+    .profile--content {
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+    }
+}

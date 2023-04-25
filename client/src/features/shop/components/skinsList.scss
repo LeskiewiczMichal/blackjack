@@ -1,0 +1,26 @@
+@import "../../../styles/mixins";
+@import "../../../styles/variables";
+
+.skins-list--container {
+    @include column-flex-centered;
+    width: 100%;
+    gap: 1rem;
+    overflow: scroll;
+}
+
+.skins-list--button {
+    width: 80%;
+    padding: 0.5rem;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: "RobotoSans";
+    border: 3px solid $interface--light-green--darkened;
+    background-color: $interface--light-green;
+    border-radius: 10px;
+}
+
+.skins-list--button:hover {
+    cursor: pointer;
+    background-color: $interface--light-green--darkened;
+    
+}
