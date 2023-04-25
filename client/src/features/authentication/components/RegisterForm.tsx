@@ -12,6 +12,7 @@ export default function RegisterForm() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState<string | null>(null);
 
   if (user) {
     return <Navigate to="/menu" />;
@@ -30,6 +31,17 @@ export default function RegisterForm() {
 
   const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
+
+    // Email validation regex pattern
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailPattern.test(email)) {
+      setError("Please enter a valid email address");
+      return;
+    }
+
+    setError(null);
+
     const userData = {
       username,
       email,
@@ -37,7 +49,7 @@ export default function RegisterForm() {
     };
     dispatch(registerUser(userData));
 
-    return navigate("/");
+    navigate("/");
   };
 
   return (
@@ -69,6 +81,7 @@ export default function RegisterForm() {
       <button type="submit" onClick={handleSubmit}>
         Sign up
       </button>
+      {error && <p className="error">{error}</p>}
     </form>
   );
 }
