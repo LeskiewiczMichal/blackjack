@@ -7,6 +7,25 @@
     width: 60%;
 }
 
+.login-page-line-container {
+    display: flex;
+    align-items: center;
+    margin: 16px 0;
+    width: 70%;
+  }
+  
+  .login-page-line {
+    flex-grow: 1;
+    height: 1px;
+    background-color: #ccc;
+    border: none;
+  }
+  
+  .login-page-line-text {
+    margin: 0 16px;
+    color: #777;
+  }
+
 .login-form {
     input {
         width: 100%;
