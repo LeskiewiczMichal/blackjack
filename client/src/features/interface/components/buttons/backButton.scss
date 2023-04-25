@@ -1,12 +1,13 @@
+@import "../../../../styles/mixins";
+@import "../../../../styles/variables";
+
 .back--button {
     position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex-centered;
 
     background-color: #000000d9;
-    box-shadow: 0 0 5px var(--black);
-    border: 1px solid var(--black);
+    box-shadow: 0 0 5px $black;
+    border: 1px solid $black;
     border-radius: 100%;
     height: 40px;
     width: 40px;

@@ -6,7 +6,6 @@ const ensureAuthenticated = (
   next: NextFunction
 ) => {
   if (req.isAuthenticated()) {
-    console.log("Authenticated");
     return next();
   }
   res.status(401).json({ message: "Unauthorized" });
