@@ -1,4 +1,4 @@
-import "./login.scss";
+import "./styles/login.scss";
 import { Link } from "react-router-dom";
 
 import { LoginForm } from "features/authentication/index";

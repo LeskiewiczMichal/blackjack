@@ -1,4 +1,4 @@
-import "./card.style.css";
+import "./card.scss";
 
 import { CardValue, CardSuit } from "types.d";
 import { useAppSelector } from "hooks/hooks";

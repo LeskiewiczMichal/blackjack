@@ -1,4 +1,4 @@
-import "./pointsDisplay.style.css";
+import "./pointsDisplay.scss";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 import { PlayerType } from "types.d";

@@ -1,10 +1,11 @@
 import "./insurancePopup.scss";
-import { useAppDispatch } from "hooks/hooks";
+import { useAppDispatch, useAppSelector } from "hooks/hooks";
 import { setPopUpActive } from "store/reducers/tableReducer";
 import { betInsurance } from "../actions/betInsurance";
 
 export default function InsurancePopup() {
   const dispatch = useAppDispatch();
+  const skin = useAppSelector((state) => state.skins.interfaceBackground);
 
   const handleYes = () => {
     dispatch(betInsurance());
@@ -15,8 +16,13 @@ export default function InsurancePopup() {
     dispatch(setPopUpActive(false));
   };
 
+  let skinClass = "Default";
+  if (skin) {
+    skinClass = skin.name;
+  }
+
   return (
-    <div className="insurance-popup--container">
+    <div className={`insurance-popup--container--${skinClass}`}>
       <span className="insurance-text">
         First dealer&apos;s card is an ace. You can make additional insurance
         bet worth half of current bet. If dealer has blackjack, you will get 2:1

@@ -1,0 +1,22 @@
+@import "../../styles/mixins";
+@import "../../styles/variables";
+
+.register-page {
+    @include column-flex-centered;
+    @include self-center;
+    color: $interface--dark-green;
+    font-size: 3rem;
+    font-weight: 700;
+    font-family: 'Lora-Italic';
+    width: 100%;
+    height: 100vh;
+    background-color: $white;
+    text-align: center;
+}
+
+
+@media (max-width: 900px) {
+    .register-page {
+        font-size: 2rem;
+    }
+}

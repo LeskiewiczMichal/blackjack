@@ -1,4 +1,4 @@
-import "./shop.scss";
+import "./styles/shop.scss";
 
 import { SkinsList, SkinDisplay } from "features/shop/index";
 import { useAppSelector } from "hooks/hooks";

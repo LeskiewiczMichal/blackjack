@@ -1,4 +1,4 @@
-import "./profile.scss";
+import "./styles/profile.scss";
 import { Skin, SkinCategories } from "types.d";
 
 import { Navigate } from "react-router-dom";

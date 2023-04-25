@@ -8,8 +8,7 @@
   border: 2px solid $black;
   border-radius: 0.5rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  background-size: 100% 100%;
-  background-position: center;
+  @include set-background-position;
 }
 
 .skin-display--text {

@@ -1,4 +1,4 @@
-import "./game.scss";
+import "./styles/game.scss";
 import { Table } from "features/table/index";
 import { UI, SoundButton, BackButton } from "features/interface/index";
 

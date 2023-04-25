@@ -1,4 +1,4 @@
-import "./cardsContainer.style.css";
+import "./cardsContainer.scss";
 import { Card as CardType, PlayerType } from "types.d";
 import Card from "features/table/components/Card";
 import { useAppSelector } from "hooks/hooks";

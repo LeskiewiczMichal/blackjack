@@ -1,0 +1,64 @@
+@import "../../../styles/mixins";
+@import "../../../styles/variables";
+
+@mixin points--display(
+  $interface-color,
+  $border-color,
+  $box-shadow-color,
+  $text-color
+) {
+  @include column-flex-centered;
+  background-color: $interface-color;
+  height: fit-content;
+  border: 5px solid $border-color;
+  border-radius: 10px;
+  box-shadow: 0 0 10px $box-shadow-color;
+  padding: 0.2rem;
+  color: $text-color;
+  font-size: large;
+  max-height: 80px;
+  width: 200px;
+}
+
+.points--display--Default {
+  @include points--display(
+    $interface--brown,
+    $border--green,
+    $black,
+    $informations--gold
+  );
+  background-image: url("../../../assets/wood-pattern.png");
+}
+
+.points--display--Neon {
+  @include points--display(
+    $interface--neon-pink,
+    $interface--neon-green,
+    $interface--neon-pink,
+    $interface--neon-green
+  );
+}
+
+.points--display--Dark {
+  @include points--display($black, $white, $black, $white);
+  background-image: var(--wooden-table-url);
+}
+
+.points {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+@media (max-width: 600px) {
+  .points--display {
+    font-size: 14px;
+    padding: 0.3rem;
+    flex: none;
+    flex-direction: row;
+    gap: 0.4rem;
+    position: inherit;
+    left: 0;
+    top: 0;
+    height: 30px;
+  }
+}

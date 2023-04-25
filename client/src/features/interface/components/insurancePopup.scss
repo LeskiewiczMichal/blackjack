@@ -1,24 +1,37 @@
 @import "../../../styles/mixins";
 @import "../../../styles/variables";
 
-.insurance-popup--container {
+@mixin insurance-popup-container($background-color, $text-border-color) {
   @include column-flex-centered;
   width: 35%;
   height: 30%;
   padding: 1rem;
-  background-color: #000000da;
+  background-color: $background-color;
   box-shadow: 0 0 10px $black;
 
-  border: 1px solid $informations--gold;
+  border: 1px solid $text-border-color;
   border-radius: 15px;
 
-  color: $informations--gold;
+  color: $text-border-color;
   font-size: 20px;
   font-weight: bold;
 
   z-index: 999;
   gap: 1rem;
 }
+
+.insurance-popup--container--Default {
+  @include insurance-popup-container(#000000da, $informations--gold);
+}
+
+.insurance-popup--container--Neon {
+  @include insurance-popup-container($interface--neon-pink, $interface--neon-green);
+}
+
+.insurance-popup--container--Dark {
+  @include insurance-popup-container($black, $white);
+}
+
 
 .insurance-text {
   text-align: center;
@@ -41,18 +54,6 @@
     cursor: pointer;
   }
 }
-
-// .insurance-button {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   padding: 0.5rem;
-//   color: var(--info-gold);
-//   font-size: 20px;
-//   background-color: var(--interface-brown);
-//   background-image: var(--wooden-table-url);
-//   cursor: pointer;
-// }
 
 @media (max-width: 600px) {
   .insurance-popup--container {

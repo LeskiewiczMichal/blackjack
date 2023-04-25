@@ -1,9 +1,9 @@
-import "./table.style.css";
+import "./table.scss";
 import { PlayerType } from "types.d";
 import { useAppSelector, useAppDispatch } from "hooks/hooks";
 import CardsContainer from "features/table/components/CardsContainer";
 import PointsDisplay from "features/table/components/PointsDisplay";
-import InsurancePopup from "features/interface/components/InsurancePopup";
+import { InsurancePopup } from "features/interface/index";
 import { generateCards } from "utils/generateCards";
 import { setCards } from "store/reducers/tableReducer";
 import { useEffect } from "react";
