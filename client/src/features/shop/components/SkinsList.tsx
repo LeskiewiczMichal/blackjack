@@ -8,6 +8,7 @@ import { getSkinPreview } from "../services/getSkinPreview";
 
 export default function SkinsList() {
   const dispatch = useAppDispatch();
+
   const skins = useAppSelector((state) => state.shop.skins);
   const ownedSkins = useAppSelector((state) => state.shop.ownedSkins);
 
@@ -19,6 +20,8 @@ export default function SkinsList() {
   let filteredSkins: Skin[] = [];
   if (skins && ownedSkins) {
     filteredSkins = filterSkins(skins, ownedSkins);
+  } else if (skins) {
+    filteredSkins = skins;
   }
 
   return (

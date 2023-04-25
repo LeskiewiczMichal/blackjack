@@ -7,7 +7,6 @@
   height: 90vh;
   width: 100%;
   text-align: center;
-
 }
 
 /* INFO */
@@ -34,6 +33,25 @@
     color: $interface--dark-green;
     flex: 0.3;
     margin: 1rem;
+  }
+
+  button {
+    width: 40%;
+    min-width: fit-content;
+    border: 1px solid $interface--dark-green;
+    border-radius: 15px;
+    padding: 1rem;
+    outline: none;
+    background-color: $interface--light-green;
+    box-shadow: 0 0 5px $interface--light-green;
+    font-size: 22px;
+    font-weight: 700;
+    font-family: "RobotoSlab";
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: $interface--light-green--darkened;
   }
 }
 
@@ -86,11 +104,10 @@
   background-color: $interface--light-green--darkened;
 }
 
-
 @media (max-width: 600px) {
-    .profile--content {
-        height: 100vh;
-        width: 100vw;
-        overflow: hidden;
-    }
+  .profile--content {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+  }
 }

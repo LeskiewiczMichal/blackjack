@@ -6,6 +6,7 @@ import { buySkin } from "../services/buySkin";
 export default function SkinDisplay() {
   const dispatch = useAppDispatch();
 
+  const user = useAppSelector((state) => state.auth.user);
   const skin = useAppSelector((state) => state.shop.skinPreview);
   const balance = useAppSelector((state) => state.player.balance);
 
@@ -28,14 +29,16 @@ export default function SkinDisplay() {
       <h4 className="skin-display--text">
         <i>Price</i>: {skin.price}$
       </h4>
-      <button
-        type="button"
-        className="skin-display--button"
-        onClick={async () => handleBuy()}
-        disabled={isDisabled}
-      >
-        Buy
-      </button>
+      {user && (
+        <button
+          type="button"
+          className="skin-display--button"
+          onClick={async () => handleBuy()}
+          disabled={isDisabled}
+        >
+          Buy
+        </button>
+      )}
     </>
   );
 }

@@ -2,6 +2,7 @@ import "./styles/login.scss";
 import { useNavigate } from "react-router-dom";
 
 import { LoginForm } from "features/authentication/index";
+import SeperatorLine from "components/SeperatorLine";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -11,11 +12,7 @@ export default function Login() {
       <section className="login-page--singin">
         <h1>Login to your account</h1>
         <LoginForm />
-        <div className="login-page-line-container">
-          <span className="login-page-line" />
-          <span className="login-page-line-text">OR</span>
-          <span className="login-page-line" />
-        </div>
+        <SeperatorLine text="OR" />
         <button
           className="login-page--offline-button"
           type="button"
