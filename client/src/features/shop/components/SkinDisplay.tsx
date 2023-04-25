@@ -1,6 +1,10 @@
 import "./skinDisplay.scss";
 
+import "../../interface/components/chip.scss";
+import "../../table/components/card.scss";
+import { SkinCategories } from "types.d";
 import { useAppSelector, useAppDispatch } from "hooks/hooks";
+// import { Chip } from "features/interface/index";
 import { buySkin } from "../services/buySkin";
 
 export default function SkinDisplay() {
@@ -20,9 +24,18 @@ export default function SkinDisplay() {
     await dispatch(buySkin(skin.id));
   };
 
+  let itemPreview: JSX.Element | null = null;
+  if (skin.category === SkinCategories.CHIPS) {
+    itemPreview = <div className={`chip chip-hundred--${skin.name}`} />;
+  } else if (skin.category === SkinCategories.CARDS) {
+    itemPreview = <div className={`card HEARTSA--${skin.name} `} />;
+  }
+  //  else if (skin.category === SkinCategories.INTERFACE_BACKGROUND) {
+  // }
+
   return (
     <>
-      <div className={`skin-display--image ${skin.name}-${skin.category}`} />
+      {itemPreview}
       <h4 className="skin-display--text">
         <i>Name</i>: {skin.name}
       </h4>
