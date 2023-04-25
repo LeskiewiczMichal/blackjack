@@ -2,9 +2,9 @@ import "./skinDisplay.scss";
 
 import "../../interface/components/chip.scss";
 import "../../table/components/card.scss";
+import "../../interface/components/UI.scss";
 import { SkinCategories } from "types.d";
 import { useAppSelector, useAppDispatch } from "hooks/hooks";
-// import { Chip } from "features/interface/index";
 import { buySkin } from "../services/buySkin";
 
 export default function SkinDisplay() {
@@ -29,9 +29,14 @@ export default function SkinDisplay() {
     itemPreview = <div className={`chip chip-hundred--${skin.name}`} />;
   } else if (skin.category === SkinCategories.CARDS) {
     itemPreview = <div className={`card HEARTSA--${skin.name} `} />;
+  } else if (skin.category === SkinCategories.INTERFACE_BACKGROUND) {
+    itemPreview = (
+      <div
+        className={`interface--background--${skin.name}`}
+        style={{ width: "100px", height: "100px" }}
+      />
+    );
   }
-  //  else if (skin.category === SkinCategories.INTERFACE_BACKGROUND) {
-  // }
 
   return (
     <>

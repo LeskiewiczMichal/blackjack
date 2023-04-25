@@ -12,11 +12,12 @@
 }
 
 .skin-display--text {
-    color: $interface--light-red;
-    font-family: "Lora";
-    font-size: 2rem;
-    text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
-    margin: 0;
+  color: $interface--light-red;
+  font-family: "Lora";
+  font-size: 2rem;
+  text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
+    -1px 1px 0 #000;
+  margin: 0;
 }
 
 .skin-display--button {
@@ -36,22 +37,4 @@
 
 .skin-display--button:hover {
   background-color: $interface--light-red--darkened;
-}
-
-.Neon-Chips {
-  background-image: url("../assets/neon_chips_preview.png");
-}
-
-.Neon-Cards {
-  background-image: url("../assets/neon_cards_preview.png");
-  width: 75%;
-}
-
-.Dark-Chips {
-  background-image: url("../assets/dark_chips_preview.png");
-}
-
-.Dark-Cards {
-  background-image: url("../assets/dark_cards_preview.png");
-  width: 75%;
 }
