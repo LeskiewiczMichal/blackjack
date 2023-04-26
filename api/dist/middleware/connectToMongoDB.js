@@ -14,12 +14,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.connectToMongoDB = void 0;
 const mongoose_1 = __importDefault(require("mongoose"));
+// const mongoDB = process.env.MONGODB_URI || process.env.DB_CONNECTION;
+const mongoDB = "mongodb+srv://leskiewicz02robocze:blackjack@cluster0.bj62xhx.mongodb.net/?retryWrites=true&w=majority";
 const connectToMongoDB = () => __awaiter(void 0, void 0, void 0, function* () {
-    if (!process.env.DB_CONNECTION) {
+    if (!mongoDB) {
         throw new Error("DB_CONNECTION environment variable not set");
     }
     try {
-        yield mongoose_1.default.connect(process.env.DB_CONNECTION);
+        yield mongoose_1.default.connect(mongoDB);
     }
     catch (error) {
         console.error.bind(console, "mongo connection error");
