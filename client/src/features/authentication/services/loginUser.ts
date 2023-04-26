@@ -56,6 +56,8 @@ const loginUser =
         }),
       );
     } catch (error: any) {
+      console.error(error);
+      console.log(error.message);
       dispatch(loginFailure("Invalid email or password"));
     }
   };
