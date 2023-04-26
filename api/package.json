@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "build": "rimraf dist && npx tsc",
+    "build": "npm install rimraf dist && npx tsc",
     "start": "nodemon dist/app.js",
     "predev": "npm run build",
     "dev": "concurrently \"tsc -w\" \"nodemon dist/app.js\" ",
