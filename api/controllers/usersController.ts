@@ -58,7 +58,9 @@ const updateBalance = async (req: Request, res: Response) => {
 };
 
 const login = async (req: Request, res: Response) => {
+  console.log(req);
   const user = req.user as UserInterface;
+  console.log(user);
   await user.populate("activeSkins");
   await user.populate("ownedSkins");
   res.json({ user });
