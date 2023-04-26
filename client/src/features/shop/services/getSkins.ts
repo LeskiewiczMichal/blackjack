@@ -4,7 +4,7 @@ import { setSkins } from "store/reducers/shopReducer";
 
 const getSkins = (): AppThunk => async (dispatch) => {
   try {
-    const response = await fetch("http://localhost:9000/skins", {
+    const response = await fetch("/skins", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

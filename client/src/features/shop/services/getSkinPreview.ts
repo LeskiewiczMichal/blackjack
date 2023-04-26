@@ -5,7 +5,7 @@ const getSkinPreview =
   (skinId: string): AppThunk =>
   async (dispatch) => {
     try {
-      const response = await fetch(`http://localhost:9000/skins/${skinId}`, {
+      const response = await fetch(`/skins/${skinId}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
