@@ -9,7 +9,6 @@ const connectToMongoDB = async () => {
     throw new Error("DB_CONNECTION environment variable not set");
   }
 
-
   try {
     await mongoose.connect(mongoDB);
   } catch (error) {
