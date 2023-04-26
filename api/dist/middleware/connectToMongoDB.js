@@ -12,8 +12,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.connectToMongoDB = void 0;
+exports.store = exports.connectToMongoDB = void 0;
 const mongoose_1 = __importDefault(require("mongoose"));
+const connect_mongodb_session_1 = __importDefault(require("connect-mongodb-session"));
 const connectToMongoDB = () => __awaiter(void 0, void 0, void 0, function* () {
     if (!process.env.DB_CONNECTION) {
         throw new Error("DB_CONNECTION environment variable not set");
@@ -26,10 +27,8 @@ const connectToMongoDB = () => __awaiter(void 0, void 0, void 0, function* () {
     }
 });
 exports.connectToMongoDB = connectToMongoDB;
-// OLD
-// mongoose.connect(process.env.DB_CONNECTION, {
-//     useUnifiedTopology: true,
-//     useNewUrlParser: true,
-//   });
-//   const db = mongoose.connection;
-//   db.on("error", console.error.bind(console, "mongo connection error"));
+const store = new connect_mongodb_session_1.default({
+    uri: process.env.DB_CONNECTION,
+    collection: "sessions",
+});
+exports.store = store;
