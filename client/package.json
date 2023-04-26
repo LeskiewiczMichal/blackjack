@@ -2,7 +2,7 @@
   "name": "blackjack",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:9000",
+  "proxy": "https://leskiewicz-blackjack.onrender.com",
   "dependencies": {
     "@formkit/auto-animate": "^1.0.0-beta.6",
     "@reduxjs/toolkit": "^1.9.3",
