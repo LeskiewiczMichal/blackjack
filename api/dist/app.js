@@ -16,12 +16,12 @@ const skins_1 = require("./routes/skins");
 const app = (0, express_1.default)();
 const PORT = process.env.PORT || 9000;
 // CORS for my localhost
-// const corsOptions = {
-//   origin: "http://localhost:3000",
-//   credentials: true,
-// };
+const corsOptions = {
+    origin: "https://blackjack-9ujl.onrender.com/",
+    credentials: true,
+};
 // Middleware
-app.use((0, cors_1.default)());
+app.use((0, cors_1.default)(corsOptions));
 app.use(setUpSession_1.setUpSession);
 app.use(passportConfig_1.passportConfig);
 app.use(express_1.default.urlencoded({ extended: false }));

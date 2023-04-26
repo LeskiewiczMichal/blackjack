@@ -15,13 +15,13 @@ const app = express();
 const PORT = process.env.PORT || 9000;
 
 // CORS for my localhost
-// const corsOptions = {
-//   origin: "http://localhost:3000",
-//   credentials: true,
-// };
+const corsOptions = {
+  origin: "https://blackjack-9ujl.onrender.com/",
+  credentials: true,
+};
 
 // Middleware
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(setUpSession);
 app.use(passportConfig);
 app.use(express.urlencoded({ extended: false }));
