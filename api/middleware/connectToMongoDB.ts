@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import MongoDBStore from "connect-mongodb-session";
 
 const connectToMongoDB = async () => {
   if (!process.env.DB_CONNECTION) {
@@ -12,12 +13,9 @@ const connectToMongoDB = async () => {
   }
 };
 
-export { connectToMongoDB };
+const store = new (MongoDBStore as any)({
+  uri: process.env.DB_CONNECTION,
+  collection: "sessions",
+});
 
-// OLD
-// mongoose.connect(process.env.DB_CONNECTION, {
-//     useUnifiedTopology: true,
-//     useNewUrlParser: true,
-//   });
-//   const db = mongoose.connection;
-//   db.on("error", console.error.bind(console, "mongo connection error"));
+export { connectToMongoDB, store };
