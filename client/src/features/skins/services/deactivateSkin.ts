@@ -5,16 +5,13 @@ const deactivateSkin =
   (skinId: string): AppThunk =>
   async (dispatch) => {
     try {
-      const response = await fetch(
-        `http://localhost:9000/skins/deactivate/${skinId}`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          credentials: "include",
+      const response = await fetch(`/skins/deactivate/${skinId}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-      );
+        credentials: "include",
+      });
 
       if (!response.ok) {
         throw new Error("Skin not found");

@@ -3,7 +3,7 @@ import { logoutSuccess } from "store/reducers/authReducer";
 
 const logoutUser = (): AppThunk => async (dispatch) => {
   try {
-    await fetch("http://localhost:9000/users/logout", {
+    await fetch("/users/logout", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

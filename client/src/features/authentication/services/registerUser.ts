@@ -10,7 +10,7 @@ const registerUser =
   (userData: RegisterUserProps): AppThunk =>
   async () => {
     try {
-      await fetch("http://localhost:9000/users", {
+      await fetch("/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -18,7 +18,6 @@ const registerUser =
         body: JSON.stringify(userData),
       });
     } catch (error) {
-      // TODO: Handle error
       // eslint-disable-next-line no-console
       console.error(error);
     }

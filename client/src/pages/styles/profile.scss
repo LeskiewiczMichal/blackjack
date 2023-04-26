@@ -79,6 +79,7 @@
 
   section {
     @include column-flex-centered;
+    justify-content: flex-start;
     width: 100%;
     height: 80%;
     flex: 1;

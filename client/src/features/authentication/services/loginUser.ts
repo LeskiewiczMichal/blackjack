@@ -11,7 +11,7 @@ const loginUser =
   (userData: LoginUserProps): AppThunk =>
   async (dispatch) => {
     try {
-      const response = await fetch("http://localhost:9000/users/login", {
+      const response = await fetch("/users/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

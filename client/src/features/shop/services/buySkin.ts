@@ -6,16 +6,13 @@ const buySkin =
   (skinId: string): AppThunk =>
   async (dispatch) => {
     try {
-      const response = await fetch(
-        `http://localhost:9000/skins/buy/${skinId}`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          credentials: "include",
+      const response = await fetch(`/skins/buy/${skinId}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-      );
+        credentials: "include",
+      });
 
       const { ownedSkins, activeSkins, userBalance } = await response.json();
 

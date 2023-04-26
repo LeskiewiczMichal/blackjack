@@ -5,7 +5,7 @@ const setUserBalance =
   (newBalance: number): AppThunk =>
   async (dispatch) => {
     try {
-      const response = await fetch("http://localhost:9000/users/balance", {
+      const response = await fetch("/users/balance", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

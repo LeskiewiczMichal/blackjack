@@ -4,7 +4,7 @@ import { updateSkinsState } from "../actions/updateSkinsState";
 
 const goBancrupt = (): AppThunk => async (dispatch) => {
   try {
-    const response = await fetch(`http://localhost:9000/users/bancrupt`, {
+    const response = await fetch(`/users/bancrupt`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

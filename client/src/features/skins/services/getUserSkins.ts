@@ -3,7 +3,7 @@ import { updateSkinsState } from "../actions/updateSkinsState";
 
 const getUserSkins = (): AppThunk => async (dispatch) => {
   try {
-    const response = await fetch("http://localhost:9000/users/skins", {
+    const response = await fetch("/users/skins", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
