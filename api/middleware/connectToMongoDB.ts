@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import MongoDBStore from "connect-mongodb-session";
+import { Store } from "express-session";
 
 const connectToMongoDB = async () => {
   if (!process.env.DB_CONNECTION) {
@@ -13,9 +13,5 @@ const connectToMongoDB = async () => {
   }
 };
 
-const store = new (MongoDBStore as any)({
-  uri: process.env.DB_CONNECTION,
-  collection: "sessions",
-});
 
-export { connectToMongoDB, store };
+export { connectToMongoDB };
