@@ -1,5 +1,6 @@
 import "./styles/menu.scss";
 
+import { Routes } from "types.d";
 import { useNavigate } from "react-router-dom";
 import { useAppSelector, useAppDispatch } from "hooks/hooks";
 import { logoutUser } from "features/authentication";
@@ -16,13 +17,13 @@ export default function Menu() {
   return (
     <main className="menu--content">
       <h1>Blackjack menu</h1>
-      <button type="button" onClick={() => navigate("/game")}>
+      <button type="button" onClick={() => navigate(Routes.GAME)}>
         Start Game
       </button>
-      <button type="button" onClick={() => navigate("/profile")}>
+      <button type="button" onClick={() => navigate(Routes.PROFILE)}>
         Profile
       </button>
-      <button type="button" onClick={() => navigate("/shop")}>
+      <button type="button" onClick={() => navigate(Routes.SHOP)}>
         Shop
       </button>
       {user ? (
@@ -35,7 +36,7 @@ export default function Menu() {
           Sing out
         </button>
       ) : (
-        <button type="button" onClick={() => navigate("/")}>
+        <button type="button" onClick={() => navigate(Routes.LOGIN)}>
           Sign in
         </button>
       )}

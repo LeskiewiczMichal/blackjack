@@ -1,3 +1,4 @@
+import { Routes as RouteTypes } from "types.d";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Game from "./Game";
 import Login from "./Login";
@@ -11,12 +12,12 @@ export default function RouteSwitch() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/profile/login" element={<Login />} />
-        <Route path="/profile/register" element={<Register />} />
-        <Route path="/menu" element={<Menu />} />
-        <Route path="/game" element={<Game />} />
-        <Route path="/shop" element={<Shop />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path={RouteTypes.LOGIN} element={<Login />} />
+        <Route path={RouteTypes.REGISTER} element={<Register />} />
+        <Route path={RouteTypes.MENU} element={<Menu />} />
+        <Route path={RouteTypes.GAME} element={<Game />} />
+        <Route path={RouteTypes.SHOP} element={<Shop />} />
+        <Route path={RouteTypes.PROFILE} element={<Profile />} />
       </Routes>
     </BrowserRouter>
   );

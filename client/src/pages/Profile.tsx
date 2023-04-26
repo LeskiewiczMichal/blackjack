@@ -1,5 +1,5 @@
 import "./styles/profile.scss";
-import { Skin, SkinCategories } from "types.d";
+import { Skin, SkinCategories, Routes } from "types.d";
 
 import { useNavigate } from "react-router";
 import { useAppSelector, useAppDispatch } from "hooks/hooks";
@@ -44,7 +44,7 @@ export default function Profile() {
 
   return (
     <div className="App">
-      <BackButton />
+      <BackButton route={Routes.MENU} />
       <section className="profile--content">
         {user ? (
           <>
@@ -103,11 +103,11 @@ export default function Profile() {
         ) : (
           <main className="profile--info">
             <h1>Ooops, seems like You are not logged in</h1>
-            <button type="button" onClick={() => navigate("/")}>
+            <button type="button" onClick={() => navigate(Routes.LOGIN)}>
               Sign in
             </button>
             <SeperatorLine text="OR" />
-            <button type="button" onClick={() => navigate("/profile/register")}>
+            <button type="button" onClick={() => navigate(Routes.REGISTER)}>
               Create an account
             </button>
           </main>

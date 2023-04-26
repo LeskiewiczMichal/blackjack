@@ -97,6 +97,15 @@ export type HelperSliceState = {
   sweepCards: boolean;
 };
 
+export enum Routes {
+  PROFILE = "/profile",
+  LOGIN = "/profile/login",
+  REGISTER = "/profile/register",
+  MENU = "/menu",
+  GAME = "/game",
+  SHOP = "/shop",
+}
+
 // AUTHENTICATION ///
 export type User = {
   username: string;

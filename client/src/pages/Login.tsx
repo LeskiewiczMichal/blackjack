@@ -1,6 +1,7 @@
 import "./styles/login.scss";
-import { useNavigate } from "react-router-dom";
 
+import { Routes } from "types.d";
+import { useNavigate } from "react-router-dom";
 import { LoginForm } from "features/authentication/index";
 import SeperatorLine from "components/SeperatorLine";
 
@@ -16,7 +17,7 @@ export default function Login() {
         <button
           className="login-page--offline-button"
           type="button"
-          onClick={() => navigate("/menu")}
+          onClick={() => navigate(Routes.MENU)}
         >
           Play Offline
         </button>
@@ -27,7 +28,7 @@ export default function Login() {
         <button
           className="login-page--register-button"
           type="button"
-          onClick={() => navigate("/profile/register")}
+          onClick={() => navigate(Routes.REGISTER)}
         >
           Register
         </button>
