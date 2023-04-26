@@ -1,13 +1,15 @@
 import mongoose from "mongoose";
 import { Store } from "express-session";
 
+const mongoDB = process.env.MONGODB_URI || process.env.DB_CONNECTION;
+
 const connectToMongoDB = async () => {
-  if (!process.env.DB_CONNECTION) {
+  if (!mongoDB) {
     throw new Error("DB_CONNECTION environment variable not set");
   }
 
   try {
-    await mongoose.connect(process.env.DB_CONNECTION);
+    await mongoose.connect(mongoDB);
   } catch (error) {
     console.error.bind(console, "mongo connection error");
   }
