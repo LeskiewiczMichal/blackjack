@@ -108,7 +108,33 @@
 @media (max-width: 600px) {
   .profile--content {
     height: 100vh;
+    height: -webkit-fill-available;
     width: 100vw;
     overflow: hidden;
+  }
+
+  .profile--info {
+    h1 {
+      font-size: 3rem;
+      margin: 1.5rem;
+    }
+
+    p {
+      font-size: 2rem;
+      font-weight: 700;
+      font-family: "Lora";
+      color: $interface--dark-green;
+      flex: 0.3;
+      margin: 0.8rem;
+    }
+
+    button {
+      padding: 0.6rem;
+      font-size: 14px;
+    }
+  }
+
+  .profile--info {
+    padding: 0.5rem;
   }
 }

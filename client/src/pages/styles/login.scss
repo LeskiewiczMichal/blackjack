@@ -115,7 +115,7 @@ $green-texture-image: url("../../assets/green-texture.jpg");
   .login-page {
     @include column-flex-centered;
     width: 100vw;
-    height: 100vh;
+    height: -webkit-fill-available;
   }
 
   .login-page--singin {
@@ -126,6 +126,7 @@ $green-texture-image: url("../../assets/green-texture.jpg");
 
     background-color: $white;
     text-align: center;
+    margin-bottom: 10px;
   }
 
   .login-page--singin {

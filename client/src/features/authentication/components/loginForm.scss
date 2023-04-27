@@ -22,6 +22,7 @@
   button {
     width: 50%;
     height: 40px;
+    min-width: fit-content;
     border: none;
     background-color: $interface--light-green;
     box-shadow: 0 0 5px $black;

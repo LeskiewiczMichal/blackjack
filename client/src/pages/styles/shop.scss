@@ -41,12 +41,15 @@
     display: flex;
     flex-direction: column;
     width: 100vw;
+    height: -webkit-fill-available;
   }
 
   .shop--preview {
     @include width-height--hundred-percent;
     order: 1;
     flex:  1;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
 
   .shop--products {

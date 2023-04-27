@@ -50,6 +50,10 @@
 
 @media (max-width: 600px) {
   .menu--content {
+    height: -webkit-fill-available;
+  }
+
+  .menu--content {
     h1 {
       font-size: 4.5rem;
     }

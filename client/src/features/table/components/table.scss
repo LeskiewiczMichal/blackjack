@@ -36,7 +36,8 @@
 @media (max-width: 600px) {
   .table--container {
     margin: 0;
-    height: 60vh;
+    height: 50vh;
+    // flex: 1;
   }
 
   .table--player {
