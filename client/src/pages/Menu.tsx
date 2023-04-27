@@ -16,6 +16,7 @@ export default function Menu() {
 
   return (
     <main className="menu--content">
+      <img src="" alt="" />
       <h1>Blackjack menu</h1>
       <button type="button" onClick={() => navigate(Routes.GAME)}>
         Start Game
