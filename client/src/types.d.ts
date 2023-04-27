@@ -122,6 +122,11 @@ export type AuthReducerState = {
 };
 
 /// SKINS ///
+export enum SkinNames {
+  NEON = "Neon",
+  DARK = "Dark",
+}
+
 export enum SkinCategories {
   CARDS = "Cards",
   CHIPS = "Chips",

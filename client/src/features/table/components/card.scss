@@ -31,17 +31,17 @@
 
 .card--back--Default {
   @include card--back;
-  background-image: url("../assets/cards/2B.svg");
+  background-image: url("../assets/cards/defaultTheme/2B.svg");
 }
 
 .card--back--Dark {
   @include card--back;
-  background-image: url("../assets/cards/darkTheme/1B.svg");
+  background-image: url("../assets/cards/darkTheme/1B_dark.svg");
 }
 
 .card--back--Neon {
   @include card--back;
-  background-image: url("../assets/cards/neonTheme/1B.svg");
+  background-image: url("../assets/cards/neonTheme/1B_neon.svg");
 }
 
 .--Neon {
@@ -70,655 +70,655 @@
 
 
 .CLUBS2--Default {
-  background-image: url("../assets/cards/2CLUBS.svg");
+  background-image: url("../assets/cards/defaultTheme/2CLUBS.svg");
   position: absolute;
 }
 
 .CLUBS3--Default {
-  background-image: url("../assets/cards/3CLUBS.svg");
+  background-image: url("../assets/cards/defaultTheme/3CLUBS.svg");
   position: absolute;
 }
 
 .CLUBS4--Default {
-  background-image: url("../assets/cards/4CLUBS.svg");
+  background-image: url("../assets/cards/defaultTheme/4CLUBS.svg");
   position: absolute;
 }
 
 .CLUBS5--Default {
-  background-image: url("../assets/cards/5CLUBS.svg");
+  background-image: url("../assets/cards/defaultTheme/5CLUBS.svg");
   position: absolute;
 }
 
 .CLUBS6--Default {
-  background-image: url("../assets/cards/6CLUBS.svg");
+  background-image: url("../assets/cards/defaultTheme/6CLUBS.svg");
   position: absolute;
 }
 
 .CLUBS7--Default {
-  background-image: url("../assets/cards/7CLUBS.svg");
+  background-image: url("../assets/cards/defaultTheme/7CLUBS.svg");
   position: absolute;
 }
 
 .CLUBS8--Default {
-  background-image: url("../assets/cards/8CLUBS.svg");
+  background-image: url("../assets/cards/defaultTheme/8CLUBS.svg");
   position: absolute;
 }
 
 .CLUBS9--Default {
-  background-image: url("../assets/cards/9CLUBS.svg");
+  background-image: url("../assets/cards/defaultTheme/9CLUBS.svg");
   position: absolute;
 }
 
 .CLUBS10--Default {
-  background-image: url("../assets/cards/10CLUBS.svg");
+  background-image: url("../assets/cards/defaultTheme/10CLUBS.svg");
   position: absolute;
 }
 
 .CLUBSJ--Default {
-  background-image: url("../assets/cards/JACKCLUBS.svg");
+  background-image: url("../assets/cards/defaultTheme/JACKCLUBS.svg");
   position: absolute;
 }
 
 .CLUBSQ--Default {
-  background-image: url("../assets/cards/QUEENCLUBS.svg");
+  background-image: url("../assets/cards/defaultTheme/QUEENCLUBS.svg");
   position: absolute;
 }
 
 .CLUBSK--Default {
-  background-image: url("../assets/cards/KINGCLUBS.svg");
+  background-image: url("../assets/cards/defaultTheme/KINGCLUBS.svg");
   position: absolute;
 }
 
 .CLUBSA--Default {
-  background-image: url("../assets/cards/ACECLUBS.svg");
+  background-image: url("../assets/cards/defaultTheme/ACECLUBS.svg");
   position: absolute;
 }
 
 .DIAMONDS2--Default {
-  background-image: url("../assets/cards/2DIAMONDS.svg");
+  background-image: url("../assets/cards/defaultTheme/2DIAMONDS.svg");
   position: absolute;
 }
 
 .DIAMONDS3--Default {
-  background-image: url("../assets/cards/3DIAMONDS.svg");
+  background-image: url("../assets/cards/defaultTheme/3DIAMONDS.svg");
   position: absolute;
 }
 
 .DIAMONDS4--Default {
-  background-image: url("../assets/cards/4DIAMONDS.svg");
+  background-image: url("../assets/cards/defaultTheme/4DIAMONDS.svg");
   position: absolute;
 }
 
 .DIAMONDS5--Default {
-  background-image: url("../assets/cards/5DIAMONDS.svg");
+  background-image: url("../assets/cards/defaultTheme/5DIAMONDS.svg");
   position: absolute;
 }
 
 .DIAMONDS6--Default {
-  background-image: url("../assets/cards/6DIAMONDS.svg");
+  background-image: url("../assets/cards/defaultTheme/6DIAMONDS.svg");
   position: absolute;
 }
 
 .DIAMONDS7--Default {
-  background-image: url("../assets/cards/7DIAMONDS.svg");
+  background-image: url("../assets/cards/defaultTheme/7DIAMONDS.svg");
   position: absolute;
 }
 
 .DIAMONDS8--Default {
-  background-image: url("../assets/cards/8DIAMONDS.svg");
+  background-image: url("../assets/cards/defaultTheme/8DIAMONDS.svg");
   position: absolute;
 }
 
 .DIAMONDS9--Default {
-  background-image: url("../assets/cards/9DIAMONDS.svg");
+  background-image: url("../assets/cards/defaultTheme/9DIAMONDS.svg");
   position: absolute;
 }
 
 .DIAMONDS10--Default {
-  background-image: url("../assets/cards/10DIAMONDS.svg");
+  background-image: url("../assets/cards/defaultTheme/10DIAMONDS.svg");
   position: absolute;
 }
 
 .DIAMONDSJ--Default {
-  background-image: url("../assets/cards/JACKDIAMONDS.svg");
+  background-image: url("../assets/cards/defaultTheme/JACKDIAMONDS.svg");
   position: absolute;
 }
 
 .DIAMONDSQ--Default {
-  background-image: url("../assets/cards/QUEENDIAMONDS.svg");
+  background-image: url("../assets/cards/defaultTheme/QUEENDIAMONDS.svg");
   position: absolute;
 }
 
 .DIAMONDSK--Default {
-  background-image: url("../assets/cards/KINGDIAMONDS.svg");
+  background-image: url("../assets/cards/defaultTheme/KINGDIAMONDS.svg");
   position: absolute;
 }
 
 .DIAMONDSA--Default {
-  background-image: url("../assets/cards/ACEDIAMONDS.svg");
+  background-image: url("../assets/cards/defaultTheme/ACEDIAMONDS.svg");
   position: absolute;
 }
 
 .HEARTS2--Default {
-  background-image: url("../assets/cards/2HEARTS.svg");
+  background-image: url("../assets/cards/defaultTheme/2HEARTS.svg");
 }
 
 .HEARTS3--Default {
-  background-image: url("../assets/cards/3HEARTS.svg");
+  background-image: url("../assets/cards/defaultTheme/3HEARTS.svg");
 
 }
 
 .HEARTS4--Default {
-  background-image: url("../assets/cards/4HEARTS.svg");
+  background-image: url("../assets/cards/defaultTheme/4HEARTS.svg");
 }
 
 .HEARTS5--Default {
-  background-image: url("../assets/cards/5HEARTS.svg");
+  background-image: url("../assets/cards/defaultTheme/5HEARTS.svg");
 }
 
 .HEARTS6--Default {
-  background-image: url("../assets/cards/6HEARTS.svg");
+  background-image: url("../assets/cards/defaultTheme/6HEARTS.svg");
 }
 
 .HEARTS7--Default {
-  background-image: url("../assets/cards/7HEARTS.svg");
+  background-image: url("../assets/cards/defaultTheme/7HEARTS.svg");
 
 }
 
 .HEARTS8--Default {
-  background-image: url("../assets/cards/8HEARTS.svg");
+  background-image: url("../assets/cards/defaultTheme/8HEARTS.svg");
 }
 
 .HEARTS9--Default {
-  background-image: url("../assets/cards/9HEARTS.svg");
+  background-image: url("../assets/cards/defaultTheme/9HEARTS.svg");
 }
 
 .HEARTS10--Default {
-  background-image: url("../assets/cards/10HEARTS.svg");
+  background-image: url("../assets/cards/defaultTheme/10HEARTS.svg");
 }
 
 .HEARTSJ--Default {
-  background-image: url("../assets/cards/JACKHEARTS.svg");
+  background-image: url("../assets/cards/defaultTheme/JACKHEARTS.svg");
 }
 
 .HEARTSQ--Default {
-  background-image: url("../assets/cards/QUEENHEARTS.svg");
+  background-image: url("../assets/cards/defaultTheme/QUEENHEARTS.svg");
 }
 
 .HEARTSK--Default {
-  background-image: url("../assets/cards/KINGHEARTS.svg");
+  background-image: url("../assets/cards/defaultTheme/KINGHEARTS.svg");
 }
 
 .HEARTSA--Default {
-  background-image: url("../assets/cards/ACEHEARTS.svg");
+  background-image: url("../assets/cards/defaultTheme/ACEHEARTS.svg");
 }
 
 .SPADES2--Default {
-  background-image: url("../assets/cards/2SPADES.svg");
+  background-image: url("../assets/cards/defaultTheme/2SPADES.svg");
 }
 
 .SPADES3--Default {
-  background-image: url("../assets/cards/3SPADES.svg");
+  background-image: url("../assets/cards/defaultTheme/3SPADES.svg");
 }
 
 .SPADES4--Default {
-  background-image: url("../assets/cards/4SPADES.svg");
+  background-image: url("../assets/cards/defaultTheme/4SPADES.svg");
 }
 
 .SPADES5--Default {
-  background-image: url("../assets/cards/5SPADES.svg");
+  background-image: url("../assets/cards/defaultTheme/5SPADES.svg");
 }
 
 .SPADES6--Default {
-  background-image: url("../assets/cards/6SPADES.svg");
+  background-image: url("../assets/cards/defaultTheme/6SPADES.svg");
 }
 
 .SPADES7--Default {
-  background-image: url("../assets/cards/7SPADES.svg");
+  background-image: url("../assets/cards/defaultTheme/7SPADES.svg");
 }
 
 .SPADES8--Default {
-  background-image: url("../assets/cards/8SPADES.svg");
+  background-image: url("../assets/cards/defaultTheme/8SPADES.svg");
 }
 
 .SPADES9--Default {
-  background-image: url("../assets/cards/9SPADES.svg");
+  background-image: url("../assets/cards/defaultTheme/9SPADES.svg");
 }
 
 .SPADES10--Default {
-  background-image: url("../assets/cards/10SPADES.svg");
+  background-image: url("../assets/cards/defaultTheme/10SPADES.svg");
 }
 
 .SPADESJ--Default {
-  background-image: url("../assets/cards/JACKSPADES.svg");
+  background-image: url("../assets/cards/defaultTheme/JACKSPADES.svg");
 }
 
 .SPADESQ--Default {
-  background-image: url("../assets/cards/QUEENSPADES.svg");
+  background-image: url("../assets/cards/defaultTheme/QUEENSPADES.svg");
 }
 
 .SPADESK--Default {
-  background-image: url("../assets/cards/KINGSPADES.svg");
+  background-image: url("../assets/cards/defaultTheme/KINGSPADES.svg");
 }
 
 .SPADESA--Default {
-  background-image: url("../assets/cards/ACESPADES.svg");
+  background-image: url("../assets/cards/defaultTheme/ACESPADES.svg");
 }
 
 .CLUBS2--Dark {
-  background-image: url("../assets/cards/darkTheme/2C.svg");
+  background-image: url("../assets/cards/darkTheme/2C_dark.svg");
 }
 
 .CLUBS3--Dark {
-  background-image: url("../assets/cards/darkTheme/3C.svg");
+  background-image: url("../assets/cards/darkTheme/3C_dark.svg");
 }
 
 .CLUBS4--Dark {
-  background-image: url("../assets/cards/darkTheme/4C.svg");
+  background-image: url("../assets/cards/darkTheme/4C_dark.svg");
 }
 
 .CLUBS5--Dark {
-  background-image: url("../assets/cards/darkTheme/5C.svg");
+  background-image: url("../assets/cards/darkTheme/5C_dark.svg");
 }
 
 .CLUBS6--Dark {
-  background-image: url("../assets/cards/darkTheme/6C.svg");
+  background-image: url("../assets/cards/darkTheme/6C_dark.svg");
 }
 
 .CLUBS7--Dark {
-  background-image: url("../assets/cards/darkTheme/7C.svg");
+  background-image: url("../assets/cards/darkTheme/7C_dark.svg");
 }
 
 .CLUBS8--Dark {
-  background-image: url("../assets/cards/darkTheme/8C.svg");
+  background-image: url("../assets/cards/darkTheme/8C_dark.svg");
 }
 
 .CLUBS9--Dark {
-  background-image: url("../assets/cards/darkTheme/9C.svg");
+  background-image: url("../assets/cards/darkTheme/9C_dark.svg");
 }
 
 .CLUBS10--Dark {
-  background-image: url("../assets/cards/darkTheme/TC.svg");
+  background-image: url("../assets/cards/darkTheme/TC_dark.svg");
 }
 
 .CLUBSJ--Dark {
-  background-image: url("../assets/cards/darkTheme/JC.svg");
+  background-image: url("../assets/cards/darkTheme/JC_dark.svg");
 }
 
 .CLUBSQ--Dark {
-  background-image: url("../assets/cards/darkTheme/QC.svg");
+  background-image: url("../assets/cards/darkTheme/QC_dark.svg");
 }
 
 .CLUBSK--Dark {
-  background-image: url("../assets/cards/darkTheme/KC.svg");
+  background-image: url("../assets/cards/darkTheme/KC_dark.svg");
 }
 
 .CLUBSA--Dark {
-  background-image: url("../assets/cards/darkTheme/AC.svg");
+  background-image: url("../assets/cards/darkTheme/AC_dark.svg");
 }
 
 .DIAMONDS2--Dark {
-  background-image: url("../assets/cards/darkTheme/2D.svg");
+  background-image: url("../assets/cards/darkTheme/2D_dark.svg");
 }
 
 .DIAMONDS3--Dark {
-  background-image: url("../assets/cards/darkTheme/3D.svg");
+  background-image: url("../assets/cards/darkTheme/3D_dark.svg");
 }
 
 .DIAMONDS4--Dark {
-  background-image: url("../assets/cards/darkTheme/4D.svg");
+  background-image: url("../assets/cards/darkTheme/4D_dark.svg");
 }
 
 .DIAMONDS5--Dark {
-  background-image: url("../assets/cards/darkTheme/5D.svg");
+  background-image: url("../assets/cards/darkTheme/5D_dark.svg");
 }
 
 .DIAMONDS6--Dark {
-  background-image: url("../assets/cards/darkTheme/6D.svg");
+  background-image: url("../assets/cards/darkTheme/6D_dark.svg");
 }
 
 .DIAMONDS7--Dark {
-  background-image: url("../assets/cards/darkTheme/7D.svg");
+  background-image: url("../assets/cards/darkTheme/7D_dark.svg");
 }
 
 .DIAMONDS8--Dark {
-  background-image: url("../assets/cards/darkTheme/8D.svg");
+  background-image: url("../assets/cards/darkTheme/8D_dark.svg");
 }
 
 .DIAMONDS9--Dark {
-  background-image: url("../assets/cards/darkTheme/9D.svg");
+  background-image: url("../assets/cards/darkTheme/9D_dark.svg");
 }
 
 .DIAMONDS10--Dark {
-  background-image: url("../assets/cards/darkTheme/TD.svg");
+  background-image: url("../assets/cards/darkTheme/TD_dark.svg");
 }
 
 .DIAMONDSJ--Dark {
-  background-image: url("../assets/cards/darkTheme/JD.svg");
+  background-image: url("../assets/cards/darkTheme/JD_dark.svg");
 }
 
 .DIAMONDSQ--Dark {
-  background-image: url("../assets/cards/darkTheme/QD.svg");
+  background-image: url("../assets/cards/darkTheme/QD_dark.svg");
 }
 
 .DIAMONDSK--Dark {
-  background-image: url("../assets/cards/darkTheme/KD.svg");
+  background-image: url("../assets/cards/darkTheme/KD_dark.svg");
 }
 
 .DIAMONDSA--Dark {
-  background-image: url("../assets/cards/darkTheme/AD.svg");
+  background-image: url("../assets/cards/darkTheme/AD_dark.svg");
 }
 
 .HEARTS2--Dark {
-  background-image: url("../assets/cards/darkTheme/2H.svg");
+  background-image: url("../assets/cards/darkTheme/2H_dark.svg");
 }
 
 .HEARTS3--Dark {
-  background-image: url("../assets/cards/darkTheme/3H.svg");
+  background-image: url("../assets/cards/darkTheme/3H_dark.svg");
 }
 
 .HEARTS4--Dark {
-  background-image: url("../assets/cards/darkTheme/4H.svg");
+  background-image: url("../assets/cards/darkTheme/4H_dark.svg");
 }
 
 .HEARTS5--Dark {
-  background-image: url("../assets/cards/darkTheme/5H.svg");
+  background-image: url("../assets/cards/darkTheme/5H_dark.svg");
 }
 
 .HEARTS6--Dark {
-  background-image: url("../assets/cards/darkTheme/6H.svg");
+  background-image: url("../assets/cards/darkTheme/6H_dark.svg");
 }
 
 .HEARTS7--Dark {
-  background-image: url("../assets/cards/darkTheme/7H.svg");
+  background-image: url("../assets/cards/darkTheme/7H_dark.svg");
 }
 
 .HEARTS8--Dark {
-  background-image: url("../assets/cards/darkTheme/8H.svg");
+  background-image: url("../assets/cards/darkTheme/8H_dark.svg");
 }
 
 .HEARTS9--Dark {
-  background-image: url("../assets/cards/darkTheme/9H.svg");
+  background-image: url("../assets/cards/darkTheme/9H_dark.svg");
 }
 
 .HEARTS10--Dark {
-  background-image: url("../assets/cards/darkTheme/TH.svg");
+  background-image: url("../assets/cards/darkTheme/TH_dark.svg");
 }
 
 .HEARTSJ--Dark {
-  background-image: url("../assets/cards/darkTheme/JH.svg");
+  background-image: url("../assets/cards/darkTheme/JH_dark.svg");
 }
 
 .HEARTSQ--Dark {
-  background-image: url("../assets/cards/darkTheme/QH.svg");
+  background-image: url("../assets/cards/darkTheme/QH_dark.svg");
 }
 
 .HEARTSK--Dark {
-  background-image: url("../assets/cards/darkTheme/KH.svg");
+  background-image: url("../assets/cards/darkTheme/KH_dark.svg");
 }
 
 .HEARTSA--Dark {
-  background-image: url("../assets/cards/darkTheme/AH.svg");
+  background-image: url("../assets/cards/darkTheme/AH_dark.svg");
 }
 
 .SPADES2--Dark {
-  background-image: url("../assets/cards/darkTheme/2S.svg");
+  background-image: url("../assets/cards/darkTheme/2S_dark.svg");
 }
 
 .SPADES3--Dark {
-  background-image: url("../assets/cards/darkTheme/3S.svg");
+  background-image: url("../assets/cards/darkTheme/3S_dark.svg");
 }
 
 .SPADES4--Dark {
-  background-image: url("../assets/cards/darkTheme/4S.svg");
+  background-image: url("../assets/cards/darkTheme/4S_dark.svg");
 }
 
 .SPADES5--Dark {
-  background-image: url("../assets/cards/darkTheme/5S.svg");
+  background-image: url("../assets/cards/darkTheme/5S_dark.svg");
 }
 
 .SPADES6--Dark {
-  background-image: url("../assets/cards/darkTheme/6S.svg");
+  background-image: url("../assets/cards/darkTheme/6S_dark.svg");
 }
 
 .SPADES7--Dark {
-  background-image: url("../assets/cards/darkTheme/7S.svg");
+  background-image: url("../assets/cards/darkTheme/7S_dark.svg");
 }
 
 .SPADES8--Dark {
-  background-image: url("../assets/cards/darkTheme/8S.svg");
+  background-image: url("../assets/cards/darkTheme/8S_dark.svg");
 }
 
 .SPADES9--Dark {
-  background-image: url("../assets/cards/darkTheme/9S.svg");
+  background-image: url("../assets/cards/darkTheme/9S_dark.svg");
 }
 
 .SPADES10--Dark {
-  background-image: url("../assets/cards/darkTheme/TS.svg");
+  background-image: url("../assets/cards/darkTheme/TS_dark.svg");
 }
 
 .SPADESJ--Dark {
-  background-image: url("../assets/cards/darkTheme/JS.svg");
+  background-image: url("../assets/cards/darkTheme/JS_dark.svg");
 }
 
 .SPADESQ--Dark {
-  background-image: url("../assets/cards/darkTheme/QS.svg");
+  background-image: url("../assets/cards/darkTheme/QS_dark.svg");
 }
 
 .SPADESK--Dark {
-  background-image: url("../assets/cards/darkTheme/KS.svg");
+  background-image: url("../assets/cards/darkTheme/KS_dark.svg");
 }
 
 .SPADESA--Dark {
-  background-image: url("../assets/cards/darkTheme/AS.svg");
+  background-image: url("../assets/cards/darkTheme/AS_dark.svg");
 }
 
 .CLUBS2--Neon {
-  background-image: url("../assets/cards/neonTheme/2C.svg");
+  background-image: url("../assets/cards/neonTheme/2C_neon.svg");
 }
 
 .CLUBS3--Neon {
-  background-image: url("../assets/cards/neonTheme/3C.svg");
+  background-image: url("../assets/cards/neonTheme/3C_neon.svg");
 }
 
 .CLUBS4--Neon {
-  background-image: url("../assets/cards/neonTheme/4C.svg");
+  background-image: url("../assets/cards/neonTheme/4C_neon.svg");
 }
 
 .CLUBS5--Neon {
-  background-image: url("../assets/cards/neonTheme/5C.svg");
+  background-image: url("../assets/cards/neonTheme/5C_neon.svg");
 }
 
 .CLUBS6--Neon {
-  background-image: url("../assets/cards/neonTheme/6C.svg");
+  background-image: url("../assets/cards/neonTheme/6C_neon.svg");
 }
 
 .CLUBS7--Neon {
-  background-image: url("../assets/cards/neonTheme/7C.svg");
+  background-image: url("../assets/cards/neonTheme/7C_neon.svg");
 }
 
 .CLUBS8--Neon {
-  background-image: url("../assets/cards/neonTheme/8C.svg");
+  background-image: url("../assets/cards/neonTheme/8C_neon.svg");
 }
 
 .CLUBS9--Neon {
-  background-image: url("../assets/cards/neonTheme/9C.svg");
+  background-image: url("../assets/cards/neonTheme/9C_neon.svg");
 }
 
 .CLUBS10--Neon {
-  background-image: url("../assets/cards/neonTheme/TC.svg");
+  background-image: url("../assets/cards/neonTheme/TC_neon.svg");
 }
 
 .CLUBSJ--Neon {
-  background-image: url("../assets/cards/neonTheme/JC.svg");
+  background-image: url("../assets/cards/neonTheme/JC_neon.svg");
 }
 
 .CLUBSQ--Neon {
-  background-image: url("../assets/cards/neonTheme/QC.svg");
+  background-image: url("../assets/cards/neonTheme/QC_neon.svg");
 }
 
 .CLUBSK--Neon {
-  background-image: url("../assets/cards/neonTheme/KC.svg");
+  background-image: url("../assets/cards/neonTheme/KC_neon.svg");
 }
 
 .CLUBSA--Neon {
-  background-image: url("../assets/cards/neonTheme/AC.svg");
+  background-image: url("../assets/cards/neonTheme/AC_neon.svg");
 }
 
 .DIAMONDS2--Neon {
-  background-image: url("../assets/cards/neonTheme/2D.svg");
+  background-image: url("../assets/cards/neonTheme/2D_neon.svg");
 }
 
 .DIAMONDS3--Neon {
-  background-image: url("../assets/cards/neonTheme/3D.svg");
+  background-image: url("../assets/cards/neonTheme/3D_neon.svg");
 }
 
 .DIAMONDS4--Neon {
-  background-image: url("../assets/cards/neonTheme/4D.svg");
+  background-image: url("../assets/cards/neonTheme/4D_neon.svg");
 }
 
 .DIAMONDS5--Neon {
-  background-image: url("../assets/cards/neonTheme/5D.svg");
+  background-image: url("../assets/cards/neonTheme/5D_neon.svg");
 }
 
 .DIAMONDS6--Neon {
-  background-image: url("../assets/cards/neonTheme/6D.svg");
+  background-image: url("../assets/cards/neonTheme/6D_neon.svg");
 }
 
 .DIAMONDS7--Neon {
-  background-image: url("../assets/cards/neonTheme/7D.svg");
+  background-image: url("../assets/cards/neonTheme/7D_neon.svg");
 }
 
 .DIAMONDS8--Neon {
-  background-image: url("../assets/cards/neonTheme/8D.svg");
+  background-image: url("../assets/cards/neonTheme/8D_neon.svg");
 }
 
 .DIAMONDS9--Neon {
-  background-image: url("../assets/cards/neonTheme/9D.svg");
+  background-image: url("../assets/cards/neonTheme/9D_neon.svg");
 }
 
 .DIAMONDS10--Neon {
-  background-image: url("../assets/cards/neonTheme/TD.svg");
+  background-image: url("../assets/cards/neonTheme/TD_neon.svg");
 }
 
 .DIAMONDSJ--Neon {
-  background-image: url("../assets/cards/neonTheme/JD.svg");
+  background-image: url("../assets/cards/neonTheme/JD_neon.svg");
 }
 
 .DIAMONDSQ--Neon {
-  background-image: url("../assets/cards/neonTheme/QD.svg");
+  background-image: url("../assets/cards/neonTheme/QD_neon.svg");
 }
 
 .DIAMONDSK--Neon {
-  background-image: url("../assets/cards/neonTheme/KD.svg");
+  background-image: url("../assets/cards/neonTheme/KD_neon.svg");
 }
 
 .DIAMONDSA--Neon {
-  background-image: url("../assets/cards/neonTheme/AD.svg");
+  background-image: url("../assets/cards/neonTheme/AD_neon.svg");
 }
 
 .HEARTS2--Neon {
-  background-image: url("../assets/cards/neonTheme/2H.svg");
+  background-image: url("../assets/cards/neonTheme/2H_neon.svg");
 }
 
 .HEARTS3--Neon {
-  background-image: url("../assets/cards/neonTheme/3H.svg");
+  background-image: url("../assets/cards/neonTheme/3H_neon.svg");
 }
 
 .HEARTS4--Neon {
-  background-image: url("../assets/cards/neonTheme/4H.svg");
+  background-image: url("../assets/cards/neonTheme/4H_neon.svg");
 }
 
 .HEARTS5--Neon {
-  background-image: url("../assets/cards/neonTheme/5H.svg");
+  background-image: url("../assets/cards/neonTheme/5H_neon.svg");
 }
 
 .HEARTS6--Neon {
-  background-image: url("../assets/cards/neonTheme/6H.svg");
+  background-image: url("../assets/cards/neonTheme/6H_neon.svg");
 }
 
 .HEARTS7--Neon {
-  background-image: url("../assets/cards/neonTheme/7H.svg");
+  background-image: url("../assets/cards/neonTheme/7H_neon.svg");
 }
 
 .HEARTS8--Neon {
-  background-image: url("../assets/cards/neonTheme/8H.svg");
+  background-image: url("../assets/cards/neonTheme/8H_neon.svg");
 }
 
 .HEARTS9--Neon {
-  background-image: url("../assets/cards/neonTheme/9H.svg");
+  background-image: url("../assets/cards/neonTheme/9H_neon.svg");
 }
 
 .HEARTS10--Neon {
-  background-image: url("../assets/cards/neonTheme/TH.svg");
+  background-image: url("../assets/cards/neonTheme/TH_neon.svg");
 }
 
 .HEARTSJ--Neon {
-  background-image: url("../assets/cards/neonTheme/JH.svg");
+  background-image: url("../assets/cards/neonTheme/JH_neon.svg");
 }
 
 .HEARTSQ--Neon {
-  background-image: url("../assets/cards/neonTheme/QH.svg");
+  background-image: url("../assets/cards/neonTheme/QH_neon.svg");
 }
 
 .HEARTSK--Neon {
-  background-image: url("../assets/cards/neonTheme/KH.svg");
+  background-image: url("../assets/cards/neonTheme/KH_neon.svg");
 }
 
 .HEARTSA--Neon {
-  background-image: url("../assets/cards/neonTheme/AH.svg");
+  background-image: url("../assets/cards/neonTheme/AH_neon.svg");
 }
 
 .SPADES2--Neon {
-  background-image: url("../assets/cards/neonTheme/2S.svg");
+  background-image: url("../assets/cards/neonTheme/2S_neon.svg");
 }
 
 .SPADES3--Neon {
-  background-image: url("../assets/cards/neonTheme/3S.svg");
+  background-image: url("../assets/cards/neonTheme/3S_neon.svg");
 }
 
 .SPADES4--Neon {
-  background-image: url("../assets/cards/neonTheme/4S.svg");
+  background-image: url("../assets/cards/neonTheme/4S_neon.svg");
 }
 
 .SPADES5--Neon {
-  background-image: url("../assets/cards/neonTheme/5S.svg");
+  background-image: url("../assets/cards/neonTheme/5S_neon.svg");
 }
 
 .SPADES6--Neon {
-  background-image: url("../assets/cards/neonTheme/6S.svg");
+  background-image: url("../assets/cards/neonTheme/6S_neon.svg");
 }
 
 .SPADES7--Neon {
-  background-image: url("../assets/cards/neonTheme/7S.svg");
+  background-image: url("../assets/cards/neonTheme/7S_neon.svg");
 }
 
 .SPADES8--Neon {
-  background-image: url("../assets/cards/neonTheme/8S.svg");
+  background-image: url("../assets/cards/neonTheme/8S_neon.svg");
 }
 
 .SPADES9--Neon {
-  background-image: url("../assets/cards/neonTheme/9S.svg");
+  background-image: url("../assets/cards/neonTheme/9S_neon.svg");
 }
 
 .SPADES10--Neon {
-  background-image: url("../assets/cards/neonTheme/TS.svg");
+  background-image: url("../assets/cards/neonTheme/TS_neon.svg");
 }
 
 .SPADESJ--Neon {
-  background-image: url("../assets/cards/neonTheme/JS.svg");
+  background-image: url("../assets/cards/neonTheme/JS_neon.svg");
 }
 
 .SPADESQ--Neon {
-  background-image: url("../assets/cards/neonTheme/QS.svg");
+  background-image: url("../assets/cards/neonTheme/QS_neon.svg");
 }
 
 .SPADESK--Neon {
-  background-image: url("../assets/cards/neonTheme/KS.svg");
+  background-image: url("../assets/cards/neonTheme/KS_neon.svg");
 }
 
 .SPADESA--Neon {
-  background-image: url("../assets/cards/neonTheme/AS.svg");
+  background-image: url("../assets/cards/neonTheme/AS_neon.svg");
 }
 
 
