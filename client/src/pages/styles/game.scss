@@ -3,6 +3,7 @@
 
 .Game {
   height: 100vh;
+  height: -webkit-fill-available;
   background-color: $background--red;
   background-image: repeating-linear-gradient(
     -45deg,

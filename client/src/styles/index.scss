@@ -13,6 +13,10 @@
   src: url("../assets/fonts/RobotoSlab-VariableFont_wght.woff2");
 }
 
+html {
+  height: -webkit-fill-available;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
