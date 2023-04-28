@@ -1,0 +1,19 @@
+@import "../../styles/mixins";
+@import "../../styles/variables";
+
+.loading-screen--wrapper {
+    @include column-flex-centered;
+    @include green-smoke-background;
+    height: 100vh;
+    height: 100vh;
+    height: --webkit-fill-available;
+    color: $black;
+}
+
+.loading-screen--wrapper {
+    h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        color: $interface--dark-green;
+    }
+}

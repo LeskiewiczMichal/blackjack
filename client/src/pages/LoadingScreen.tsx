@@ -1,3 +1,9 @@
+import "./styles/loadingScreen.scss";
+
 export default function LoadingScreen() {
-  return <h1>loading</h1>;
+  return (
+    <div className="loading-screen--wrapper">
+      <h1>Loading</h1>
+    </div>
+  );
 }

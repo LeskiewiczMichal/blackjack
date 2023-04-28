@@ -3,13 +3,9 @@ import { useEffect, useState } from "react";
 function preloadImage(src: string) {
   return new Promise((resolve, reject) => {
     const img = new Image();
-    img.onload = function () {
-      resolve(img);
-    };
-    // eslint-disable-next-line no-multi-assign, func-names
-    img.onerror = img.onabort = function () {
-      reject(src);
-    };
+    img.onload = () => resolve(img);
+    img.onerror = () => reject(src);
+
     img.src = src;
   });
 }
@@ -21,8 +17,6 @@ export default function useImagePreloader(imageList: string[]) {
     let isCancelled = false;
 
     async function effect() {
-      console.log("PRELOAD");
-
       if (isCancelled) {
         return;
       }
