@@ -91,6 +91,7 @@
 .profile--collection-skin {
   @include flex-centered;
   width: 80%;
+  color: $black;
   background-color: $interface--light-green;
   font-size: 20px;
   font-weight: 700;
