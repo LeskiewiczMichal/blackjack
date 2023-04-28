@@ -32,16 +32,19 @@
 .card--back--Default {
   @include card--back;
   background-image: url("../assets/cards/defaultTheme/2B.svg");
+  background-color: $interface--light-red--darkened;
 }
 
 .card--back--Dark {
   @include card--back;
   background-image: url("../assets/cards/darkTheme/1B_dark.svg");
+  background-color: $black;
 }
 
 .card--back--Neon {
   @include card--back;
   background-image: url("../assets/cards/neonTheme/1B_neon.svg");
+  background-color: $interface--neon-pink;
 }
 
 .--Neon {
