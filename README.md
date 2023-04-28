@@ -1,8 +1,12 @@
 # Blackjack Game
-A blackjack game written in Typescript. I used Redux-toolkit for state managment.
-Other technologies I've used are Howel for sound, and React-transition-group for animations.
+A blackjack game written in Typescript.
+I used React with Redux-toolkit for state managment. Style was written in Sass.
+For backend I used Node.js with Express.js. For database I used MongoDB with Mongoose.
+
 
 ## See it live here:
+https://blackjack-api-l6fc.onrender.com/
+
 
 ### Credits:
 UI Buttons icons:
