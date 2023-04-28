@@ -1,0 +1,76 @@
+@import "../../../styles/mixins";
+@import "../../../styles/variables";
+
+.profile--info {
+    @include column-flex-centered;
+    padding: 1rem;
+    width: 100%;
+  }
+
+.profile--info {
+    h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      font-family: "Lora-Italic";
+      color: $interface--dark-green;
+      flex: 0.3;
+      margin: 2rem;
+    }
+  
+    p {
+      font-size: 2rem;
+      font-weight: 700;
+      font-family: "Lora";
+      color: $interface--dark-green;
+      flex: 0.3;
+      margin: 1rem;
+    }
+  
+    button {
+      width: 40%;
+      min-width: fit-content;
+      border: 1px solid $interface--dark-green;
+      border-radius: 15px;
+      padding: 1rem;
+      outline: none;
+      color: $black;
+      background-color: $interface--light-green;
+      box-shadow: 0 0 5px $interface--light-green;
+      font-size: 22px;
+      font-weight: 700;
+      font-family: "RobotoSlab";
+      cursor: pointer;
+    }
+  
+    button:hover {
+      background-color: $interface--light-green--darkened;
+    }
+  }
+
+
+@media (max-width: 600px) {
+  .profile--info {
+    h1 {
+      font-size: 3rem;
+      margin: 1.5rem;
+    }
+
+    p {
+      font-size: 2rem;
+      font-weight: 700;
+      font-family: "Lora";
+      color: $interface--dark-green;
+      flex: 0.3;
+      margin: 0.8rem;
+    }
+
+    button {
+      padding: 0.6rem;
+      font-size: 14px;
+    }
+  }
+
+  .profile--info {
+    padding: 0.5rem;
+  }
+}

@@ -64,9 +64,7 @@ const updateBalance = (req, res) => __awaiter(void 0, void 0, void 0, function* 
 });
 exports.updateBalance = updateBalance;
 const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    console.log(req);
     const user = req.user;
-    console.log(user);
     yield user.populate("activeSkins");
     yield user.populate("ownedSkins");
     res.json({ user });

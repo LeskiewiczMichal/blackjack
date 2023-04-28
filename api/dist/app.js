@@ -30,7 +30,6 @@ app.use(express_1.default.static(path_1.default.join(__dirname, "../../client/bu
 app.use(express_1.default.static('public', {
     maxAge: 86400
 }));
-// app.use(express.static(path.join('public'), { maxAge: 86400 }));
 // Routes
 app.use("/users", users_1.usersRouter);
 app.use("/skins", skins_1.skinsRouter);
