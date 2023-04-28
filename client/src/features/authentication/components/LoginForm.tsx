@@ -2,6 +2,7 @@ import "./loginForm.scss";
 import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "hooks/hooks";
 import { Navigate } from "react-router-dom";
+import Button, { ButtonColors, ButtonTypes } from "components/Button";
 import { loginUser, LoginUserProps } from "../services/loginUser";
 
 export default function LoginForm() {
@@ -53,9 +54,12 @@ export default function LoginForm() {
         onChange={(event) => handleChange(event)}
         required
       />
-      <button type="submit" onClick={(e) => handleSubmit(e)}>
-        Login
-      </button>
+      <Button
+        text="Login"
+        color={ButtonColors.GREEN}
+        onClick={(e: React.MouseEvent<HTMLButtonElement>) => handleSubmit(e)}
+        type={ButtonTypes.SUBMIT}
+      />
       {error && <p className="error">{error}</p>}
     </form>
   );

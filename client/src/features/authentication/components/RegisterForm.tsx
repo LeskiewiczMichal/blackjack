@@ -2,6 +2,7 @@ import "./loginForm.scss";
 import { useState } from "react";
 import { useNavigate, Navigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "hooks/hooks";
+import Button, { ButtonColors, ButtonTypes } from "components/Button";
 import { registerUser } from "../services/registerUser";
 
 export default function RegisterForm() {
@@ -78,9 +79,13 @@ export default function RegisterForm() {
         onChange={(event) => handleChange(event)}
         required
       />
-      <button type="submit" onClick={handleSubmit}>
-        Sign up
-      </button>
+
+      <Button
+        text="Sign up"
+        color={ButtonColors.GREEN}
+        type={ButtonTypes.SUBMIT}
+        onClick={(e: React.MouseEvent<HTMLButtonElement>) => handleSubmit(e)}
+      />
       {error && <p className="error">{error}</p>}
     </form>
   );

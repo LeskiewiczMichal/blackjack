@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useAppSelector, useAppDispatch } from "hooks/hooks";
 import { logoutUser } from "features/authentication";
 import { goBancrupt } from "features/skins/index";
+import Button, { ButtonColors, ButtonTypes } from "components/Button";
 
 export default function Menu() {
   const dispatch = useAppDispatch();
@@ -18,38 +19,50 @@ export default function Menu() {
     <main className="menu--content">
       <img src="" alt="" />
       <h1>Blackjack menu</h1>
-      <button type="button" onClick={() => navigate(Routes.GAME)}>
-        Start Game
-      </button>
-      <button type="button" onClick={() => navigate(Routes.PROFILE)}>
-        Profile
-      </button>
-      <button type="button" onClick={() => navigate(Routes.SHOP)}>
-        Shop
-      </button>
+      <Button
+        text="Start Game"
+        color={ButtonColors.GREEN}
+        onClick={() => navigate(Routes.GAME)}
+        type={ButtonTypes.BUTTON}
+      />
+      <Button
+        text="Profile"
+        color={ButtonColors.GREEN}
+        type={ButtonTypes.BUTTON}
+        onClick={() => navigate(Routes.PROFILE)}
+      />
+      <Button
+        text="Shop"
+        color={ButtonColors.GREEN}
+        type={ButtonTypes.BUTTON}
+        onClick={() => navigate(Routes.SHOP)}
+      />
       {user ? (
-        <button
-          type="button"
+        <Button
+          text="Sign out"
+          color={ButtonColors.GREEN}
           onClick={async () => {
             await dispatch(logoutUser());
           }}
-        >
-          Sing out
-        </button>
+          type={ButtonTypes.BUTTON}
+        />
       ) : (
-        <button type="button" onClick={() => navigate(Routes.LOGIN)}>
-          Sign in
-        </button>
+        <Button
+          text="Sign in"
+          color={ButtonColors.GREEN}
+          type={ButtonTypes.BUTTON}
+          onClick={() => navigate(Routes.LOGIN)}
+        />
       )}
       {goBankruptActive && (
-        <button
-          type="button"
+        <Button
+          text="Go Bankrupt"
+          color={ButtonColors.RED}
+          type={ButtonTypes.BUTTON}
           onClick={async () => {
             await dispatch(goBancrupt());
           }}
-        >
-          Go Bankrupt
-        </button>
+        />
       )}
       {goBankruptActive && (
         <p>

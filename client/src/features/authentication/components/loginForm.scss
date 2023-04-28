@@ -19,26 +19,6 @@
     outline: none;
   }
 
-  button {
-    width: 50%;
-    height: 40px;
-    min-width: fit-content;
-    border: none;
-    background-color: $interface--light-green;
-    box-shadow: 0 0 5px $black;
-    border-radius: 15px;
-    padding: 0 1rem;
-    outline: none;
-    cursor: pointer;
-    font-size: 22px;
-    font-weight: 700;
-    font-family: "RobotoSans";
-  }
-
-  button:hover {
-    background-color: $interface--light-green--darkened;
-  }
-
   input:hover,
   input:focus {
     background-color: #90c290;

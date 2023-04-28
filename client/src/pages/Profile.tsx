@@ -1,36 +1,30 @@
+/* eslint-disable @typescript-eslint/no-use-before-define */
 import "./styles/profile.scss";
-import { Skin, SkinCategories, Routes } from "types.d";
+import { Skin, Routes, ActiveSkinsSlice } from "types.d";
 
-import { useNavigate } from "react-router";
 import { useAppSelector, useAppDispatch } from "hooks/hooks";
 import { activateSkin } from "features/skins/services/activateSkin";
 import { deactivateSkin } from "features/skins/services/deactivateSkin";
 import { filterSkins } from "utils/filterSkins";
 import { BackButton } from "features/interface";
-import SeperatorLine from "components/SeperatorLine";
+import {
+  ProfileInfo,
+  SkinsCollection,
+  NotLoggedInInfo,
+} from "features/profile";
 
 export default function Profile() {
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
 
   const user = useAppSelector((state) => state.auth.user);
-  const email = useAppSelector((state) => state.auth.email);
   const ownedSkins = useAppSelector((state) => state.shop.ownedSkins);
   const activeSkins = useAppSelector((state) => state.skins);
 
-  const activeSkinsArray: Skin[] = []; // Array of active skins to render
+  let activeSkinsArray: Skin[] = []; // Array of active skins to render
   let filteredOwnedSkins: Skin[] = [];
-  if (ownedSkins && activeSkins) {
-    if (activeSkins.cards) {
-      activeSkinsArray.push(activeSkins.cards);
-    }
-    if (activeSkins.chips) {
-      activeSkinsArray.push(activeSkins.chips);
-    }
-    if (activeSkins.interfaceBackground) {
-      activeSkinsArray.push(activeSkins.interfaceBackground);
-    }
 
+  if (ownedSkins && activeSkins) {
+    activeSkinsArray = createActiveSkinsArray(activeSkins);
     filteredOwnedSkins = filterSkins(ownedSkins, activeSkinsArray);
   }
 
@@ -48,71 +42,40 @@ export default function Profile() {
       <section className="profile--content">
         {user ? (
           <>
-            <main className="profile--info">
-              <h1>Profile</h1>
-              <p>
-                <i>Username</i>: {user}
-              </p>
-              <p>
-                <i>Email</i>: {email}
-              </p>
-            </main>
-            <section className="profile--collection-wrapper">
-              <section className="profile--collection">
-                <h2>Active skins:</h2>
-                <section>
-                  {activeSkinsArray?.map((skin) => {
-                    return (
-                      <button
-                        type="button"
-                        className="profile--collection-skin"
-                        key={skin.id}
-                        onClick={async () => handleDeactivateSkin(skin.id)}
-                      >
-                        {skin.name}{" "}
-                        {skin.category === SkinCategories.INTERFACE_BACKGROUND
-                          ? "Interface"
-                          : `${skin.category}`}
-                      </button>
-                    );
-                  })}
-                </section>
-              </section>
-              <section className="profile--collection">
-                <h2>Owned skins:</h2>
-                <section>
-                  {filteredOwnedSkins?.map((skin) => {
-                    return (
-                      <button
-                        type="button"
-                        className="profile--collection-skin"
-                        key={skin.id}
-                        onClick={async () => handleActivateSkin(skin.id)}
-                      >
-                        {skin.name}{" "}
-                        {skin.category === SkinCategories.INTERFACE_BACKGROUND
-                          ? "Interface"
-                          : `${skin.category}`}
-                      </button>
-                    );
-                  })}
-                </section>
-              </section>
+            <ProfileInfo />
+            <section className="profile--collections-wrapper">
+              <SkinsCollection
+                skinsArray={activeSkinsArray}
+                callback={handleDeactivateSkin}
+                header="Active skins:"
+              />
+              <SkinsCollection
+                skinsArray={filteredOwnedSkins}
+                callback={handleActivateSkin}
+                header="Owned skins:"
+              />
             </section>
           </>
         ) : (
-          <main className="profile--info">
-            <h1>Ooops, seems like You are not logged in</h1>
-            <button type="button" onClick={() => navigate(Routes.LOGIN)}>
-              Sign in
-            </button>
-            <SeperatorLine text="OR" />
-            <button type="button" onClick={() => navigate(Routes.REGISTER)}>
-              Create an account
-            </button>
-          </main>
+          <NotLoggedInInfo />
         )}
       </section>
     </div>
   );
+}
+
+function createActiveSkinsArray(activeSkins: ActiveSkinsSlice): Skin[] {
+  const activeSkinsArray: Skin[] = [];
+
+  if (activeSkins.cards) {
+    activeSkinsArray.push(activeSkins.cards);
+  }
+  if (activeSkins.chips) {
+    activeSkinsArray.push(activeSkins.chips);
+  }
+  if (activeSkins.interfaceBackground) {
+    activeSkinsArray.push(activeSkins.interfaceBackground);
+  }
+
+  return activeSkinsArray;
 }

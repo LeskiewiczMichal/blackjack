@@ -19,26 +19,6 @@
     margin: 0;
     font-family: "Lora-Italic";
   }
-
-  button {
-    width: 40%;
-    min-width: fit-content;
-    border: 1px solid $interface--dark-green;
-    border-radius: 15px;
-    padding: 1rem;
-    outline: none;
-    color: $black;
-    background-color: $interface--light-green;
-    box-shadow: 0 0 5px $interface--light-green;
-    font-size: 22px;
-    font-weight: 700;
-    font-family: 'RobotoSlab';
-    cursor: pointer;
-  }
-
-  button:hover {
-    background-color: $interface--light-green--darkened;
-  }
 }
 
 @media (max-width: 900px) {

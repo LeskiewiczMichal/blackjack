@@ -27,23 +27,6 @@ $green-texture-image: url("../../assets/green-texture.jpg");
     color: $interface--dark-green;
     font-family: "Lora";
   }
-
-  button {
-    width: 30%;
-    height: 40px;
-    min-width: fit-content;
-    border: none;
-    color: $black;
-    background-color: $interface--light-green;
-    box-shadow: 0 0 5px $black;
-    border-radius: 15px;
-    padding: 0 1rem;
-    outline: none;
-    cursor: pointer;
-    font-size: 22px;
-    font-weight: 700;
-    font-family: "RobotoSans";
-  }
 }
 
 // LINE SEPERATING LOGIN AND OFFLINE
@@ -90,27 +73,6 @@ $green-texture-image: url("../../assets/green-texture.jpg");
     font-weight: 700;
     color: $interface--light-red;
   }
-}
-
-.login-page--register-button {
-  width: 30%;
-  min-width: fit-content;
-  height: 40px;
-  border: none;
-  color: $black;
-  background-color: $interface--light-red;
-  box-shadow: 0 0 5px $black;
-  border-radius: 15px;
-  padding: 0 1rem;
-  outline: none;
-  cursor: pointer;
-  font-size: 22px;
-  font-weight: 700;
-  font-family: "RobotoSans";
-}
-
-.login-page--register-button:hover {
-  background-color: $interface--light-red--darkened;
 }
 
 @media (max-width: 600px) {
@@ -161,24 +123,5 @@ $green-texture-image: url("../../assets/green-texture.jpg");
       font-weight: 700;
       color: $interface--light-red;
     }
-  }
-
-  .login-page--register-button {
-    width: 30%;
-    min-width: fit-content;
-    height: 40px;
-    border: none;
-    background-color: $interface--light-red;
-    box-shadow: 0 0 5px $black;
-    border-radius: 15px;
-    padding: 0 1rem;
-    font-size: 22px;
-    outline: none;
-    cursor: pointer;
-    font-weight: 700;
-  }
-
-  .login-page--register-button:hover {
-    background-color: $interface--light-red--darkened;
   }
 }

@@ -12,9 +12,13 @@ export default function Shop() {
   return (
     <main className="shop">
       <section className="shop--products">
-        {user && (
+        {user ? (
           <h4>
             <i>Your balance</i>: {balance}$
+          </h4>
+        ) : (
+          <h4>
+            <i>You need be logged in to buy something</i>
           </h4>
         )}
         <SkinsList />
