@@ -859,38 +859,32 @@
   .--Neon {
     background-color: $interface--neon-pink;
     box-sizing: border-box;
-    border: 3px solid $interface--neon-green
   }
 
   .--Default {
     box-sizing: border-box;
     background-color: $interface--light-red;
-    border: 3px solid $white;
   }
 
   .--Dark {
     box-sizing: border-box;
     background-color: $black;
-    border: 3px solid $white;
   }
 
   .card--back--Default {
     box-sizing: border-box;
     background-image: none;
-    border: 3px solid $white;
     background-color: $interface--light-red;
   }
   
   .card--back--Dark {
     box-sizing: border-box;
-    border: 3px solid $white;
     background-image: none;
     background-color: $black;
   }
   
   .card--back--Neon {
     box-sizing: border-box;
-    border: 3px solid $interface--neon-green;
     background-image: none;
     background-color: $interface--neon-pink;
   }
