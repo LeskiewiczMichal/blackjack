@@ -4,8 +4,8 @@
 @mixin insurance-popup-container($background-color, $text-border-color) {
   @include column-flex-centered;
   width: 35%;
-  height: 30%;
   padding: 1rem;
+  min-width: fit-content;
   background-color: $background-color;
   box-shadow: 0 0 10px $black;
 
@@ -61,6 +61,8 @@
     top: 10%;
     width: 70%;
     height: 60%;
+    min-width: fit-content;
+    min-height: fit-content;
     gap: 2rem;
     background-color: $black;
   }

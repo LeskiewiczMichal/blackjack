@@ -850,3 +850,23 @@
     transform: translate(-100%, -700%);
   }
 }
+
+@media (max-width: 600px){
+  .card--back--Default {
+    box-sizing: border-box;
+    background-image: none;
+    border: 3px solid $white;
+  }
+  
+  .card--back--Dark {
+    box-sizing: border-box;
+    border: 3px solid $white;
+    background-image: none;
+  }
+  
+  .card--back--Neon {
+    box-sizing: border-box;
+    border: 3px solid $interface--neon-green;
+    background-image: none;
+  }
+}
