@@ -14,13 +14,16 @@
   @include set-background-position;
   width: 100px;
   height: 110px;
-  background-color: $white;
   border: 1px solid black;
   border-radius: 10px;
   box-shadow: 4px 4px 4px $black;
 
   animation-fill-mode: forwards;
   transform-style: preserve-3d;
+}
+
+.--Default {
+  background-color: $white;
 }
 
 .card--front {
@@ -875,17 +878,20 @@
     box-sizing: border-box;
     background-image: none;
     border: 3px solid $white;
+    background-color: $interface--light-red;
   }
   
   .card--back--Dark {
     box-sizing: border-box;
     border: 3px solid $white;
     background-image: none;
+    background-color: $black;
   }
   
   .card--back--Neon {
     box-sizing: border-box;
     border: 3px solid $interface--neon-green;
     background-image: none;
+    background-color: $interface--neon-pink;
   }
 }
